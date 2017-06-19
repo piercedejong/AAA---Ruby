@@ -1,8 +1,7 @@
-class Game < ApplicationRecord
+class GameDatum < ApplicationRecord
   before_create :create_uuid
-  belongs_to :game_data
-  has_many :nations
-  has_many :units
+  belongs_to :user
+  has :game
 
   def create_uuid
     begin

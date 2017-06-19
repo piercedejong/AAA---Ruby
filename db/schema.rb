@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170608215138) do
+ActiveRecord::Schema.define(version: 20170619212616) do
+
+  create_table "game_data", force: :cascade do |t|
+    t.string   "uuid"
+    t.string   "game_uuid"
+    t.string   "user_uuid"
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "games", force: :cascade do |t|
     t.string   "name"
@@ -18,6 +27,7 @@ ActiveRecord::Schema.define(version: 20170608215138) do
     t.integer  "round"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "uuid"
   end
 
   create_table "nations", force: :cascade do |t|
@@ -28,6 +38,7 @@ ActiveRecord::Schema.define(version: 20170608215138) do
     t.integer  "income"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "game_id"
   end
 
   create_table "units", force: :cascade do |t|
@@ -40,6 +51,7 @@ ActiveRecord::Schema.define(version: 20170608215138) do
     t.integer  "count"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "game_id"
   end
 
   create_table "users", force: :cascade do |t|
