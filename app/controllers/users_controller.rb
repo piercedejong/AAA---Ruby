@@ -16,7 +16,7 @@ class UsersController < ApplicationController
         @user = User.find_by(email: auth_hash.info.email)
       end
       session[:user_id] = @user.id
-      redirect_to test_path
+      redirect_to home_path
     end
   end
 
