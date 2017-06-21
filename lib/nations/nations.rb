@@ -1,8 +1,8 @@
-module AAA
+module NATIONS
   class Nations
     class << self
 
-      def create_1940A(game_uuid)
+      def create_1940(game_uuid)
         nations = [
           {name: 'Germany',roundel: 'germany.png', color: 'black', bank: 30,income: 30},
           {name: 'USSR',roundel: 'ussr.png', color: 'maroon', bank: 37,income: 37},

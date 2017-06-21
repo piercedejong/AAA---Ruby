@@ -1,5 +1,2 @@
 class NationsController < ApplicationController
-
-
-
 end
