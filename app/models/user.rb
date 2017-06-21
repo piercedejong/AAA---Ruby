@@ -1,8 +1,7 @@
 #AAA
 class User < ApplicationRecord
   before_create :create_uuid
-  has_many :game_data
-
+  has_many :games
 
   def self.create_user(auth_hash)
     User.create(

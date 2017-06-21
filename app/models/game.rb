@@ -1,6 +1,6 @@
 class Game < ApplicationRecord
   before_create :create_uuid
-  belongs_to :game_data
+  belongs_to :user
   has_many :nations
   has_many :units
 
