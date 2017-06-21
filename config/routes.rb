@@ -7,11 +7,11 @@ Rails.application.routes.draw do
 
   get '/welcome', to: "welcome#show", as: :home
 
-  get '/new', to: "welcome#new", as: :new
+  get '/new', to: "game#new", as: :new
 
-  get '/load', to: "welcome#load", as: :load
+  get '/index', to: "game#index", as: :index
 
-  get '/game', to: "game#index", as: :game
+  get '/game', to: "game#show", as: :show
 
   root 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

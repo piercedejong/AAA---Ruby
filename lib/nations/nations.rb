@@ -2,7 +2,7 @@ module AAA
   class Nations
     class << self
 
-      def create_1940
+      def create_1940A(game_uuid)
         nations = [
           {name: 'Germany',roundel: 'germany.png', color: 'black', bank: 30,income: 30},
           {name: 'USSR',roundel: 'ussr.png', color: 'maroon', bank: 37,income: 37},
@@ -15,10 +15,12 @@ module AAA
           {name: 'ANZAC',roundel: 'anzac.png', color: 'gray', bank: 10,income: 10},
           {name: 'France',roundel: 'france.png', color: 'blue', bank: 19,income: 19},
         ]
-          #
+        nations.each do |n|
+          Game.find_by(uuid: game_uuid).nations.create(n)
+        end
       end
 
-      def create_1942
+      def create_1942(game_uuid)
         nations = [
           {name: 'USSR',roundel: 'ussr.png', color: 'maroon', bank: 24,income: 24},
           {name: 'Germany',roundel: 'germany.png', color: 'black', bank: 41,income: 41},
@@ -26,6 +28,10 @@ module AAA
           {name: 'Japan',roundel: 'japan.png', color: 'orange', bank: 30,income: 30},
           {name: 'USA',roundel: 'usa.png', color: 'green', bank: 42,income: 42},
         ]
+        nations.each do |n|
+          Game.find_by(uuid: game_uuid).nations.create(n)
+        end
+      end
     end
   end
 end

@@ -2,7 +2,7 @@ module AAA
   class Units
     class << self
 
-      def create_1940
+      def create_1940(game_uuid)
         units = [
           {name: 'Infantry', special:'Combined Arms - attack at a 2 when paired with artillery', attack: 1, defense: 2, movement: 1, cost: 3, count: 0},
           {name: 'Mechanized Infantry', special: 'Combined Arms - attack at a 2 when paired with artillery', attack: 1, defense: 2, movement: 2, cost: 4, count: 0},
@@ -23,10 +23,12 @@ module AAA
           {name: 'Air Base', special: 'Increased Air Range, Scramble Defense', attack: 0, defense: 1, movement: 0, cost: 15, count: 0},
           {name: 'Naval Base', special: 'Increased Naval Range, Repair Capital Ships', attack: 0, defense: 1, movement: 0, cost: 15, count: 0}
         ]
-
+        units.each do |u|
+          Game.find_by(uuid: game_uuid).units.create(u)
+        end
       end
 
-      def create_1942
+      def create_1942(game_uuid)
         units = [
           {name: 'Infantry', special:'Combined Arms - attack at a 2 when paired with artillery', attack: 1, defense: 2, movement: 1, cost: 3, count: 0},
           {name: 'Artillery', special: 'Combined Arms - increases attack of nfantry to 2 on a 1 to 1 scale', attack: 2, defense: 2, movement: 1, cost: 4, count: 0},
@@ -43,12 +45,10 @@ module AAA
           {name: 'Minor Factory', special: 'Mobalize up to 3 units, must be placed on territory of +2IPC, 6 damage max', attack: 0, defense: 1, movement: 0, cost: 12, count: 0},
           {name: 'Major Factory', special: 'Mobalize up to 10 units, must be placed on territory of +3IPC, 20 damage max', attack: 0, defense: 1, movement: 0, cost: 30, count: 0},
         ]
-
+        units.each do |u|
+          Game.find_by(uuid: game_uuid).units.create(u)
+        end
       end
-
-
-
-
     end
   end
 end
