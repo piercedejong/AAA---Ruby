@@ -11,6 +11,8 @@ Rails.application.routes.draw do
 
   get '/load', to: "welcome#load", as: :load
 
+  get '/game', to: "game#index", as: :game
+
   root 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
