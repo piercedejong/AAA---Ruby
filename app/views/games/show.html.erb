@@ -1,1 +1,17 @@
 <h1><%= current_game.name %></h1>
+
+<div class="nations">
+  <% current_game.nations.each do |n| %>
+    <span id="<%=n.name%>" style="color:rgb(<%=n.color%>)">
+      <%=n.name%><br>
+        <div id="<%=n.name%>-bank" class="money"><%=n.bank%></div>
+        <div id="<%=n.name%>-divider" class="money">|</div>
+        <div id="<%=n.name%>-income" class="money"><%=n.income%></div></span>
+  <% end %>
+</div
+
+<div class="bottom">
+  <span><a href="/welcome" class="btn btn-info" role="button">Exit</a></span>
+  <span id="c-nation" style="color:rgb(<%=current_nation.color%>)"><%= current_nation.name %></span>
+  <span><input id="end-turn" type="button" class="btn btn-info" value="End Turn"></span>
+</div>

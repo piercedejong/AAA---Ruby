@@ -1,2 +1,3 @@
 class NationsController < ApplicationController
+
 end
