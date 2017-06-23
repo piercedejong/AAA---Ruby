@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+
+  resources :games
+
+  resources :nations
+
+  resources :units
+
   get 'users/new'
 
   get '/auth/google/callback', to: "users#create"
@@ -7,11 +14,7 @@ Rails.application.routes.draw do
 
   get '/welcome', to: "welcome#show", as: :home
 
-  get '/new', to: "welcome#new", as: :new
-
-  get '/load', to: "welcome#load", as: :load
-
-  get '/game', to: "game#index", as: :game
+  get '/game/end_turn', to: 'games#end_turn'
 
   root 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

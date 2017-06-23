@@ -1,0 +1,27 @@
+<%= form_for @game do |f| %>
+
+  <% if @game.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@game.errors.count, "error") %>
+        prohibited this game from being created:
+      </h2>
+      <ul>
+        <% @game.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p>
+    <%= select(:game, :game_name, [['1914'], ['1940'], ['1942']]) %>
+  </p>
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_area :name %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

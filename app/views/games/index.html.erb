@@ -1,0 +1,11 @@
+<h1>Load Game</h1>
+
+<div class="list-group">
+  <% current_user.games.each do |game| %>
+    <a href="<%= game_path(game.uuid) %>"><button  type="button" class="list-group-item list-group-item-action">
+      <%= game.name %>
+    </button></a>
+  <% end %>
+</div>
+
+<%= link_to "Back", home_path %>
