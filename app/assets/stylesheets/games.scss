@@ -14,12 +14,12 @@
 div.nations {
     display: table;
     width: 100%;
-    table-layout: fixed;    /* For cells of equal size */
+    table-layout:auto;   /* For cells of equal size */
 }
 div.nations span {
     display: table-cell;
-    text-align: center;
-}
+    text-align:center;
+  }
 div.money {
   display:inline-block
 }

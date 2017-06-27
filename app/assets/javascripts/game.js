@@ -10,4 +10,14 @@ $(document).ready(function(){
       $("#c-nation").css("color", "rgb("+response["n_color"]+")");
     })
   });
+
+	$(".unit").click(function(){
+		$.ajax({
+      method: "GET",
+			data: {
+				uid: 1,
+			}
+      url: window.location.origin + '/game/end_turn'
+    })
+	})
 });

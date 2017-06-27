@@ -40,6 +40,15 @@ class GamesController < ApplicationController
     end
   end
 
+  def buy_unit
+    #current_game.units.find_by(uid: ).update(count: current_game.units.find_by(uid: ).count+1)
+    if request.xhr?
+      render :json => {
+    #    count: current_game.units.find_by(uid: ).count
+      }
+    end
+  end
+
   private
     def check_current_user
       if !current_user
