@@ -8,7 +8,7 @@
   <% end %>
 </div>
 
-<div class="col-sm-4">
+<div class="col-sm-5">
   <div class="container">
     <table class="table table-condensed table-striped ">
       <thead>
@@ -25,8 +25,8 @@
       <tbody>
         <% current_game.units.each do |u| %>
           <tr style="text-align:center;">
-            <td><%= u.count %></td>
-            <td><a class="btn btn-info btn-sm btn-block unit" role="button"><%= u.cost %></a></td>
+            <td id="<%=u.name%>" class="count"><%= u.count %></td>
+            <td><a data-uid="<%=u.uid%>" onclick="buy_unit(this)" class="btn btn-info btn-sm btn-block" role="button"><%= u.cost %></a></td>
             <td><%= u.name %></td>
             <td><%= u.attack %></td>
             <td><%= u.defense %></td>
@@ -40,7 +40,7 @@
 </div>
 
 <div class="bottom">
-  <span><a href="/welcome" class="btn btn-info" role="button">Exit</a></span>
+  <span><a href="/welcome" class="btn btn-info btn-block" role="button">Exit</a></span>
   <span id="c-nation" style="color:rgb(<%=current_nation.color%>)"><h1><%= current_nation.name %></h1></span>
-  <span><input id="end-turn" type="button" class="btn btn-info" value="End Turn"></span>
+  <span><a onclick="end_turn()" class="btn btn-info btn-block" role="button">End Turn</a></span>
 </div>

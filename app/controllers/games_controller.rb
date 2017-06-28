@@ -9,6 +9,7 @@ class GamesController < ApplicationController
     if @game.save
       create_game
       session[:game_uuid] = @game.uuid
+      current_game.update(bank: current_nation.bank)
       redirect_to game_path(@game.uuid)
     else
       render 'new'
@@ -17,6 +18,12 @@ class GamesController < ApplicationController
 
   def new
     @game = current_user.games.new
+  end
+
+  def destroy
+    #@game = current_user.games.find_by(uuid: )
+    #@game.Nation.all.each {|x| x.destroy}
+    #@game.Unit.all.each {|x| x.destroy}
   end
 
   def show
@@ -38,13 +45,23 @@ class GamesController < ApplicationController
     if(current_game.current>current_game.nations.last.nid)
       current_game.update(current: 0)
     end
+    current_game.units.each {|u| u.update(count: 0)}
+    current_game.update(eco: current_game.current)
+    current_game.update(bank: current_nation.bank)
   end
 
   def buy_unit
-    #current_game.units.find_by(uid: ).update(count: current_game.units.find_by(uid: ).count+1)
+    @uid = params[:uid]
+    if current_nation.bank - current_game.units.find_by(uid: @uid).cost >=0
+      current_game.units.find_by(uid: @uid).update(count: current_game.units.find_by(uid: @uid).count+1)
+      current_nation.update(bank: current_nation.bank - current_game.units.find_by(uid: @uid).cost)
+    end
     if request.xhr?
       render :json => {
-    #    count: current_game.units.find_by(uid: ).count
+        count: current_game.units.find_by(uid: @uid).count,
+        name: current_game.units.find_by(uid: @uid).name,
+        nation: current_nation.name,
+        bank: current_nation.bank
       }
     end
   end
