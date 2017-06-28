@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 
   get '/game/end_turn', to: 'games#end_turn'
 
+  get '/game/buy_unit', to: 'games#buy_unit'
+
   root 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

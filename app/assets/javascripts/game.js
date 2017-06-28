@@ -8,6 +8,7 @@ $(document).ready(function(){
       $("#"+response["nation"]+"-bank").text(response["bank"]);
       $("#c-nation").text(response["n_nation"]);
       $("#c-nation").css("color", "rgb("+response["n_color"]+")");
+			$('.count').text("0");
     })
   });
 });

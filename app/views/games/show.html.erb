@@ -1,17 +1,46 @@
-<h1><%= current_game.name %></h1>
-
 <div class="nations">
   <% current_game.nations.each do |n| %>
-    <span id="<%=n.name%>" style="color:rgb(<%=n.color%>)">
-      <%=n.name%><br>
-        <div id="<%=n.name%>-bank" class="money"><%=n.bank%></div>
-        <div id="<%=n.name%>-divider" class="money">|</div>
-        <div id="<%=n.name%>-income" class="money"><%=n.income%></div></span>
+    <span class="" id="<%=n.name%>" style="color:rgb(<%=n.color%>)">
+      <div class="name"><%=n.name%></div>
+      <div id="<%=n.name%>-bank" class="money"><%=n.bank%></div>
+      <div id="<%=n.name%>-divider" class="money">|</div>
+      <div id="<%=n.name%>-income" class="money"><%=n.income%></div></span>
   <% end %>
-</div
+</div>
+
+<div class="col-sm-5">
+  <div class="container">
+    <table class="table table-condensed table-striped ">
+      <thead>
+        <tr style="font-size:20px">
+          <th style="text-align:center">Count</th>
+          <th style="text-align:center">Buy</th>
+          <th style="text-align:center">Name</th>
+          <th style="text-align:center">A</th>
+          <th style="text-align:center">D</th>
+          <th style="text-align:center">M</th>
+          <th style="text-align:center">C</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% current_game.units.each do |u| %>
+          <tr style="text-align:center;">
+            <td id="<%=u.name%>" class="count"><%= u.count %></td>
+            <td><a data-uid="<%=u.uid%>" onclick="buy_unit(this)" class="btn btn-info btn-sm btn-block" role="button"><%= u.cost %></a></td>
+            <td><%= u.name %></td>
+            <td><%= u.attack %></td>
+            <td><%= u.defense %></td>
+            <td><%= u.movement %></td>
+            <td><%= u.cost %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 <div class="bottom">
-  <span><a href="/welcome" class="btn btn-info" role="button">Exit</a></span>
-  <span id="c-nation" style="color:rgb(<%=current_nation.color%>)"><%= current_nation.name %></span>
-  <span><input id="end-turn" type="button" class="btn btn-info" value="End Turn"></span>
+  <span><a href="/welcome" class="btn btn-info btn-block" role="button">Exit</a></span>
+  <span id="c-nation" style="color:rgb(<%=current_nation.color%>)"><h1><%= current_nation.name %></h1></span>
+  <span><a onclick="end_turn()" class="btn btn-info btn-block" role="button">End Turn</a></span>
 </div>
