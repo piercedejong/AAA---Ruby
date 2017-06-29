@@ -75,7 +75,8 @@ class GamesController < ApplicationController
     if request.xhr?
       render :json => {
         nation: current_eco.name,
-        color: current_eco.color
+        color: current_eco.color,
+        colorL: current_eco.colorL
       }
     end
   end

@@ -26,6 +26,8 @@ function end_turn() {
 		$('.btn-unit').css("background",response["n_color"]);
 		$("#change-eco").text(response["n_nation"]);
     $("#change-eco").css("background",response["n_color"])
+		$(".change-eco-pos").css("background",response["n_colorL"])
+		$(".change-eco-neg").css("background",response["n_color"])
     $('.count').text("0");
   })
 }
@@ -38,6 +40,8 @@ function change_eco() {
   .done(function(response) {
   	$("#change-eco").text(response["nation"]);
     $("#change-eco").css("background",response["color"])
+		$(".change-eco-pos").css("background",response["colorL"])
+		$(".change-eco-neg").css("background",response["color"])
   })
 }
 
