@@ -16,11 +16,14 @@
  @import "bootstrap";
 
  body {
-   background-color: rgb(70,70,70);
+   background-color: #464646;
  }
 
  .table-condensed>thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td{
     padding: 1px;
+}
+.row-bottom-margin { 
+  margin-bottom:20px;
 }
 
 @media screen and (min-width: 480px) {
@@ -32,11 +35,17 @@
   }
 
   .table{
-    font-size: 1.5vw;
+    font-size: 1.25vw;
     color: white;
   }
 }
+.btn{
+  border-color: black;
+}
 
+.btn-block + .btn-block {
+    margin-top: 0;
+}
 .unit {
   padding: 2px;
 }

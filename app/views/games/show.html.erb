@@ -1,6 +1,6 @@
 <div class="nations">
   <% current_game.nations.each do |n| %>
-    <span class="" id="<%=n.name%>" style="color:rgb(<%=n.color%>)">
+    <span class="" id="<%=n.name%>" style="color:<%=n.color%>">
       <div class="name"><%=n.name%></div>
       <div id="<%=n.name%>-bank" class="money"><%=n.bank%></div>
       <div id="<%=n.name%>-divider" class="money">|</div>
@@ -8,39 +8,76 @@
   <% end %>
 </div>
 
-<div class="col-sm-5">
-  <div class="container">
-    <table class="table table-condensed table-striped ">
-      <thead>
-        <tr style="font-size:20px">
-          <th style="text-align:center">Count</th>
-          <th style="text-align:center">Buy</th>
-          <th style="text-align:center">Name</th>
-          <th style="text-align:center">A</th>
-          <th style="text-align:center">D</th>
-          <th style="text-align:center">M</th>
-          <th style="text-align:center">C</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% current_game.units.each do |u| %>
-          <tr style="text-align:center;">
-            <td id="<%=u.name%>" class="count"><%= u.count %></td>
-            <td><a data-uid="<%=u.uid%>" onclick="buy_unit(this)" class="btn btn-info btn-sm btn-block" role="button"><%= u.cost %></a></td>
-            <td><%= u.name %></td>
-            <td><%= u.attack %></td>
-            <td><%= u.defense %></td>
-            <td><%= u.movement %></td>
-            <td><%= u.cost %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-5">
+      <div class="container">
+        <table class="table table-condensed table-striped ">
+          <thead>
+            <tr style="font-size:20px">
+              <th class="text-center">Count</th>
+              <th class="text-center">Buy</th>
+              <th class="text-center">Name</th>
+              <th class="text-center">A</th>
+              <th class="text-center">D</th>
+              <th class="text-center">M</th>
+              <th class="text-center">C</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% current_game.units.each do |u| %>
+              <tr class="text-center">
+                <td id="<%=u.uid%>" class="count"><%= u.count %></td>
+                <td><a data-uid="<%=u.uid%>" onclick="buy_unit(this)" style="background: <%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="btn btn-unit btn-sm btn-block" role="button"><%= u.cost %></a></td>
+                <td><%= u.name %></td>
+                <td><%= u.attack %></td>
+                <td><%= u.defense %></td>
+                <td><%= u.movement %></td>
+                <td><%= u.cost %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-sm-4">
+    </div>
+
+    <div class="col-sm-3">
+      <div class="row">
+        <div id="change-eco" onclick="change_eco()" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block" role="button"><%=current_eco.name%></div>
+        <div class="w-100"></div>
+        <div class="text-center col">Bank</div>
+        <div class="text-center col">Income</div>
+        <div class="w-100"></div>
+        <div data-amount="1" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="text-center col btn btn-info btn-block" role="button">+1</div>
+        <div data-amount="1" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="text-center col btn btn-info btn-block" role="button">+1</div>
+        <div class="w-100"></div>
+        <div data-amount="-1" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block" role="button">-1</div>
+        <div data-amount="-1" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block" role="button">-1</div>
+        <div class="w-100"></div>
+        <div data-amount="5" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="text-center col btn btn-info btn-block" role="button">+5</div>
+        <div data-amount="5" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="text-center col btn btn-info btn-block" role="button">+5</div>
+        <div class="w-100"></div>
+        <div data-amount="-5" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block" role="button">-5</div>
+        <div data-amount="-5" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block" role="button">-5</div>
+        <div class="w-100"></div>
+        <div data-amount="10" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="text-center col btn btn-info btn-block" role="button">+10</div>
+        <div data-amount="10" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="text-center col btn btn-info btn-block" role="button">+10</div>
+        <div class="w-100"></div>
+        <div data-amount="-10" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block" role="button">-10</div>
+        <div data-amount="-10" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block" role="button">-10</div>
+      </div>
+    </div>
   </div>
 </div>
 
 <div class="bottom">
   <span><a href="/welcome" class="btn btn-info btn-block" role="button">Exit</a></span>
-  <span id="c-nation" style="color:rgb(<%=current_nation.color%>)"><h1><%= current_nation.name %></h1></span>
-  <span><a onclick="end_turn()" class="btn btn-info btn-block" role="button">End Turn</a></span>
+  <span id="c-nation" style="color:<%=current_nation.color%>"><h1><%= current_nation.name %></h1></span>
+  <span><a id="end-turn" onclick="end_turn()" style="background:<%=current_nation.color%>" class="btn btn-info btn-block" role="button">End Turn</a></span>
 </div>
+
+<style>
+
+</style>
