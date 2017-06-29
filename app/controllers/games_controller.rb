@@ -81,9 +81,31 @@ class GamesController < ApplicationController
   end
 
   def change_bank
+    @amount = params[:amount].to_i
+    current_eco.update(bank: current_eco.bank+@amount)
+    if(current_eco.bank<0)
+      current_eco.update(bank: 0)
+    end
+    if request.xhr?
+      render :json => {
+        nation: current_eco.name,
+        bank: current_eco.bank
+      }
+    end
   end
 
   def change_income
+    @amount = params[:amount].to_i
+    current_eco.update(income: current_eco.income+@amount)
+    if(current_eco.income<0)
+      current_eco.update(income: 0)
+    end
+    if request.xhr?
+      render :json => {
+        nation: current_eco.name,
+        income: current_eco.income
+      }
+    end
   end
 
   private

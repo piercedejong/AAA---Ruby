@@ -47,10 +47,22 @@ function change_bank(element) {
        data:{
        	amount: element.getAttribute("data-amount")
        },
-       url: window.location.origin + '/game/buy_unit'
+       url: window.location.origin + '/game/change_bank'
 	})
   .done(function(response) {
-  	$("#"+response["name"]).text(response["count"]);
     $("#"+response["nation"]+"-bank").text(response["bank"]);
   })
+}
+
+function change_income(element) {
+	$.ajax({
+		method: "GET",
+	  data:{
+	  	amount: element.getAttribute("data-amount")
+	  },
+	  url: window.location.origin + '/game/change_income'
+	})
+	.done(function(response) {
+		$("#"+response["nation"]+"-income").text(response["income"]);
+	})
 }

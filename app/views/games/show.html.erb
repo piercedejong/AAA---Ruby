@@ -26,9 +26,9 @@
           </thead>
           <tbody>
             <% current_game.units.each do |u| %>
-              <tr style="color: <%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="text-center">
+              <tr class="text-center">
                 <td id="<%=u.uid%>" class="count"><%= u.count %></td>
-                <td><a data-uid="<%=u.uid%>" onclick="buy_unit(this)" style="background:<%=current_nation.color%>;color:white" class="btn btn-unit btn-sm btn-block" role="button"><%= u.cost %></a></td>
+                <td><a data-uid="<%=u.uid%>" onclick="buy_unit(this)" style="background: <%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="btn btn-unit btn-sm btn-block" role="button"><%= u.cost %></a></td>
                 <td><%= u.name %></td>
                 <td><%= u.attack %></td>
                 <td><%= u.defense %></td>
@@ -50,23 +50,23 @@
         <div class="text-center col">Bank</div>
         <div class="text-center col">Income</div>
         <div class="w-100"></div>
-        <div data-amount="1" style="background:<%=current_eco.colorL%>" class="text-center col btn btn-info btn-block" role="button">+1</div>
-        <div data-amount="1" style="background:<%=current_eco.colorL%>" class="text-center col btn btn-info btn-block" role="button">+1</div>
+        <div data-amount="1" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="text-center col btn btn-info btn-block" role="button">+1</div>
+        <div data-amount="1" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="text-center col btn btn-info btn-block" role="button">+1</div>
         <div class="w-100"></div>
-        <div data-amount="-1" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block" role="button">-1</div>
-        <div data-amount="-1" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block" role="button">-1</div>
+        <div data-amount="-1" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block" role="button">-1</div>
+        <div data-amount="-1" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block" role="button">-1</div>
         <div class="w-100"></div>
-        <div data-amount="5" style="background:<%=current_eco.colorL%>" class="text-center col btn btn-info btn-block" role="button">+5</div>
-        <div data-amount="5" style="background:<%=current_eco.colorL%>" class="text-center col btn btn-info btn-block" role="button">+5</div>
+        <div data-amount="5" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="text-center col btn btn-info btn-block" role="button">+5</div>
+        <div data-amount="5" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="text-center col btn btn-info btn-block" role="button">+5</div>
         <div class="w-100"></div>
-        <div data-amount="-5" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block" role="button">-5</div>
-        <div data-amount="-5" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block" role="button">-5</div>
+        <div data-amount="-5" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block" role="button">-5</div>
+        <div data-amount="-5" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block" role="button">-5</div>
         <div class="w-100"></div>
-        <div data-amount="10" style="background:<%=current_eco.colorL%>" class="text-center col btn btn-info btn-block" role="button">+10</div>
-        <div data-amount="10" style="background:<%=current_eco.colorL%>" class="text-center col btn btn-info btn-block" role="button">+10</div>
+        <div data-amount="10" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="text-center col btn btn-info btn-block" role="button">+10</div>
+        <div data-amount="10" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="text-center col btn btn-info btn-block" role="button">+10</div>
         <div class="w-100"></div>
-        <div data-amount="-10" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block" role="button">-10</div>
-        <div data-amount="-10" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block" role="button">-10</div>
+        <div data-amount="-10" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block" role="button">-10</div>
+        <div data-amount="-10" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block" role="button">-10</div>
       </div>
     </div>
   </div>
