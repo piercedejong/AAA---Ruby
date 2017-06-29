@@ -18,6 +18,12 @@ Rails.application.routes.draw do
 
   get '/game/buy_unit', to: 'games#buy_unit'
 
+  get '/game/change_eco', to: 'games#change_eco'
+
+  get '/game/change_bank', to: 'games#change_bank'
+
+  get '/game/change_income', to: 'games#change_income'
+
   root 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
