@@ -39,7 +39,9 @@ class GamesController < ApplicationController
         bank: current_nation.bank,
         n_nation: next_nation.name,
         n_color: next_nation.color,
-        n_colorL: next_nation.colorL
+        n_colorL: next_nation.colorL,
+        n_bank: next_nation.bank,
+        n_income: next_nation.income
       }
     end
     current_game.update(current: current_game.current+1)
@@ -67,6 +69,17 @@ class GamesController < ApplicationController
     end
   end
 
+  def reset_buy
+    current_game.units.each {|u| u.update(count: 0)}
+    current_nation.update(bank: current_game.bank)
+    if request.xhr?
+      render :json => {
+        nation: current_nation.name,
+        bank: current_nation.bank,
+      }
+    end
+  end
+
   def change_eco
     current_game.update(eco: current_game.eco+1)
     if(current_game.eco>current_game.nations.last.nid)
@@ -76,7 +89,9 @@ class GamesController < ApplicationController
       render :json => {
         nation: current_eco.name,
         color: current_eco.color,
-        colorL: current_eco.colorL
+        colorL: current_eco.colorL,
+        bank: current_eco.bank,
+        income: current_eco.income
       }
     end
   end
