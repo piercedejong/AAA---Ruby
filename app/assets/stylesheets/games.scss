@@ -17,6 +17,7 @@ div.nations {
     table-layout:auto;   /* For cells of equal size */
 }
 div.nations span {
+    background-color: #464646;
     display: table-cell;
     text-align:center;
   }
@@ -25,9 +26,12 @@ div.money {
 }
 
 div.bottom {
+  background-color: #464646;
     display: table;
     width: 100%;
     table-layout: fixed;
+    position: fixed;
+    right: 0;
     bottom:0;    /* For cells of equal size */
 }
 div.bottom span {

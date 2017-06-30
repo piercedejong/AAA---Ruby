@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get '/game/buy_unit', to: 'games#buy_unit'
 
+  get '/game/reset_buy', to: 'games#reset_buy'
+
   get '/game/change_eco', to: 'games#change_eco'
 
   get '/game/change_bank', to: 'games#change_bank'

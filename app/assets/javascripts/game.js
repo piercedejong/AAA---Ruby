@@ -13,6 +13,7 @@ function buy_unit(element) {
 }
 
 function end_turn() {
+	var count = 0;
   $.ajax({
     method: "GET",
     url: window.location.origin + '/game/end_turn'
@@ -21,11 +22,34 @@ function end_turn() {
     $("#"+response["nation"]+"-bank").text(response["bank"]);
     $("#c-nation").text(response["n_nation"]);
     $("#c-nation").css("color",response["n_color"]);
-		$("#c-nation").css("font-size","3.5vw");
 		$('#end-turn').css("background",response["n_color"]);
-		$('.btn-unit').css("background",response["n_color"]);
+		$('#roundel').attr( "src" , "/assets/"+response['n_roundel']);
+		$('.btn-unit').each(function(){
+			if(count%2==0){
+				$(this).css("background",response["n_color"]);
+			}else{
+				$(this).css("background",response["n_colorL"]);
+			}
+			count++;
+		})
+
 		$("#change-eco").text(response["n_nation"]);
     $("#change-eco").css("background",response["n_color"])
+		$(".change-eco-pos").css("background",response["n_colorL"])
+		$(".change-eco-neg").css("background",response["n_color"])
+    $('.count').text("0");
+		$("#eco-bank").text("Bank "+response["n_bank"]);
+		$("#eco-income").text("Income "+response["n_income"]);
+  })
+}
+
+function reset_buy() {
+  $.ajax({
+    method: "GET",
+    url: window.location.origin + '/game/reset_buy'
+  })
+  .done(function(response) {
+    $("#"+response["nation"]+"-bank").text(response["bank"]);
     $('.count').text("0");
   })
 }
@@ -38,6 +62,10 @@ function change_eco() {
   .done(function(response) {
   	$("#change-eco").text(response["nation"]);
     $("#change-eco").css("background",response["color"])
+		$("#eco-bank").text("Bank "+response["bank"]);
+		$("#eco-income").text("Income "+response["income"]);
+		$(".change-eco-pos").css("background",response["colorL"])
+		$(".change-eco-neg").css("background",response["color"])
   })
 }
 
@@ -51,6 +79,7 @@ function change_bank(element) {
 	})
   .done(function(response) {
     $("#"+response["nation"]+"-bank").text(response["bank"]);
+		$("#eco-bank").text("Bank "+response["bank"]);
   })
 }
 
@@ -64,5 +93,6 @@ function change_income(element) {
 	})
 	.done(function(response) {
 		$("#"+response["nation"]+"-income").text(response["income"]);
+		$("#eco-income").text("Income "+response["income"]);
 	})
 }

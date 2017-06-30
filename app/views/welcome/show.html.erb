@@ -1,4 +1,18 @@
-<h1>Logged in</h1>
-<h3><a href="<%= new_game_path %>">New Game</a></h3>
-<h3><a href="<%= games_path %>">Load Game</a></h3>
-<h3><a href="<%= logout_path %>">Sign-out</a></h3>
+<h1 class="title text-center">Axis and Allies Economy</h1>
+<br>
+<h3 id="signed-in" class="text-center">Signed in: <%=current_user.name%></h3>
+<br>
+<br>
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-4">
+    </div>
+    <div class="col-sm-4">
+      <h3><a style="font-size:40px" href="<%= new_game_path %>" class="text-center col btn btn-info btn-block btn-lg" role="button">New Game</a></h3>
+      <h3><a style="font-size:40px" href="<%= games_path %>" class="text-center col btn btn-info btn-block btn-lg" role="button">Load Game</a></h3>
+      <h3><a style="font-size:40px" href="<%= logout_path %>" class="text-center col btn btn-info btn-block btn-lg" role="button">Sign-out</a></h3>
+    </div>
+    <div class="col-sm-4">
+    </div>
+  </div>
+</div>
