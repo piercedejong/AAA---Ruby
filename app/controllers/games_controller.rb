@@ -21,9 +21,11 @@ class GamesController < ApplicationController
   end
 
   def destroy
-    #@game = current_user.games.find_by(uuid: )
-    #@game.Nation.all.each {|x| x.destroy}
-    #@game.Unit.all.each {|x| x.destroy}
+    @game = current_user.games.find_by(uuid: params[:id])
+    @game.nations.all.each {|n| n.destroy}
+    @game.units.all.each {|u| u.destroy}
+    @game.destroy
+    redirect_to games_path
   end
 
   def show
@@ -41,7 +43,8 @@ class GamesController < ApplicationController
         n_color: next_nation.color,
         n_colorL: next_nation.colorL,
         n_bank: next_nation.bank,
-        n_income: next_nation.income
+        n_income: next_nation.income,
+        n_roundel: next_nation.roundel
       }
     end
     current_game.update(current: current_game.current+1)

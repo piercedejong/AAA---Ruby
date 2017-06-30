@@ -23,6 +23,7 @@ function end_turn() {
     $("#c-nation").text(response["n_nation"]);
     $("#c-nation").css("color",response["n_color"]);
 		$('#end-turn').css("background",response["n_color"]);
+		$('#roundel').attr( "src" , "/assets/"+response['n_roundel']);
 		$('.btn-unit').each(function(){
 			if(count%2==0){
 				$(this).css("background",response["n_color"]);
