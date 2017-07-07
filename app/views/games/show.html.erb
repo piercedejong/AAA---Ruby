@@ -1,5 +1,5 @@
 <div class="nations">
-  <% current_game.nations.each do |n| %>
+  <% current_game.nations.find_all{|x| x}.each do |n| %>
     <span class="" id="<%=n.name%>" style="color:<%=n.color%>">
       <div class="name"><%=n.name%></div>
       <div id="<%=n.name%>-bank" class="money"><%=n.bank%></div>
