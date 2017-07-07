@@ -19,46 +19,11 @@
    background-color: #464646;
  }
 
- .table-condensed>thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td{
-    padding: 1px;
-}
-.row-bottom-margin {
-  margin-bottom:20px;
-}
 
-@media screen and (min-width: 480px) {
-  .name {
-    font-size: 3.5vw;
-  }
-  .money {
-    font-size: 2.5vw;
-  }
-
-  .table {
-    color: white;
-  }
-
-  .title {
-    font-size: 8vw;
-    color: black;
-  }
-
-  #signed-in {
-    font-size: 2vw;
-    color: white;
-  }
-
-  #c-nation {
-    font-size: 5vw;
-  }
-}
 .btn{
   border-color: black;
 }
 
 .btn-block + .btn-block {
     margin-top: 0;
-}
-.unit {
-  padding: 2px;
 }

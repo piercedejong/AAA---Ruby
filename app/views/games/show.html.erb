@@ -37,22 +37,22 @@
               </tr>
             <% end %>
           </tbody>
-
         </table>
+        <button id="reset" onclick="reset_buy()" class="btn btn-info " style="background:<%=current_nation.color%>;color:white">Reset Buy</button>
 
       </div>
 
     </div>
     <div class="col-sm-4">
-      <%= image_tag current_nation.roundel , :id => "roundel"%>
+
     </div>
 
     <div class="col-sm-3">
       <div class="row">
         <div id="change-eco" onclick="change_eco()" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block btn-lg" role="button"><%=current_eco.name%></div>
         <div class="w-100"></div>
-        <div class="text-center col"><h3 id="eco-bank">Bank <%=current_eco.bank%></h3></div>
-        <div class="text-center col"><h3 id="eco-income">Income <%=current_eco.income%></h3></div>
+        <div class="text-center col"><h1 id="eco-bank">Bank <%=current_eco.bank%></h1></div>
+        <div class="text-center col"><h1 id="eco-income">Income <%=current_eco.income%></h1></div>
         <div class="w-100"></div>
         <div data-amount="1" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-pos text-center col btn btn-info btn-block" role="button">+1</div>
         <div data-amount="1" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-pos text-center col btn btn-info btn-block" role="button">+1</div>
@@ -76,10 +76,30 @@
   </div>
 </div>
 
-<a onclick="reset_buy()" class="btn btn-info " role="button">Reset Buy</a>
 
-<div class="bottom">
-  <span><a href="/welcome" class="btn btn-info btn-block" role="button">Exit</a></span>
-  <span id="c-nation" style="color:<%=current_nation.color%>"><h1><%= current_nation.name %></h1></span>
-  <span><a id="end-turn" onclick="end_turn()" style="background:<%=current_nation.color%>;color:white" class="btn btn-secondary btn-block" role="button">End Turn</a></span>
-</div>
+
+<div class="container-fluid">
+  <div class="row content bottom">
+    <div class="col-sm-2">
+      <button id="home" class="btn btn-info btn-block" href="/welcome" >
+        <span class="glyphicon glyphicon-paperclip" style="vertical-align:middle"></span> Exit
+      </button>
+    </div>
+    <div class="col-sm-1">
+
+    </div>
+    <div class="col-sm-6">
+      <div class="inline">
+        <!--<%= image_tag current_nation.roundel , :id => "roundel"%> -->
+        <h1  id="c-nation" class="text-center" style="color:<%=current_nation.color%>" ><%= current_nation.name %></h1>
+      </div>
+    </div>
+    <div class="col-sm-1">
+
+    </div>
+    <div class="col-sm-2">
+      <button id="end-turn" class="btn btn-secondary btn-block" onclick="end_turn()" style="background:<%=current_nation.color%>">
+        <span class="glyphicon glyphicon-paperclip" style="vertical-align:middle"></span> End Turn
+      </button>
+    </div>
+  </div>

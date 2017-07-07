@@ -27,14 +27,63 @@ div.money {
 
 div.bottom {
   background-color: #464646;
-    display: table;
     width: 100%;
     table-layout: fixed;
     position: fixed;
-    right: 0;
     bottom:0;    /* For cells of equal size */
 }
 div.bottom span {
     display: table-cell;
     text-align: center;
+}
+
+.table-condensed>thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td{
+   padding: 1px;
+}
+.row-bottom-margin {
+ margin-bottom:10px;
+}
+
+#end-turn, #home {
+  height: 100%;
+  color: white;
+  font-size: 2.5vw;
+}
+
+#change-eco {
+  padding-top: 6px;
+  padding-bottom: 8px;
+  font-size: 2.5vw;
+}
+
+.change-eco-pos, .change-eco-neg {
+  font-size: 2vw;
+}
+
+
+@media screen and (min-width: 480px) {
+ .name {
+   font-size: 3.5vw;
+ }
+ .money {
+   font-size: 2.5vw;
+ }
+
+ .table {
+   color: white;
+ }
+
+ .title {
+   font-size: 8vw;
+   color: black;
+ }
+
+ #signed-in {
+   font-size: 2vw;
+   color: white;
+ }
+
+ #c-nation {
+   font-size: 120px;
+ }
 }

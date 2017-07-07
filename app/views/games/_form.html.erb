@@ -14,11 +14,12 @@
     </div>
   <% end %>
   <p>
+    Game Type:
     <%= select(:game, :game_name, [['1940'],['1942']]) %>
   </p>
   <p>
-    <%= f.label :name %><br>
-    <%= f.text_area :name %>
+    Game Name:
+    <%= f.text_field :name %>
   </p>
   <p>
     <%= f.submit %>
