@@ -98,3 +98,10 @@ function change_income(element) {
 		$("#eco-income").text("Income "+response["income"]);
 	})
 }
+
+function home() {
+  $.ajax({
+    method: "GET",
+    url: window.location.origin + '/game/exit'
+  })
+}

@@ -127,6 +127,11 @@ class GamesController < ApplicationController
     end
   end
 
+  def exit
+    binding.pry
+    redirect_to home_path
+  end
+
   private
     def check_current_user
       if !current_user
