@@ -1,6 +1,10 @@
 class Nation < ApplicationRecord
   belongs_to :game
 
+  scope :most_recent, -> {
+    group(:game_id).order('created_at ASC')
+  }
+
 
   protected
     def self.create_1940(game_uuid)
