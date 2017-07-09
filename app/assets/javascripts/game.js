@@ -39,7 +39,7 @@ function end_turn() {
 			}
 			count++;
 		})
-
+		$(".table-top").css("color",response["n_color"]);
 		$("#change-eco").text(response["n_nation"]);
     $("#change-eco").css("background",response["n_color"]);
     $("#reset").css("background",response["n_color"]);

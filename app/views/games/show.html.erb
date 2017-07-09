@@ -12,9 +12,9 @@
   <div class="row content">
     <div class="col-sm-5">
       <div class="container">
-        <table class="table table-condensed table-striped ">
+        <table style="margin-bottom: 5px;" class="table table-condensed table-striped ">
           <thead>
-            <tr style="font-size:20px">
+            <tr style="color:<%=current_nation.color%>" class="table-top">
               <th class="text-center">Count</th>
               <th class="text-center">Buy</th>
               <th class="text-center">Name</th>
@@ -37,6 +37,17 @@
               </tr>
             <% end %>
           </tbody>
+          <thead>
+            <tr style="color:<%=current_nation.color%>" class="table-top">
+              <th class="text-center">Count</th>
+              <th class="text-center">Buy</th>
+              <th class="text-center">Name</th>
+              <th class="text-center">A</th>
+              <th class="text-center">D</th>
+              <th class="text-center">M</th>
+              <th class="text-center">C</th>
+            </tr>
+          </thead>
         </table>
         <button id="reset" onclick="reset_buy()" class="btn btn-info " style="background:<%=current_nation.color%>;color:white">Reset Buy</button>
 
