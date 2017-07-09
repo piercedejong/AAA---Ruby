@@ -51,8 +51,8 @@ class GamesController < ApplicationController
     if(current_game.current>current_game.nations.last.nid)
       current_game.update(current: 0)
     end
+    eco_to_current
     current_game.units.each {|u| u.update(count: 0)}
-    current_game.update(eco: current_game.current)
     current_game.update(bank: current_nation.bank)
   end
 
@@ -62,13 +62,30 @@ class GamesController < ApplicationController
       current_game.units.find_by(uid: @uid).update(count: current_game.units.find_by(uid: @uid).count+1)
       current_nation.update(bank: current_nation.bank - current_game.units.find_by(uid: @uid).cost)
     end
-    if request.xhr?
-      render :json => {
-        count: current_game.units.find_by(uid: @uid).count,
-        name: @uid,
-        nation: current_nation.name,
-        bank: current_nation.bank
-      }
+    if current_eco!=current_nation
+      eco_to_current
+      if request.xhr?
+        render :json => {
+          count: current_game.units.find_by(uid: @uid).count,
+          name: @uid,
+          nation: current_nation.name,
+          bank: current_nation.bank,
+          income: current_nation.income,
+          color: current_nation.color,
+          colorL: current_nation.colorL,
+          change: true
+        }
+      end
+    else
+      if request.xhr?
+        render :json => {
+          count: current_game.units.find_by(uid: @uid).count,
+          name: @uid,
+          nation: current_nation.name,
+          bank: current_nation.bank,
+          change: false
+        }
+      end
     end
   end
 
@@ -133,6 +150,9 @@ class GamesController < ApplicationController
   end
 
   private
+    def eco_to_current
+      current_game.update(eco: current_game.current)
+    end
     def check_current_user
       if !current_user
         redirect_to root_path

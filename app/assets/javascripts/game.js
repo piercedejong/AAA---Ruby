@@ -7,9 +7,15 @@ function buy_unit(element) {
        url: window.location.origin + '/game/buy_unit'
 	})
   .done(function(response) {
-  	$("#"+response["name"]).text(response["count"]);
-    $("#"+response["nation"]+"-bank").text(response["bank"]);
-		//$("#eco-bank").text("Bank "+response["bank"]);
+		if(response["change"]){
+			change_eco_nation(response);
+			$("#"+response["name"]).text(response["count"]);
+	    $("#"+response["nation"]+"-bank").text(response["bank"]);
+		}else {
+			$("#"+response["name"]).text(response["count"]);
+	    $("#"+response["nation"]+"-bank").text(response["bank"]);
+			$("#eco-bank").text("Bank "+response["bank"]);
+		}
   })
 }
 
@@ -62,12 +68,7 @@ function change_eco() {
        url: window.location.origin + '/game/change_eco'
 	})
   .done(function(response) {
-  	$("#change-eco").text(response["nation"]);
-    $("#change-eco").css("background",response["color"])
-		$("#eco-bank").text("Bank "+response["bank"]);
-		$("#eco-income").text("Income "+response["income"]);
-		$(".change-eco-pos").css("background",response["colorL"])
-		$(".change-eco-neg").css("background",response["color"])
+  	change_eco_nation(response)
   })
 }
 
@@ -104,4 +105,14 @@ function home() {
     method: "GET",
     url: window.location.origin + '/game/exit'
   })
+}
+
+function change_eco_nation(response){
+	debugger;
+	$("#change-eco").text(response["nation"]);
+	$("#change-eco").css("background",response["color"])
+	$("#eco-bank").text("Bank "+response["bank"]);
+	$("#eco-income").text("Income "+response["income"]);
+	$(".change-eco-pos").css("background",response["colorL"])
+	$(".change-eco-neg").css("background",response["color"])
 }
