@@ -1,9 +1,9 @@
 class Nation < ApplicationRecord
   belongs_to :game
-
-  scope :most_recent, -> {
-    group(:game_id).order('created_at ASC')
-  }
+  default_scope { order(created_at: :asc) }
+#  scope :most_recent, -> {
+#    group(:game_id).order('created_at ASC')
+#  }
 
 
   protected
