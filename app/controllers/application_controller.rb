@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :prev_nation
   helper_method :next_eco
   helper_method :prev_eco
+  helper_method :objective_income
 
     def current_user
       @current_user ||= (User.find(session[:user_id]) if session[:user_id])
@@ -38,6 +39,14 @@ class ApplicationController < ActionController::Base
 
     def prev_eco
       @prev_nation = current_game.nations.find_by(nid: current_game.eco-1).nil? ? current_game.nations.last : current_game.nations.find_by(nid: current_game.eco-1)
+    end
+
+    def objective_income
+      @objective_income = 0
+      current_eco.objectives.all.each do |x|
+        @objective_income = @objective_income + x.value
+      end
+      return @objective_income
     end
 
     protect_from_forgery with: :exception

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170629155834) do
+ActiveRecord::Schema.define(version: 20170710020627) do
 
   create_table "games", force: :cascade do |t|
     t.string   "name"
@@ -37,6 +37,17 @@ ActiveRecord::Schema.define(version: 20170629155834) do
     t.integer  "game_id"
     t.integer  "nid"
     t.string   "colorL"
+  end
+
+  create_table "objectives", force: :cascade do |t|
+    t.integer  "nation_id"
+    t.integer  "value"
+    t.string   "name"
+    t.text     "info"
+    t.boolean  "enabled"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "oid"
   end
 
   create_table "units", force: :cascade do |t|

@@ -1,5 +1,6 @@
 class Nation < ApplicationRecord
   belongs_to :game
+  has_many :objectives
   default_scope { order(created_at: :asc) }
 #  scope :most_recent, -> {
 #    group(:game_id).order('created_at ASC')
@@ -23,6 +24,7 @@ class Nation < ApplicationRecord
       nations.each do |n|
         Game.find_by(uuid: game_uuid).nations.create(n)
       end
+      
     end
 
     def self.create_1942(game_uuid)
