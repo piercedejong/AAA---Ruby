@@ -122,11 +122,22 @@ class GamesController < ApplicationController
     if(current_eco.bank<0)
       current_eco.update(bank: 0)
     end
-    if request.xhr?
-      render :json => {
-        nation: current_eco.name,
-        bank: current_eco.bank
-      }
+    if current_eco==current_nation
+      if request.xhr?
+        render :json => {
+          nation: current_eco.name,
+          bank: current_eco.bank,
+          same_n: true
+        }
+      end
+    else
+      if request.xhr?
+        render :json => {
+          nation: current_eco.name,
+          bank: current_eco.bank,
+          same_n: false
+        }
+      end
     end
   end
 

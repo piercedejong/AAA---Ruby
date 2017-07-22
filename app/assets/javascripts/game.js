@@ -11,10 +11,12 @@ function buy_unit(element) {
 			change_eco_nation(response);
 			$("#"+response["name"]).text(response["count"]);
 	    $("#"+response["nation"]+"-bank").text(response["bank"]);
+			$("#c-nation").text(response["nation"]+"-"+response["bank"])
 		}else {
 			$("#"+response["name"]).text(response["count"]);
 	    $("#"+response["nation"]+"-bank").text(response["bank"]);
 			$("#eco-bank").text("Bank "+response["bank"]);
+			$("#c-nation").text(response["nation"]+"-"+response["bank"])
 		}
   })
 }
@@ -27,7 +29,7 @@ function end_turn() {
   })
   .done(function(response) {
     $("#"+response["nation"]+"-bank").text(response["bank"]);
-    $("#c-nation").text(response["n_nation"]);
+    $("#c-nation").text(response["n_nation"]+"-"+response["n_bank"]);
     $("#c-nation").css("color",response["n_color"]);
 		$('#end-turn').css("background",response["n_color"]);
 		$('#roundel').attr("src","/assets/"+response['n_roundel']);
@@ -81,6 +83,9 @@ function change_bank(element) {
        url: window.location.origin + '/game/change_bank'
 	})
   .done(function(response) {
+		if(response["same_n"]){
+			$("#c-nation").text(response["nation"]+"-"+response["bank"])
+		}
     $("#"+response["nation"]+"-bank").text(response["bank"]);
 		$("#eco-bank").text("Bank "+response["bank"]);
   })
@@ -108,7 +113,6 @@ function home() {
 }
 
 function change_eco_nation(response){
-	debugger;
 	$("#change-eco").text(response["nation"]);
 	$("#change-eco").css("background",response["color"])
 	$("#eco-bank").text("Bank "+response["bank"]);
