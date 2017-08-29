@@ -13,8 +13,6 @@ class Nation < ApplicationRecord
 
   protected
 
-
-
     def self.create_1940(game_uuid)
       nations = [
         {nid: 0, name: 'Germany',roundel: 'germany.png', color: '#282828', colorL: '#8a8d8f', bank: 30,income: 30},
@@ -30,6 +28,7 @@ class Nation < ApplicationRecord
       ]
       nations.each do |n|
         Game.find_by(uuid: game_uuid).nations.create(n)
+        binding.pry
       end
     end
 
