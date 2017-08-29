@@ -1,4 +1,5 @@
 class Nation < ApplicationRecord
+  before_create :create_uuid
   belongs_to :game
   has_many :objectives
   default_scope { order(created_at: :asc) }
@@ -24,7 +25,7 @@ class Nation < ApplicationRecord
       nations.each do |n|
         Game.find_by(uuid: game_uuid).nations.create(n)
       end
-      
+
     end
 
     def self.create_1942(game_uuid)
@@ -38,5 +39,11 @@ class Nation < ApplicationRecord
       nations.each do |n|
         Game.find_by(uuid: game_uuid).nations.create(n)
       end
+    end
+
+    def create_uuid
+      begin
+        self.uuid = SecureRandom.uuid
+      end while self.class.exists?(:uuid => uuid)
     end
 end
