@@ -8,11 +8,11 @@ class Nation < ApplicationRecord
 #  }
 
 
-  def create_uuid
-    begin
-      self.uuid = SecureRandom.uuid
-    end while self.class.exists?(:uuid => uuid)
-  end
+def create_uuid
+  begin
+    self.uuid = SecureRandom.uuid
+  end while self.class.exists?(:uuid => uuid)
+end
 
   protected
     def self.create_1940(game_uuid)
