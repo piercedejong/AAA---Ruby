@@ -5,9 +5,10 @@ class Nation < ApplicationRecord
   default_scope { order(created_at: :asc) }
 
   def create_uuid
-    begin
-      self.uuid = SecureRandom.uuid
-    end while self.class.exists?(:uuid => uuid)
+    self.uuid = loop do
+      random_uuid = SecureRandom.uuid
+      break random_uuid unless self.class.exists?(:uuid => uuid)
+    end
   end
 
 
