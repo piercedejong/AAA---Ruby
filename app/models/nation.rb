@@ -1,5 +1,5 @@
 class Nation < ApplicationRecord
-  before_create :create_uuid
+  #before_create :create_uuid
   belongs_to :game
   has_many :objectives
   default_scope { order(created_at: :asc) }
@@ -29,7 +29,6 @@ class Nation < ApplicationRecord
       ]
       nations.each do |n|
         Game.find_by(uuid: game_uuid).nations.create(n)
-        binding.pry
       end
     end
 
