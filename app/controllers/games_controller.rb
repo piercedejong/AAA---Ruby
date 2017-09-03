@@ -44,7 +44,8 @@ class GamesController < ApplicationController
         n_colorL: next_nation.colorL,
         n_bank: next_nation.bank,
         n_income: next_nation.income,
-        n_roundel: next_nation.roundel
+        n_roundel: next_nation.roundel,
+        n_uuid: next_nation.uuid
       }
     end
     current_game.update(current: current_game.current+1)
@@ -111,7 +112,8 @@ class GamesController < ApplicationController
         color: current_eco.color,
         colorL: current_eco.colorL,
         bank: current_eco.bank,
-        income: current_eco.income
+        income: current_eco.income,
+        uuid: current_eco.uuid
       }
     end
   end

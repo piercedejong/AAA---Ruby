@@ -5,7 +5,6 @@ class Nation < ApplicationRecord
   default_scope { order(created_at: :asc) }
 
   protected
-
     def self.create_1940(game_uuid)
       nations = [
         {nid: 0, name: 'Germany',roundel: 'germany.png', color: '#282828', colorL: '#8a8d8f', bank: 30,income: 30},

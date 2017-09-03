@@ -50,6 +50,8 @@ function end_turn() {
     $('.count').text("0");
 		$("#eco-bank").text("Bank "+response["n_bank"]);
 		$("#eco-income").text("Income "+response["n_income"]);
+		$("#objective").css("background",response["n_color"]);
+		$("#objective").attr("href", "/nations/"+response["n_uuid"]);
   })
 }
 
@@ -119,4 +121,6 @@ function change_eco_nation(response){
 	$("#eco-income").text("Income "+response["income"]);
 	$(".change-eco-pos").css("background",response["colorL"])
 	$(".change-eco-neg").css("background",response["color"])
+	$("#objective").css("background",response["color"]);
+	$("#objective").attr("href", "/nations/"+response["uuid"]);
 }

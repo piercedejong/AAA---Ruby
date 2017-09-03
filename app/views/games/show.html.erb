@@ -83,7 +83,8 @@
         <div data-amount="-10" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-neg text-center col btn btn-info btn-block" role="button">-10</div>
         <div data-amount="-10" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-neg text-center col btn btn-info btn-block" role="button">-10</div>
       </div>
-      <a href="<%= nation_path(current_eco.uuid) %>" class="btn btn-info btn-block" role="button">National Objectives</a>
+      <br>
+      <a id="objective" href="<%= nation_path(current_eco.uuid) %>" style="background:<%=current_eco.color%>" class="btn btn-info btn-block" role="button">National Objectives</a>
     </div>
   </div>
 </div>
@@ -114,7 +115,7 @@
 
     </div>
     <div class="col-sm-2">
-      <button id="end-turn" class="btn btn-secondary btn-block" onclick="end_turn()" style="background:<%=current_nation.color%>">
+      <button id="end-turn" class="btn btn-secondary btn-block" onclick="end_turn()" style="background:<%=current_nation.color%>" role="button">
         <span class="glyphicon glyphicon-paperclip" style="vertical-align:middle"></span> End Turn
       </button>
     </div>
