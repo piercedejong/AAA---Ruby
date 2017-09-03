@@ -46,6 +46,13 @@ function end_turn() {
     $("#reset").css("background",response["color"]);
     $('.count').text("0");
 		change_eco_nation(response);
+
+		if(response["nation"] == ("Britain" || "UK Europe")){
+			$("#pacific").css("background",response["color"]);
+			$("#pacific").show();
+		}else{
+			$("#pacific").hide();
+		}
   })
 }
 
@@ -56,6 +63,8 @@ function reset_buy() {
   })
   .done(function(response) {
     $("#"+response["nation"]+"-bank").text(response["bank"]);
+		$("#c-nation").text(response["nation"]+"-"+response["bank"]);
+		$("#eco-bank").text("Bank "+response["bank"]);
     $('.count').text("0");
   })
 }
@@ -98,6 +107,24 @@ function change_income(element) {
 	.done(function(response) {
 		$("#"+response["nation"]+"-income").text(response["income"]);
 		$("#eco-income").text("Income "+response["income"]);
+	})
+}
+
+function buy_pacific(element) {
+	$("#pacific").hide();
+	$.ajax({
+		method: "GET",
+	  data:{
+	  },
+	  url: window.location.origin + '/game/buy_pacific'
+	})
+	.done(function(response) {
+		$("#c-nation").text(response["nation"]+"-"+response["bank"]);
+    $("#c-nation").css("color",response["color"]);
+		$('#end-turn').css("background",response["color"]);
+		$('#roundel').attr("src","/assets/"+response['roundel']);
+		$('.count').text("0");
+		change_eco_nation(response);
 	})
 }
 

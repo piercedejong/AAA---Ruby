@@ -49,7 +49,8 @@
             </tr>
           </thead>
         </table>
-        <button id="reset" onclick="reset_buy()" class="btn btn-info " style="background:<%=current_nation.color%>;color:white">Reset Buy</button>
+        <button id="reset" onclick="reset_buy()" class="btn btn-info " role="button" style="background:<%=current_nation.color%>;color:white">Reset Buy</button>
+        <button id="pacific" onclick="buy_pacific()" class="btn btn-info " role="button" style="background:<%=current_nation.color%>;color:white;<%if current_nation.name != ("Britain"||"UK Europe")%>display:none<% end %>">Buy Pacific Units</button>
 
       </div>
 

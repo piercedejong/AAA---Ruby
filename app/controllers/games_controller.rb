@@ -53,6 +53,23 @@ class GamesController < ApplicationController
           uuid: next_nation.uuid
         }
       end
+    elsif current_nation.name == ("Pacific" || "FEC")
+      prev_nation.update(bank: prev_nation.bank+prev_nation.income)
+      if request.xhr?
+        render :json => {
+          oo_nation: prev_nation.name,
+          oo_bank: prev_nation.bank,
+          o_nation: current_game.nations.find_by(nid: current_game.current).name,
+          o_bank: current_game.nations.find_by(nid: current_game.current).bank,
+          nation: next_nation.name,
+          color: next_nation.color,
+          colorL: next_nation.colorL,
+          bank: next_nation.bank,
+          income: next_nation.income,
+          roundel: next_nation.roundel,
+          uuid: next_nation.uuid
+        }
+      end
     else
       if request.xhr?
         render :json => {
@@ -72,6 +89,24 @@ class GamesController < ApplicationController
     current_game.update(current: current_game.current+1)
     if(current_game.current>current_game.nations.last.nid)
       current_game.update(current: 0)
+    end
+    eco_to_current
+    current_game.units.each {|u| u.update(count: 0)}
+    current_game.update(bank: current_game.nations.find_by(nid: current_game.current).bank)
+  end
+
+  def buy_pacific
+    current_game.update(current: current_game.current+1)
+    if request.xhr?
+      render :json => {
+        nation: current_nation.name,
+        color: current_nation.color,
+        colorL: current_nation.colorL,
+        bank: current_nation.bank,
+        income: current_nation.income,
+        roundel: current_nation.roundel,
+        uuid: current_nation.uuid
+      }
     end
     eco_to_current
     current_game.units.each {|u| u.update(count: 0)}
