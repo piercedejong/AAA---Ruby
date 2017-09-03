@@ -35,19 +35,40 @@ class GamesController < ApplicationController
 
   def end_turn
     current_nation.update(bank: current_nation.bank+current_nation.income)
-    if request.xhr?
-      render :json => {
-        nation: current_nation.name,
-        bank: current_nation.bank,
-        n_nation: next_nation.name,
-        n_color: next_nation.color,
-        n_colorL: next_nation.colorL,
-        n_bank: next_nation.bank,
-        n_income: next_nation.income,
-        n_roundel: next_nation.roundel,
-        n_uuid: next_nation.uuid
-      }
+    if current_nation.name == ("Britain" || "UK Europe")
+      current_game.update(current: current_game.current+1)
+      current_game.nations.find_by(nid: current_game.current).update(bank: current_game.nations.find_by(nid: current_game.current).bank+current_game.nations.find_by(nid: current_game.current).income)
+      if request.xhr?
+        render :json => {
+          oo_nation: prev_nation.name,
+          oo_bank: prev_nation.bank,
+          o_nation: current_game.nations.find_by(nid: current_game.current).name,
+          o_bank: current_game.nations.find_by(nid: current_game.current).bank,
+          nation: next_nation.name,
+          color: next_nation.color,
+          colorL: next_nation.colorL,
+          bank: next_nation.bank,
+          income: next_nation.income,
+          roundel: next_nation.roundel,
+          uuid: next_nation.uuid
+        }
+      end
+    else
+      if request.xhr?
+        render :json => {
+          o_nation: current_nation.name,
+          o_bank: current_nation.bank,
+          nation: next_nation.name,
+          color: next_nation.color,
+          colorL: next_nation.colorL,
+          bank: next_nation.bank,
+          income: next_nation.income,
+          roundel: next_nation.roundel,
+          uuid: next_nation.uuid
+        }
+      end
     end
+
     current_game.update(current: current_game.current+1)
     if(current_game.current>current_game.nations.last.nid)
       current_game.update(current: 0)

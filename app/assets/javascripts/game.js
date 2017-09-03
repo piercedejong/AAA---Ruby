@@ -28,30 +28,24 @@ function end_turn() {
     url: window.location.origin + '/game/end_turn'
   })
   .done(function(response) {
-    $("#"+response["nation"]+"-bank").text(response["bank"]);
-    $("#c-nation").text(response["n_nation"]+"-"+response["n_bank"]);
-    $("#c-nation").css("color",response["n_color"]);
-		$('#end-turn').css("background",response["n_color"]);
-		$('#roundel').attr("src","/assets/"+response['n_roundel']);
+		$("#"+response["oo_nation"]+"-bank").text(response["oo_bank"]);
+    $("#"+response["o_nation"]+"-bank").text(response["o_bank"]);
+    $("#c-nation").text(response["nation"]+"-"+response["bank"]);
+    $("#c-nation").css("color",response["color"]);
+		$('#end-turn').css("background",response["color"]);
+		$('#roundel').attr("src","/assets/"+response['roundel']);
 		$('.btn-unit').each(function(){
 			if(count%2==0){
-				$(this).css("background",response["n_color"]);
+				$(this).css("background",response["color"]);
 			}else{
-				$(this).css("background",response["n_colorL"]);
+				$(this).css("background",response["colorL"]);
 			}
 			count++;
 		})
-		$(".table-top").css("color",response["n_color"]);
-		$("#change-eco").text(response["n_nation"]);
-    $("#change-eco").css("background",response["n_color"]);
-    $("#reset").css("background",response["n_color"]);
-		$(".change-eco-pos").css("background",response["n_colorL"]);
-		$(".change-eco-neg").css("background",response["n_color"]);
+		$(".table-top").css("color",response["color"]);
+    $("#reset").css("background",response["color"]);
     $('.count').text("0");
-		$("#eco-bank").text("Bank "+response["n_bank"]);
-		$("#eco-income").text("Income "+response["n_income"]);
-		$("#objective").css("background",response["n_color"]);
-		$("#objective").attr("href", "/nations/"+response["n_uuid"]);
+		change_eco_nation(response);
   })
 }
 
