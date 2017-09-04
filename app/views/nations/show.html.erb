@@ -1,2 +1,20 @@
-<h1><%= @nation.name %></h1>
-<a id="exit" href="<%= game_path(current_game.uuid) %>" class="btn btn-info" role="button">Exit</a>
+<br>
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-2">
+      <div id="nations" class="container">
+        <% current_game.nations.each do |n| %>
+          <div>
+            <%= link_to n.name, nation_path(n.uuid), :class => "btn btn-info btn-block", :style => "background-color:n.color"%>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-10">
+      <div class="container">
+        <h1 id="c-nation" class="text-center" style="color:<%=@nation.color%>"><%= @nation.name %></h1>
+      </div>
+    </div>
+  </div>
+</div>
+<a id="exit" href="<%= game_path(current_game.uuid) %>" class="btn btn-info" role="button">Back</a>
