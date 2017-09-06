@@ -5,7 +5,7 @@
       <div id="nations" class="container">
         <% current_game.nations.each do |n| %>
           <div>
-            <%= link_to n.name, nation_path(n.uuid), :class => "btn btn-info btn-block", :style => "padding-top:"+((90/current_game.nations.last.nid-1)/2).to_s+"vh;height:"+(90/current_game.nations.last.nid-1).to_s+"vh;background-color:"+n.color%>
+            <%= link_to n.name, nation_path(n.uuid), :class => "btn btn-info btn-block", :style => "padding-top:"+((90/current_game.nations.last.nid-1)/2-1.5).to_s+"vh;height:"+(90/current_game.nations.last.nid-1).to_s+"vh;font-size:3vh;background-color:"+n.color%>
           </div>
         <% end %>
       </div>
@@ -14,7 +14,8 @@
       <div class="container">
         <h1 id="c-nation" class="text-center" style="color:<%=@nation.color%>"><%= @nation.name %></h1>
         <% @nation.objectives.each do |o| %>
-          <a id="objective" href="" style="background:<%=@nation.color%>" class="btn btn-info btn-block" role="button"><%= o.name %></a>
+          <a data-oid="<%=o.oid%>" onclick="update_obj(this)" id="objective-<%=o.oid%>" href="" style="background:<%= o.enabled ? @nation.color : @nation.colorL%>;text-align:left" class="btn btn-info btn-block" role="button"><strong><%= o.value %></strong> :: <%=o.name %></a>
+          <br>
         <% end %>
       </div>
     </div>

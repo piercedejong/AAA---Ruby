@@ -24,7 +24,7 @@ class Objective < ApplicationRecord
         {oid: 2, name: 'First time capturing Germany (Berlin)', value: 10, enabled: false},
       ]
       japan=[
-        {oid: 0, name: '10 Peace with the U.S.A. and no unprovoked attacks on Britain, ANZAC or French Indo-China', value: 10, enabled: false},
+        {oid: 0, name: 'Peace with the U.S.A. and no unprovoked attacks on Britain, ANZAC or French Indo-China', value: 10, enabled: false},
         {oid: 1, name: 'Axis control: Guam, Midway, Wake Island, Gilbert Islands, and Solomon Islands', value: 5, enabled: false},
         {oid: 2, name: 'Axis control: Sumatra, Java, Borneo, and Celebs', value: 5, enabled: false},
         {oid: 3, name: 'Axis control India (Calcutta)', value: 5, enabled: false},
@@ -54,7 +54,7 @@ class Objective < ApplicationRecord
       italy=[
         {oid: 0, name: 'No Allied surface warships in the Mediterranean sea', value: 5, enabled: false},
         {oid: 1, name: 'Axis control 3 of the following: Gibraltar, Southern France, Greeece, Egypt', value: 5, enabled: false},
-        {oid: 2, name: 'Morocco, Algeria, Tunisia, Libya, Tobruk, and Alexandria', value: 5, enabled: false},
+        {oid: 2, name: 'Axis contorls Morocco, Algeria, Tunisia, Libya, Tobruk, and Alexandria', value: 5, enabled: false},
         {oid: 3, name: 'Italy controls Iraq', value: 5, enabled: false},
         {oid: 4, name: 'Italy controls Perisa', value: 5, enabled: false},
         {oid: 5, name: 'Italy control Northwest Persia ', value: 5, enabled: false},

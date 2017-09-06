@@ -4,6 +4,15 @@ class Nation < ApplicationRecord
   has_many :objectives
   default_scope { order(created_at: :asc) }
 
+#  def obj_money
+#    @total = 0
+#    current_eco.objectives.each do |x|
+#      if x.enabled
+#        @total = @total + x.value
+#      end
+#    end
+#  end
+
   protected
     def self.create_1940(game_uuid)
       nations = [
