@@ -86,6 +86,8 @@
       </div>
       <br>
       <a id="objective" href="<%= nation_path(current_eco.uuid) %>" style="background:<%=current_eco.color%>" class="btn btn-info btn-block" role="button">National Objectives</a>
+      <a id="victory" href="<%= nation_path(current_eco.uuid) %>" style="background:<%=current_eco.colorL%>" class="btn btn-info btn-block" role="button">Victory Objectives</a>
+      <a id="research" href="<%= nation_path(current_eco.uuid) %>" style="background:<%=current_eco.color%>" class="btn btn-info btn-block" role="button">Research and Development</a>
     </div>
   </div>
 </div>
@@ -108,8 +110,8 @@
     <div class="col-sm-6">
       <div class="inline">
 
-        <!--<%= image_tag current_nation.roundel , :id => "roundel"%> -->
-        <h1  id="c-nation" class="text-center" style="color:<%=current_nation.color%>" ><%=current_nation.name%>-<%=current_nation.bank%></h1>
+        <!-- -->
+        <h1  id="c-nation" class="text-center" style="color:<%=current_nation.color%>" ><%= image_tag current_nation.roundel , :id => "roundel"%><%=current_nation.name%>-<%=current_nation.bank%></h1>
       </div>
     </div>
     <div class="col-sm-1">

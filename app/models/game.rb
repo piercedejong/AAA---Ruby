@@ -3,6 +3,7 @@ class Game < ApplicationRecord
   belongs_to :user
   has_many :nations
   has_many :units
+  has_many :victories
   validates :name, presence: true, length: {minimum: 3}
   validates :game_name, presence: true, length: {minimum: 1}
 

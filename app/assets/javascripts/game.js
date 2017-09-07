@@ -144,4 +144,6 @@ function change_eco_nation(response){
 	$(".change-eco-neg").css("background",response["color"])
 	$("#objective").css("background",response["color"]);
 	$("#objective").attr("href", "/nations/"+response["uuid"]);
+	$("#victory").css("background",response["colorL"]);
+	$("#research").css("background",response["color"]);
 }

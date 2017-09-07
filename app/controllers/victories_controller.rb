@@ -1,0 +1,2 @@
+class VictoriesController < ApplicationController
+end
