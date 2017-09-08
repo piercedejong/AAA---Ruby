@@ -1,0 +1,31 @@
+<br>
+<h1 id ="c-nation" class="text-center">Victory Objectives</h1>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-6">
+      <div class="container">
+        <h1 id="v-title" class="text-center" style="color:#ff1a1a"> Axis </h1>
+        <% @game.victories.each do |v| %>
+          <% if v.axis %>
+            <a id="objective-<%=v.vid%>" href="" style="background:#ff6666;text-align:left;font-size:2.0vh;" class="victory btn btn-block" role="button"><strong><%= v.name %></strong> :: <%=v.text %></a>
+            <br>
+          <% end%>
+        <%end %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="container">
+        <h1 id="v-title" class="text-center" style=color:#0040ff> Allies </h1>
+        <% @game.victories.each do |v| %>
+          <% if !v.axis %>
+            <a id="objective-<%=v.vid%>" href="" style="background:#66ccff;text-align:left;font-size:2.0vh;"font-size: 1.0vh; class="victory btn btn-block" role="button"><strong><%= v.name %></strong> :: <%=v.text %></a>
+            <br>
+          <% end%>
+        <%end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a id="exit" href="<%= game_path(current_game.uuid) %>" class="btn btn-info" role="button">Back</a>

@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   resources :units
 
+  resources :victories
+
+  resources :researches
+
   get 'users/new'
 
   get '/auth/google/callback', to: "users#create"
