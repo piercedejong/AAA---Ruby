@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170907215000) do
+ActiveRecord::Schema.define(version: 20170908202357) do
 
   create_table "games", force: :cascade do |t|
     t.string   "name"
@@ -90,6 +90,9 @@ ActiveRecord::Schema.define(version: 20170907215000) do
     t.string   "text"
     t.boolean  "enabled",    default: false
     t.integer  "vid"
+    t.string   "name"
+    t.string   "game_uuid"
+    t.integer  "game_id"
   end
 
 end
