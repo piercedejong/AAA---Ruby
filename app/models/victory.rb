@@ -2,6 +2,8 @@ class Victory < ApplicationRecord
   before_create :create_uuid
   belongs_to :game
 
+  default_scope { order(created_at: :asc) }
+
   protected
     def self.create_1940_GrassHopper(game_uuid)
       victories = [

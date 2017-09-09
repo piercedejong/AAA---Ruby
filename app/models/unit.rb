@@ -1,6 +1,8 @@
 class Unit < ApplicationRecord
   belongs_to :game
 
+  default_scope { order(created_at: :asc) }
+
 
   protected
     def self.create_1940(game_uuid)
