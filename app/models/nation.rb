@@ -2,6 +2,7 @@ class Nation < ApplicationRecord
   before_create :create_uuid
   belongs_to :game
   has_many :objectives
+  has_many :researches
   default_scope { order(created_at: :asc) }
 
 #  def obj_money

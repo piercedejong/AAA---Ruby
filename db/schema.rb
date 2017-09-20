@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170908202357) do
+ActiveRecord::Schema.define(version: 20170920031635) do
 
   create_table "games", force: :cascade do |t|
     t.string   "name"
@@ -58,6 +58,9 @@ ActiveRecord::Schema.define(version: 20170908202357) do
     t.string   "text"
     t.boolean  "enabled",     default: false
     t.string   "nation_uuid"
+    t.integer  "nation_id"
+    t.integer  "rid"
+    t.string   "name"
   end
 
   create_table "units", force: :cascade do |t|
