@@ -2,9 +2,6 @@
 <div class="container-fluid">
   <div class="row content">
     <div class="col-sm-3">
-      <div id="research-div" class="container">
-        <h1 id="research-title" class="text-center">Chart 1</h1>
-      </div>
     </div>
     <div class="col-sm-6">
       <div class="container">
@@ -12,12 +9,116 @@
       </div>
     </div>
     <div class="col-sm-3">
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-6">
       <div id="research-div" class="container">
-        <h1 id ="research-title" class="text-center">Chart 2</h1>
+        <h1 id="research-title" class="text-center">Chart 1</h1>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div id="research-div" class="container">
+        <h1 id="research-title" class="text-center">Chart 2</h1>
       </div>
     </div>
   </div>
 </div>
+
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-1 research">
+      <div class="container research">
+        <div class="item text-center" data-toggle="tooltip" title="<%= current_nation.researches.find_by(rid: 0).text %>"><b><%= current_nation.researches.find_by(rid: 0).name %></b></div>
+        <% current_game.nations.each do |n| %>
+          <% if !n.name.eql? ("Pacific"||"China"||"FEC") %>
+            <button onclick="" class="btn btn-info btn-block" role="button" style="margin-top:5px"><%=n.name%></buttton>
+          <%end %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-sm-1">
+      <div class="container">
+      </div>
+    </div>
+    <div class="col-sm-1">
+      <div class="container">
+      </div>
+    </div>
+    <div class="col-sm-1">
+      <div class="container">
+      </div>
+    </div>
+    <div class="col-sm-1">
+      <div class="container">
+      </div>
+    </div>
+    <div class="col-sm-1">
+      <div class="container">
+      </div>
+    </div>
+    <div class="col-sm-1">
+      <div class="container">
+      </div>
+    </div>
+    <div class="col-sm-1">
+      <div class="container">
+      </div>
+    </div>
+    <div class="col-sm-1">
+      <div class="container">
+      </div>
+    </div>
+    <div class="col-sm-1">
+      <div class="container">
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+<div class="container-fluid">
+  <div class="row content">
+    <div class="col-sm-6">
+      <div class="research_up">
+        <%current_nation.researches.each do |r| %>
+          <%if r.rid <6 %>
+            <span class="research" id="">
+              <div class="item" data-toggle="tooltip" title="<%=r.text%>"><b><%=r.name%></b></div>
+            </span>
+          <% end %>
+        <%end%>
+      </div>
+      <div class="research_up">
+        <%current_game.nations.each do |n| %>
+          <div class="">
+            <%n.researches.each do |r|%>
+              <%if r.rid <6 %>
+                <span class="research" id="">
+                  <div class=""><button onclick="" class="btn btn-info btn-block" role="button" style="margin-top:5px"><%=n.name%></buttton></div>
+                </span>
+              <%end%>
+            <%end%>
+          </div>
+        <%end%>
+    </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="research_up">
+        <%current_nation.researches.each do |r| %>
+          <%if r.rid >5 %>
+            <span class="research" id="">
+              <div class="item" data-toggle="tooltip" title="<%=r.text%>"><b><%=r.name%></b></div>
+            </span>
+          <% end %>
+        <%end%>
+      </div>
+    </div>
+</div>
+</div>
+-->
 
 
 
