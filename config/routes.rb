@@ -38,6 +38,10 @@ Rails.application.routes.draw do
 
   get 'nation/update_obj', to: 'nations#update_obj'
 
+  get 'victory/clicked', to: 'victories#clicked'
+
+  get 'research/clicked', to: 'researches#clicked'
+
   root 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

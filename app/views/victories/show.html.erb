@@ -8,7 +8,11 @@
         <h1 id="v-title" class="text-center" style="color:#ff1a1a"> Axis </h1>
         <% @game.victories.each do |v| %>
           <% if v.axis %>
-            <button id="objective-<%=v.vid%>" href="" style="background:#ff6666;text-align:left;font-size:2.0vh;" class="victory btn btn-block" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
+            <% if v.enabled %>
+              <button data-id="<%=v.vid%>" id="victory-<%=v.vid%>" style="background:#ff6666;text-align:left;font-size:2.0vh;" class="victory btn btn-block" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
+            <%else%>
+              <%= link_to v.name+" :: "+v.text, research_path(current_game.uuid), :onclick =>"victory(this)" ,:data_id => v.vid.to_s, :id => "victory-"+v.vid.to_s, :style => "background:white;text-align:left;font-size:1.0vw;", :class => "victory btn btn-block", :role =>"button" %>
+            <%end%>
             <br>
           <% end%>
         <%end %>
@@ -19,7 +23,11 @@
         <h1 id="v-title" class="text-center" style=color:#0040ff> Allies </h1>
         <% @game.victories.each do |v| %>
           <% if !v.axis %>
-            <button id="objective-<%=v.vid%>" href="" style="background:#66ccff;text-align:left;font-size:2.0vh;"font-size: 1.0vh; class="victory btn btn-block" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
+            <% if v.enabled %>
+              <button data-id="<%=v.vid%>" id="victory-<%=v.vid%>" onclick="victory(this)" style="background:#66ccff;text-align:left;font-size:2.0vh;" class="victory btn btn-block" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
+            <%else%>
+              <%= link_to v.name+" :: "+v.text, research_path(current_game.uuid), :onclick =>"victory(this)" ,:data_id => v.vid.to_s, :id => "victory-"+v.vid.to_s, :style => "background:white;text-align:left;font-size:1.0vw;", :class => "victory btn btn-block", :role =>"button" %>
+            <%end%>
             <br>
           <% end%>
         <%end %>
