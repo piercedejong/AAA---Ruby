@@ -35,7 +35,7 @@
         <div class="item text-center" data-toggle="tooltip" title="<%= current_nation.researches.find_by(rid: 0).text %>"><b><%= current_nation.researches.find_by(rid: 0).name %></b></div>
         <% current_game.nations.each do |n| %>
           <% if !n.name.eql? ("Pacific"||"China"||"FEC") %>
-            <button data-id="0" onclick="r_clicked(this)" class="btn btn-block" role="button" style="margin-top:5px"><%=n.name%></buttton>
+            <button data-id="0" data-name="<%=n.name%>" id="<%=n.name%>-0"onclick="research(this)" class="btn btn-block" role="button" style="margin-top:5px"><%=n.name%></buttton>
           <%end %>
         <% end %>
       </div>

@@ -5,7 +5,17 @@ class ResearchesController < ApplicationController
   end
 
   def clicked
-    @research = current_game.nations.find_by(name: params[:name]).researches.find_by(ridL params[:id])
-    
+    @nation = current_game.nations.find_by(name: params[:name])
+    @research = @nation.researches.find_by(rid: params[:id])
+    if session[:research_point]
+      session[:research_point] = false
+      if request.xhr?
+        render :json => {
+          color: @nation.color,
+          id: @nation.name+"-"+params[:id]
+        }
+      end
+    end
 
+  end
 end

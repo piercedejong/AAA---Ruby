@@ -14,8 +14,12 @@ class VictoriesController < ApplicationController
       else
         session[:research_team] = "allies"
       end
-    else
-      session[:research_point] = false
+      if request.xhr?
+        render :json => {
+          uuid: current_game.uuid
+        }
+      end
     end
+
   end
 end
