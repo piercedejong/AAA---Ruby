@@ -32,9 +32,9 @@
   <div class="row content">
     <% current_nation.researches.each do |r| %>
       <div class="col-sm-1 research">
-        <div class="container research-title text-center">
-          <span class="item text-center" data-toggle="tooltip" title="<%= current_nation.researches.find_by(rid: r.rid).text %>" style="font-size:1vw"><strong><%= current_nation.researches.find_by(rid: r.rid).name %></strong></span>
-        </div>
+        <button class="container research-title text-center btn">
+          <span id="research-tit" class="item text-center" data-toggle="tooltip" title="<%= current_nation.researches.find_by(rid: r.rid).text %>" style="font-size:1.0vw"><strong><%= current_nation.researches.find_by(rid: r.rid).name %></strong></span>
+        </butotn>
       </div>
     <%end%>
     <% current_nation.researches.each do |r| %>
@@ -43,9 +43,9 @@
           <% current_game.nations.each do |n| %>
           <% if (!n.name.eql? "Pacific") && (!n.name.eql? "China") %>
             <% if n.researches.find_by(rid: r.rid).enabled %>
-              <button data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" class="btn btn-block" role="button" style="background:<%=n.color%>;margin-top:5px"><%=n.name%></buttton>
+              <button data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" class="btn btn-block research-button" role="button" style="background:<%=n.color%>;margin-top:5px"><%=n.name%></buttton>
             <% else%>
-              <button data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-block" role="button" style="margin-top:5px"><%=n.name%></buttton>
+              <button data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-block research-button" role="button" style="margin-top:5px"><%=n.name%></buttton>
             <%end %>
           <%end %>
         <% end %>
@@ -54,48 +54,8 @@
     <% end %>
   </div>
 </div>
-<!--
-<div class="container-fluid">
-  <div class="row content">
-    <div class="col-sm-6">
-      <div class="research_up">
-        <%current_nation.researches.each do |r| %>
-          <%if r.rid <6 %>
-            <span class="research" id="">
-              <div class="item" data-toggle="tooltip" title="<%=r.text%>"><b><%=r.name%></b></div>
-            </span>
-          <% end %>
-        <%end%>
-      </div>
-      <div class="research_up">
-        <%current_game.nations.each do |n| %>
-          <div class="">
-            <%n.researches.each do |r|%>
-              <%if r.rid <6 %>
-                <span class="research" id="">
-                  <div class=""><button onclick="" class="btn btn-info btn-block" role="button" style="margin-top:5px"><%=n.name%></buttton></div>
-                </span>
-              <%end%>
-            <%end%>
-          </div>
-        <%end%>
-    </div>
-    </div>
-    <div class="col-sm-6">
-      <div class="research_up">
-        <%current_nation.researches.each do |r| %>
-          <%if r.rid >5 %>
-            <span class="research" id="">
-              <div class="item" data-toggle="tooltip" title="<%=r.text%>"><b><%=r.name%></b></div>
-            </span>
-          <% end %>
-        <%end%>
-      </div>
-    </div>
+<div class="bottom">
+  <a href="<%= game_path(current_game.uuid) %>" class="btn btn-info btn-lg" role="button">Back</a>
+  <a href="<%= nation_path(current_eco.uuid) %>" class="btn btn-info btn-lg" role="button">National Objectives</a>
+  <a href="<%= victory_path(current_game.uuid) %>" class="btn btn-info btn-lg" role="button">Victory Objectives</a>
 </div>
-</div>
--->
-
-
-
-<a id="exit" href="<%= game_path(current_game.uuid) %>" class="btn btn-info" role="button">Back</a>

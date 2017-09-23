@@ -4,16 +4,16 @@
 div.research {
   padding: 1px
 }
-div.research-title {
+button.research-title {
   display: table;
   height: 50px;
   width: 100%;
   text-align: center;
   padding: 0;
+  white-space: normal;
+  background: grey
 }
 
-span.item {
-  display: table-cell;
-  vertical-align: middle;
-  padding: 0;
+button.research-button {
+  font-size: 1.5vw
 }
