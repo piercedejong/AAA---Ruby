@@ -55,7 +55,7 @@
   </div>
 </div>
 <div class="bottom">
-  <a href="<%= game_path(current_game.uuid) %>" class="btn btn-info btn-lg" role="button">Back</a>
-  <a href="<%= nation_path(current_eco.uuid) %>" class="btn btn-info btn-lg" role="button">National Objectives</a>
-  <a href="<%= victory_path(current_game.uuid) %>" class="btn btn-info btn-lg" role="button">Victory Objectives</a>
+  <%= link_to "Back", game_path(current_game.uuid), :class =>"btn btn-info btn-lg", :role => "button" %>
+  <%= link_to "National Objectives", nation_path(current_eco.uuid), :class =>"btn btn-info btn-lg", :role => "button" %>
+  <%= link_to "Victory Objectives", victory_path(current_game.uuid), :class =>"btn btn-info btn-lg", :role => "button" %>
 </div>
