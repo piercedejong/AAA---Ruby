@@ -51,12 +51,10 @@
         </table>
         <button id="reset" onclick="reset_buy()" class="btn btn-info " role="button" style="background:<%=current_nation.color%>;color:white">Reset Buy</button>
         <button id="pacific" onclick="buy_pacific()" class="btn btn-info " role="button" style="background:<%=current_nation.color%>;color:white;<%if current_nation.name != ("Britain"||"UK Europe")%>display:none<% end %>">Buy Pacific Units</button>
-
       </div>
-
     </div>
-    <div class="col-sm-4">
 
+    <div class="col-sm-4">
     </div>
 
     <div class="col-sm-3">
@@ -90,9 +88,6 @@
       <%= link_to "Research and Development", research_path(current_game.uuid), :id => "research", :class =>"btn btn-info btn-block", :role => "button", :style => "background:"+current_eco.color %>
     </div>
   </div>
-</div>
-
-
 
 <div class="container-fluid">
   <div class="row content bottom">

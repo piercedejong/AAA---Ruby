@@ -154,7 +154,7 @@ function reset(){
 			method: "GET",
 	  	data:{
 	  	},
-	  	url: window.location.origin + '/game/reset_victory'
+	  	url: window.location.origin + '/game/reset_victory_research'
 		})
 		.done(function(response) {
 			location.reload();

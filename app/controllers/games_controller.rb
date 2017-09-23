@@ -213,8 +213,7 @@ class GamesController < ApplicationController
     end
   end
 
-  def reset_victory
-    binding.pry
+  def reset_victory_research
     current_game.victories.each do |v|
       v.update(enabled: false)
     end

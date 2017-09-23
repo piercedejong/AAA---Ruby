@@ -34,7 +34,7 @@ Rails.application.routes.draw do
 
   get 'game/objectives', to: 'games#objectives', as: :objectives
 
-  get 'game/reset_victory', to: 'games#reset_victory'
+  get 'game/reset_victory_research', to: 'games#reset_victory_research'
 
   get 'nation/show', to: 'nations#show'
 
