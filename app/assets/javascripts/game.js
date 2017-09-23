@@ -147,3 +147,17 @@ function change_eco_nation(response){
 	$("#victory").css("background",response["colorL"]);
 	$("#research").css("background",response["color"]);
 }
+
+function reset(){
+	if (confirm('Are you sure you want to reset ALL Victory Objectives and Research Points?')) {
+		$.ajax({
+			method: "GET",
+	  	data:{
+	  	},
+	  	url: window.location.origin + '/game/reset_victory'
+		})
+		.done(function(response) {
+			location.reload();
+		})
+	}
+}

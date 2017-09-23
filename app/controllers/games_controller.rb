@@ -213,9 +213,20 @@ class GamesController < ApplicationController
     end
   end
 
-  def exit
+  def reset_victory
     binding.pry
-    redirect_to home_path
+    current_game.victories.each do |v|
+      v.update(enabled: false)
+    end
+    current_game.nations.each do |n|
+      n.researches.each do |r|
+        r.update(enabled: false)
+      end
+    end
+    if request.xhr?
+      render :json => {
+      }
+    end
   end
 
   private
