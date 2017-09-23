@@ -43,9 +43,9 @@
           <% current_game.nations.each do |n| %>
           <% if (!n.name.eql? "Pacific") && (!n.name.eql? "China") %>
             <% if n.researches.find_by(rid: r.rid).enabled %>
-              <button data-id="0" data-name="<%=n.name%>" id="<%=n.name%>-0" class="btn btn-block" role="button" style="background:<%=n.color%>;margin-top:5px"><%=n.name%></buttton>
+              <button data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" class="btn btn-block" role="button" style="background:<%=n.color%>;margin-top:5px"><%=n.name%></buttton>
             <% else%>
-              <button data-id="0" data-name="<%=n.name%>" id="<%=n.name%>-0" onclick="research(this)" class="btn btn-block" role="button" style="margin-top:5px"><%=n.name%></buttton>
+              <button data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-block" role="button" style="margin-top:5px"><%=n.name%></buttton>
             <%end %>
           <%end %>
         <% end %>
