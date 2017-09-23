@@ -9,6 +9,7 @@ class ResearchesController < ApplicationController
     @research = @nation.researches.find_by(rid: params[:id])
     if session[:research_point]
       session[:research_point] = false
+      @research.update(enabled: true)
       if request.xhr?
         render :json => {
           color: @nation.color,

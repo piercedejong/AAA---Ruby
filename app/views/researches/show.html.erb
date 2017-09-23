@@ -30,52 +30,28 @@
 
 <div class="container-fluid">
   <div class="row content">
-    <div class="col-sm-1 research">
-      <div class="container research">
-        <div class="item text-center" data-toggle="tooltip" title="<%= current_nation.researches.find_by(rid: 0).text %>"><b><%= current_nation.researches.find_by(rid: 0).name %></b></div>
-        <% current_game.nations.each do |n| %>
-          <% if !n.name.eql? ("Pacific"||"China"||"FEC") %>
-            <button data-id="0" data-name="<%=n.name%>" id="<%=n.name%>-0"onclick="research(this)" class="btn btn-block" role="button" style="margin-top:5px"><%=n.name%></buttton>
+    <% current_nation.researches.each do |r| %>
+      <div class="col-sm-1 research">
+        <div class="container research-title text-center">
+          <span class="item text-center" data-toggle="tooltip" title="<%= current_nation.researches.find_by(rid: r.rid).text %>" style="font-size:1vw"><strong><%= current_nation.researches.find_by(rid: r.rid).name %></strong></span>
+        </div>
+      </div>
+    <%end%>
+    <% current_nation.researches.each do |r| %>
+      <div class="col-sm-1 research">
+        <div class="container research">
+          <% current_game.nations.each do |n| %>
+          <% if (!n.name.eql? "Pacific") && (!n.name.eql? "China") %>
+            <% if n.researches.find_by(rid: r.rid).enabled %>
+              <button data-id="0" data-name="<%=n.name%>" id="<%=n.name%>-0" class="btn btn-block" role="button" style="background:<%=n.color%>;margin-top:5px"><%=n.name%></buttton>
+            <% else%>
+              <button data-id="0" data-name="<%=n.name%>" id="<%=n.name%>-0" onclick="research(this)" class="btn btn-block" role="button" style="margin-top:5px"><%=n.name%></buttton>
+            <%end %>
           <%end %>
         <% end %>
+        </div>
       </div>
-    </div>
-    <div class="col-sm-1">
-      <div class="container">
-      </div>
-    </div>
-    <div class="col-sm-1">
-      <div class="container">
-      </div>
-    </div>
-    <div class="col-sm-1">
-      <div class="container">
-      </div>
-    </div>
-    <div class="col-sm-1">
-      <div class="container">
-      </div>
-    </div>
-    <div class="col-sm-1">
-      <div class="container">
-      </div>
-    </div>
-    <div class="col-sm-1">
-      <div class="container">
-      </div>
-    </div>
-    <div class="col-sm-1">
-      <div class="container">
-      </div>
-    </div>
-    <div class="col-sm-1">
-      <div class="container">
-      </div>
-    </div>
-    <div class="col-sm-1">
-      <div class="container">
-      </div>
-    </div>
+    <% end %>
   </div>
 </div>
 <!--

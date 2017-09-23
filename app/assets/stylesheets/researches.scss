@@ -4,11 +4,16 @@
 div.research {
   padding: 1px
 }
+div.research-title {
+  display: table;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+}
 
-.item + .tooltip > .tooltip-inner {
-      background-color: #73AD21;
-      color: #FFFFFF;
-      border: 1px solid green;
-      padding: 15px;
-      font-size: 20px;
+span.item {
+  display: table-cell;
+  vertical-align: middle;
+  padding: 0;
 }
