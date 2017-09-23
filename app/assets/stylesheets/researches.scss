@@ -4,14 +4,24 @@
 div.research {
   padding: 1px
 }
-button.research-title {
+button.research-title-1 {
   display: table;
   height: 50px;
   width: 100%;
   text-align: center;
   padding: 0;
   white-space: normal;
-  background: grey
+  background: #669999
+}
+
+button.research-title-2 {
+  display: table;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+  white-space: normal;
+  background: #666699
 }
 
 button.research-button {

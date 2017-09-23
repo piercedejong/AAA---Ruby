@@ -17,12 +17,12 @@
   <div class="row content">
     <div class="col-sm-6">
       <div id="research-div" class="container">
-        <h1 id="research-title" class="text-center">Chart 1</h1>
+        <h1 id="research-title" class="text-center" style="color:#669999">Chart 1</h1>
       </div>
     </div>
     <div class="col-sm-6">
       <div id="research-div" class="container">
-        <h1 id="research-title" class="text-center">Chart 2</h1>
+        <h1 id="research-title" class="text-center" style="color:#666699">Chart 2</h1>
       </div>
     </div>
   </div>
@@ -32,9 +32,16 @@
   <div class="row content">
     <% current_nation.researches.each do |r| %>
       <div class="col-sm-1 research">
-        <button class="container research-title text-center btn">
-          <span id="research-tit" class="item text-center" data-toggle="tooltip" title="<%= current_nation.researches.find_by(rid: r.rid).text %>" style="font-size:1.0vw"><strong><%= current_nation.researches.find_by(rid: r.rid).name %></strong></span>
-        </butotn>
+        <% if r.rid <6 %>
+          <button class="container research-title-1 text-center btn" syle="background:purple">
+            <span id="research-tit" class="item text-center" data-toggle="tooltip" title="<%= current_nation.researches.find_by(rid: r.rid).text %>" style="font-size:1.0vw"><strong><%= current_nation.researches.find_by(rid: r.rid).name %></strong></span>
+          </butotn>
+        <%else%>
+          <button class="container research-title-2 text-center btn" syle="background:purple">
+            <span id="research-tit" class="item text-center" data-toggle="tooltip" title="<%= current_nation.researches.find_by(rid: r.rid).text %>" style="font-size:1.0vw"><strong><%= current_nation.researches.find_by(rid: r.rid).name %></strong></span>
+          </butotn>
+        <%end%>
+
       </div>
     <%end%>
     <% current_nation.researches.each do |r| %>
@@ -45,7 +52,11 @@
             <% if n.researches.find_by(rid: r.rid).enabled %>
               <button data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" class="btn btn-block research-button" role="button" style="background:<%=n.color%>;margin-top:5px"><%=n.name%></buttton>
             <% else%>
-              <button data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-block research-button" role="button" style="margin-top:5px"><%=n.name%></buttton>
+              <% if r.rid <6 %>
+                <button data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-block research-button" role="button" style="background:#d1e0e0;margin-top:5px"><%=n.name%></buttton>
+              <%else%>
+                <button data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-block research-button" role="button" style="background:#d2d2e0;margin-top:5px"><%=n.name%></buttton>
+              <%end%>
             <%end %>
           <%end %>
         <% end %>
