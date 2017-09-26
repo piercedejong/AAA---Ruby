@@ -148,7 +148,21 @@ function change_eco_nation(response){
 	$("#research").css("background",response["color"]);
 }
 
-function reset(){
+function reset_1940(){
+	if (confirm('Are you sure you want to reset ALL Research Points?')) {
+		$.ajax({
+			method: "GET",
+	  	data:{
+	  	},
+	  	url: window.location.origin + '/game/reset_victory_research'
+		})
+		.done(function(response) {
+			location.reload();
+		})
+	}
+}
+
+function reset_GrassHopper(){
 	if (confirm('Are you sure you want to reset ALL Victory Objectives and Research Points?')) {
 		$.ajax({
 			method: "GET",

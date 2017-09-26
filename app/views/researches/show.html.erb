@@ -67,7 +67,12 @@
 </div>
 <div class="bottom">
   <%= link_to "Back", game_path(current_game.uuid), :class =>"btn btn-info btn-lg", :role => "button" %>
-  <%= link_to "National Objectives", nation_path(current_eco.uuid), :class =>"btn btn-info btn-lg", :role => "button" %>
-  <%= link_to "Victory Objectives", victory_path(current_game.uuid), :class =>"btn btn-info btn-lg", :role => "button" %>
-  <button class="btn btn-info btn-lg reset-victory" onclick="reset()"role= "button">Reset</button>
+  <% if current_game.game_name.eql? "1940" %>
+    <%= link_to "National Objectives", nation_path(current_eco.uuid), :class =>"btn btn-info btn-lg", :role => "button" %>
+    <button class="btn btn-info btn-lg reset-victory" onclick="reset_1940()"role= "button">Reset</button>
+  <% elsif current_game.game_name.eql? "1940 GrassHopper" %>
+    <%= link_to "National Objectives", nation_path(current_eco.uuid), :class =>"btn btn-info btn-lg", :role => "button" %>
+    <%= link_to "Victory Objectives", victory_path(current_game.uuid), :class =>"btn btn-info btn-lg", :role => "button" %>
+    <button class="btn btn-info btn-lg reset-victory" onclick="reset_GrassHopper()"role= "button">Reset</button>
+  <%end %>
 </div>
