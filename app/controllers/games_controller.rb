@@ -247,6 +247,7 @@ class GamesController < ApplicationController
         Nation.create_1940(@game.uuid)
         Unit.create_1940(@game.uuid)
         Objective.create_1940(@game.uuid)
+        Research.create_1940(@game.uuid)
       elsif @game.game_name == "1940 GrassHopper"
         Nation.create_1940_GrassHopper(@game.uuid)
         Unit.create_1940_GrassHopper(@game.uuid)
