@@ -7,7 +7,7 @@ class ResearchesController < ApplicationController
   def clicked
     @nation = current_game.nations.find_by(name: params[:name])
     @research = @nation.researches.find_by(rid: params[:id])
-    if current_game.game_name.eql? "1940 GrassHopper"
+    if current_game.game_name.eql? "1940 Grasshopper"
       if session[:research_point]
         session[:research_point] = false
         @research.update(enabled: true)

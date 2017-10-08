@@ -5,7 +5,7 @@ class Victory < ApplicationRecord
   default_scope { order(created_at: :asc) }
 
   protected
-    def self.create_1940_GrassHopper(game_uuid)
+    def self.create_1940_Grasshopper(game_uuid)
       victories = [
         {vid: 0, axis: true, name: 'London', text: 'The Axis control London'},
         {vid: 1, axis: true, name: 'Moscow', text: 'The Axis control Moscow'},

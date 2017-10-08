@@ -25,7 +25,7 @@
   <%= link_to "Back", game_path(current_game.uuid), :class =>"btn btn-info btn-lg", :role => "button" %>
   <% if current_game.game_name.eql? "1940" %>
     <%= link_to "Research and Development", research_path(current_game.uuid), :class =>"btn btn-info btn-lg", :role => "button" %>
-  <% elsif current_game.game_name.eql? "1940 GrassHopper" %>
+  <% elsif current_game.game_name.eql? "Grasshopper" %>
     <%= link_to "Victory Objectives", victory_path(current_game.uuid), :class =>"btn btn-info btn-lg", :role => "button" %>
     <%= link_to "Research and Development", research_path(current_game.uuid), :class =>"btn btn-info btn-lg", :role => "button" %>
   <%end %>

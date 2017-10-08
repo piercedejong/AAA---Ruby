@@ -31,7 +31,7 @@ class Unit < ApplicationRecord
       end
     end
 
-    def self.create_1940_GrassHopper(game_uuid)
+    def self.create_1940_Grasshopper(game_uuid)
       units = [
         {uid: 0, name: 'Infantry', special:'Combined Arms - attack at a 2 when paired with artillery', attack: 1, defense: 2, movement: 1, cost: 3, count: 0},
         {uid: 1, name: 'Mechanized Infantry', special: 'Combined Arms - attack at a 2 when paired with artillery', attack: 1, defense: 2, movement: 2, cost: 4, count: 0},

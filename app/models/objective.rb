@@ -92,7 +92,7 @@ class Objective < ApplicationRecord
       end
     end
 
-    def self.create_1940_GrassHopper(game_uuid)
+    def self.create_1940_Grasshopper(game_uuid)
       germany=[
         {oid: 0, name: 'Peace with USSR', value: 5, enabled: false},
         {oid: 1, name: 'Axis control of Caucasus', value: 5, enabled: false},
