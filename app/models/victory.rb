@@ -10,7 +10,7 @@ class Victory < ApplicationRecord
         {vid: 0, axis: true, name: 'London', text: 'The Axis control London'},
         {vid: 1, axis: true, name: 'Moscow', text: 'The Axis control Moscow'},
         {vid: 2, axis: true, name: 'Sydney', text: 'The Axis control Sydney'},
-        {vid: 3, axis: true, name: 'Calcutta', text: 'The Axis control Calcutta'},
+        {vid: 3, axis: true, name: 'Asia', text: 'The Axis control Shanghai, Honk Kong, Malaya, Calcutta'},
         {vid: 4, axis: true, name: 'Africa', text: 'The Axis control Morocco, Algeria, Tunisia, Libya, Tobruk, Alexandria, and Egypt'},
         {vid: 5, axis: true, name: 'Europe', text: 'The Axis control 7 victory cities on the Europe map'},
         {vid: 7, axis: true, name: 'Pacific', text: 'The Axis control 6 victory cities on the Pacific map'},
@@ -19,12 +19,12 @@ class Victory < ApplicationRecord
         {vid: 9, axis: false, name: 'Berlin', text: 'The Allies control Berlin'},
         {vid: 10, axis: false, name: 'Tokyo', text: 'The Allies control Tokyo'},
         {vid: 11, axis: false, name: 'Rome', text: 'The Allies control Rome'},
-        {vid: 12, axis: false, name: 'Paris', text: 'The Allies have liberated Paris'},
+        {vid: 12, axis: false, name: 'Asia', text: 'The Allies control all territories on the Burma road, Honk Kong, Shanghai'},
         {vid: 13, axis: false, name: 'Africa', text: 'The Allies control all non-neutral territories in Africa'},
-        {vid: 14, axis: false, name: 'Liberation', text: 'The Allies have liberated London or Sydney'},
+        {vid: 14, axis: false, name: 'Paris', text: 'The Allies have liberated Paris'},
         {vid: 15, axis: false, name: 'Philippines', text: 'The Allies have liberated the Philippines'},
         {vid: 16, axis: false, name: 'Armada', text: 'There are no Japanese Capital ships on the board'},
-        {vid: 17, axis: false, name: 'Asia', text: 'The Allies control the Burma road as well as Hong Kong and Shanghai'},
+        {vid: 17, axis: false, name: 'Communism', text: 'The Soviet Union contorls 6 original Axis territories'},
       ]
       victories.each do |v|
         Game.find_by(uuid: game_uuid).victories.create(v)
