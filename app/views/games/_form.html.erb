@@ -13,16 +13,17 @@
       </ul>
     </div>
   <% end %>
-  <p>
-    Game Type:
-    <%= select(:game, :game_name, [['1940'],['1940 Grasshopper'],['1942']]) %>
-  </p>
-  <p>
-    Game Name:
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= f.submit %>
-  </p>
-
+  <div class="text-center" style="font-size: 3vw">
+    <p>
+      Game Type:
+      <%= select(:game, :game_name, [['1940'],['1940 Grasshopper'],['1942']]) %>
+    </p>
+    <p>
+      Game Name:
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  </div>
 <% end %>
