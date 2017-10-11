@@ -8,6 +8,7 @@ function research(element) {
     url: window.location.origin + '/research/clicked'
   })
   .done(function(response) {
-    $(response["id"]).css("background",response["color"]);
+    debugger;
+    $("#"+response["id"]).css("background",response["color"]);
   })
 }
