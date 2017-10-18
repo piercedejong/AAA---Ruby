@@ -16,6 +16,6 @@ function update_obj(element) {
     url: window.location.origin + '/nation/update_obj'
   })
   .done(function(response) {
-    $("#objective-"+response["oid"]).css("background",response["color"]);
+    this.css("background",response["color"]);
   })
 }

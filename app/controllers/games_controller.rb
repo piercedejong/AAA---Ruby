@@ -8,7 +8,6 @@ class GamesController < ApplicationController
     if @game.game_name.eql? "1940 Grasshopper"
       @game.update(game_name: "Grasshopper")
     end
-    binding.pry
     if @game.save
       create_game
       session[:game_uuid] = @game.uuid

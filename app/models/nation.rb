@@ -6,7 +6,7 @@ class Nation < ApplicationRecord
   default_scope { order(created_at: :asc) }
 
   def end_turn
-    self.update(bank: self.bank+self.income)
+    self.update(bank: self.bank+self.income+self.obj_income)
   end
 
   def buy_unit(unit)
@@ -14,6 +14,11 @@ class Nation < ApplicationRecord
       unit.update(count: unit.count+1)
       self.update(bank: self.bank - unit.cost)
     end
+  end
+
+  def total_income
+    @total_income = self.income+self.obj_income
+    return @total_income
   end
 
   protected
