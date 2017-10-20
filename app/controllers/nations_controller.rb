@@ -9,20 +9,18 @@ class NationsController < ApplicationController
     @objective = current_eco.objectives.find_by(oid: params[:id])
     if @objective.enabled
       @objective.update(enabled: false)
-      current_eco.update(income: current_eco.income - @objective.value)
+      current_eco.update(obj_income: current_eco.obj_income - @objective.value)
       if request.xhr?
         render :json => {
-          color: current_eco.colorL,
-          oid: params[:id]
+          color: current_eco.colorL
         }
       end
     else
       @objective.update(enabled: true)
-      current_eco.update(income: current_eco.income + @objective.value)
+      current_eco.update(obj_income: current_eco.obj_income + @objective.value)
       if request.xhr?
         render :json => {
-          color: current_eco.color,
-          oid: params[:id]
+          color: current_eco.color
         }
       end
     end

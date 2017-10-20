@@ -5,9 +5,6 @@ class GamesController < ApplicationController
   def create
     @game = current_user.games.new(game_params)
     @game.update(user_uuid: current_user.uuid)
-    if @game.game_name.eql? "1940 Grasshopper"
-      @game.update(game_name: "Grasshopper")
-    end
     if @game.save
       create_game
       session[:game_uuid] = @game.uuid
@@ -37,7 +34,7 @@ class GamesController < ApplicationController
 
   def end_turn
     current_nation.end_turn
-    if current_nation.name == ("Britain" || "UK Europe")
+    if current_nation.name == ("Britain" || "UK Europe")  && next_nation.name == ("Pacific" || "FEC")
       current_game.update(current: current_game.current+1)
       current_game.nations.find_by(nid: current_game.current).end_turn
       if request.xhr?

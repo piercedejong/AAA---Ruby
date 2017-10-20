@@ -19,7 +19,7 @@ class Victory < ApplicationRecord
         {vid: 9, axis: false, name: 'Berlin', text: 'The Allies control Berlin'},
         {vid: 10, axis: false, name: 'Tokyo', text: 'The Allies control Tokyo'},
         {vid: 11, axis: false, name: 'Rome', text: 'The Allies control Rome'},
-        {vid: 12, axis: false, name: 'Asia', text: 'The Allies control all territories on the Burma road, Honk Kong, Shanghai'},
+        {vid: 12, axis: false, name: 'Asia', text: 'The Allies control the Burma road, Honk Kong, and Shanghai'},
         {vid: 13, axis: false, name: 'Africa', text: 'The Allies control all non-neutral territories in Africa'},
         {vid: 14, axis: false, name: 'Paris', text: 'The Allies have liberated Paris'},
         {vid: 15, axis: false, name: 'Philippines', text: 'The Allies have liberated the Philippines'},

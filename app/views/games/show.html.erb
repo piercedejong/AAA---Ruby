@@ -1,10 +1,11 @@
 <div class="nations">
   <% current_game.nations.all.each do |n| %>
-    <span class="" id="<%=n.name%>" style="color:<%=n.color%>">
+    <span class="" id="<%=n.name%>" style="color:<%=n.color%>;">
       <div class="name"><%=n.name%></div>
+      <br>
       <div id="<%=n.name%>-bank" class="money"><%=n.bank%></div>
       <div id="<%=n.name%>-divider" class="money">|</div>
-      <div id="<%=n.name%>-income" class="money"><%=n.income%></div></span>
+      <div id="<%=n.name%>-income" class="money"><%=n.total_income%></div></span>
   <% end %>
 </div>
 
