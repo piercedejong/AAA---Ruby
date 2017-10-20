@@ -51,12 +51,10 @@
         </table>
         <button id="reset" onclick="reset_buy()" class="btn btn-info " role="button" style="background:<%=current_nation.color%>;color:white">Reset Buy</button>
         <button id="pacific" onclick="buy_pacific()" class="btn btn-info " role="button" style="background:<%=current_nation.color%>;color:white;<%if current_nation.name != ("Britain"||"UK Europe")%>display:none<% end %>">Buy Pacific Units</button>
-
       </div>
-
     </div>
-    <div class="col-sm-4">
 
+    <div class="col-sm-4">
     </div>
 
     <div class="col-sm-3">
@@ -85,39 +83,30 @@
         <div data-amount="-10" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-neg text-center col btn btn-info btn-block" role="button">-10</div>
       </div>
       <br>
-      <a id="objective" href="<%= nation_path(current_eco.uuid) %>" style="background:<%=current_eco.color%>" class="btn btn-info btn-block" role="button">National Objectives</a>
-      <a id="victory" href="<%= victory_path(current_game.uuid) %>" style="background:<%=current_eco.colorL%>" class="btn btn-info btn-block" role="button">Victory Objectives</a>
-      <a id="research" href="<%= research_path(current_game.uuid) %>" style="background:<%=current_eco.color%>" class="btn btn-info btn-block" role="button">Research and Development</a>
-    </div>
+      <% if current_game.game_name.eql? "1940"%>
+        <%= link_to "National Objectives", nation_path(current_eco.uuid), :id => "objective", :class =>"btn btn-info btn-block", :role => "button", :style =>"background:"+current_eco.color %>
+        <%= link_to "Research and Development", research_path(current_game.uuid), :id => "research", :class =>"btn btn-info btn-block", :role => "button", :style => "background:"+current_eco.colorL %>
+      <%elsif current_game.game_name.eql? "Grasshopper"%>
+        <%= link_to "National Objectives", nation_path(current_eco.uuid), :id => "objective", :class =>"btn btn-info btn-block", :role => "button", :style =>"background:"+current_eco.color %>
+        <%= link_to "Victory Objectives", victory_path(current_game.uuid), :id => "victory", :class =>"btn btn-info btn-block", :role => "button", :style =>"background:"+current_eco.colorL %>
+        <%= link_to "Research and Development", research_path(current_game.uuid), :id => "research", :class =>"btn btn-info btn-block", :role => "button", :style => "background:"+current_eco.color %>
+      <%else%>
+      <%end%>
+
+      </div>
   </div>
-</div>
-
-
 
 <div class="container-fluid">
   <div class="row content bottom">
-    <div class="col-sm-2">
-      <!--<a>
-      <a id="home" type="button" href="/welcome" href="/welcome" class="btn btn-info btn-block">
-        <span class="glyphicon glyphicon-paperclip" style="vertical-align:middle"></span> Exit
-      </button>
-    </a>-->
-    <a id="exit" href="/welcome" class="btn btn-info" role="button">Exit</a>
-    </div>
-    <div class="col-sm-1">
-
+    <div class="col-sm-3">
+      <span class="bottomaligned"><%= link_to "Exit", "/welcome", :class =>"btn btn-info btn-lg", :role => "button" %></spn>
     </div>
     <div class="col-sm-6">
       <div class="inline">
-
-        <!-- -->
         <h1  id="c-nation" class="text-center" style="color:<%=current_nation.color%>" ><!--<%= image_tag current_nation.roundel , :id => "roundel"%>--><%=current_nation.name%>-<%=current_nation.bank%></h1>
       </div>
     </div>
-    <div class="col-sm-1">
-
-    </div>
-    <div class="col-sm-2">
+    <div class="col-sm-3">
       <button id="end-turn" class="btn btn-secondary btn-block" onclick="end_turn()" style="background:<%=current_nation.color%>" role="button">
         <span class="glyphicon glyphicon-paperclip" style="vertical-align:middle"></span> End Turn
       </button>

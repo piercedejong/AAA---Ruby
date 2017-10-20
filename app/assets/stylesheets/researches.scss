@@ -4,11 +4,26 @@
 div.research {
   padding: 1px
 }
+button.research-title-1 {
+  display: table;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+  white-space: normal;
+  background: #669999
+}
 
-.item + .tooltip > .tooltip-inner {
-      background-color: #73AD21;
-      color: #FFFFFF;
-      border: 1px solid green;
-      padding: 15px;
-      font-size: 20px;
+button.research-title-2 {
+  display: table;
+  height: 50px;
+  width: 100%;
+  text-align: center;
+  padding: 0;
+  white-space: normal;
+  background: #666699
+}
+
+button.research-button {
+  font-size: 1.5vw
 }

@@ -5,14 +5,16 @@ class Nation < ApplicationRecord
   has_many :researches
   default_scope { order(created_at: :asc) }
 
-#  def obj_money
-#    @total = 0
-#    current_eco.objectives.each do |x|
-#      if x.enabled
-#        @total = @total + x.value
-#      end
-#    end
-#  end
+  def end_turn
+    self.update(bank: self.bank+self.income)
+  end
+
+  def buy_unit(unit)
+    if self.bank - unit.cost >=0
+      unit.update(count: unit.count+1)
+      self.update(bank: self.bank - unit.cost)
+    end
+  end
 
   protected
     def self.create_1940(game_uuid)
@@ -33,7 +35,7 @@ class Nation < ApplicationRecord
       end
     end
 
-    def self.create_1940_GrassHopper(game_uuid)
+    def self.create_1940_Grasshopper(game_uuid)
       nations = [
         {nid: 0, name: 'Germany',roundel: 'germany.png', color: '#282828', colorL: '#8a8d8f', bank: 30,income: 30},
         {nid: 1, name: 'USSR',roundel: 'ussr.png', color: '#872323', colorL: '#d55d5d', bank: 37,income: 37},

@@ -5,7 +5,9 @@ class GamesController < ApplicationController
   def create
     @game = current_user.games.new(game_params)
     @game.update(user_uuid: current_user.uuid)
-
+    if @game.game_name.eql? "1940 Grasshopper"
+      @game.update(game_name: "Grasshopper")
+    end
     if @game.save
       create_game
       session[:game_uuid] = @game.uuid
@@ -34,10 +36,10 @@ class GamesController < ApplicationController
   end
 
   def end_turn
-    current_nation.update(bank: current_nation.bank+current_nation.income)
+    current_nation.end_turn
     if current_nation.name == ("Britain" || "UK Europe")
       current_game.update(current: current_game.current+1)
-      current_game.nations.find_by(nid: current_game.current).update(bank: current_game.nations.find_by(nid: current_game.current).bank+current_game.nations.find_by(nid: current_game.current).income)
+      current_game.nations.find_by(nid: current_game.current).end_turn
       if request.xhr?
         render :json => {
           oo_nation: prev_nation.name,
@@ -54,7 +56,7 @@ class GamesController < ApplicationController
         }
       end
     elsif current_nation.name == ("Pacific" || "FEC")
-      prev_nation.update(bank: prev_nation.bank+prev_nation.income)
+      prev_nation.end_turn
       if request.xhr?
         render :json => {
           oo_nation: prev_nation.name,
@@ -91,7 +93,7 @@ class GamesController < ApplicationController
       current_game.update(current: 0)
     end
     eco_to_current
-    current_game.units.each {|u| u.update(count: 0)}
+    reset_units
     current_game.update(bank: current_game.nations.find_by(nid: current_game.current).bank)
   end
 
@@ -109,22 +111,19 @@ class GamesController < ApplicationController
       }
     end
     eco_to_current
-    current_game.units.each {|u| u.update(count: 0)}
+    reset_units
     current_game.update(bank: current_nation.bank)
   end
 
   def buy_unit
-    @uid = params[:uid]
-    if current_nation.bank - current_game.units.find_by(uid: @uid).cost >=0
-      current_game.units.find_by(uid: @uid).update(count: current_game.units.find_by(uid: @uid).count+1)
-      current_nation.update(bank: current_nation.bank - current_game.units.find_by(uid: @uid).cost)
-    end
+    @unit = current_game.units.find_by(uid: params[:uid])
+    current_nation.buy_unit(@unit)
     if current_eco!=current_nation
       eco_to_current
       if request.xhr?
         render :json => {
-          count: current_game.units.find_by(uid: @uid).count,
-          name: @uid,
+          count: @unit.count,
+          name: params[:uid],
           nation: current_nation.name,
           bank: current_nation.bank,
           income: current_nation.income,
@@ -136,24 +135,13 @@ class GamesController < ApplicationController
     else
       if request.xhr?
         render :json => {
-          count: current_game.units.find_by(uid: @uid).count,
-          name: @uid,
+          count: @unit.count,
+          name: params[:uid],
           nation: current_nation.name,
           bank: current_nation.bank,
           change: false
         }
       end
-    end
-  end
-
-  def reset_buy
-    current_game.units.each {|u| u.update(count: 0)}
-    current_nation.update(bank: current_game.bank)
-    if request.xhr?
-      render :json => {
-        nation: current_nation.name,
-        bank: current_nation.bank,
-      }
     end
   end
 
@@ -213,15 +201,41 @@ class GamesController < ApplicationController
     end
   end
 
-  def exit
-    binding.pry
-    redirect_to home_path
+  def reset_buy
+    reset_units
+    current_nation.update(bank: current_game.bank)
+    if request.xhr?
+      render :json => {
+        nation: current_nation.name,
+        bank: current_nation.bank,
+      }
+    end
+  end
+
+  def reset_victory_research
+    current_game.victories.each do |v|
+      v.update(enabled: false)
+    end
+    current_game.nations.each do |n|
+      n.researches.each do |r|
+        r.update(enabled: false)
+      end
+    end
+    if request.xhr?
+      render :json => {
+      }
+    end
   end
 
   private
+    def reset_units
+      current_game.units.each {|u| u.update(count: 0)}
+    end
+
     def eco_to_current
       current_game.update(eco: current_game.current)
     end
+
     def check_current_user
       if !current_user
         redirect_to root_path
@@ -237,12 +251,13 @@ class GamesController < ApplicationController
         Nation.create_1940(@game.uuid)
         Unit.create_1940(@game.uuid)
         Objective.create_1940(@game.uuid)
-      elsif @game.game_name == "1940 GrassHopper"
-        Nation.create_1940_GrassHopper(@game.uuid)
-        Unit.create_1940_GrassHopper(@game.uuid)
-        Objective.create_1940_GrassHopper(@game.uuid)
-        Victory.create_1940_GrassHopper(@game.uuid)
-        Research.create_1940_GrassHopper(@game.uuid)
+        Research.create_1940(@game.uuid)
+      elsif @game.game_name == "Grasshopper"
+        Nation.create_1940_Grasshopper(@game.uuid)
+        Unit.create_1940_Grasshopper(@game.uuid)
+        Objective.create_1940_Grasshopper(@game.uuid)
+        Victory.create_1940_Grasshopper(@game.uuid)
+        Research.create_1940_Grasshopper(@game.uuid)
       elsif @game.game_name == "1942"
         Nation.create_1942(@game.uuid)
         Unit.create_1942(@game.uuid)

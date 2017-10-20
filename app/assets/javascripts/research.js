@@ -1,3 +1,4 @@
+
 function research(element) {
   $.ajax({
     method: "GET",
@@ -8,7 +9,6 @@ function research(element) {
     url: window.location.origin + '/research/clicked'
   })
   .done(function(response) {
-    debugger;
     $("#"+response["id"]).css("background",response["color"]);
   })
 }

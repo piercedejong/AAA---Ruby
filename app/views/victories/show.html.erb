@@ -14,7 +14,7 @@
               <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" style="text-align:left;font-size:2.0vh;" class="victory btn btn-block" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
             <%end%>
             <br>
-          <% end%>
+          <%end%>
         <%end %>
       </div>
     </div>
@@ -26,14 +26,18 @@
             <% if v.enabled %>
               <button data-id="<%=v.vid%>" id="victory-<%=v.vid%>" style="background:#66ccff;text-align:left;font-size:2.0vh;" class="victory btn btn-block" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
             <%else%>
-            <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" style="text-align:left;font-size:2.0vh;" class="victory btn btn-block" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
-          <%end%>
+              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" style="text-align:left;font-size:2.0vh;" class="victory btn btn-block" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
+            <%end%>
             <br>
-          <% end%>
+          <%end%>
         <%end %>
       </div>
     </div>
   </div>
 </div>
-
-<a id="exit" href="<%= game_path(current_game.uuid) %>" class="btn btn-info" role="button">Back</a>
+<div class="bottom">
+  <%= link_to "Back", game_path(current_game.uuid), :class =>"btn btn-info btn-lg", :role => "button" %>
+  <%= link_to "National Objectives", nation_path(current_eco.uuid), :class =>"btn btn-info btn-lg", :role => "button" %>
+  <%= link_to "Research and Development", research_path(current_game.uuid), :class =>"btn btn-info btn-lg", :role => "button" %>
+  <button class="btn btn-info btn-lg reset-victory" onclick="reset_GrassHopper()"role= "button">Reset</button>
+</div>
