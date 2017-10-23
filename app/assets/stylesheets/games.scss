@@ -18,9 +18,14 @@ div.nations {
 }
 div.nations span {
     background-color: #464646;
-    display: table-cell;
-    text-align:center;
-  }
+  //  display: table-cell;
+  //  text-align:center;
+}
+
+div.nation {
+  display: inline-block;
+  text-align: center;
+}
 div.name {
   display: inline-block;
   line-height: 1.0em;

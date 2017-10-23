@@ -1,11 +1,16 @@
 <div class="nations">
   <% current_game.nations.all.each do |n| %>
-    <span class="" id="<%=n.name%>" style="color:<%=n.color%>;">
-      <div class="name"><%=n.name%></div>
-      <br>
-      <div id="<%=n.name%>-bank" class="money"><%=n.bank%></div>
-      <div id="<%=n.name%>-divider" class="money">|</div>
-      <div id="<%=n.name%>-income" class="money"><%=n.total_income%></div></span>
+    <% if current_game.game_name == "1914" || "Grasshopper" || '1940'%>
+      <div class="nation" id="<%=n.name%>" style="color:<%=n.color%>">
+    <%elsif current_game.game_name == "1942" %>
+      <div class="nation" id="<%=n.name%>" style="color:<%=n.color%>;;width:<%=100/current_game.nations.count%>%">
+    <%end %>
+        <div class="name"><%=n.name%></div>
+        <br>
+        <div id="<%=n.name%>-bank" class="money"><%=n.bank%></div>
+        <div id="<%=n.name%>-divider" class="money">|</div>
+        <div id="<%=n.name%>-income" class="money"><%=n.total_income%></div>
+      </div>
   <% end %>
 </div>
 

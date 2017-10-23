@@ -80,7 +80,7 @@ class Nation < ApplicationRecord
         {nid: 4,name: 'Britain',       roundel: 'usa.png',    color: '#d4ac80',colorL: '#e4ceb4',bank: 42,income: 42},
         {nid: 5,name: 'Ottoman Empire',roundel: 'usa.png',    color: '#248f8f',colorL: '#80ffff',bank: 42,income: 42},
         {nid: 6,name: 'Italy',         roundel: 'usa.png',    color: '#754100',colorL: '#995f16',bank: 42,income: 42},
-        {nid: 7,name: 'U.S.A',         roundel: 'usa.png',    color: '#5a8232',colorL: '#a6cd7e',bank: 42,income: 42},
+        {nid: 7,name: 'USA',         roundel: 'usa.png',    color: '#5a8232',colorL: '#a6cd7e',bank: 42,income: 42},
       ]
       nations.each do |n|
         Game.find_by(uuid: game_uuid).nations.create(n)
