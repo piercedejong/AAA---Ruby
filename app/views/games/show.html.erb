@@ -1,9 +1,9 @@
 <div class="nations">
   <% current_game.nations.all.each do |n| %>
-    <% if current_game.game_name == "1914" || "Grasshopper" || '1940'%>
+    <% if current_game.game_name.eql? "1914" || "Grasshopper" || '1940'%>
       <div class="nation" id="<%=n.name%>" style="color:<%=n.color%>">
-    <%elsif current_game.game_name == "1942" %>
-      <div class="nation" id="<%=n.name%>" style="color:<%=n.color%>;;width:<%=100/current_game.nations.count%>%">
+    <%elsif current_game.game_name.eql? "1942" %>
+      <div class="nation" id="<%=n.name%>" style="width:<%=100/current_game.nations.count%>%;color:<%=n.color%>;">
     <%end %>
         <div class="name"><%=n.name%></div>
         <br>

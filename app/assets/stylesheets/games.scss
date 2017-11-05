@@ -1,16 +1,3 @@
-// Place all the styles related to the Games controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
-// .container > div {
-//     display: inline-block;
-//     display: -moz-inline-box;
-//     *display: inline; /* For IE7 */
-//     zoom: 1; /* Trigger hasLayout */
-//     width: 33%;
-//     text-align: center;
-// }
-
 div.nations {
     display: table;
     width: 100%;
@@ -26,6 +13,7 @@ div.nation {
   display: inline-block;
   text-align: center;
 }
+
 div.name {
   display: inline-block;
   line-height: 1.0em;
