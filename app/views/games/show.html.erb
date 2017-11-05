@@ -1,6 +1,6 @@
 <div class="nations">
   <% current_game.nations.all.each do |n| %>
-    <% if current_game.game_name.eql? "1914" || "Grasshopper" || '1940'%>
+    <% if ["1940","Grasshopper","1914"].include? current_game.game_name%>
       <div class="nation" id="<%=n.name%>" style="color:<%=n.color%>">
     <%elsif current_game.game_name.eql? "1942" %>
       <div class="nation" id="<%=n.name%>" style="width:<%=100/current_game.nations.count%>%;color:<%=n.color%>;">
