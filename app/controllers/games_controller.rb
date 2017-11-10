@@ -34,25 +34,27 @@ class GamesController < ApplicationController
 
   def end_turn
     current_nation.end_turn
-    if current_nation.name == "Britain" || "UK Europe"  && next_nation.name == "Pacific" || "FEC"
-      current_game.update(current: current_game.current+1)
-      current_game.nations.find_by(nid: current_game.current).end_turn
-      if request.xhr?
-        render :json => {
-          oo_nation: prev_nation.name,
-          oo_bank: prev_nation.bank,
-          o_nation: current_game.nations.find_by(nid: current_game.current).name,
-          o_bank: current_game.nations.find_by(nid: current_game.current).bank,
-          nation: next_nation.name,
-          color: next_nation.color,
-          colorL: next_nation.colorL,
-          bank: next_nation.bank,
-          income: next_nation.income,
-          roundel: next_nation.roundel,
-          uuid: next_nation.uuid
-        }
+    if ["Britain","UK Europe"].include? current_nation.name and ["Pacific","FEC"].include? next_nation.name
+      if true
+        current_game.update(current: current_game.current+1)
+        current_game.nations.find_by(nid: current_game.current).end_turn
+        if request.xhr?
+          render :json => {
+            oo_nation: prev_nation.name,
+            oo_bank: prev_nation.bank,
+            o_nation: current_game.nations.find_by(nid: current_game.current).name,
+            o_bank: current_game.nations.find_by(nid: current_game.current).bank,
+            nation: next_nation.name,
+            color: next_nation.color,
+            colorL: next_nation.colorL,
+            bank: next_nation.bank,
+            income: next_nation.income,
+            roundel: next_nation.roundel,
+            uuid: next_nation.uuid
+          }
+        end
       end
-    elsif current_nation.name == "Pacific" || "FEC"
+    elsif ["Pacific","FEC"].include? next_nation.name
       prev_nation.end_turn
       if request.xhr?
         render :json => {

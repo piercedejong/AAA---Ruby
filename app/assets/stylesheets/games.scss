@@ -24,7 +24,7 @@ div.monay {
   width: 100%;
   display: table;
   white-space: nowrap;
-  table-layout: auto;
+  table-layout: fixed;
 }
 .money {
   display:table-cell;
