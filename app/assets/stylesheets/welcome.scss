@@ -1,8 +1,10 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#title {
+.title {
   display: block;
   margin-left: auto;
-  margin-right: auto
+  margin-right: auto;
+  color: #fff;
+ text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }

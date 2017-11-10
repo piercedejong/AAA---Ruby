@@ -5,11 +5,12 @@
     <%elsif current_game.game_name.eql? "1942" %>
       <div class="nation" id="<%=n.name%>" style="width:<%=100/current_game.nations.count%>%;color:<%=n.color%>;">
     <%end %>
-        <div class="name"><%=n.name%></div>
-        <br>
-        <div id="<%=n.name%>-bank" class="money"><%=n.bank%></div>
-        <div id="<%=n.name%>-divider" class="money">|</div>
-        <div id="<%=n.name%>-income" class="money"><%=n.total_income%></div>
+        <div class="name text-center"><%=n.name%></div>
+        <div class="monay">
+          <div id="<%=n.name%>-bank" class="money text-right"><%=n.bank%></div>
+          <div id="<%=n.name%>-divider" class="money text-center">|</div>
+          <div id="<%=n.name%>-income" class="money text-left"><%=n.total_income%></div>
+        </div>
       </div>
   <% end %>
 </div>
@@ -27,19 +28,17 @@
               <th class="text-center">A</th>
               <th class="text-center">D</th>
               <th class="text-center">M</th>
-              <th class="text-center">C</th>
             </tr>
           </thead>
           <tbody>
             <% current_game.units.each do |u| %>
               <tr class="text-center">
                 <td id="<%=u.uid%>" class="count"><%= u.count %></td>
-                <td><a data-uid="<%=u.uid%>" onclick="buy_unit(this)" style="background: <%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="btn btn-unit btn-sm btn-block" role="button"><%= u.cost %></a></td>
+                <td><a data-uid="<%=u.uid%>" onclick="buy_unit(this)" style="background: <%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="btn btn-unit btn-sm btn-block" role="button">$<%= u.cost %></a></td>
                 <td><%= u.name %></td>
                 <td><%= u.attack %></td>
                 <td><%= u.defense %></td>
                 <td><%= u.movement %></td>
-                <td><%= u.cost %></td>
               </tr>
             <% end %>
           </tbody>
