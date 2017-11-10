@@ -34,7 +34,7 @@ class GamesController < ApplicationController
 
   def end_turn
     current_nation.end_turn
-    if ["Britain","UK Europe"].include? current_nation.name and ["Pacific","FEC"].include? next_nation.name
+    if ["Britain","United Kingdom"].include? current_nation.name and ["Pacific","UK Pacific","FEC"].include? next_nation.name
       if true
         current_game.update(current: current_game.current+1)
         current_game.nations.find_by(nid: current_game.current).end_turn
@@ -54,7 +54,7 @@ class GamesController < ApplicationController
           }
         end
       end
-    elsif ["Pacific","FEC"].include? next_nation.name
+    elsif ["Pacific","UK Pacific","FEC"].include? next_nation.name
       prev_nation.end_turn
       if request.xhr?
         render :json => {

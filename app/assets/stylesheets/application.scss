@@ -29,3 +29,14 @@
 .btn-block + .btn-block {
     margin-top: 0;
 }
+
+.btn-basic{
+  background-color: #262626
+}
+.btn-basic:hover{
+  background-color: #d9d9d9;
+}
+
+.bottomaligned {position:absolute; bottom:0;  margin-bottom:7px; left: 0; margin-left:7px}
+
+.bottomalignedright {position:absolute; bottom:0;  margin-bottom:7px; right: 0; margin-right:7px}
