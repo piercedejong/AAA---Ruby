@@ -24,7 +24,7 @@ class Victory < ApplicationRecord
         {vid: 14, axis: false, name: 'Paris', text: 'The Allies have liberated Paris'},
         {vid: 15, axis: false, name: 'Philippines', text: 'The Allies have liberated the Philippines'},
         {vid: 16, axis: false, name: 'Armada', text: 'There are no Japanese Capital ships on the board'},
-        {vid: 17, axis: false, name: 'Communism', text: 'The Soviet Union contorls 6 original Axis territories'},
+        {vid: 17, axis: false, name: 'Communism', text: 'The Soviet Union controls 6 original Axis territories'},
       ]
       victories.each do |v|
         Game.find_by(uuid: game_uuid).victories.create(v)
