@@ -17,8 +17,8 @@
 
 <div class="container-fluid">
   <div class="row content">
-    <div class="col-sm-5">
-      <div class="container">
+    <div class="col-sm-9">
+      <div class="container" style="margin-left:0px">
         <table style="margin-bottom: 5px;" class="table table-condensed table-striped ">
           <thead>
             <tr style="color:<%=current_nation.color%>" class="table-top">
@@ -28,17 +28,27 @@
               <th class="text-center">A</th>
               <th class="text-center">D</th>
               <th class="text-center">M</th>
+              <% if !current_game.units.first.special.eql? "" %>
+                <th class="text-center">Special Ability</th>
+              <%end%>
             </tr>
           </thead>
           <tbody>
             <% current_game.units.each do |u| %>
-              <tr class="text-center">
-                <td id="<%=u.uid%>" class="count"><%= u.count %></td>
-                <td><a data-uid="<%=u.uid%>" onclick="buy_unit(this)" style="background: <%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="btn btn-unit btn-sm btn-block" role="button">$<%= u.cost %></a></td>
-                <td><%= u.name %></td>
-                <td><%= u.attack %></td>
-                <td><%= u.defense %></td>
-                <td><%= u.movement %></td>
+              <% if u.uid%2 ==  1 %>
+                <tr style="color:<%=current_nation.color%>">
+              <% else %>
+                <tr style="color:white">
+              <% end %>
+                <td id="<%=u.uid%>" class=" text-center count"><%= u.count %></td>
+                <td class="text-center" style="color:black"><a data-uid="<%=u.uid%>" onclick="buy_unit(this)" style="background: <%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="btn btn-unit btn-sm btn-block" role="button">$<%= u.cost %></a></td>
+                <td class="text-center nowrap"><%= u.name %></td>
+                <td class="text-center"><%= u.attack %></td>
+                <td class="text-center"><%= u.defense %></td>
+                <td class="text-center"><%= u.movement %></td>
+                <% if !current_game.units.first.special.eql? "" %>
+                  <td class="nowrap" style="padding-left:20px"><%= u.special %></td>
+                <% end%>
               </tr>
             <% end %>
           </tbody>
@@ -50,6 +60,9 @@
               <th class="text-center">A</th>
               <th class="text-center">D</th>
               <th class="text-center">M</th>
+              <% if !current_game.units.first.special.eql? "" %>
+                <th class="text-center">Special Ability</th>
+              <%end%>
             </tr>
           </thead>
         </table>
@@ -58,15 +71,12 @@
       </div>
     </div>
 
-    <div class="col-sm-4">
-    </div>
-
     <div class="col-sm-3">
       <div class="row">
         <div id="change-eco" onclick="change_eco()" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block btn-lg" role="button"><%=current_eco.name%></div>
         <div class="w-100"></div>
-        <div class="text-center col"><h1 id="eco-bank">Bank <%=current_eco.bank%></h1></div>
-        <div class="text-center col"><h1 id="eco-income">Income <%=current_eco.income%></h1></div>
+        <div class="text-center col nowrap"><h1 id="eco-bank">Bank <%=current_eco.bank%></h1></div>
+        <div class="text-center col nowrap"><h1 id="eco-income">Income <%=current_eco.income%></h1></div>
         <div class="w-100"></div>
         <div data-amount="1" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-pos text-center col btn btn-info btn-block" role="button">+1</div>
         <div data-amount="1" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-pos text-center col btn btn-info btn-block" role="button">+1</div>
@@ -101,9 +111,9 @@
   </div>
 
 <div class="container-fluid">
-  <div class="row content bottom">
+  <div class="row content footer navbar-fixed-bottom">
     <div class="col-sm-3">
-      <span class="bottomaligned"><%= link_to "Exit", "/welcome", :class =>"btn btn-basic btn-lg", :role => "button" %></spn>
+      <%= link_to "Exit", "/welcome", :class =>"btn btn-basic btn-lg bottomaligned", :role => "button" %>
     </div>
     <div class="col-sm-6">
       <div class="inline">
