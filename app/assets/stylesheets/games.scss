@@ -34,19 +34,11 @@ div.monay {
   padding-bottom: 1vw;
 }
 
-.text-right {
-  text-align: right;
-}
-.text-left {
-  text-align: left;
-}
+
 
 div.bottom {
-  background-color: #464646;
     width: 100%;
-    table-layout: fixed;
     position: fixed;
-    bottom:0;    /* For cells of equal size */
 }
 div.bottom span {
     display: table-cell;
@@ -54,7 +46,12 @@ div.bottom span {
 }
 
 .table-condensed>thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td{
-   padding: 1px;
+   padding-left: 0.5vw;
+   padding-top: 1px;
+   padding-bottom: 1px;
+   padding-right: 0px;
+
+   vertical-align: middle;
 }
 
 #end-turn {
@@ -97,21 +94,16 @@ div.bottom span {
   font-size: 4vw;
 }
 
-
-@media screen and (min-width: 480px) {
-
-}
-
 .table {
   color: white;
 }
 
 tbody {
-  font-size: 2.0vh;
+  font-size: 0.8w;
 }
 
 .table-top {
-  font-size: 2.1vh;
+  font-size: 1.4vw;
   font-weight: bold;
 }
 
