@@ -38,7 +38,7 @@ class Nation < ApplicationRecord
     @italyL   = "#d79f5b"
     @anzac    = "#7f6d66"
     @anzacL   = "#d2cac6"
-    fFrance   = "#365e7d"
+    @france   = "#365e7d"
     @franceL  = "#b8cfe0"
     def self.create_1940(game_uuid)
       nations = [
