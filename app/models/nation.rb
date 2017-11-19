@@ -23,7 +23,7 @@ class Nation < ApplicationRecord
 
   protected
     @germany  = "#0d0d0d"
-    @geramnyL = '#8a8d8f'
+    @germanyL = '#8a8d8f'
     @ussr     = '#872323'
     @ussrL    = "#d55d5d"
     @japan    = "#a2642a"
