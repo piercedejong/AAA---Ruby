@@ -24,8 +24,8 @@ class Nation < ApplicationRecord
   protected
     @germany  = "#0d0d0d"
     @germanyL = '#8a8d8f'
-    @ussr     = '#872323'
-    @ussrL    = "#d55d5d"
+    @ussr     = '#8f1919'
+    @ussrL    = "#ed9292"
     @japan    = "#a2642a"
     @japanL   = "#e5be9a"
     @usa      = "#4d6e2b"

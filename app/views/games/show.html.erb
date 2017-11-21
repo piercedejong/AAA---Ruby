@@ -1,4 +1,4 @@
-<div class="nations">
+<div class="container-fluid nations" style="padding-left:0.25vw;padding-right:0.25vw;margin-top:-0.25vw">
   <% current_game.nations.all.each do |n| %>
     <% if ["1940","Grasshopper","1914"].include? current_game.game_name%>
       <div class="nation" id="<%=n.name%>" style="color:<%=n.color%>">
@@ -7,8 +7,8 @@
     <%end %>
         <div class="name text-center"><%=n.name%></div>
         <div class="monay">
-          <div id="<%=n.name%>-bank" class="money text-right"><%=n.bank%></div>
-          <div id="<%=n.name%>-divider" class="money text-center" style="width:20px">|</div>
+          <div id="<%=n.name%>-bank" class="money text-right">1000</div>
+          <div id="<%=n.name%>-divider" class="money text-center" style="width:0.75vw">|</div>
           <div id="<%=n.name%>-income" class="money text-left"><%=n.total_income%></div>
         </div>
       </div>
@@ -36,9 +36,9 @@
           <tbody>
             <% current_game.units.each do |u| %>
               <% if u.uid%2 ==  0 %>
-                <tr class="tablerow1" style="color:<%=current_nation.color%>">
+                <tr class="tablerow1" style="color:<%=current_nation.colorL%>">
               <% else %>
-                <tr class="tablerow2" style="color:<%=current_nation.colorL%>;background:#404040">
+                <tr class="tablerow2" style="color:<%=current_nation.color%>">
               <% end %>
                 <td id="<%=u.uid%>" class=" text-center count"><%= u.count %></td>
                 <td class="text-center" style="color:white"><a data-uid="<%=u.uid%>" onclick="buy_unit(this)" style="background: <%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="btn btn-unit btn-sm btn-block" role="button">$<%= u.cost %></a></td>
@@ -52,19 +52,6 @@
               </tr>
             <% end %>
           </tbody>
-          <thead>
-            <tr style="color:<%=current_nation.color%>" class="table-top">
-              <th class="text-center">Count</th>
-              <th class="text-center">Buy</th>
-              <th class="text-center">Name</th>
-              <th class="text-center">A</th>
-              <th class="text-center">D</th>
-              <th class="text-center">M</th>
-              <% if !current_game.units.first.special.eql? "" %>
-                <th class="text-center">Special Ability</th>
-              <%end%>
-            </tr>
-          </thead>
         </table>
         <button id="reset" onclick="reset_buy()" class="btn btn-info " role="button" style="background:<%=current_nation.color%>;color:white">Reset Buy</button>
         <button id="pacific" onclick="buy_pacific()" class="btn btn-info " role="button" style="background:<%=current_nation.color%>;color:white;<%if current_nation.name != ("Britain"||"UK Europe")%>display:none<% end %>">Buy Pacific Units</button>
@@ -109,9 +96,9 @@
 
       </div>
   </div>
-
-<div class="container-fluid" style="padding:0.25vw">
-  <div class=" row content footer navbar-fixed-bottom">
+</div>
+<div class="container-fluid">
+  <div class="row content" style="padding:0.25vw">
     <div class="col-sm-3" style="padding:0px">
       <%= link_to "Exit", "/welcome", :class =>"btn btn-basic btn-lg bottomaligned", :role => "button" %>
     </div>

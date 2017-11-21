@@ -9,8 +9,8 @@ class Unit < ApplicationRecord
       units = [
         {uid: 0, name: 'Infantry', special:'Combined Arms - attack at a 2 when paired with artillery', attack: 1, defense: 2, movement: 1, cost: 3, count: 0},
         {uid: 1, name: 'Mechanized Infantry', special: 'Combined Arms - attack at a 2 when paired with artillery', attack: 1, defense: 2, movement: 2, cost: 4, count: 0},
-        {uid: 2, name: 'Artillery', special: 'Combined Arms - increases attack of nfantry to 2 on a 1 to 1 scale', attack: 2, defense: 2, movement: 1, cost: 4, count: 0},
-        {uid: 3, name: 'Tank', special: 'Blitz - move through an unoccupoed enemny territory to attack another', attack: 3, defense: 3, movement: 2, cost: 6, count: 0},
+        {uid: 2, name: 'Artillery', special: 'Combined Arms - increases attack of infantry to 2 on a 1 to 1 scale', attack: 2, defense: 2, movement: 1, cost: 4, count: 0},
+        {uid: 3, name: 'Tank', special: 'Blitz - attack through unoccupied enenmy territory', attack: 3, defense: 3, movement: 2, cost: 6, count: 0},
         {uid: 4, name: 'Antiaircraft Artillery', special: 'Air Defense - Fire at up to 3 enemy aircraft', attack: 0, defense: 1, movement: 1, cost: 5, count: 0},
         {uid: 5, name: 'Fighter', special: 'Escort and Intercept, Can hit sumbarines when combined with a destroyer', attack: 3, defense: 4, movement: 4, cost: 10, count: 0},
         {uid: 6, name: 'Tactical Bomber', special: 'Tactical Bombing Raid, Can hit sumbarines when combined with a destroyer', attack: 3, defense: 3, movement: 5, cost: 11, count: 0},
