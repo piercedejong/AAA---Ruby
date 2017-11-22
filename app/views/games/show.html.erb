@@ -7,7 +7,7 @@
     <%end %>
         <div class="name text-center"><%=n.name%></div>
         <div class="monay">
-          <div id="<%=n.name%>-bank" class="money text-right">1000</div>
+          <div id="<%=n.name%>-bank" class="money text-right"><%=n.bank%></div>
           <div id="<%=n.name%>-divider" class="money text-center" style="width:0.75vw">|</div>
           <div id="<%=n.name%>-income" class="money text-left"><%=n.total_income%></div>
         </div>
@@ -41,7 +41,7 @@
                 <tr class="tablerow2" style="color:<%=current_nation.color%>">
               <% end %>
                 <td id="<%=u.uid%>" class=" text-center count"><%= u.count %></td>
-                <td class="text-center" style="color:white"><a data-uid="<%=u.uid%>" onclick="buy_unit(this)" style="background: <%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="btn btn-unit btn-sm btn-block" role="button">$<%= u.cost %></a></td>
+                <td class="text-center" style="color:white"><a data-uid="<%=u.uid%>" onclick="buy_unit(this)" style="background:<%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="btn btn-unit btn-sm btn-block" role="button">$<%= u.cost %></a></td>
                 <td class="text-center"><%= u.name %></td>
                 <td class="text-center"><%= u.attack %></td>
                 <td class="text-center"><%= u.defense %></td>
@@ -60,7 +60,7 @@
 
     <div class="col-sm-3" style="padding-left:0px;padding-right:0.25vw">
       <div class="row" style="margin-left:0px; margin-right:0px">
-        <div id="change-eco" onclick="change_eco()" style="background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block btn-lg" role="button"><%=current_eco.name%></div>
+        <div id="change-eco" onclick="change_eco()" style="font-size:3vw;background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block btn-lg" role="button"><%=current_eco.name%></div>
         <div class="w-100"></div>
         <div class="text-center col nowrap"><h1 id="eco-bank">Bank <%=current_eco.bank%></h1></div>
         <div class="text-center col nowrap"><h1 id="eco-income">Income <%=current_eco.income%></h1></div>
@@ -84,16 +84,17 @@
         <div data-amount="-10" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-neg text-center col btn btn-info btn-block" role="button">-10</div>
       </div>
       <br>
-      <% if current_game.game_name.eql? "1940"%>
-        <%= link_to "National Objectives", nation_path(current_eco.uuid), :id => "objective", :class =>"btn btn-info btn-block", :role => "button", :style =>"background:"+current_eco.color %>
-        <%= link_to "Research and Development", research_path(current_game.uuid), :id => "research", :class =>"btn btn-info btn-block", :role => "button", :style => "background:"+current_eco.colorL %>
-      <%elsif current_game.game_name.eql? "Grasshopper"%>
-        <%= link_to "National Objectives", nation_path(current_eco.uuid), :id => "objective", :class =>"btn btn-info btn-block", :role => "button", :style =>"background:"+current_eco.color %>
-        <%= link_to "Victory Objectives", victory_path(current_game.uuid), :id => "victory", :class =>"btn btn-info btn-block", :role => "button", :style =>"background:"+current_eco.colorL %>
-        <%= link_to "Research and Development", research_path(current_game.uuid), :id => "research", :class =>"btn btn-info btn-block", :role => "button", :style => "background:"+current_eco.color %>
-      <%else%>
-      <%end%>
-
+      <div style="font-size:1.8vw">
+        <% if current_game.game_name.eql? "1940"%>
+          <%= link_to "National Objectives", nation_path(current_eco.uuid), :id => "objective", :class =>"btn btn-info btn-block side-button", :role => "button", :style =>"font-size:1.8w;background:"+current_eco.color %>
+          <%= link_to "Research and Development", research_path(current_game.uuid), :id => "research", :class =>"btn btn-info btn-block side-button", :role => "button", :style => "font-size:1.8vw;background:"+current_eco.colorL %>
+        <%elsif current_game.game_name.eql? "Grasshopper"%>
+          <%= link_to "National Objectives", nation_path(current_eco.uuid), :id => "objective", :class =>"btn btn-info btn-block side-button", :role => "button", :style =>"font-size:1.8vw;background:"+current_eco.color %>
+          <%= link_to "Victory Objectives", victory_path(current_game.uuid), :id => "victory", :class =>"btn btn-info btn-block side-button", :role => "button", :style =>"font-size:1.8vw;background:"+current_eco.colorL %>
+          <%= link_to "Research and Development", research_path(current_game.uuid), :id => "research", :class =>"btn btn-info btn-block side-button", :role => "button", :style => "font-size:1.8vw;background:"+current_eco.color %>
+        <%else%>
+        <%end%>
+      </div>
       </div>
   </div>
 </div>

@@ -7,8 +7,7 @@
     <div class="col-sm-4">
       <div class="list-group">
         <% current_user.games.each do |game| %>
-          <a href="<%= game_path(game.uuid) %>" class="btn btn-basic btn-lg" role="button" ><%= game.name %></a>
-          <%= link_to 'Delete', game_path(game.uuid), method: :delete,data: {confirm: "Confirm deletion of game: "+game.name} %>
+          <a href="<%= game_path(game.uuid) %>" class="btn btn-basic btn-lg" style="padding:0.1vw;font-size:2vw"role="button" ><%= game.name %></a><%= link_to 'Delete', game_path(game.uuid), method: :delete,data: {confirm: "Confirm deletion of game: "+game.name} %>
         <% end %>
       </div>
     </div>
@@ -17,4 +16,4 @@
   </div>
 </div>
 
-<%= link_to "Back", home_path, :class =>"btn btn-basic btn-lg bottomaligned", :role => "button", :style => "font-size:40px"%>
+<%= link_to "Back", home_path, :class =>"btn btn-basic btn-lg bottomaligned", :role => "button", :style => "position:fixed;"%>

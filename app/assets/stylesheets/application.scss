@@ -17,12 +17,12 @@
 
  @font-face {
     font-family: 'test'; /*a name to be used later*/
-    src: url('http://ff.cdn.1001fonts.net/a/l/alte-din-1451-mittelschrift.regular.ttf'); /*URL to font*/
+    src: url('https://ff.cdn.1001fonts.net/a/l/alte-din-1451-mittelschrift.regular.ttf'); /*URL to font*/
 }
 
  body {
    background-color: #262626;
-   //font-family: 'test','ariel', serif;
+   font-family: 'test','ariel', serif;
    color: #0d0d0d
 
   }
@@ -38,7 +38,8 @@
 
 .btn-basic{
   background-color: #464646;
-  color: white
+  color: white;
+  font-size: 3vw;
 }
 .btn-basic:hover{
   background-color: #bfbfbf;
