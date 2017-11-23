@@ -5,7 +5,7 @@
     <%elsif current_game.game_name.eql? "1942" %>
       <div class="nation" id="<%=n.name%>" style="width:<%=100/current_game.nations.count%>%;color:<%=n.color%>;">
     <%end %>
-        <div class="name text-center"><%=n.name%></div>
+        <div class="name"><%=n.name%></div>
         <div class="monay">
           <div id="<%=n.name%>-bank" class="money text-right"><%=n.bank%></div>
           <div id="<%=n.name%>-divider" class="money text-center" style="width:0.75vw">|</div>
