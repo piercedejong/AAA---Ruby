@@ -15,11 +15,17 @@
  */
  @import "bootstrap";
 
- body {
-   background-color: #464646;
-   font-family: 'Lucida Console', serif;
+ @font-face {
+    font-family: 'test'; /*a name to be used later*/
+    src: url('https://ff.cdn.1001fonts.net/a/l/alte-din-1451-mittelschrift.regular.ttf'); /*URL to font*/
+}
 
- }
+ body {
+   background-color: #262626;
+   font-family: 'test','ariel', serif;
+   color: #0d0d0d
+
+  }
 
 
 .btn{
@@ -31,13 +37,30 @@
 }
 
 .btn-basic{
-  background-color: #262626;
-  color: white
+  background-color: #464646;
+  color: white;
+  font-size: 3vw;
 }
 .btn-basic:hover{
-  background-color: #8c8c8c;
+  background-color: #bfbfbf;
+  color: black
 }
 
-.bottomaligned {position:absolute; bottom:0;  margin-bottom:7px; left: 0; margin-left:7px}
+.nowrap {
+  white-space:nowrap;
+}
 
-.bottomalignedright {position:absolute; bottom:0;  margin-bottom:7px; right: 0; margin-right:7px}
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+
+.middle {
+  vertical-align: middle;
+}
+
+.bottomaligned {position:absolute; bottom:0;  margin-bottom:0.1vw; left: 0; margin-left:0.1vw}
+
+.bottomalignedright {position:absolute; bottom:0;  margin-bottom:7px; right: 0; margin-right:0.1vw}

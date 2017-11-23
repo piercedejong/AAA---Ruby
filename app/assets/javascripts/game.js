@@ -42,6 +42,24 @@ function end_turn() {
 			}
 			count++;
 		})
+
+		$('.tablerow1').each(function(){
+			if(response["nation"] != 'Germany'){
+				//$(this).css("background", "#262626")
+			} else{
+				//$(this).css("background", "#404040")
+			}
+			$(this).css("color", response["color"])
+		})
+
+		$('.tablerow2').each(function(){
+			if(response["nation"] != 'Germany'){
+				//$(this).css("background", "#404040")
+			} else{
+				//$(this).css("background", "#262626")
+			}
+			$(this).css("color", response["colorL"])
+		})
 		$(".table-top").css("color",response["color"]);
     $("#reset").css("background",response["color"]);
     $('.count').text("0");
