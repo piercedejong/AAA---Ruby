@@ -40,8 +40,20 @@
   background-color: #464646;
   color: white;
   font-size: 3vw;
+  padding:1.0vw
 }
 .btn-basic:hover{
+  background-color: #bfbfbf;
+  color: black
+}
+
+.btn-menu{
+  background-color: #464646;
+  color: white;
+  font-size: 2vw;
+  padding:1.0vw
+}
+.btn-menu:hover{
   background-color: #bfbfbf;
   color: black
 }
