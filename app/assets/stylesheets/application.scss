@@ -40,7 +40,10 @@
   background-color: #464646;
   color: white;
   font-size: 3vw;
-  padding:1.0vw
+  padding:1.0vw;
+  border:0.050vw;
+  border:solid;
+  border-color: black;
 }
 .btn-basic:hover{
   background-color: #bfbfbf;
@@ -75,4 +78,4 @@
 
 .bottomaligned {position:absolute; bottom:0;  margin-bottom:0.1vw; left: 0; margin-left:0.1vw}
 
-.bottomalignedright {position:absolute; bottom:0;  margin-bottom:7px; right: 0; margin-right:0.1vw}
+.bottomalignedright {position:absolute; bottom:0;  margin-bottom:0.1vw; right: 0; margin-right:0.1vw}
