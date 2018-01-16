@@ -53,7 +53,7 @@
     <% end %>
   </div>
 </div>
-<div class="bottomaligned" style="position:fixed">
+<div class="bottomaligned" style="position:fixed;background-color:#353535;width:100%">
   <%= link_to "Back", game_path(current_game.uuid), :class =>"btn btn-menu", :role => "button" %>
   <% if current_game.game_name.eql? "1940" %>
     <%= link_to "National Objectives", nation_path(current_eco.uuid), :class =>"btn btn-menu", :role => "button" %>

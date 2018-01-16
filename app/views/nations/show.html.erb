@@ -20,7 +20,7 @@
     </div>
   </div>
 </div>
-<div style="position:fixed"class="bottomaligned" >
+<div style="position:fixed;background-color:#353535"class="bottomaligned" >
   <%= link_to "Back", game_path(current_game.uuid), :class =>"btn btn-menu", :role => "button"%>
   <% if current_game.game_name.eql? "1940" %>
     <%= link_to "Research and Development", research_path(current_game.uuid), :class =>"btn btn-menu", :role => "button" %>
