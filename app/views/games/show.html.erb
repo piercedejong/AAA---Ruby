@@ -15,7 +15,7 @@
   <% end %>
 </div>
 
-<div class="container-fluid">
+<div class="container-fluid" style="margin-bottom:7.0vw">
   <div class="row content">
     <div class="col-sm-9" style="padding-left:0px">
       <div class="container" style="margin-left:0px;padding-left:0.5vw;width:100%">
@@ -98,18 +98,10 @@
       </div>
   </div>
 </div>
-<div class="container-fluid">
-  <div class="row content" style="padding:0.25vw">
-    <div class="col-sm-3" style="padding:0px">
-      <%= link_to "Exit", "/welcome", :class =>"btn btn-basic btn-lg bottomaligned", :role => "button" %>
-    </div>
-    <div class="col-sm-6" style="padding:0px">
-        <div  id="c-nation" class="text-center" style="color:<%=current_nation.color%>" ><!--<%= image_tag current_nation.roundel , :id => "roundel"%>--><%=current_nation.name%>-<%=current_nation.bank%></div>
-    </div>
-    <div class="col-sm-3" style="padding:0px">
-      <button id="end-turn" class="btn btn-secondary btn-block" onclick="end_turn()" style="background:<%=current_nation.color%>;padding:0px" role="button">
-        <span class="glyphicon glyphicon-paperclip" style="vertical-align:middle"></span> End Turn
-      </button>
-    </div>
-  </div>
+<div class="container-fluid bottomaligned nations" style="background:#353535;width:100%;position:fixed">
+      <%= link_to "Exit", home_path, :class =>"bottomaligned nation btn btn-basic btn-lg", :style=>"", :role => "button" %>
+      <div id="c-nation" class="nation text-center" style="color:<%=current_nation.color%>" ><%=current_nation.name%>-<%=current_nation.bank%></div>
+      <button id="end-turn" class="bottomalignedright nation btn btn-secondary" onclick="end_turn()" style="height:7vw;background:<%=current_nation.color%>" role="button">End Turn</button>
 </div>
+
+<!--<%= image_tag current_nation.roundel , :id => "roundel"%>-->

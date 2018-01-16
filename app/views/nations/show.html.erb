@@ -1,32 +1,31 @@
-
-<div class="container-fluid">
-  <div class="row content">
-    <div class="col-sm-2">
-      <div id="nations" class="container">
-        <% current_game.nations.each do |n| %>
-          <div>
-            <%= link_to n.name, nation_path(n.uuid), :class => "btn btn-info btn-block", :style => "padding-top:"+((90/current_game.nations.last.nid-1)/2-1.5).to_s+"vh;height:"+(90/current_game.nations.last.nid-1).to_s+"vh;font-size:3vh;background-color:"+n.color%>
-          </div>
+<div class="container-fluid" style="padding1.5vw">
+  <div class="row content" style="padding-bottom:3.0vw">
+    <div class="col-sm-10">
+      <div class="container" style="padding:2.0vw;width:100%;margin-bottom:2.0vw">
+        <div id="c-nation" class="text-center" style="margin-top:-1.4vw;margin-bottom:0.9vw;color:<%=@nation.color%>"><%= @nation.name %></div>
+        <% @nation.objectives.each do |o| %>
+          <a data-oid="<%=o.oid%>" onclick="update_obj(this)" id="objective-<%=o.oid%>" href="" style="padding:0.5vwvw;margin-top:0.25vw;color:black;background:<%= o.enabled ? @nation.color : @nation.colorL%>;text-align:left;font-size:1.5vw" class="btn btn-info btn-block jtextfill" role="button"><strong><%= o.value %></strong> :: <%=o.name %></a>
         <% end %>
       </div>
     </div>
-    <div class="col-sm-10">
-      <div class="container">
-        <h1 id="c-nation" class="text-center" style="color:<%=@nation.color%>"><%= @nation.name %></h1>
-        <% @nation.objectives.each do |o| %>
-          <a data-oid="<%=o.oid%>" onclick="update_obj(this)" id="objective-<%=o.oid%>" href="" style="background:<%= o.enabled ? @nation.color : @nation.colorL%>;text-align:left" class="btn btn-info btn-block" role="button"><strong><%= o.value %></strong> :: <%=o.name %></a>
-          <br>
+
+    <div class="col-sm-2" style="position:fixed;right:0;padding:0.75vw;">
+      <div id="nations" class="container" style="padding:0px">
+        <% current_game.nations.each do |n| %>
+          <div>
+            <%= link_to n.name, nation_path(n.uuid), :class => "btn btn-info btn-block", :style => "padding:0.1vw;padding-top:"+((90/current_game.nations.last.nid-0.2)/2-2).to_s+"vh;height:"+(90/current_game.nations.last.nid-0.2).to_s+"vh;font-size:3vh;background-color:"+n.color%>
+          </div>
         <% end %>
       </div>
     </div>
   </div>
 </div>
-<div class="bottom">
-  <%= link_to "Back", game_path(current_game.uuid), :class =>"btn btn-basic btn-lg", :role => "button" %>
+<div style="position:fixed;background-color:#353535"class="bottomaligned" >
+  <%= link_to "Back", game_path(current_game.uuid), :class =>"btn btn-menu", :role => "button"%>
   <% if current_game.game_name.eql? "1940" %>
-    <%= link_to "Research and Development", research_path(current_game.uuid), :class =>"btn btn-basic btn-lg", :role => "button" %>
+    <%= link_to "Research and Development", research_path(current_game.uuid), :class =>"btn btn-menu", :role => "button" %>
   <% elsif current_game.game_name.eql? "Grasshopper" %>
-    <%= link_to "Victory Objectives", victory_path(current_game.uuid), :class =>"btn btn-basic btn-lg", :role => "button" %>
-    <%= link_to "Research and Development", research_path(current_game.uuid), :class =>"btn btn-basic btn-lg", :role => "button" %>
+    <%= link_to "Victory Objectives", victory_path(current_game.uuid), :class =>"btn btn-menu", :role => "button" %>
+    <%= link_to "Research and Development", research_path(current_game.uuid), :class =>"btn btn-menu", :role => "button" %>
   <%end %>
 </div>

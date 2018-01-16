@@ -21,7 +21,7 @@
 }
 
  body {
-   background-color: #262626;
+   background-color: #353535;
    font-family: 'test','ariel', serif;
    color: #0d0d0d
 
@@ -40,8 +40,23 @@
   background-color: #464646;
   color: white;
   font-size: 3vw;
+  padding:1.0vw;
+  border:0.050vw;
+  border:solid;
+  border-color: black;
 }
 .btn-basic:hover{
+  background-color: #bfbfbf;
+  color: black
+}
+
+.btn-menu{
+  background-color: #464646;
+  color: white;
+  font-size: 2vw;
+  padding:1.0vw
+}
+.btn-menu:hover{
   background-color: #bfbfbf;
   color: black
 }
@@ -63,4 +78,4 @@
 
 .bottomaligned {position:absolute; bottom:0;  margin-bottom:0.1vw; left: 0; margin-left:0.1vw}
 
-.bottomalignedright {position:absolute; bottom:0;  margin-bottom:7px; right: 0; margin-right:0.1vw}
+.bottomalignedright {position:absolute; bottom:0;  margin-bottom:0.1vw; right: 0; margin-right:0.1vw}
