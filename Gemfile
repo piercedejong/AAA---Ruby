@@ -37,8 +37,6 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'bootstrap', '~> 4.0.0.alpha3'
 
-gem 'jquery-rails'
-
 gem 'sinatra'
 
 gem 'omniauth-google-oauth2'
@@ -65,7 +63,7 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.21'
   gem 'rails_12factor'
 end
 
