@@ -1,5 +1,6 @@
 class Nation < ApplicationRecord
   before_create :create_uuid
+  after_create :destroy_objectives
   belongs_to :game
   has_many :objectives
   has_many :researches
@@ -40,7 +41,7 @@ class Nation < ApplicationRecord
     @anzacL   = "#d2cac6"
     @france   = "#365e7d"
     @franceL  = "#b8cfe0"
-    def self.create_1940(game_uuid)
+    def self.create_1940(game)
       nations = [
         # OLD COLOURS
         #{nid: 0,name: 'Germany',roundel: 'germany.png',color: '#282828',colorL: '#8a8d8f',bank: 30,income: 30},
@@ -66,11 +67,38 @@ class Nation < ApplicationRecord
         {nid: 9,name: 'France', roundel: 'france.png', color: @france, colorL: @franceL, bank: 19,income: 19},
       ]
       nations.each do |n|
-        Game.find_by(uuid: game_uuid).nations.create(n)
+        game.nations.create(n)
       end
     end
 
-    def self.create_1940_Grasshopper(game_uuid)
+    def self.create_1940_Europe(game)
+      nations = [
+        {nid: 0,name: 'Germany',roundel: 'germany.png',color: @germany,colorL: @germanyL,bank: 30,income: 30},
+        {nid: 1,name: 'USSR',   roundel: 'ussr.png',   color: @ussr,   colorL: @ussrL,   bank: 37,income: 37},
+        {nid: 2,name: 'USA',    roundel: 'usa.png',    color: @usa,    colorL: @usaL,    bank: 52,income: 52},
+        {nid: 3,name: 'Britain',roundel: 'britain.png',color: @britain,colorL: @britainL,bank: 28,income: 28},
+        {nid: 4,name: 'Italy',  roundel: 'italy.png',  color: @italy,  colorL: @italyL,  bank: 10,income: 10},
+        {nid: 5,name: 'France', roundel: 'france.png', color: @france, colorL: @franceL, bank: 19,income: 19},
+      ]
+      nations.each do |n|
+        game.nations.create(n)
+      end
+    end
+
+    def self.create_1940_Pacific(game)
+      nations = [
+        {nid: 0,name: 'Japan',  roundel: 'japan.png',  color: @japan,  colorL: @japanL,  bank: 26,income: 26},
+        {nid: 1,name: 'USA',    roundel: 'usa.png',    color: @usa,    colorL: @usaL,    bank: 52,income: 52},
+        {nid: 2,name: 'China',  roundel: 'china.png',  color: @china,  colorL: @chinaL,  bank: 12,income: 12},
+        {nid: 3,name: 'Britain',roundel: 'britain.png',color: @britain,colorL: @britainL,bank: 28,income: 28},
+        {nid: 4,name: 'ANZAC',  roundel: 'anzac.png',  color: @anzac,  colorL: @anzacL,  bank: 10,income: 10},
+      ]
+      nations.each do |n|
+        game.nations.create(n)
+      end
+    end
+
+    def self.create_1940_Grasshopper(game)
       nations = [
         {nid: 0,name: 'Germany',roundel: 'germany.png',color: @germany,colorL: @germanyL,bank: 30,income: 30},
         {nid: 1,name: 'USSR',   roundel: 'ussr.png',   color: @ussr,   colorL: @ussrL,   bank: 37,income: 37},
@@ -84,11 +112,11 @@ class Nation < ApplicationRecord
         {nid: 9,name: 'France', roundel: 'france.png', color: @france, colorL: @franceL, bank: 19,income: 19},
       ]
       nations.each do |n|
-        Game.find_by(uuid: game_uuid).nations.create(n)
+        game.nations.create(n)
       end
     end
 
-    def self.create_1942(game_uuid)
+    def self.create_1942(game)
       nations = [
         {nid: 0,name: 'USSR',   roundel: 'ussr.png',   color: @ussr,   colorL: @ussrL,   bank: 24,income: 24},
         {nid: 1,name: 'Germany',roundel: 'germany.png',color: @germany,colorL: @germanyL,bank: 41,income: 41},
@@ -97,11 +125,11 @@ class Nation < ApplicationRecord
         {nid: 4,name: 'USA',    roundel: 'usa.png',    color: @usa,    colorL: @usaL,    bank: 42,income: 42},
       ]
       nations.each do |n|
-        Game.find_by(uuid: game_uuid).nations.create(n)
+        game.nations.create(n)
       end
     end
 
-    def self.create_1914(game_uuid)
+    def self.create_1914(game)
       nations = [
         {nid: 0,name: 'Austria',       roundel: 'ussr.png',   color: '#40bf40',colorL: '#8cd98c',bank: 24,income: 24},
         {nid: 1,name: 'Russia',        roundel: 'germany.png',color: '#872323',colorL: '#d55d5d',bank: 41,income: 41},
@@ -113,7 +141,7 @@ class Nation < ApplicationRecord
         {nid: 7,name: 'USA',         roundel: 'usa.png',    color: '#5a8232',colorL: '#a6cd7e',bank: 42,income: 42},
       ]
       nations.each do |n|
-        Game.find_by(uuid: game_uuid).nations.create(n)
+        game.nations.create(n)
       end
     end
 
@@ -122,5 +150,9 @@ class Nation < ApplicationRecord
       begin
         self.uuid = SecureRandom.uuid
       end while self.class.exists?(:uuid => uuid)
+    end
+
+    def destroy_objectives
+      self.objectives.all.each {|o| o.destroy}
     end
 end

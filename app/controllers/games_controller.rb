@@ -247,22 +247,32 @@ class GamesController < ApplicationController
 
     def create_game
       if @game.game_name == "1940"
-        Nation.create_1940(@game.uuid)
-        Unit.create_1940(@game.uuid)
-        Objective.create_1940(@game.uuid)
-        Research.create_1940(@game.uuid)
+        Nation.create_1940(@game)
+        Unit.create_1940(@game)
+        Objective.create_1940(@game)
+        Research.create_1940(@game)
+      elsif @game.game_name == "1940Pacific"
+        Nation.create_1940_Pacific(@game)
+        Unit.create_1940(@game)
+        Objective.create_1940_Pacific(@game)
+        Research.create_1940(@game)
+      elsif @game.game_name == "1940Europe"
+        Nation.create_1940_Europe(@game)
+        Unit.create_1940(@game)
+        Objective.create_1940_Europe(@game)
+        Research.create_1940(@game)
       elsif @game.game_name == "Grasshopper"
-        Nation.create_1940_Grasshopper(@game.uuid)
-        Unit.create_1940_Grasshopper(@game.uuid)
-        Objective.create_1940_Grasshopper(@game.uuid)
-        Victory.create_1940_Grasshopper(@game.uuid)
-        Research.create_1940_Grasshopper(@game.uuid)
+        Nation.create_1940_Grasshopper(@game)
+        Unit.create_1940_Grasshopper(@game)
+        Objective.create_1940_Grasshopper(@game)
+        Victory.create_1940_Grasshopper(@game)
+        Research.create_1940_Grasshopper(@game)
       elsif @game.game_name == "1942"
-        Nation.create_1942(@game.uuid)
-        Unit.create_1942(@game.uuid)
+        Nation.create_1942(@game)
+        Unit.create_1942(@game)
       elsif @game.game_name == "1914"
-        Nation.create_1914(@game.uuid)
-        Unit.create_1914(@game.uuid)
+        Nation.create_1914(@game)
+        Unit.create_1914(@game)
       end
     end
 end

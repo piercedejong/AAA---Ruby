@@ -2,7 +2,7 @@
   <% current_game.nations.all.each do |n| %>
     <% if ["1940","Grasshopper","1914"].include? current_game.game_name%>
       <div class="nation" id="<%=n.name%>" style="color:<%=n.color%>">
-    <%elsif current_game.game_name.eql? "1942" %>
+    <%elsif ["1942","1940Europe","1940Pacifc"].include? current_game.game_name %>
       <div class="nation" id="<%=n.name%>" style="width:<%=100/current_game.nations.count%>%;color:<%=n.color%>;">
     <%end %>
         <div class="name" style="margin-top: -0.95vw; margin-bottom: -0.75vw;"><%=n.name%></div>
@@ -85,7 +85,7 @@
       </div>
       <br>
       <div style="font-size:1.8vw">
-        <% if current_game.game_name.eql? "1940"%>
+        <% if["1940","1940Pacific","1940Europe"].include? current_game.game_name%>
           <%= link_to "National Objectives", nation_path(current_eco.uuid), :id => "objective", :class =>"btn btn-info btn-block side-button", :role => "button", :style =>"font-size:1.8vw;background:"+current_eco.color %>
           <%= link_to "Research and Development", research_path(current_game.uuid), :id => "research", :class =>"btn btn-info btn-block side-button", :role => "button", :style => "font-size:1.8vw;background:"+current_eco.colorL %>
         <%elsif current_game.game_name.eql? "Grasshopper"%>

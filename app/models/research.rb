@@ -4,7 +4,7 @@ class Research < ApplicationRecord
   default_scope { order(created_at: :asc) }
 
   protected
-    def self.create_1940(game_uuid)
+    def self.create_1940(game)
       researches = [
         {rid: 0, name: 'Advanced Artillery', text: 'All artillery now support up to 2 attacking infantry and/or mech infantry'},
         {rid: 1, name: 'Rockets', text: 'Each operational airbase may launch a rocket at an enemy facility up to 4 spaces away'},
@@ -19,14 +19,14 @@ class Research < ApplicationRecord
         {rid: 10, name: 'Long-Range Aircraft', text: 'Maximum movement range for all air units is now increased by 1'},
         {rid: 11, name: 'Heavy Bombers', text: 'When attacking during a battle or a SBR, roll 2 dice for each strategic bomber and select the best result'},
       ]
-      Game.find_by(uuid: game_uuid).nations.each do |n|
+      game.nations.each do |n|
         researches.each do |v|
           n.researches.create(v)
         end
       end
     end
 
-    def self.create_1940_Grasshopper(game_uuid)
+    def self.create_1940_Grasshopper(game)
       researches = [
         {rid: 0, name: 'Heavy Artillery', text: 'All artillery now support up to 2 attacking infantry and/or mech infantry'},
         {rid: 1, name: 'Rockets', text: 'Each operational airbase may launch a rocket at an enemy facility up to 4 spaces away, roll 2 dice per rocket and apply the highest result for damage'},
@@ -41,7 +41,7 @@ class Research < ApplicationRecord
         {rid: 10, name: 'Super Carrier Decks', text: 'All aircraft carriers may now carry up to 3 fighters and/or tactical bombers each'},
         {rid: 11, name: 'Heavy Bombers', text: 'When attacking during a battle or a SBR, roll 2 dice for each strategic bomber and select the best result'},
       ]
-      Game.find_by(uuid: game_uuid).nations.each do |n|
+      game.nations.each do |n|
         researches.each do |v|
           n.researches.create(v)
         end

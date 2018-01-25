@@ -5,7 +5,7 @@ class Victory < ApplicationRecord
   default_scope { order(created_at: :asc) }
 
   protected
-    def self.create_1940_Grasshopper(game_uuid)
+    def self.create_1940_Grasshopper(game)
       victories = [
         {vid: 0, axis: true, name: 'London',   text: 'The Axis control London'},
         {vid: 1, axis: true, name: 'Moscow',   text: 'The Axis control Moscow'},
@@ -27,7 +27,7 @@ class Victory < ApplicationRecord
         {vid: 17,axis: false,name: 'Paris',    text: 'The Allies have liberated Paris'},
       ]
       victories.each do |v|
-        Game.find_by(uuid: game_uuid).victories.create(v)
+        game.victories.create(v)
       end
     end
 

@@ -5,7 +5,7 @@ class Unit < ApplicationRecord
 
 
   protected
-    def self.create_1940(game_uuid)
+    def self.create_1940(game)
       units = [
         {uid: 0, name: 'Infantry', special:'Combined Arms - attack at a 2 when paired with artillery', attack: 1, defense: 2, movement: 1, cost: 3, count: 0},
         {uid: 1, name: 'Mechanized Infantry', special: 'Combined Arms - attack at a 2 when paired with artillery', attack: 1, defense: 2, movement: 2, cost: 4, count: 0},
@@ -27,11 +27,11 @@ class Unit < ApplicationRecord
         {uid: 17, name: 'Naval Base', special: 'Increased Naval Range, Repair Capital Ships', attack: 0, defense: 1, movement: 0, cost: 15, count: 0}
       ]
       units.each do |u|
-        Game.find_by(uuid: game_uuid).units.create(u)
+        game.units.create(u)
       end
     end
 
-    def self.create_1940_Grasshopper(game_uuid)
+    def self.create_1940_Grasshopper(game)
       units = [
         {uid: 0, name: 'Infantry', special:'Combined Arms - attack at a 2 when paired with artillery', attack: 1, defense: 2, movement: 1, cost: 3, count: 0},
         {uid: 1, name: 'Mechanized Infantry', special: 'Combined Arms - attack at a 2 when paired with artillery', attack: 1, defense: 2, movement: 2, cost: 4, count: 0},
@@ -53,11 +53,11 @@ class Unit < ApplicationRecord
         {uid: 17, name: 'Naval Base', special: 'Increased Naval Range, Repair Capital Ships', attack: 0, defense: 1, movement: 0, cost: 15, count: 0}
       ]
       units.each do |u|
-        Game.find_by(uuid: game_uuid).units.create(u)
+        game.units.create(u)
       end
     end
 
-    def self.create_1942(game_uuid)
+    def self.create_1942(game)
       units = [
         {uid: 0, name: 'Infantry', special:'Combined Arms - attack at a 2 when paired with artillery', attack: 1, defense: 2, movement: 1, cost: 3, count: 0},
         {uid: 1, name: 'Artillery', special: 'Combined Arms - increases attack of nfantry to 2 on a 1 to 1 scale', attack: 2, defense: 2, movement: 1, cost: 4, count: 0},
@@ -75,11 +75,11 @@ class Unit < ApplicationRecord
         {uid: 13, name: 'Major Factory', special: 'Mobalize up to 10 units, must be placed on territory of +3IPC, 20 damage max', attack: 0, defense: 1, movement: 0, cost: 30, count: 0},
       ]
       units.each do |u|
-        Game.find_by(uuid: game_uuid).units.create(u)
+        game.units.create(u)
       end
     end
 
-    def self.create_1914(game_uuid)
+    def self.create_1914(game)
       units = [
         {uid: 0, name: 'Infantry', special:'',    attack: 1, defense: 2, movement: 1, cost: 3, count: 0},
         {uid: 1, name: 'Artillery', special: '',  attack: 2, defense: 2, movement: 1, cost: 4, count: 0},
@@ -91,7 +91,7 @@ class Unit < ApplicationRecord
         {uid: 7, name: 'Transport', special: '',  attack: 0, defense: 0, movement: 2, cost: 6, count: 0},
         ]
       units.each do |u|
-        Game.find_by(uuid: game_uuid).units.create(u)
+        game.units.create(u)
       end
     end
 end
