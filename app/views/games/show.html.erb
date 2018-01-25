@@ -18,8 +18,7 @@
 <div class="container-fluid" style="margin-bottom:7.0vw">
   <div class="row content">
     <div class="col-sm-9" style="padding-left:0px">
-      <div class="container" style="margin-left:0px;padding-left:0.5vw;width:100%">
-        <table style="margin-bottom: 0.1vw; width:100%" class="table table-condensed table-striped ">
+      <table style="margin-bottom: 0.1vw; width:100%" class="table table-condensed table-striped ">
           <thead>
             <tr style="color:<%=current_nation.color%>" class="table-top">
               <th class="text-center">Count</th>
@@ -33,7 +32,7 @@
               <%end%>
             </tr>
           </thead>
-          <tbody>
+          <tbody style="font-size: 1.1vw;">
             <% current_game.units.each do |u| %>
               <% if u.uid%2 ==  0 %>
                 <tr class="tablerow1" style="color:<%=current_nation.colorL%>">
@@ -42,7 +41,7 @@
               <% end %>
                 <td id="<%=u.uid%>" class=" text-center count"><%= u.count %></td>
                 <td class="text-center" style="color:white"><a data-uid="<%=u.uid%>" onclick="buy_unit(this)" style="background:<%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="btn btn-unit btn-sm btn-block" role="button">$<%= u.cost %></a></td>
-                <td class="text-center"><%= u.name %></td>
+                <td class="text-center nowrap"><%= u.name %></td>
                 <td class="text-center"><%= u.attack %></td>
                 <td class="text-center"><%= u.defense %></td>
                 <td class="text-center"><%= u.movement %></td>
@@ -56,11 +55,10 @@
         <button id="reset" onclick="reset_buy()" class="btn btn-info " role="button" style="background:<%=current_nation.color%>;color:white">Reset Buy</button>
         <button id="pacific" onclick="buy_pacific()" class="btn btn-info " role="button" style="background:<%=current_nation.color%>;color:white;<%if current_nation.name != ("Britain"||"UK Europe")%>display:none<% end %>">Buy Pacific Units</button>
       </div>
-    </div>
 
     <div class="col-sm-3" style="padding-left:0px;padding-right:0.25vw">
       <div class="row" style="margin-left:0px; margin-right:0px">
-        <div id="change-eco" onclick="change_eco()" style="font-size:3vw;background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block btn-lg" role="button"><%=current_eco.name%></div>
+        <div id="change-eco" onclick="change_eco()" style="font-size:3.3vw;background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block btn-lg" role="button"><%=current_eco.name%></div>
         <div class="w-100"></div>
         <div class="text-center col nowrap"><h1 id="eco-bank">Bank <%=current_eco.bank%></h1></div>
         <div class="text-center col nowrap"><h1 id="eco-income">Income <%=current_eco.income%></h1></div>
