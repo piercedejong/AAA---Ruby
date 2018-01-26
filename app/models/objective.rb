@@ -122,13 +122,13 @@ class Objective < ApplicationRecord
       ussr=[
         {oid: 0, name: 'Soviet Union controls Novosibirsk', value: 9, enabled: false},
         {oid: 1, name: 'No Axis warships in sea zone 125, Archangel controlled by USSR, no Allied troops is USSR', value: 5, enabled: false},
-        {oid: 2, name: 'Each territory the Soviet Union controls that is German, Itlian or pro-Axis Neutral', value: 3, enabled: false},
-        {oid: 3, name: 'Each territory the Soviet Union controls that is German, Itlian or pro-Axis Neutral', value: 3, enabled: false},
-        {oid: 4, name: 'Each territory the Soviet Union controls that is German, Itlian or pro-Axis Neutral', value: 3, enabled: false},
-        {oid: 5, name: 'Each territory the Soviet Union controls that is German, Itlian or pro-Axis Neutral', value: 3, enabled: false},
-        {oid: 6, name: 'Each territory the Soviet Union controls that is German, Itlian or pro-Axis Neutral', value: 3, enabled: false},
-        {oid: 7, name: 'Each territory the Soviet Union controls that is German, Itlian or pro-Axis Neutral', value: 3, enabled: false},
-        {oid: 8, name: 'Each territory the Soviet Union controls that is German, Itlian or pro-Axis Neutral', value: 3, enabled: false},
+        {oid: 2, name: 'Each territory the Soviet Union controls that is German, Italian or pro-Axis Neutral', value: 3, enabled: false},
+        {oid: 3, name: 'Each territory the Soviet Union controls that is German, Italian or pro-Axis Neutral', value: 3, enabled: false},
+        {oid: 4, name: 'Each territory the Soviet Union controls that is German, Italian or pro-Axis Neutral', value: 3, enabled: false},
+        {oid: 5, name: 'Each territory the Soviet Union controls that is German, Italian or pro-Axis Neutral', value: 3, enabled: false},
+        {oid: 6, name: 'Each territory the Soviet Union controls that is German, Italian or pro-Axis Neutral', value: 3, enabled: false},
+        {oid: 7, name: 'Each territory the Soviet Union controls that is German, Italian or pro-Axis Neutral', value: 3, enabled: false},
+        {oid: 8, name: 'Each territory the Soviet Union controls that is German, Italian or pro-Axis Neutral', value: 3, enabled: false},
         {oid: 9, name: 'First time capturing Germany (Berlin)', value: 10, enabled: false},
       ]
       usa=[
