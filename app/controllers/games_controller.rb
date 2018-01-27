@@ -27,6 +27,11 @@ class GamesController < ApplicationController
     redirect_to games_path
   end
 
+  def destroy_all
+    current_user.games.all.each {|g| g.destroy}
+    redirect_to games_path
+  end
+
   def show
     @game = current_user.games.find_by(uuid: params[:id])
     session[:game_uuid] = @game.uuid

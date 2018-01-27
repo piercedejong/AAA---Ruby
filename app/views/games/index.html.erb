@@ -7,7 +7,12 @@
     <div class="col-sm-4">
       <div class="list-group">
         <% current_user.games.each do |game| %>
-          <a href="<%= game_path(game.uuid) %>" class="btn btn-basic btn-lg" style="padding:0.1vw;font-size:2vw"role="button" ><%= game.name %></a><%= link_to 'Delete', game_path(game.uuid), method: :delete,data: {confirm: "Confirm deletion of game: "+game.name} %>
+          <a href="<%= game_path(game.uuid) %>" class="btn btn-basic btn-lg" style="padding:0.1vw;font-size:2vw"role="button" ><%= game.name %></a>
+          <%= link_to 'Delete', game_path(game.uuid), method: :delete,data: {confirm: "Confirm deletion of game: "+game.name} %>
+        <% end %>
+        <br>
+        <% if current_user.games.first && current_user.games.second%>
+        <%= link_to 'Delete All Games', game_destroy_all_path , method: :delete,data: {confirm: "Confirm deletion of ALL games"} %>
         <% end %>
       </div>
     </div>

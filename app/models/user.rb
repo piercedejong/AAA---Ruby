@@ -1,6 +1,7 @@
 #AAA
 class User < ApplicationRecord
   before_create :create_uuid
+  #before_save :generate_token
   has_many :games
 
   def self.create_user(auth_hash)
@@ -8,6 +9,11 @@ class User < ApplicationRecord
     email: auth_hash.info.email,
     name: auth_hash.info.name,
     )
+  end
+
+
+  def generate_token
+    self.token = SecureRandom.urlsafe_base64
   end
 
   def create_uuid

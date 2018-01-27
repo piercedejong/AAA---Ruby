@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get '/welcome', to: "welcome#show", as: :home
 
+  delete '/game/destroy_all', to: 'games#destroy_all'
+
   get '/game/end_turn', to: 'games#end_turn'
 
   get '/game/buy_unit', to: 'games#buy_unit'
