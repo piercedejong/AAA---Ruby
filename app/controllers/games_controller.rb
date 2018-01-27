@@ -59,7 +59,7 @@ class GamesController < ApplicationController
           }
         end
       end
-    elsif ["Pacific","UK Pacific","FEC"].include? next_nation.name
+    elsif ["Pacific","UK Pacific","FEC"].include? current_nation.name
       prev_nation.end_turn
       if request.xhr?
         render :json => {

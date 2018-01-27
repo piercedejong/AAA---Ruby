@@ -35,9 +35,9 @@
           <tbody style="font-size: 1.1vw;">
             <% current_game.units.each do |u| %>
               <% if u.uid%2 ==  0 %>
-                <tr class="tablerow1" style="color:<%=current_nation.colorL%>">
+                <tr class="tablerow1" style="color:<%=current_nation.color%>">
               <% else %>
-                <tr class="tablerow2" style="color:<%=current_nation.color%>">
+                <tr class="tablerow2" style="color:<%=current_nation.colorL%>">
               <% end %>
                 <td id="<%=u.uid%>" class=" text-center count"><%= u.count %></td>
                 <td class="text-center" style="color:white"><a data-uid="<%=u.uid%>" onclick="buy_unit(this)" style="background:<%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="btn btn-unit btn-sm btn-block" role="button">$<%= u.cost %></a></td>
