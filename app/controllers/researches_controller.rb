@@ -18,7 +18,7 @@ class ResearchesController < ApplicationController
           }
         end
       end
-    elsif current_game.game_name.eql? "1940"
+    elsif ["1940","1940Europe","1940Pacifc"].include? current_game.game_name
       @research.update(enabled: true)
       if request.xhr?
         render :json => {

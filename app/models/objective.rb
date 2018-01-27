@@ -18,9 +18,16 @@ class Objective < ApplicationRecord
         {oid: 9, name: 'Germany controls Northwest Persia', value: 2, enabled: false},
       ]
       ussr=[
-        {oid: 0, name: 'No Axis warships in sea zone 25 and USSR controls Archangel', value: 5, enabled: false},
-        {oid: 1, name: 'No Allied units on any original Russian territories', value: 5, enabled: false},
-        {oid: 2, name: 'First time capturing Germany (Berlin)', value: 10, enabled: false},
+        {oid: 0, name: 'No Axis warships in sea zone 125, Archangel controlled by USSR, no Allied troops is USSR', value: 5, enabled: false},
+        {oid: 1, name: 'Each territory the Soviet Union controls that is German, Italian or pro-Axis Neutral', value: 3, enabled: false},
+        {oid: 2, name: 'Each territory the Soviet Union controls that is German, Italian or pro-Axis Neutral', value: 3, enabled: false},
+        {oid: 3, name: 'Each territory the Soviet Union controls that is German, Italian or pro-Axis Neutral', value: 3, enabled: false},
+        {oid: 4, name: 'Each territory the Soviet Union controls that is German, Italian or pro-Axis Neutral', value: 3, enabled: false},
+        {oid: 5, name: 'Each territory the Soviet Union controls that is German, Italian or pro-Axis Neutral', value: 3, enabled: false},
+        {oid: 6, name: 'Each territory the Soviet Union controls that is German, Italian or pro-Axis Neutral', value: 3, enabled: false},
+        {oid: 7, name: 'Each territory the Soviet Union controls that is German, Italian or pro-Axis Neutral', value: 3, enabled: false},
+        {oid: 8, name: 'Each territory the Soviet Union controls that is German, Italian or pro-Axis Neutral', value: 3, enabled: false},
+        {oid: 9, name: 'First time capturing Germany (Berlin)', value: 10, enabled: false},
       ]
       japan=[
         {oid: 0, name: 'Peace with the U.S.A. and no unprovoked attacks on Britain, ANZAC or French Indo-China', value: 10, enabled: false},
@@ -42,7 +49,7 @@ class Objective < ApplicationRecord
         {oid: 0, name: 'Burma Road is open, Allies control: India, Burma, Yunnan and Szechwan', value: 6, enabled: false},
       ]
       britain=[
-        {oid: 0, name: 'Britain controls all of its original territories (Must be at war in Europe)', value: 5, enabled: false},
+        {oid: 0, name: 'Britain controls all of its original territories in the European Theatre', value: 5, enabled: false},
       ]
       pacific=[
         {oid: 0, name: 'Britain controls both Kwangtung and Malaya when at war with Japan', value: 5, enabled: false},
@@ -51,9 +58,9 @@ class Objective < ApplicationRecord
         {oid: 0, name: 'No Allied surface warships in the Mediterranean sea', value: 5, enabled: false},
         {oid: 1, name: 'Axis control 3 of the following: Gibraltar, Southern France, Greeece, Egypt', value: 5, enabled: false},
         {oid: 2, name: 'Axis contorls Morocco, Algeria, Tunisia, Libya, Tobruk, and Alexandria', value: 5, enabled: false},
-        {oid: 3, name: 'Italy controls Iraq', value: 5, enabled: false},
-        {oid: 4, name: 'Italy controls Perisa', value: 5, enabled: false},
-        {oid: 5, name: 'Italy control Northwest Persia ', value: 5, enabled: false},
+        {oid: 3, name: 'Italy controls Iraq', value: 2, enabled: false},
+        {oid: 4, name: 'Italy controls Perisa', value: 2, enabled: false},
+        {oid: 5, name: 'Italy control Northwest Persia ', value: 2, enabled: false},
       ]
       anzac=[
         {oid: 0, name: 'ANZAC controls all original territories, Allies control Malaya when at war with Japan', value: 5, enabled: false},
@@ -136,7 +143,7 @@ class Objective < ApplicationRecord
         {oid: 1, name: 'USA controls South Eastern Mexico, Central America, and West Indies', value: 5, enabled: false},
       ]
       britain=[
-        {oid: 0, name: 'Britain controls all of its original territories (Must be at war in Europe)', value: 5, enabled: false},
+        {oid: 0, name: 'Britain controls all of its original territories', value: 5, enabled: false},
       ]
       italy=[
         {oid: 0, name: 'No Allied surface warships in the Mediterranean sea', value: 5, enabled: false},
@@ -199,7 +206,7 @@ class Objective < ApplicationRecord
         {oid: 0, name: 'Burma Road is open, Allies control: India, Burma, Yunnan and Szechwan', value: 6, enabled: false},
       ]
       britain=[
-        {oid: 0, name: 'Britain controls all of its original territories (Must be at war in Europe)', value: 5, enabled: false},
+        {oid: 0, name: 'Britain controls all of its original territories in the European Theatre', value: 5, enabled: false},
         {oid: 1, name: 'No German submarines anywhere on the board other than sea zones 100,113,114,115', value: 5, enabled: false},
       ]
       pacific=[
@@ -215,7 +222,7 @@ class Objective < ApplicationRecord
       ]
       anzac=[
         {oid: 0, name: 'ANZAC controls all original territories, Allies control Malaya when at war with Japan', value: 5, enabled: false},
-        {oid: 1, name: 'Allies (not Dutch) control Dutch New Guinea, New Guinea, New Britain, and the Solomon Isalnds', value: 5, enabled: false},
+        {oid: 1, name: 'Allies (not Dutch) control Dutch New Guinea, New Guinea, New Britain, and the Solomon Islands', value: 5, enabled: false},
         {oid: 2, name: 'Allies control Egypt (Cairo)', value: 5, enabled: false},
       ]
       france=[
