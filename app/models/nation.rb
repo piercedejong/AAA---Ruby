@@ -7,13 +7,24 @@ class Nation < ApplicationRecord
   default_scope { order(created_at: :asc) }
 
   def end_turn
-    self.update(bank: self.bank+self.income+self.obj_income)
+    self.bank = self.bank + self.income + self.obj_income
   end
 
   def buy_unit(unit)
-    if self.bank - unit.cost >=0
+    @cost = unit.cost
+    self.researches.all.each do |r|
+      if ["Mass Production", "Improved Shipyards"].include? r.name and r.enabled
+        if ["Destroyer", "Transport", "Submarine"].include? unit.name
+          @cost = @cost - 1
+        elsif ["Aircraft Carrier", "Battleship", "Cruiser"].include? unit.name
+          @cost = @cost - 3
+        end
+      end
+    end
+
+    if self.bank - @cost >=0
       unit.update(count: unit.count+1)
-      self.update(bank: self.bank - unit.cost)
+      self.update(bank: self.bank - @cost)
     end
   end
 

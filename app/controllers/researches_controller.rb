@@ -11,6 +11,9 @@ class ResearchesController < ApplicationController
       if session[:research_point]
         session[:research_point] = false
         @research.update(enabled: true)
+        if @nation.name.eql? "Britain"
+          current_game.nations.find_by(name: "Pacific").researches[@research.rid].update(enabled: true)
+        end
         if request.xhr?
           render :json => {
             color: @nation.color,
@@ -20,6 +23,9 @@ class ResearchesController < ApplicationController
       end
     elsif ["1940","1940Europe","1940Pacifc"].include? current_game.game_name
       @research.update(enabled: true)
+      if @nation.name.eql? "Britain"
+        current_game.nations.find_by(name: "Pacific").researches[@research.rid].update(enabled: true)
+      end
       if request.xhr?
         render :json => {
           color: @nation.color,
