@@ -13,7 +13,7 @@ function update_obj(element) {
     data:{
      id: element.getAttribute("data-oid")
     },
-    url: window.location.origin + '/nation/update_obj'
+    url: window.location.origin + '/nation/clicked'
   })
   .done(function(response) {
     $("#c-nation").text(response["nation"]);

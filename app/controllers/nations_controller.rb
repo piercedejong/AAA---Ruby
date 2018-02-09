@@ -5,26 +5,23 @@ class NationsController < ApplicationController
     current_game.update(eco: @nation.nid)
   end
 
-  def update_obj
+  def clicked
     @objective = current_eco.objectives.find_by(oid: params[:id])
     if @objective.enabled
       @objective.update(enabled: false)
       current_eco.update(obj_income: current_eco.obj_income - @objective.value)
-      if request.xhr?
-        render :json => {
-          color: current_eco.colorL,
-          nation: current_eco.obj_inc
-        }
-      end
+      @color = current_eco.colorL
     else
       @objective.update(enabled: true)
       current_eco.update(obj_income: current_eco.obj_income + @objective.value)
-      if request.xhr?
-        render :json => {
-          color: current_eco.color,
-          nation: current_eco.obj_inc
-        }
-      end
+      @color = current_eco.color
+    end
+
+    if request.xhr?
+      render :json => {
+        color: @color,
+        nation: current_eco.obj_inc
+      }
     end
   end
 end
