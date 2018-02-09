@@ -2,7 +2,7 @@
   <div class="row content" style="padding-bottom:3.0vw">
     <div class="col-sm-10">
       <div class="container" style="margin-top:1.5vw;width:100%;margin-bottom:2.0vw;padding:0px">
-        <div id="c-nation" class="text-center" style="margin-top:-1.4vw;margin-bottom:0.9vw;color:<%=@nation.color%>"><%= @nation.name %></div>
+        <div id="c-nation" class="text-center" style="margin-top:-1.4vw;margin-bottom:0.9vw;color:<%=@nation.color%>"><%= @nation.obj_inc %></div>
         <% @nation.objectives.each do |o| %>
           <a data-oid="<%=o.oid%>" onclick="update_obj(this)" id="objective-<%=o.oid%>" href="" style="padding:0.5vwvw;margin-top:0.25vw;color:black;background:<%= o.enabled ? @nation.color : @nation.colorL%>;text-align:left;font-size:1.5vw" class="btn btn-info btn-block jtextfill" role="button"><strong><%= o.value %></strong> :: <%=o.name %></a>
         <% end %>

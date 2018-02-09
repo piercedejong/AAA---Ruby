@@ -16,6 +16,7 @@ function update_obj(element) {
     url: window.location.origin + '/nation/update_obj'
   })
   .done(function(response) {
+    $("#c-nation").text(response["nation"]);
     $(element).css("background",response["color"]);
   })
 }

@@ -28,6 +28,10 @@ class Nation < ApplicationRecord
     end
   end
 
+  def obj_inc
+    return self.name + " - " + self.obj_income.to_s
+  end
+
   def total_income
     @total_income = self.income+self.obj_income
     return @total_income

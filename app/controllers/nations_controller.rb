@@ -12,7 +12,8 @@ class NationsController < ApplicationController
       current_eco.update(obj_income: current_eco.obj_income - @objective.value)
       if request.xhr?
         render :json => {
-          color: current_eco.colorL
+          color: current_eco.colorL,
+          nation: current_eco.obj_inc
         }
       end
     else
@@ -20,7 +21,8 @@ class NationsController < ApplicationController
       current_eco.update(obj_income: current_eco.obj_income + @objective.value)
       if request.xhr?
         render :json => {
-          color: current_eco.color
+          color: current_eco.color,
+          nation: current_eco.obj_inc
         }
       end
     end
