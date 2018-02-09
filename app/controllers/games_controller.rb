@@ -39,16 +39,20 @@ class GamesController < ApplicationController
 
   def end_turn
     @cheaper = false
+    # If the cheaper naval units is eneabled for the enxt nation
     next_nation.researches.all.each do |r|
       if ["Mass Production", "Improved Shipyards"].include? r.name and r.enabled
         @cheaper = true
+      end
     end
-  end
     current_nation.end_turn
+    # IF nation is britain and pacific is next nation (i.e Did not buy for Pacific)
     if ["Britain","United Kingdom"].include? current_nation.name and ["Pacific","UK Pacific","FEC"].include? next_nation.name
       if true
+        # Move to pacific
         current_game.update(current: current_game.current+1)
-        current_game.nations.find_by(nid: current_game.current).end_turn
+        # End pacific turn
+        current_nation.end_turn
         if request.xhr?
           render :json => {
             oo_nation: prev_nation.name,
@@ -100,14 +104,13 @@ class GamesController < ApplicationController
         }
       end
     end
-
     current_game.update(current: current_game.current+1)
     if(current_game.current>current_game.nations.last.nid)
       current_game.update(current: 0)
     end
     eco_to_current
     reset_units
-    current_game.update(bank: current_game.nations.find_by(nid: current_game.current).bank)
+    current_game.update(bank: current_nation.bank)
   end
 
   def buy_pacific

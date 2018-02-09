@@ -7,7 +7,7 @@ class Nation < ApplicationRecord
   default_scope { order(created_at: :asc) }
 
   def end_turn
-    self.bank = self.bank + self.income + self.obj_income
+    self.update(bank: self.bank + self.income + self.obj_income)
   end
 
   def buy_unit(unit)

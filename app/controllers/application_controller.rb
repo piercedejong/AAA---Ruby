@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
     end
 
     def current_nation
-      @current_nation ||= current_game.nations.find_by(nid: current_game.current)
+      @current_nation = current_game.nations.find_by(nid: current_game.current)
     end
 
     def current_eco
