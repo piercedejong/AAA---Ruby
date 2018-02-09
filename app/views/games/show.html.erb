@@ -15,7 +15,7 @@
   <% end %>
 </div>
 
-<div class="container-fluid" style="margin-bottom:7.0vw">
+<div class="container-fluid" style="margin-top:-0.1vw;margin-bottom:6.0vw">
   <div class="row content">
     <div class="col-sm-9" style="padding-left:0px">
       <table style="margin-bottom: 0.1vw; width:100%" class="table table-condensed table-striped ">
@@ -40,7 +40,7 @@
                 <tr class="tablerow2" style="color:<%=current_nation.colorL%>">
               <% end %>
                 <td id="<%=u.uid%>" class=" text-center count"><%= u.count %></td>
-                <td class="text-center" style="color:white"><a data-uid="<%=u.uid%>" id="<%=u.name%>" onclick="buy_unit(this)" style="background:<%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="btn btn-unit btn-sm btn-block" role="button">$<%= u.cost %></a></td>
+                <td class="text-center" style="color:white"><a data-uid="<%=u.uid%>" id="<%=u.name%>" onclick="buy_unit(this)" style="background:<%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="<%=u.name%> btn btn-unit btn-sm btn-block" role="button">$<%= u.cost %></a></td>
                 <td class="text-center nowrap"><%= u.name %></td>
                 <td class="text-center"><%= u.attack %></td>
                 <td class="text-center"><%= u.defense %></td>
@@ -102,4 +102,22 @@
       <button id="end-turn" class="bottomalignedright nation btn btn-secondary" onclick="end_turn()" style="height:7vw;background:<%=current_nation.color%>" role="button">End Turn</button>
 </div>
 
+<%current_nation.researches.all.each do |r|
+  if ["Mass Production", "Improved Shipyards"].include? r.name and r.enabled%>
+  z  <body onload="cheap()">
+<%end
+end %>
 <!--<%= image_tag current_nation.roundel , :id => "roundel"%>-->
+
+<script>
+(function($) {
+    $(function cheap() {
+      $(".Submarine").text("$5");
+      $(".Transport").text("$6");
+      $(".Destroyer").text("$7");
+      $(".Cruiser").text("$9");
+      $(".Battleship").text("$17");
+      $(".Carrier").text("$13");
+    });
+}(jQuery));
+</script>

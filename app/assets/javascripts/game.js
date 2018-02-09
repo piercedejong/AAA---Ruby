@@ -22,6 +22,7 @@ function buy_unit(element) {
 }
 
 function end_turn() {
+	debugger
 	var count = 0;
   $.ajax({
     method: "GET",
@@ -42,6 +43,21 @@ function end_turn() {
 			}
 			count++;
 		})
+		if(response["cheaper"]){
+	    $(".Submarine").text("$5");
+	    $(".Transport").text("$6");
+	    $(".Destroyer").text("$7");
+	    $(".Cruiser").text("$9");
+	    $(".Battleship").text("$17");
+	    $(".Carrier").text("$13");
+	  }else{
+	    $(".Submarine").text("$6");
+	    $(".Transport").text("$7");
+	    $(".Destroyer").text("$8");
+	    $(".Cruiser").text("$12");
+	    $(".Battleship").text("$20");
+	    $(".Carrier").text("$16");
+	  }
 
 		$('.tablerow1').each(function(){
 			$(this).css("color", response["color"])
@@ -182,4 +198,8 @@ function reset_GrassHopper(){
 			location.reload();
 		})
 	}
+}
+
+function cheaper(cheap) {
+
 }

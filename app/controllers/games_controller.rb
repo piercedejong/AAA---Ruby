@@ -38,6 +38,12 @@ class GamesController < ApplicationController
   end
 
   def end_turn
+    @cheaper = false
+    next_nation.researches.all.each do |r|
+      if ["Mass Production", "Improved Shipyards"].include? r.name and r.enabled
+        @cheaper = true
+    end
+  end
     current_nation.end_turn
     if ["Britain","United Kingdom"].include? current_nation.name and ["Pacific","UK Pacific","FEC"].include? next_nation.name
       if true
@@ -55,7 +61,8 @@ class GamesController < ApplicationController
             bank: next_nation.bank,
             income: next_nation.income,
             roundel: next_nation.roundel,
-            uuid: next_nation.uuid
+            uuid: next_nation.uuid,
+            cheaper: @cheaper
           }
         end
       end
@@ -73,7 +80,8 @@ class GamesController < ApplicationController
           bank: next_nation.bank,
           income: next_nation.income,
           roundel: next_nation.roundel,
-          uuid: next_nation.uuid
+          uuid: next_nation.uuid,
+          cheaper: @cheaper
         }
       end
     else
@@ -87,7 +95,8 @@ class GamesController < ApplicationController
           bank: next_nation.bank,
           income: next_nation.income,
           roundel: next_nation.roundel,
-          uuid: next_nation.uuid
+          uuid: next_nation.uuid,
+          cheaper: @cheaper
         }
       end
     end
