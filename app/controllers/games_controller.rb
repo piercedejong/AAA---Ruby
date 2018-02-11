@@ -212,7 +212,8 @@ class GamesController < ApplicationController
     if request.xhr?
       render :json => {
         nation: current_eco.name,
-        income: current_eco.income
+        income: current_eco.income,
+        total_income: current_eco.total_income
       }
     end
   end

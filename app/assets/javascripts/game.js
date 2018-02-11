@@ -129,7 +129,7 @@ function change_income(element) {
 	  url: window.location.origin + '/game/change_income'
 	})
 	.done(function(response) {
-		$("#"+response["nation"]+"-income").text(response["income"]);
+		$("#"+response["nation"]+"-income").text(response["total_income"]);
 		$("#eco-income").text("Income "+response["income"]);
 	})
 }
