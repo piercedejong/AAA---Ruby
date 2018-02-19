@@ -124,7 +124,7 @@ class Objective < ApplicationRecord
       ]
       britain=[
         {oid: 0, name: 'Britain controls all of its original territories in the European Theatre', value: 5, enabled: false},
-        {oid: 0, name: 'Britain controls both Kwangtung and Malaya when at war with Japan', value: 5, enabled: false},
+        {oid: 1, name: 'Britain controls both Kwangtung and Malaya when at war with Japan', value: 5, enabled: false},
       ]
       italy=[
         {oid: 0, name: 'No Allied surface warships in the Mediterranean sea', value: 5, enabled: false},
