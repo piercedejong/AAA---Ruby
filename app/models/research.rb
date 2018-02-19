@@ -26,7 +26,7 @@ class Research < ApplicationRecord
       end
     end
 
-    def self.create_1940_Grasshopper(game)
+    def self.create_1940_grasshopper(game)
       researches = [
         {rid: 0, name: 'Heavy Artillery', text: 'All artillery now support up to 2 attacking infantry and/or mech infantry'},
         {rid: 1, name: 'Rockets', text: 'Each operational airbase may launch a rocket at an enemy facility up to 4 spaces away, roll 2 dice per rocket and apply the highest result for damage'},

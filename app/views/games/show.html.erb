@@ -1,6 +1,6 @@
 <div class="container-fluid nations" style="padding-left:0.25vw;padding-right:0.25vw;margin-top:-0.25vw">
   <% current_game.nations.all.each do |n| %>
-    <% if ["1940","Grasshopper","1914"].include? current_game.game_name%>
+    <% if ["1940","1940OneEco","Grasshopper","1914"].include? current_game.game_name%>
       <div class="nation" id="<%=n.name%>" style="color:<%=n.color%>">
     <%elsif ["1942","1940Europe","1940Pacifc"].include? current_game.game_name %>
       <div class="nation" id="<%=n.name%>" style="width:<%=100/current_game.nations.count%>%;color:<%=n.color%>;">
@@ -83,7 +83,7 @@
       </div>
       <br>
       <div style="font-size:1.8vw">
-        <% if["1940","1940Pacific","1940Europe"].include? current_game.game_name%>
+        <% if["1940","1940OneEco","1940Pacific","1940Europe"].include? current_game.game_name%>
           <%= link_to "National Objectives", nation_path(current_eco.uuid), :id => "objective", :class =>"btn btn-info btn-block side-button", :role => "button", :style =>"font-size:1.8vw;background:"+current_eco.color %>
           <%= link_to "Research and Development", research_path(current_game.uuid), :id => "research", :class =>"btn btn-info btn-block side-button", :role => "button", :style => "font-size:1.8vw;background:"+current_eco.colorL %>
         <%elsif current_game.game_name.eql? "Grasshopper"%>
@@ -102,9 +102,11 @@
       <button id="end-turn" class="bottomalignedright nation btn btn-secondary" onclick="end_turn()" style="height:7vw;background:<%=current_nation.color%>" role="button">End Turn</button>
 </div>
 
+<a class="checked" href="http://www.google.com">Click here</a>
+
 <%current_nation.researches.all.each do |r|
   if ["Mass Production", "Improved Shipyards"].include? r.name and r.enabled%>
-  z  <body onload="cheap()">
+    <body onload="cheap()">
 <%end
 end %>
 <!--<%= image_tag current_nation.roundel , :id => "roundel"%>-->

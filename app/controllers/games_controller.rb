@@ -70,6 +70,7 @@ class GamesController < ApplicationController
           }
         end
       end
+
     elsif ["Pacific","UK Pacific","FEC"].include? current_nation.name
       prev_nation.end_turn
       if request.xhr?
@@ -104,15 +105,18 @@ class GamesController < ApplicationController
         }
       end
     end
+    #Go to the next nation
     current_game.update(current: current_game.current+1)
     if(current_game.current>current_game.nations.last.nid)
       current_game.update(current: 0)
     end
+    # Change eco nation to the new nation
     eco_to_current
     reset_units
     current_game.update(bank: current_nation.bank)
   end
 
+  # Buy British Pacific Units in Global Games
   def buy_pacific
     current_game.update(current: current_game.current+1)
     if request.xhr?
@@ -264,33 +268,40 @@ class GamesController < ApplicationController
     end
 
     def create_game
-      if @game.game_name == "1940"
+      case @game.game_name
+      when "1940"
         Nation.create_1940(@game)
         Unit.create_1940(@game)
         Objective.create_1940(@game)
         Research.create_1940(@game)
-      elsif @game.game_name == "1940Pacific"
-        Nation.create_1940_Pacific(@game)
+      when "1940OneEco"
+        Nation.create_1940_one_eco(@game)
         Unit.create_1940(@game)
-        Objective.create_1940_Pacific(@game)
+        Objective.create_1940_one_eco(@game)
         Research.create_1940(@game)
-      elsif @game.game_name == "1940Europe"
-        Nation.create_1940_Europe(@game)
+      when "1940Pacific"
+        Nation.create_1940_pacific(@game)
         Unit.create_1940(@game)
-        Objective.create_1940_Europe(@game)
+        Objective.create_1940_pacific(@game)
         Research.create_1940(@game)
-      elsif @game.game_name == "Grasshopper"
-        Nation.create_1940_Grasshopper(@game)
-        Unit.create_1940_Grasshopper(@game)
-        Objective.create_1940_Grasshopper(@game)
-        Victory.create_1940_Grasshopper(@game)
-        Research.create_1940_Grasshopper(@game)
-      elsif @game.game_name == "1942"
+      when "1940Europe"
+        Nation.create_1940_europe(@game)
+        Unit.create_1940(@game)
+        Objective.create_1940_europe(@game)
+        Research.create_1940(@game)
+      when "Grasshopper"
+        Nation.create_1940_grasshopper(@game)
+        Unit.create_1940_grasshopper(@game)
+        Objective.create_1940_grasshopper(@game)
+        Victory.create_1940_grasshopper(@game)
+        Research.create_1940_grasshopper(@game)
+      when "1942"
         Nation.create_1942(@game)
         Unit.create_1942(@game)
-      elsif @game.game_name == "1914"
+      when "1914"
         Nation.create_1914(@game)
         Unit.create_1914(@game)
+      else
       end
     end
 end
