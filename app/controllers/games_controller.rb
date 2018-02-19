@@ -269,7 +269,7 @@ class GamesController < ApplicationController
 
     def create_game
       case @game.game_name
-      when "1940"
+      when "1940Global"
         Nation.create_1940(@game)
         Unit.create_1940(@game)
         Objective.create_1940(@game)
@@ -289,7 +289,7 @@ class GamesController < ApplicationController
         Unit.create_1940(@game)
         Objective.create_1940_europe(@game)
         Research.create_1940(@game)
-      when "Grasshopper"
+      when "1940Grasshopper"
         Nation.create_1940_grasshopper(@game)
         Unit.create_1940_grasshopper(@game)
         Objective.create_1940_grasshopper(@game)

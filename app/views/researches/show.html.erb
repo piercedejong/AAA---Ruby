@@ -55,10 +55,10 @@
 </div>
 <div class="bottomaligned" style="position:fixed;background-color:#353535;width:100%">
   <%= link_to "Back", game_path(current_game.uuid), :class =>"btn btn-menu", :role => "button" %>
-  <% if["1940","1940Pacific","1940Europe"].include? current_game.game_name%>
+  <% if["1940Global","1940OneEco","1940Pacific","1940Europe"].include? current_game.game_name%>
     <%= link_to "National Objectives", nation_path(current_eco.uuid), :class =>"btn btn-menu", :role => "button" %>
     <button class="btn btn-menu reset-victory" onclick="reset_1940()"role= "button">Reset</button>
-  <% elsif current_game.game_name.eql? "Grasshopper" %>
+  <% elsif current_game.game_name.eql? "1940Grasshopper" %>
     <%= link_to "National Objectives", nation_path(current_eco.uuid), :class =>"btn btn-menu", :role => "button" %>
     <%= link_to "Victory Objectives", victory_path(current_game.uuid), :class =>"btn btn-menu", :role => "button" %>
     <button class="btn btn-menu reset-victory" onclick="reset_GrassHopper()"role= "button">Reset</button>
