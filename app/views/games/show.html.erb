@@ -102,8 +102,6 @@
       <button id="end-turn" class="bottomalignedright nation btn btn-secondary" onclick="end_turn()" style="height:7vw;background:<%=current_nation.color%>" role="button">End Turn</button>
 </div>
 
-<a class="checked" href="http://www.google.com">Click here</a>
-
 <%current_nation.researches.all.each do |r|
   if ["Mass Production", "Improved Shipyards"].include? r.name and r.enabled%>
     <body onload="cheap()">
