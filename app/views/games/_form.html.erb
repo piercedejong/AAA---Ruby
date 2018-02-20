@@ -4,31 +4,23 @@
   <br>
   <div class="container-fluid">
     <div class="row content">
-      <div class="col-sm-3">
-        <div class="container">
-        </div>
-      </div>
-      <div class="col-sm-2" style="padding:0px">
-        <div class="container text-right" style="padding:0px">
+      <div class="col-sm-5" style="padding:0px">
+        <div class="container text-right" style="font-size:3vw;padding:0px">
           Game Type:
           <br>
           <br>
           Game Name:
         </div>
       </div>
-      <div class="col-sm-4">
-        <div class="container">
-          <%= select(:game, :game_name, [['1940 Europe','1940Europe'],['1940 Global','1940Global'],['1940 Global (Britian 1 Economy)','1940OneEco'],['1940 Grasshopper','1940Grasshopper'],['1940 Pacific','1940Pacific'],['1942 Spring','1942'],['1914 WWI', '1914']], :style=> "width:80%") %>
+      <div class="col-sm-7">
+        <div class="container" stylw="">
+          <%= select(:game, :game_name, [['1940 Europe','1940Europe'],['1940 Global','1940Global'],['1940 Global (Britian 1 Economy)','1940OneEco'],['1940 Grasshopper','1940Grasshopper'],['1940 Pacific','1940Pacific'],['1942 Spring','1942'],['1914 WWI', '1914']], {:style=> "font-size:
+            3vw"})%>
           <br>
           <br>
-          <%= f.text_field :name, :style=> "width:80%" %>
+          <%= f.text_field :name, :style=> "font-size:3vw;width:55%" %>
         </div>
       </div>
-      <div class="col-sm-3">
-        <div class="container">
-        </div>
-      </div>
-
     </div>
   </div>
 
