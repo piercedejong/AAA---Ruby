@@ -21,13 +21,10 @@
     <% current_nation.researches.each do |r| %>
       <div class="col-sm-1 research">
         <% if r.rid <6 %>
-          <button class="container research-title-1 text-center btn" syle="padding:0.5vw;background:purple">
-            <span id="research-tit" class="item text-center" data-toggle="tooltip" title="<%= current_nation.researches.find_by(rid: r.rid).text %>" style="font-size:1.0vw"><strong><%= current_nation.researches.find_by(rid: r.rid).name %></strong></span>
+          <button class="research-title-1 text-center btn" syle="padding:0.5vw;background:purple" id="research-tit" data-toggle="tooltip" title="<%= current_nation.researches.find_by(rid: r.rid).text %>" style="font-size:1.0vw"><strong><%= current_nation.researches.find_by(rid: r.rid).name %></strong></button>
           </button>
         <%else%>
-          <button class="container research-title-2 text-center btn" syle="padding:0.5vw;background:purple">
-            <span id="research-tit" class="item text-center" data-toggle="tooltip" title="<%= current_nation.researches.find_by(rid: r.rid).text %>" style="font-size:1.0vw"><strong><%= current_nation.researches.find_by(rid: r.rid).name %></strong></span>
-          </button>
+          <button class="research-title-2 text-center btn" syle="padding:0.5vw;background:purple" id="research-tit" data-toggle="tooltip" title="<%= current_nation.researches.find_by(rid: r.rid).text %>" style="font-size:1.0vw"><strong><%= current_nation.researches.find_by(rid: r.rid).name %></strong></button>
         <%end%>
 
       </div>

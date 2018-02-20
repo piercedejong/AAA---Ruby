@@ -1,4 +1,3 @@
-
 function research(element) {
   $.ajax({
     method: "GET",

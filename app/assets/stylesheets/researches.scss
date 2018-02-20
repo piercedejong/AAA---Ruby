@@ -6,7 +6,7 @@ div.research {
 }
 button.research-title-1 {
   display: table;
-  height: 50px;
+  height: 8vh;
   width: 100%;
   text-align: center;
   padding: 0;
@@ -16,7 +16,7 @@ button.research-title-1 {
 
 button.research-title-2 {
   display: table;
-  height: 50px;
+  height: 8vh;
   width: 100%;
   text-align: center;
   padding: 0;
@@ -27,3 +27,11 @@ button.research-title-2 {
 button.research-button {
   font-size: 1.5vw
 }
+
+.test + .tooltip > .tooltip-inner {
+      background-color: #73AD21;
+      color: #FFFFFF;
+      border: 1px solid green;
+      padding: 15px;
+      font-size: 20px;
+  }
