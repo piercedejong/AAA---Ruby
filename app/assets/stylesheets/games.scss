@@ -3,8 +3,17 @@ div.nations {
   //border: 1px solid black;
   display: table;
   table-layout: auto;
-
   white-space: nowrap;
+}
+
+div.nationsCSS {
+  position:fixed;
+  background:#353535;
+  width:100%;
+  padding-left:0.25vw;
+  padding-right:0.25vw;
+  margin-top:-0.25vw;
+  z-index: 99;
 }
 
 div.nation {

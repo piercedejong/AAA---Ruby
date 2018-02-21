@@ -1,4 +1,4 @@
-<div class="container-fluid nations" style="padding-left:0.25vw;padding-right:0.25vw;margin-top:-0.25vw">
+<div class="container-fluid nations nationsCSS">
   <% current_game.nations.all.each do |n| %>
     <% if ["1940Global","1940OneEco","1940Grasshopper","1914"].include? current_game.game_name%>
       <div class="nation" id="<%=n.name%>" style="color:<%=n.color%>">
@@ -15,7 +15,7 @@
   <% end %>
 </div>
 
-<div class="container-fluid" style="margin-top:-0.1vw;margin-bottom:6.0vw">
+<div class="container-fluid" style="margin-top:-0.1vw;margin-bottom:6.3vw;padding-top:5.9vw">
   <div class="row content">
     <div class="col-sm-9" style="padding-left:0px">
       <table style="margin-bottom: 0.1vw; width:100%" class="table table-condensed table-striped ">
@@ -97,7 +97,7 @@
   </div>
 </div>
 <div class="container-fluid bottomaligned nations" style="background:#353535;width:100%;">
-      <%= link_to "Exit", home_path, :class =>"bottomaligned nation btn btn-basic btn-lg", :style=>"", :role => "button" %>
+      <%= link_to "Exit", home_path, :class =>"bottomaligned nation btn btn-basic", :style=>"", :role => "button" %>
       <div id="c-nation" class="nation text-center" style="color:<%=current_nation.color%>" ><%=current_nation.name%>-<%=current_nation.bank%></div>
       <button id="end-turn" class="bottomalignedright nation btn btn-secondary" onclick="end_turn()" style="height:7vw;background:<%=current_nation.color%>" role="button">End Turn</button>
 </div>
