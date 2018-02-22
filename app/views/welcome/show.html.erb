@@ -9,9 +9,9 @@
     <div class="col-sm-4">
     </div>
     <div class="col-sm-4">
-      <h3><a href="<%= new_game_path %>" class="text-center col btn btn-basic btn-block btn-lg" role="button">New Game</a></h3>
-      <h3><a href="<%= games_path %>" class="text-center col btn btn-basic btn-block btn-lg" role="button">Load Game</a></h3>
-      <h3><a href="<%= logout_path %>" class="text-center col btn btn-basic btn-block btn-lg" role="button">Sign-out</a></h3>
+      <%= link_to "New Game", new_game_path, :class =>"btn btn-basic btn-block btn-main", :role => "button"%>
+      <%= link_to "Load Game", games_path, :class =>"btn btn-basic btn-block btn-main", :role => "button"%>
+      <%= link_to "Sign-out", logout_path, :class =>"btn btn-basic btn-block btn-main", :role => "button"%>
     </div>
     <div class="col-sm-4">
     </div>

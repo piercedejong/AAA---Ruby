@@ -20,26 +20,20 @@
     src: url('https://ff.cdn.1001fonts.net/a/l/alte-din-1451-mittelschrift.regular.ttf'); /*URL to font*/
 }
 
- body {
-   background-color: #353535;
-   font-family: 'test','ariel', serif;
-   color: #0d0d0d
-
-  }
-
+body {
+ background-color: #353535;
+ font-family: 'test','ariel', serif;
+ color: #0d0d0d
+}
 
 .btn{
   border-color: black;
 }
 
-.btn-block + .btn-block {
-    margin-top: 0;
-}
-
 .btn-basic{
   background-color: #464646;
   color: white;
-  font-size: 3vw;
+  font-size: 3vh;
   padding:1.0vw;
   border:0.050vw;
   border:solid;
@@ -60,6 +54,7 @@
   background-color: #bfbfbf;
   color: black
 }
+
 
 .nowrap {
   white-space:nowrap;
