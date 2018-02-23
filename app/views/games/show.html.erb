@@ -5,7 +5,7 @@
     <%elsif ["1942","1940Europe","1940Pacifc"].include? current_game.game_name %>
       <div class="nation" id="<%=n.name%>" style="width:<%=100/current_game.nations.count%>%;color:<%=n.color%>;">
     <%end %>
-        <div class="name" style="margin-top: -0.95vw; margin-bottom: -0.75vw;"><%=n.name%></div>
+        <div class="name"><%=n.name%></div>
         <div class="monay">
           <div id="<%=n.name%>-bank" class="money text-right"><%=n.bank%></div>
           <div id="<%=n.name%>-divider" class="money text-center" style="width:0.75vw">|</div>
@@ -32,7 +32,7 @@
               <%end%>
             </tr>
           </thead>
-          <tbody style="font-size: 1.1vw;">
+          <tbody style="font-size: 2.0vh;">
             <% current_game.units.each do |u| %>
               <% if u.uid%2 ==  0 %>
                 <tr class="tablerow1" style="color:<%=current_nation.color%>">
