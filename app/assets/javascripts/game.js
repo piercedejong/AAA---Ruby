@@ -22,7 +22,7 @@ function buy_unit(element) {
 }
 
 function end_turn() {
-	debugger
+
 	var count = 0;
   $.ajax({
     method: "GET",

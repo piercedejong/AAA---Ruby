@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171115234122) do
+ActiveRecord::Schema.define(version: 20180223092251) do
 
   create_table "games", force: :cascade do |t|
     t.string   "name"
@@ -64,6 +64,15 @@ ActiveRecord::Schema.define(version: 20171115234122) do
     t.string   "name"
   end
 
+  create_table "specials", force: :cascade do |t|
+    t.string   "title"
+    t.string   "info"
+    t.string   "unit_id"
+    t.integer  "sid"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "units", force: :cascade do |t|
     t.string   "name"
     t.string   "special",    default: ""
@@ -76,6 +85,7 @@ ActiveRecord::Schema.define(version: 20171115234122) do
     t.datetime "updated_at",              null: false
     t.integer  "game_id"
     t.integer  "uid"
+    t.string   "uuid"
   end
 
   create_table "users", force: :cascade do |t|

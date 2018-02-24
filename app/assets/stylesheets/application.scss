@@ -24,7 +24,23 @@ body {
  background-color: #353535;
  font-family: 'test','ariel', serif;
  color: #0d0d0d;
- background-image: url(/assets/background.png);
+
+ background-size: auto;
+ background-repeat: no-repeat;
+ background-position: center;
+}
+
+background-image{
+  filter: blur(20px);
+}
+
+
+.shadow {
+  text-shadow: rgb(0, 0, 0) 1px 0px 0px, rgb(0, 0, 0) 0px -1px 0px, rgb(0, 0, 0) 0px 1px 0px, rgb(0, 0, 0) -1px 0px 0px;
+}
+
+.shadow-text {
+  text-shadow: rgb(0, 0, 0) 0.05vw 0vw 0vw, rgb(0, 0, 0) 0vw -0.05vh 0vw, rgb(0, 0, 0) 0vw 0.05vw 0vw, rgb(0, 0, 0) -0.05vh 0vw 0vw;
 }
 
 .btn{
