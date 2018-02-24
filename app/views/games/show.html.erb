@@ -101,10 +101,14 @@
 </div>
 <div class="container-fluid bottomaligned nations" style="width:100%;">
     <%= link_to "Exit", home_path, :class =>"bottomaligned nation btn btn-basic", :style=>"", :role => "button" %>
-  <!--  <div style="display:-webkit-inline-box;right: 50%;left: 30%;top: 85%;position: fixed;">
-      <%= image_tag current_nation.roundel , :id => "roundel", :style => "height:6vw"%>  -->
-      <div id="c-nation" class="nation shadow text-center" style="color:<%=current_nation.color%>" ><%=current_nation.name%>-<%=current_nation.bank%></div>
-   </div>
+    <table style="margin-left:auto;margin-right:auto">
+      <tbody>
+        <tr>
+          <td style=""><%=image_tag current_nation.roundel , :id => "roundel", :style => "vertical-align:middle;height:5vw"%></td>
+          <td id="c-nation" class="nation shadow text-center" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></td>
+        <tr>
+      <tbody>
+    </table>
     <button id="end-turn" class="bottomalignedright nation btn btn-secondary" onclick="end_turn()" style="height:6vw;background:<%=current_nation.color%>" role="button">End Turn</button>
 </div>
 
