@@ -11,8 +11,8 @@
     </head>
 
   <body >
-    <div class="bg" style=";background-image: url(/assets/background<%=rand(1..12)%>.png)">
-      <%= yield %>
+    <div class="bg" style="height:100%;width:100%;position:fixed;background-image: url(/assets/background<%=rand(1..12)%>.png)">
     </div>
+    <%= yield %>
   </body>
 </html>
