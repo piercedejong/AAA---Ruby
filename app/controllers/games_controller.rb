@@ -295,7 +295,7 @@ class GamesController < ApplicationController
         Research.create_1940(@game)
       when "1940Grasshopper"
         Nation.create_1940_grasshopper(@game)
-        Unit.create_1940_grasshopper(@game)
+        Unit.create_1940(@game)
         Special.create_1940(@game)
         Objective.create_1940_grasshopper(@game)
         Victory.create_1940_grasshopper(@game)
