@@ -64,7 +64,7 @@ function end_turn() {
 		})
 
 		$('.tablerow2').each(function(){
-			$(this).css("color", response["colorL"])
+			//$(this).css("color", response["colorL"])
 		})
 		$(".table-top").css("color",response["color"]);
     $("#reset").css("background",response["color"]);
