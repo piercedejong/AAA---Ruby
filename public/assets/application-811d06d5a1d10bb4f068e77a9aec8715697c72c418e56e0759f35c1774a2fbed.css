@@ -113,19 +113,8 @@ div.bottom span {
 }
 
 /* line 100, c:/Sites/aaa/app/assets/stylesheets/games.scss */
-.table {
-  color: white;
-}
-
-/* line 104, c:/Sites/aaa/app/assets/stylesheets/games.scss */
 .table-top {
   font-weight: bold;
-}
-
-/* line 108, c:/Sites/aaa/app/assets/stylesheets/games.scss */
-.title {
-  font-size: 8vw;
-  color: black;
 }
 /* line 6, c:/Sites/aaa/app/assets/stylesheets/nations.scss */
 #next, #previous {
@@ -191,16 +180,7 @@ button.research-button {
   font-size: 1.0vh;
   color: #262626;
 }
-/* line 4, c:/Sites/aaa/app/assets/stylesheets/welcome.scss */
-.title {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  color: #fff;
-  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-}
-
-/* line 12, c:/Sites/aaa/app/assets/stylesheets/welcome.scss */
+/* line 6, c:/Sites/aaa/app/assets/stylesheets/welcome.scss */
 #signed-in {
   font-size: 1vw;
   color: white;
@@ -10200,38 +10180,64 @@ a.text-dark:hover, a.text-dark:focus {
   /*URL to font*/
 }
 /* line 24, c:/Sites/aaa/app/assets/stylesheets/application.scss */
+html {
+  min-height: 100% !important;
+  height: 100%;
+}
+
+/* line 29, c:/Sites/aaa/app/assets/stylesheets/application.scss */
 body {
   background-color: #353535;
   font-family: 'test','ariel', serif;
   color: #0d0d0d;
-  background-image: url(/assets/background2.png);
-  background-size: auto;
-  background-repeat: no-repeat;
-  background-position: center;
+  height: 100%;
 }
 
-/* line 34, c:/Sites/aaa/app/assets/stylesheets/application.scss */
+/* line 37, c:/Sites/aaa/app/assets/stylesheets/application.scss */
+.bg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: scroll;
+}
+
+@media (max-width: 480px) {
+  background-size: contain;
+  background-image: url(/assets/ussr.png);
+}
+/* line 49, c:/Sites/aaa/app/assets/stylesheets/application.scss */
 background-image {
   -webkit-filter: blur(20px);
           filter: blur(20px);
 }
 
-/* line 39, c:/Sites/aaa/app/assets/stylesheets/application.scss */
+/* line 53, c:/Sites/aaa/app/assets/stylesheets/application.scss */
+.title {
+  font-size: 6rem;
+  color: black;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+/* line 64, c:/Sites/aaa/app/assets/stylesheets/application.scss */
 .shadow {
   text-shadow: black 1px 0px 0px, black 0px -1px 0px, black 0px 1px 0px, black -1px 0px 0px;
 }
 
-/* line 43, c:/Sites/aaa/app/assets/stylesheets/application.scss */
+/* line 68, c:/Sites/aaa/app/assets/stylesheets/application.scss */
 .shadow-text {
-  text-shadow: black 0.05vw 0vw 0vw, black 0vw -0.05vh 0vw, black 0vw 0.05vw 0vw, black -0.05vh 0vw 0vw;
+  text-shadow: black 0.05vw 0.05vw 0vw, black -0.02vw -0.05vh 0vw, black 0.02vw 0vw 0vw, black -0.05vh 0vw 0vw;
 }
 
-/* line 47, c:/Sites/aaa/app/assets/stylesheets/application.scss */
+/* line 72, c:/Sites/aaa/app/assets/stylesheets/application.scss */
 .btn {
   border-color: black;
 }
 
-/* line 51, c:/Sites/aaa/app/assets/stylesheets/application.scss */
+/* line 78, c:/Sites/aaa/app/assets/stylesheets/application.scss */
 .btn-basic {
   background-color: #464646;
   color: white;
@@ -10242,13 +10248,18 @@ background-image {
   border-color: black;
 }
 
-/* line 60, c:/Sites/aaa/app/assets/stylesheets/application.scss */
+/* line 88, c:/Sites/aaa/app/assets/stylesheets/application.scss */
+.btn-main {
+  font-size: 2rem;
+}
+
+/* line 92, c:/Sites/aaa/app/assets/stylesheets/application.scss */
 .btn-basic:hover {
   background-color: #bfbfbf;
   color: black;
 }
 
-/* line 65, c:/Sites/aaa/app/assets/stylesheets/application.scss */
+/* line 97, c:/Sites/aaa/app/assets/stylesheets/application.scss */
 .btn-menu {
   background-color: #464646;
   color: white;
@@ -10256,33 +10267,33 @@ background-image {
   padding: 1vw;
 }
 
-/* line 71, c:/Sites/aaa/app/assets/stylesheets/application.scss */
+/* line 103, c:/Sites/aaa/app/assets/stylesheets/application.scss */
 .btn-menu:hover {
   background-color: #bfbfbf;
   color: black;
 }
 
-/* line 77, c:/Sites/aaa/app/assets/stylesheets/application.scss */
+/* line 109, c:/Sites/aaa/app/assets/stylesheets/application.scss */
 .nowrap {
   white-space: nowrap;
 }
 
-/* line 81, c:/Sites/aaa/app/assets/stylesheets/application.scss */
+/* line 113, c:/Sites/aaa/app/assets/stylesheets/application.scss */
 .text-right {
   text-align: right;
 }
 
-/* line 84, c:/Sites/aaa/app/assets/stylesheets/application.scss */
+/* line 116, c:/Sites/aaa/app/assets/stylesheets/application.scss */
 .text-left {
   text-align: left;
 }
 
-/* line 88, c:/Sites/aaa/app/assets/stylesheets/application.scss */
+/* line 120, c:/Sites/aaa/app/assets/stylesheets/application.scss */
 .middle {
   vertical-align: middle;
 }
 
-/* line 92, c:/Sites/aaa/app/assets/stylesheets/application.scss */
+/* line 124, c:/Sites/aaa/app/assets/stylesheets/application.scss */
 .bottomaligned {
   position: fixed;
   bottom: 0;
@@ -10291,7 +10302,7 @@ background-image {
   margin-left: 0.1vw;
 }
 
-/* line 94, c:/Sites/aaa/app/assets/stylesheets/application.scss */
+/* line 126, c:/Sites/aaa/app/assets/stylesheets/application.scss */
 .bottomalignedright {
   position: fixed;
   bottom: 0;
