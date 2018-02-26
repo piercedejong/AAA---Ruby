@@ -35,9 +35,9 @@
           <tbody class="" style="font-weight:500;font-size: 1.35rem;">
             <% current_game.units.each do |u| %>
               <% if u.uid%2 ==  0 %>
-                <tr class="tablerow1 shadow-text" style="    background-color: rgba(0, 0, 0, 0.2);color:<%=current_nation.color%>">
+                <tr class="tablerow1 shadow-text" style="color:<%=current_nation.color%>">
               <% else %>
-                <tr class="tablerow2 shadow-text" style="    background-color: rgba(0, 0, 0, 0.2);color:#cccccc;">
+                <tr class="tablerow2 shadow-text" style="color:#cccccc;">
               <% end %>
                 <td id="<%=u.uid%>" class=" text-center count"><%= u.count %></td>
                 <td class="text-center" style="color:white"><a data-uid="<%=u.uid%>" id="<%=u.name%>" onclick="buy_unit(this)" style="background:<%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="<%=u.name%> btn btn-unit btn-sm btn-block" role="button">$<%= u.cost %></a></td>
@@ -63,8 +63,8 @@
       <div class="row" style="margin-left:0px; margin-right:0px">
         <div id="change-eco" onclick="change_eco()" style="font-size:3.3vw;background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block btn-lg" role="button"><%=current_eco.name%></div>
         <div class="w-100"></div>
-        <div class="text-center col nowrap"><h1 id="eco-bank">Bank <%=current_eco.bank%></h1></div>
-        <div class="text-center col nowrap"><h1 id="eco-income">Income <%=current_eco.income%></h1></div>
+        <div class="text-center col nowrap shadow-text" id="eco-bank">Bank <%=current_eco.bank%></div>
+        <div class="text-center col nowrap shadow-text" id="eco-income">Income <%=current_eco.income%></div>
         <div class="w-100"></div>
         <div data-amount="1" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-pos text-center col btn btn-info" role="button">+1</div>
         <div data-amount="1" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-pos text-center col btn btn-info" role="button">+1</div>
@@ -103,7 +103,7 @@
     <%= link_to "Exit", home_path, :class =>"bottomaligned nation btn btn-basic", :style=>"", :role => "button" %>
     <table style="margin-left:auto;margin-right:auto">
       <tbody>
-        <tr>
+        <tr style="background-color:rgba(0, 0, 0, 0.2);">
           <td style=""><%=image_tag current_nation.roundel , :id => "roundel", :style => "vertical-align:middle;height:5vw"%></td>
           <td id="c-nation" class="nation shadow text-center" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></td>
         <tr>

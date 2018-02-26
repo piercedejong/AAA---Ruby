@@ -5,12 +5,12 @@
   <div class="row content">
     <div class="col-sm-6">
       <div id="research-div" class="container">
-        <h1 id="research-title" class="text-center" style="color:#669999">Chart 1</h1>
+        <h1 id="research-title" class="text-center shadow-text" style="color:#669999">Chart 1</h1>
       </div>
     </div>
     <div class="col-sm-6">
       <div id="research-div" class="container">
-        <h1 id="research-title" class="text-center" style="color:#666699">Chart 2</h1>
+        <h1 id="research-title" class="text-center shadow-text" style="color:#666699">Chart 2</h1>
       </div>
     </div>
   </div>
@@ -50,7 +50,7 @@
     <% end %>
   </div>
 </div>
-<div class="bottomaligned" style="background-color:#353535;width:100%">
+<div class="bottomaligned" style="background-color:#353535;">
   <%= link_to "Back", game_path(current_game.uuid), :class =>"btn btn-menu", :role => "button" %>
   <% if["1940Global","1940OneEco","1940Pacific","1940Europe"].include? current_game.game_name%>
     <%= link_to "National Objectives", nation_path(current_eco.uuid), :class =>"btn btn-menu", :role => "button" %>
