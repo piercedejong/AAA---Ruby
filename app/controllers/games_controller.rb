@@ -49,11 +49,16 @@ class GamesController < ApplicationController
 
   def end_turn
     @cheaper = false
+    @pacific = false
     # If the cheaper naval units is eneabled for the enxt nation
     next_nation.researches.all.each do |r|
       if ["Mass Production", "Improved Shipyards"].include? r.name and r.enabled
         @cheaper = true
       end
+    end
+
+    if(["Britain","United Kingdom"].include? next_nation.name and ["Pacific","FEC", "UK  Pacfic"].include? current_game.nations[next_nation.nid+1].name)
+      @pacific = true
     end
     current_nation.end_turn
     # IF nation is britain and pacific is next nation (i.e Did not buy for Pacific)
@@ -76,7 +81,8 @@ class GamesController < ApplicationController
             income: next_nation.income,
             roundel: next_nation.roundel,
             uuid: next_nation.uuid,
-            cheaper: @cheaper
+            cheaper: @cheaper,
+            pacific: @pacific
           }
         end
       end
@@ -96,7 +102,8 @@ class GamesController < ApplicationController
           income: next_nation.income,
           roundel: next_nation.roundel,
           uuid: next_nation.uuid,
-          cheaper: @cheaper
+          cheaper: @cheaper,
+          pacific: @pacific
         }
       end
     else
@@ -111,7 +118,8 @@ class GamesController < ApplicationController
           income: next_nation.income,
           roundel: next_nation.roundel,
           uuid: next_nation.uuid,
-          cheaper: @cheaper
+          cheaper: @cheaper,
+          pacific: @pacific
         }
       end
     end

@@ -71,7 +71,7 @@ function end_turn() {
     $('.count').text("0");
 		change_eco_nation(response);
 
-		if(response["nation"] == ("Britain" || "UK Europe")){
+		if(response["pacific"]){
 			$("#pacific").show();
 		}else{
 			$("#pacific").hide();

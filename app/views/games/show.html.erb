@@ -56,7 +56,7 @@
           </tbody>
         </table>
         <button id="reset" onclick="reset_buy()" class="btn btn-basic" role="button" style="padding:0.4rem;font-size:1rem;background:<%=current_nation.color%>;color:white">Reset Buy</button>
-        <button id="pacific" onclick="buy_pacific()" class="btn btn-copy" role="button" style="padding:0.4rem;<%if current_nation.name != ("Britain"||"UK Europe")%>display:none<% end %>">Buy Pacific Units</button>
+        <button id="pacific" onclick="buy_pacific()" class="btn btn-copy" role="button" style="padding:0.4rem;<%if !["Britain","United Kingdom"].include? current_nation.name%>display:none<% end %>">Buy Pacific Units</button>
       </div>
 
     <div class="col-sm-3" style="padding-left:0px;padding-right:0.25vw">
