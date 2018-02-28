@@ -163,12 +163,12 @@ function change_eco_nation(response){
 	$("#change-eco").css("background",response["color"])
 	$("#eco-bank").text("Bank "+response["bank"]);
 	$("#eco-income").text("Income "+response["income"]);
-	$(".change-eco-pos").css("background",response["colorL"])
-	$(".change-eco-neg").css("background",response["color"])
+	$(".change-eco-pos").css("background",response["color"])
+	$(".change-eco-neg").css("background",response["colorL"])
 	$("#objective").css("background",response["color"]);
 	$("#objective").attr("href", "/nations/"+response["uuid"]);
-	$("#victory").css("background",response["colorL"]);
-	$("#research").css("background",response["color"]);
+	$("#victory").css("background",response["color"]);
+	$("#research").css("background",response["colorL"]);
 }
 
 function reset_1940(){
