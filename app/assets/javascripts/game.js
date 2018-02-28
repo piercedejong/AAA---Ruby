@@ -67,7 +67,6 @@ function end_turn() {
 			//$(this).css("color", response["colorL"])
 		})
 		$(".table-top").css("color",response["color"]);
-    $("#reset").css("background",response["color"]);
     $('.count').text("0");
 		change_eco_nation(response);
 

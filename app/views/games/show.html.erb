@@ -53,11 +53,18 @@
                 <% end%>
               </tr>
             <% end %>
+            <tr>
+              <td></td>
+              <td><button id="reset" onclick="reset_buy()" class="btn btn-delete btn-game shadow-text" role="button">Reset Buy</button></td>
+              <td><button id="pacific" onclick="buy_pacific()" class="btn btn-copy btn-game shadow-text" role="button" style="<%if !["Britain","United Kingdom"].include? current_nation.name%>display:none<% end %>">Buy Pacific Units</button></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
           </tbody>
-        </table>
-        <button id="reset" onclick="reset_buy()" class="btn btn-basic" role="button" style="padding:0.4rem;font-size:1rem;background:<%=current_nation.color%>;color:white">Reset Buy</button>
-        <button id="pacific" onclick="buy_pacific()" class="btn btn-copy" role="button" style="padding:0.4rem;<%if !["Britain","United Kingdom"].include? current_nation.name%>display:none<% end %>">Buy Pacific Units</button>
-      </div>
+      </table>
+    </div>
 
     <div class="col-sm-3" style="padding-left:0px;padding-right:0.25vw">
       <div class="row" style="margin-left:0px; margin-right:0px">
@@ -94,14 +101,15 @@
             </tr>
           </tbody>
         </table>
-      <div class="container" style="padding:0.2rem; margin-top:0.5rem">
-        <% if["1940Global","1940OneEco","1940Pacific","1940Europe","1940Grasshopper"].include? current_game.game_name%>
-          <%= link_to "National Objectives", nation_path(current_eco.uuid), :id => "objective", :class =>"btn btn-side shadow-text", :role => "button", :style =>"background:"+current_eco.color %>
-          <%= link_to "Research and Development", research_path(current_game.uuid), :id => "research", :class =>"btn btn-side shadow-text", :role => "button", :style => "background:"+current_eco.colorL %>
-        <%end%>
-        <%if ["1940Grasshopper"].include? current_game.game_name%>
-          <%= link_to "Victory Objectives", victory_path(current_game.uuid), :id => "victory", :class =>"btn btn-side shadow-text", :role => "button", :style =>"background:"+current_eco.color %>
-        <%end%>
+        <div class="container" style="padding:0.2rem; margin-top:0.5rem">
+          <% if["1940Global","1940OneEco","1940Pacific","1940Europe","1940Grasshopper"].include? current_game.game_name%>
+            <%= link_to "National Objectives", nation_path(current_eco.uuid), :id => "objective", :class =>"btn btn-side shadow-text", :role => "button", :style =>"background:"+current_eco.color %>
+            <%= link_to "Research and Development", research_path(current_game.uuid), :id => "research", :class =>"btn btn-side shadow-text", :role => "button", :style => "background:"+current_eco.colorL %>
+          <%end%>
+          <%if ["1940Grasshopper"].include? current_game.game_name%>
+            <%= link_to "Victory Objectives", victory_path(current_game.uuid), :id => "victory", :class =>"btn btn-side shadow-text", :role => "button", :style =>"background:"+current_eco.color %>
+          <%end%>
+        </div>
       </div>
     </div>
   </div>

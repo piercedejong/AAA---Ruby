@@ -71,7 +71,8 @@ body {
   font-size: 1rem;
   background-color: red;
   color: black;
-  padding: 0.2rem
+  padding: 0.2rem;
+  white-space: nowrap;
 }
 
 .btn-end-turn {
@@ -94,9 +95,17 @@ body {
   width:100%;
 }
 
-.btn:hover, .btn-end-turn:hover, .btn-side:hover, .btn-copy:hover, .btn-basic:hover, .btn-delete:hover{
+.btn-game {
+  color:white;
+  width:100%;
+  white-space:prewrap;
+  padding:0.4rem;
+}
+
+.btn:hover, .btn-game:hover, .btn-end-turn:hover, .btn-side:hover, .btn-copy:hover, .btn-basic:hover, .btn-delete:hover{
   background-color: #bfbfbf;
   color: black;
+  text-shadow: black 0px 0px 0vw;
   border-color: #bfbfbf;
 }
 
@@ -120,7 +129,7 @@ background-image{
 
 .shadow-text {
   //text-shadow: black 0.05vw 0.05vw 0vw, black -0.02vw -0.05vh 0vw, black 0.02vw 0vw 0vw, black -0.05vh 0vw 0vw;
-      text-shadow: black 1px 1px 0vw, black 0px -1px 0vw, black 1px 0vw 0vw, black -1px 0vw 0vw;
+  text-shadow: black 1px 1px 0vw, black 0px -1px 0vw, black 1px 0vw 0vw, black -1px 0vw 0vw;
 }
 
 .nowrap {
