@@ -30,7 +30,6 @@ body {
  font-family: 'test','ariel', serif;
  color: #0d0d0d;
  height:100%;
- background-color:rgba(0, 0, 0, 0.2);
 }
 
 .bg {
@@ -75,7 +74,7 @@ body {
 .btn-end-turn {
   padding:1vh;
   color: white;
-  font-size: 2.5rem;
+  font-size: 5vh;
 }
 
 .btn-menu{
@@ -117,7 +116,8 @@ background-image{
 }
 
 .shadow-text {
-  text-shadow: black 0.05vw 0.05vw 0vw, black -0.02vw -0.05vh 0vw, black 0.02vw 0vw 0vw, black -0.05vh 0vw 0vw;
+  //text-shadow: black 0.05vw 0.05vw 0vw, black -0.02vw -0.05vh 0vw, black 0.02vw 0vw 0vw, black -0.05vh 0vw 0vw;
+      text-shadow: black 1px 1px 0vw, black 0px -1px 0vw, black 1px 0vw 0vw, black -1px 0vw 0vw;
 }
 
 .nowrap {
