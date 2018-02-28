@@ -15,7 +15,7 @@
   <% end %>
 </div>
 
-<div class="container-fluid" style="margin-top:-0.1vw;margin-bottom:6vw;padding-top:5.9vw">
+<div class="container-fluid" style="margin-bottom:5rem;padding-top:6.0vw">
   <div class="row content">
     <div class="col-sm-9" style="padding-left:0px">
       <table style="margin-bottom: 0.1vw; width:100%" class="table table-condensed table-striped ">
@@ -55,8 +55,8 @@
             <% end %>
           </tbody>
         </table>
-        <button id="reset" onclick="reset_buy()" class="btn btn-info " role="button" style="background:<%=current_nation.color%>;color:white">Reset Buy</button>
-        <button id="pacific" onclick="buy_pacific()" class="btn btn-info " role="button" style="background:<%=current_nation.color%>;color:white;<%if current_nation.name != ("Britain"||"UK Europe")%>display:none<% end %>">Buy Pacific Units</button>
+        <button id="reset" onclick="reset_buy()" class="btn btn-basic" role="button" style="padding:0.4rem;font-size:1rem;background:<%=current_nation.color%>;color:white">Reset Buy</button>
+        <button id="pacific" onclick="buy_pacific()" class="btn btn-copy" role="button" style="padding:0.4rem;<%if current_nation.name != ("Britain"||"UK Europe")%>display:none<% end %>">Buy Pacific Units</button>
       </div>
 
     <div class="col-sm-3" style="padding-left:0px;padding-right:0.25vw">
@@ -100,16 +100,16 @@
   </div>
 </div>
 <div class="container-fluid bottomaligned nations" style="width:100%;">
-    <%= link_to "Exit", home_path, :class =>"bottomaligned nation btn btn-basic", :style=>"", :role => "button" %>
+    <%= link_to "Exit", home_path, :class =>"bottomaligned nation btn btn-basic", :style=>"padding:0.5rem;padding-top:0.2rem;padding-bottom:0.2rem", :role => "button" %>
     <table style="margin-left:auto;margin-right:auto">
       <tbody>
         <tr style="background-color:rgba(0, 0, 0, 0.2);">
           <td style=""><%=image_tag current_nation.roundel , :id => "roundel", :style => "vertical-align:middle;height:5vw"%></td>
-          <td id="c-nation" class="nation shadow text-center" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></td>
-        <tr>
+          <td id="c-nation" class="nation shadow text-center" style="font-size:5em;color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></td>
+        </tr>
       <tbody>
     </table>
-    <button id="end-turn" class="bottomalignedright nation btn btn-secondary" onclick="end_turn()" style="height:6vw;background:<%=current_nation.color%>" role="button">End Turn</button>
+    <button id="end-turn" class="bottomalignedright nation btn btn-secondary" onclick="end_turn()" style="background:<%=current_nation.color%>" role="button">End Turn</button>
 </div>
 
 <%current_nation.researches.all.each do |r|

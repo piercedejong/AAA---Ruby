@@ -72,7 +72,6 @@ function end_turn() {
 		change_eco_nation(response);
 
 		if(response["nation"] == ("Britain" || "UK Europe")){
-			$("#pacific").css("background",response["color"]);
 			$("#pacific").show();
 		}else{
 			$("#pacific").hide();
