@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   delete '/game/destroy_all', to: 'games#destroy_all'
 
+  get '/game/copy', to: 'games#copy'
+
   get '/game/end_turn', to: 'games#end_turn'
 
   get '/game/buy_unit', to: 'games#buy_unit'

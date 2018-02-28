@@ -19,11 +19,21 @@ class GamesController < ApplicationController
     @game = current_user.games.new
   end
 
+  def copy
+    @new = current_user.games.find_by(uuid: params[:uuid]).dup
+    @new.update(name: params[:name])
+    redirect_to games_path
+  end
+
   def destroy
     @game = current_user.games.find_by(uuid: params[:id])
     @game.nations.all.each {|n| n.destroy}
     @game.units.all.each {|u| u.destroy}
     @game.destroy
+    if request.xhr?
+      render :json => {
+      }
+    end
     redirect_to games_path
   end
 

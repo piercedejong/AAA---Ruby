@@ -200,6 +200,21 @@ function reset_GrassHopper(){
 	}
 }
 
-function cheaper(cheap) {
-
+function copy(element) {
+	var name = prompt("Please enter new Name","Copy")
+	if(name.length>=3 && name != "   "){
+		$.ajax({
+			method: "GET",
+		  data:{
+		  	uuid: element.getAttribute("id"),
+				name: name
+		  },
+		  url: window.location.origin + '/game/copy'
+		})
+		.done(function(response) {
+			window.location.reload();
+		})
+	}else{
+		alert("Please enter a name that is at least 3 letters long");
+	}
 }

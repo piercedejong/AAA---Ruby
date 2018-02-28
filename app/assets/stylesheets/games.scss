@@ -51,6 +51,10 @@ div.bottom span {
     text-align: center;
 }
 
+tr.spaceUnder>td {
+  padding-bottom: 1em;
+}
+
 .table-condensed>thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td{
    padding-left: 0.5vw;
    padding-top: 1px;

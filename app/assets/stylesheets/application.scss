@@ -69,6 +69,7 @@ background-image{
 }
 
 .btn{
+  border-width:0.15rem;
   border-color: black;
 }
 
@@ -79,19 +80,26 @@ background-image{
   color: white;
   font-size: 3vh;
   padding:1.0vw;
-  border:0.050vw;
-  border:solid;
-  border-color: black;
 }
 
-.btn-main {
+.btn-ain {
   font-size: 2rem;
 }
 
-.btn-basic:hover{
-  background-color: #bfbfbf;
-  color: black
+.btn-copy {
+  font-size: 1rem;
+  background-color: cadetblue;
+  color: black;
+  padding: 0.2rem
 }
+
+.btn-delete {
+  font-size: 1rem;
+  background-color: red;
+  color: black;
+  padding: 0.2rem
+}
+
 
 .btn-menu{
   background-color: #464646;
@@ -99,10 +107,14 @@ background-image{
   font-size: 2vw;
   padding:1.0vw
 }
-.btn-menu:hover{
+
+.btn:hover, .btn-copy:hover, .btn-basic:hover, .btn-delete:hover{
   background-color: #bfbfbf;
-  color: black
+  color: black;
+  border-color: #bfbfbf;
 }
+
+
 
 
 .nowrap {
