@@ -64,12 +64,6 @@ tr.spaceUnder>td {
    vertical-align: middle;
 }
 
-#end-turn {
-  padding:1rem;
-  color: white;
-  font-size: 2.5rem;
-}
-
 #exit {
   position: fixed;
   bottom:0;
@@ -78,14 +72,14 @@ tr.spaceUnder>td {
 }
 
 #change-eco {
-  padding-top: 6px;
-  padding-bottom: 8px;
-  font-size: 2.5vw;
+  font-size: 2.5rem;
+  width:100%
 }
 
 #eco-bank, #eco-income {
-  font-size: 2.5rem;
+  font-size: 4vh;
   padding-top: 0.5vw;
+  padding:0px;
   color:white;
 
 }
@@ -105,4 +99,8 @@ tr.spaceUnder>td {
 
 .table-top {
   font-weight: bold;
+}
+
+tr.change>td{
+  width:50%
 }

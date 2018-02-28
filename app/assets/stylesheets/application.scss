@@ -40,47 +40,21 @@ body {
   z-index:-1;
 }
 
-@media (max-width : 480px) {
-	background-size: contain;
-  background-image: url(/assets/ussr.png);
-}
-
-background-image{
-  filter: blur(20px);
-}
-
-.title {
-  font-size: 6rem;
-  color: black;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  color: #fff;
-  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-}
-
-
-.shadow {
-  text-shadow: rgb(0, 0, 0) 1px 0px 0px, rgb(0, 0, 0) 0px -1px 0px, rgb(0, 0, 0) 0px 1px 0px, rgb(0, 0, 0) -1px 0px 0px;
-}
-
-.shadow-text {
-  text-shadow: black 0.05vw 0.05vw 0vw, black -0.02vw -0.05vh 0vw, black 0.02vw 0vw 0vw, black -0.05vh 0vw 0vw;
-}
-
 .btn{
+  color: white;
+  background-color: black;
+  white-space: pre-wrap;
   border-width:0.15rem;
   border-color: black;
 }
 
 .btn-basic{
   background-color: #464646;
-  color: white;
   font-size: 3vh;
   padding:1.0vw;
 }
 
-.btn-ain {
+.btn-main {
   font-size: 2rem;
 }
 
@@ -98,6 +72,12 @@ background-image{
   padding: 0.2rem
 }
 
+.btn-end-turn {
+  padding:1vh;
+  color: white;
+  font-size: 2.5rem;
+}
+
 .btn-menu{
   background-color: #464646;
   color: white;
@@ -105,14 +85,40 @@ background-image{
   padding:1.0vw
 }
 
-.btn:hover, .btn-copy:hover, .btn-basic:hover, .btn-delete:hover{
+.btn-side{
+  color: white;
+  font-size: 3vh;
+  padding:1.0vw;
+  width:100%;
+}
+
+.btn:hover, .btn-end-turn:hover, .btn-side:hover, .btn-copy:hover, .btn-basic:hover, .btn-delete:hover{
   background-color: #bfbfbf;
   color: black;
   border-color: #bfbfbf;
 }
 
+background-image{
+  filter: blur(20px);
+}
 
+.title {
+  font-size: 6rem;
+  color: black;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
 
+.shadow {
+  text-shadow: rgb(0, 0, 0) 1px 0px 0px, rgb(0, 0, 0) 0px -1px 0px, rgb(0, 0, 0) 0px 1px 0px, rgb(0, 0, 0) -1px 0px 0px;
+}
+
+.shadow-text {
+  text-shadow: black 0.05vw 0.05vw 0vw, black -0.02vw -0.05vh 0vw, black 0.02vw 0vw 0vw, black -0.05vh 0vw 0vw;
+}
 
 .nowrap {
   white-space:nowrap;

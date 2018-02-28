@@ -61,42 +61,83 @@
 
     <div class="col-sm-3" style="padding-left:0px;padding-right:0.25vw">
       <div class="row" style="margin-left:0px; margin-right:0px">
-        <div id="change-eco" onclick="change_eco()" style="font-size:3.3vw;background:<%=current_eco.color%>" class="text-center col btn btn-info btn-block btn-lg" role="button"><%=current_eco.name%></div>
-        <div class="w-100"></div>
-        <div class="text-center col nowrap shadow-text" id="eco-bank">Bank <%=current_eco.bank%></div>
-        <div class="text-center col nowrap shadow-text" id="eco-income">Income <%=current_eco.income%></div>
-        <div class="w-100"></div>
-        <div data-amount="1" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-pos text-center col btn btn-info" role="button">+1</div>
-        <div data-amount="1" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-pos text-center col btn btn-info" role="button">+1</div>
-        <div class="w-100"></div>
-        <div data-amount="-1" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-neg text-center col btn btn-info" role="button">-1</div>
-        <div data-amount="-1" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-neg text-center col btn btn-info" role="button">-1</div>
-        <div class="w-100"></div>
-        <div data-amount="5" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-pos text-center col btn btn-info" role="button">+5</div>
-        <div data-amount="5" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-pos text-center col btn btn-info" role="button">+5</div>
-        <div class="w-100"></div>
-        <div data-amount="-5" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-neg text-center col btn btn-info" role="button">-5</div>
-        <div data-amount="-5" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-neg text-center col btn btn-info" role="button">-5</div>
-        <div class="w-100"></div>
-        <div data-amount="10" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-pos text-center col btn btn-info" role="button">+10</div>
-        <div data-amount="10" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-pos text-center col btn btn-info" role="button">+10</div>
-        <div class="w-100"></div>
-        <div data-amount="-10" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-neg text-center col btn btn-info" role="button">-10</div>
-        <div data-amount="-10" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-neg text-center col btn btn-info" role="button">-10</div>
-      </div>
-      <br>
-      <div style="font-size:1.8vw">
-        <% if["1940Global","1940OneEco","1940Pacific","1940Europe"].include? current_game.game_name%>
-          <%= link_to "National Objectives", nation_path(current_eco.uuid), :id => "objective", :class =>"btn btn-info btn-block side-button", :role => "button", :style =>"font-size:1.8vw;background:"+current_eco.color %>
-          <%= link_to "Research and Development", research_path(current_game.uuid), :id => "research", :class =>"btn btn-info btn-block side-button", :role => "button", :style => "font-size:1.8vw;background:"+current_eco.colorL %>
-        <%elsif current_game.game_name.eql? "1940Grasshopper"%>
-          <%= link_to "National Objectives", nation_path(current_eco.uuid), :id => "objective", :class =>"btn btn-info btn-block side-button", :role => "button", :style =>"font-size:1.8vw;background:"+current_eco.color %>
-          <%= link_to "Victory Objectives", victory_path(current_game.uuid), :id => "victory", :class =>"btn btn-info btn-block side-button", :role => "button", :style =>"font-size:1.8vw;background:"+current_eco.colorL %>
-          <%= link_to "Research and Development", research_path(current_game.uuid), :id => "research", :class =>"btn btn-info btn-block side-button", :role => "button", :style => "font-size:1.8vw;background:"+current_eco.color %>
-        <%else%>
+        <button id="change-eco" onclick="change_eco()" style="background:<%=current_eco.color%>" class="text-center col btn" role="button"><%=current_eco.name%></button>
+        <table style="width:100%">
+          <tbody>
+            <tr class="change">
+              <td>
+                <div class="text-center col nowrap shadow-text" id="eco-bank">Bank <%=current_eco.bank%></div>
+              </td>
+              <td>
+                <div class="text-center col nowrap shadow-text" id="eco-income">Income <%=current_eco.income%></div>
+              </td>
+            </tr>
+            <tr class="change">
+              <td >
+                <button data-amount="1" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center col btn btn-change" role="button">+1</button>
+              </td>
+              <td >
+                <button data-amount="1" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center col btn btn-change" role="button">+1</button>
+              <td>
+              </td>
+            </tr>
+            <tr class="change">
+              <td >
+                <button data-amount="-1" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-pos text-center col btn btn-change" role="button">-1</button>
+              </td>
+              <td >
+                <button data-amount="-1" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-pos text-center col btn btn-change" role="button">-1</button>
+              <td>
+              </td>
+            </tr>
+            <tr class="change">
+              <td >
+                <button data-amount="5" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center col btn btn-change" role="button">+5</button>
+              </td>
+              <td >
+                <button data-amount="5" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center col btn btn-change" role="button">+5</button>
+              <td>
+              </td>
+            </tr>
+            <tr class="change">
+              <td >
+                <button data-amount="-5" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-pos text-center col btn btn-change" role="button">-5</button>
+              </td>
+              <td >
+                <button data-amount="-5" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-pos text-center col btn btn-change" role="button">-5</button>
+              <td>
+              </td>
+            </tr>
+            <tr class="change">
+              <td >
+                <button data-amount="10" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center col btn btn-change" role="button">+10</button>
+              </td>
+              <td >
+                <button data-amount="10" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center col btn btn-change" role="button">+10</button>
+              <td>
+              </td>
+            </tr>
+            <tr class="change">
+              <td >
+                <button data-amount="-10" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-pos text-center col btn btn-change" role="button">-10</button>
+              </td>
+              <td >
+                <button data-amount="-10" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-pos text-center col btn btn-change" role="button">-10</button>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      <div class="container" style="padding:0.2rem; margin-top:0.5rem">
+        <% if["1940Global","1940OneEco","1940Pacific","1940Europe","1940Grasshopper"].include? current_game.game_name%>
+          <%= link_to "National Objectives", nation_path(current_eco.uuid), :id => "objective", :class =>"btn btn-side", :role => "button", :style =>"background:"+current_eco.color %>
+          <%= link_to "Research and Development", research_path(current_game.uuid), :id => "research", :class =>"btn btn-side", :role => "button", :style => "background:"+current_eco.colorL %>
+        <%end%>
+        <%if ["1940Grasshopper"].include? current_game.game_name%>
+          <%= link_to "Victory Objectives", victory_path(current_game.uuid), :id => "victory", :class =>"btn btn-side", :role => "button", :style =>"background:"+current_eco.color %>
         <%end%>
       </div>
-      </div>
+    </div>
   </div>
 </div>
 <div class="container-fluid bottomaligned nations" style="width:100%;">
@@ -109,7 +150,7 @@
         </tr>
       <tbody>
     </table>
-    <button id="end-turn" class="bottomalignedright nation btn btn-secondary" onclick="end_turn()" style="background:<%=current_nation.color%>" role="button">End Turn</button>
+    <button id="end-turn" class="bottomalignedright nation btn btn-end-turn" onclick="end_turn()" style="background:<%=current_nation.color%>" role="button">End Turn</button>
 </div>
 
 <%current_nation.researches.all.each do |r|
