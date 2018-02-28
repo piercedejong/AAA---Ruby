@@ -102,6 +102,11 @@ body {
   padding:0.4rem;
 }
 
+.btn-unit {
+  padding:0.1rem;
+  width:100%;
+}
+
 .btn:hover, .btn-game:hover, .btn-end-turn:hover, .btn-side:hover, .btn-copy:hover, .btn-basic:hover, .btn-delete:hover{
   background-color: #bfbfbf;
   color: black;
