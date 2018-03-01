@@ -81,11 +81,22 @@ body {
   font-size: 5vh;
 }
 
+.btn-game {
+  width:100%;
+  padding:0.4rem;
+}
+
 .btn-menu{
   background-color: #464646;
   color: white;
   font-size: 2vw;
   padding:1.0vw
+}
+
+.btn-nat {
+  text-align: left;
+  width: 100%;
+  font-size: 3vh;
 }
 
 .btn-side{
@@ -95,17 +106,12 @@ body {
   width:100%;
 }
 
-.btn-game {
-  width:100%;
-  padding:0.4rem;
-}
-
 .btn-unit {
   padding:0.1rem;
   width:100%;
 }
 
-.btn:hover, .btn-game:hover, .btn-end-turn:hover, .btn-side:hover, .btn-copy:hover, .btn-basic:hover, .btn-delete:hover{
+.btn:hover, .btn-game:hover, .btn-nat:hover, .btn-end-turn:hover, .btn-side:hover, .btn-copy:hover, .btn-basic:hover, .btn-delete:hover{
   background-color: #bfbfbf;
   color: black;
   text-shadow: black 0px 0px 0vw;
