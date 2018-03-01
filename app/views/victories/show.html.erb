@@ -9,9 +9,9 @@
         <% @game.victories.each do |v| %>
           <% if v.axis %>
             <% if v.enabled %>
-              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" style="margin-bottom:0.5vw;padding:0.75vw;background:#ff6666;text-align:left;font-size:1.0vw;" class="victory btn btn-block" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
+              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" style="background-color:#ff6666" class="shadow-text victory btn btn-victory" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
             <%else%>
-              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" style="margin-bottom:0.5vw;padding:0.75vw;text-align:left;font-size:1.0vw;" class="victory btn btn-block" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
+              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" style="" class="shadow-text victory btn btn-victory" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
             <%end%>
           <%end%>
         <%end %>
@@ -23,9 +23,9 @@
         <% @game.victories.each do |v| %>
           <% if !v.axis %>
             <% if v.enabled %>
-              <button data-id="<%=v.vid%>" id="victory-<%=v.vid%>" style="margin-bottom:0.5vw;padding:0.75vw;background:#66ccff;text-align:left;font-size:1.0vw;" class="victory btn btn-block" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
+              <button data-id="<%=v.vid%>" id="victory-<%=v.vid%>" style="background:#66ccff" class="shadow-text victory btn btn-victory" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
             <%else%>
-              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" style="margin-bottom:0.5vw;padding:0.75vw;text-align:left;font-size:1.0vw;" class="victory btn btn-block" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
+              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>"  class="shadow-text victory btn btn-victory" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
             <%end%>
           <%end%>
         <%end %>
@@ -33,7 +33,7 @@
     </div>
   </div>
 </div>
-<div class="bottomaligned" style="background-color:#353535;">
+<div class="bottomaligned">
   <%= link_to "Back", game_path(current_game.uuid), :class =>"btn btn-menu", :role => "button" %>
   <%= link_to "National Objectives", nation_path(current_eco.uuid), :class =>"btn btn-menu", :role => "button" %>
   <%= link_to "Research and Development", research_path(current_game.uuid), :class =>"btn btn-menu", :role => "button" %>
