@@ -61,16 +61,16 @@ body {
 }
 
 .btn-copy {
+  color:white;
   font-size: 1rem;
   background-color: cadetblue;
-  color: black;
-  padding: 0.2rem
+  padding: 0.2rem;
+  white-space: nowrap;
 }
 
 .btn-delete {
   font-size: 1rem;
   background-color: red;
-  color: black;
   padding: 0.2rem;
   white-space: nowrap;
 }
@@ -96,9 +96,7 @@ body {
 }
 
 .btn-game {
-  color:white;
   width:100%;
-  white-space:prewrap;
   padding:0.4rem;
 }
 

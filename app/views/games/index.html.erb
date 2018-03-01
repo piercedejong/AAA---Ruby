@@ -1,6 +1,6 @@
 <br>
 <h1 class=" title text-center">Load Game</h1>
-<div class="container-fluid" style="padding:0px">
+<div class="container-fluid" style="">
   <div class="row content">
     <div class="col-sm-4">
     </div>
@@ -9,10 +9,10 @@
         <tbody>
           <% current_user.games.each do |game| %>
             <tr class="spaceUnder",style="padding-top:0.5rem">
-              <td style="padding:0px;width:100%"><button href="<%= game_path(game.uuid) %>" class="btn btn-basic" style="width:100%;padding:0.1vw;font-size:2.7rem"role="button" ><%= game.name %></button></td>
+              <td style="padding:0px;width:100%"><a href="<%= game_path(game.uuid) %>" class="btn btn-basic" style="width:100%;padding:0.1vw;font-size:2.7rem"role="button" ><%= game.name %></a></td>
               <td style="padding:0px"><div class="container" style="padding-left:0.5rem;display:grid">
-                <a id="<%=game.uuid %>", style="margin-top:0.2rem;margin-bottom:0.1rem", class="nowrap btn btn-default btn-copy", role ="button", onclick="copy(this)">Copy Game</a>
-                <%= link_to 'Delete Game', game_path(game.uuid), :class=>"btn btn-danger btn-delete",method: :delete,data: {confirm: "Confirm deletion of game: "+game.name} %>
+                <button id="<%=game.uuid %>", style="margin-top:0.2rem;margin-bottom:0.1rem", class="btn btn-default btn-copy shadow-text", role ="button", onclick="copy(this)">Copy Game</button>
+                <%= link_to 'Delete Game', game_path(game.uuid), :class=>"btn btn-danger btn-delete shadow-text",method: :delete,data: {confirm: "Confirm deletion of game: "+game.name} %>
               </div></td>
             </tr>
           <% end %>
