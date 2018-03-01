@@ -1,8 +1,8 @@
 <div class="container-fluid" style="margin-bottom:-2.0vw">
         <div id ="c-nation" class="text-center">Research</div>
 </div>
-<div class="container" style="padding:0px;margin:0.5rem">
-  <div class="row content">
+<div class="" style="padding:0px;margin:0.5rem">
+  <div class="row content" style="padding:0px;margin:0px">
     <div class="col-sm-6" style="padding:0px">
       <div  class="container" style="padding:0.5rem">
         <div id="research-title" class="text-center shadow-text" style="color:#669999">Chart 1</div>
@@ -11,7 +11,7 @@
             <tr>
               <% current_nation.researches.each do |r| %>
                 <% if r.rid <6 %>
-                  <th style="padding:0px"><div><button class="btn btn-research-top shadow-text" style="background-color:#669999"><%= r.name %></button></div></th>
+                  <th style="padding:0px"><div><button class="btn btn-research-top shadow-text" style="background-color:#669999"><strong><%= r.name %></button></strong></div></th>
                 <%end%>
               <%end%>
             </tr>
@@ -41,7 +41,7 @@
             <tr>
               <% current_nation.researches.each do |r| %>
                 <% if r.rid >=6 %>
-                  <th style="padding:0px"><div><button class="btn btn-research-top shadow-text" style="background-color:#669999"><%= r.name %></button></div></th>
+                  <th style="padding:0px"><div><button class="btn btn-research-top shadow-text" style="background-color:#666699"><%= r.name %></button></div></th>
                 <%end%>
               <%end%>
             </tr>
