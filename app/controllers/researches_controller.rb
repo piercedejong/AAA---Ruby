@@ -9,7 +9,6 @@ class ResearchesController < ApplicationController
     @research = @nation.researches.find_by(rid: params[:id])
     if current_game.game_name.eql? "1940Grasshopper"
       #If a victory mission was completed
-      binding.pry
       if session[:research_point]
         session[:research_point] = false
         @research.update(enabled: true)
