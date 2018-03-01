@@ -48,7 +48,7 @@ body {
   white-space: pre-wrap;
   border-width:0.15rem;
   border-color: black;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 .btn-basic{
@@ -63,6 +63,12 @@ body {
   background-color: cadetblue;
   padding: 0.2rem;
   white-space: nowrap;
+}
+
+.btn-main {
+  font-size: 2rem;
+  width:100%;
+  margin-top: 0.5rem;
 }
 
 .btn-delete {
