@@ -18,7 +18,7 @@ class ResearchesController < ApplicationController
       end
     elsif ["1940Global","1940OneEco","1940Europe","1940Pacifc"].include? current_game.game_name
       @research.update(enabled: true)
-      if @nation.name.eql? "Britain" and current_game.game_name.eql? "1940"
+      if @nation.name.eql? "Britain" and current_game.game_name.eql? "1940Global"
         current_game.nations.find_by(name: "Pacific").researches[@research.rid].update(enabled: true)
       end
     end
