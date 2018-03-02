@@ -114,18 +114,18 @@
     </div>
   </div>
 </div>
-<div class="container-fluid bottomaligned nations" style="width:100%;">
     <%= link_to "Exit", home_path, :class =>"bottomaligned nation btn btn-basic", :style=>"padding:0.5rem;padding-top:0.2rem;padding-bottom:0.2rem", :role => "button" %>
+<div class="bottomalignedmiddle">
     <table style="margin-left:auto;margin-right:auto">
       <tbody>
-        <tr style="background-color:rgba(0, 0, 0, 0.1);">
-          <td style=""><%=image_tag current_nation.roundel , :id => "roundel", :style => "vertical-align:middle;height:5vw"%></td>
+        <tr style="background-color:rgba(0, 0, 0, 0.3);">
+          <td style="pre-wrap:nowrap"><%=image_tag current_nation.roundel , :id => "roundel", :style => "vertical-align:middle;height:5vw"%></td>
           <td id="c-nation" class="nation shadow text-center" style="font-size:10vh;color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></td>
         </tr>
       <tbody>
     </table>
-    <button id="end-turn" class="bottomalignedright nation btn btn-end-turn" onclick="end_turn()" style="background:<%=current_nation.color%>" role="button">End Turn</button>
 </div>
+    <button id="end-turn" class="bottomalignedright nation btn btn-end-turn" onclick="end_turn()" style="background:<%=current_nation.color%>" role="button">End Turn</button>
 
 <%current_nation.researches.all.each do |r|
   if ["Mass Production", "Improved Shipyards"].include? r.name and r.enabled%>
