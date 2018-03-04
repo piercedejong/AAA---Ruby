@@ -19,6 +19,10 @@ class GamesController < ApplicationController
     @game = current_user.games.new
   end
 
+  def edit
+    @game = current_user.games.find_by(uuid: params[:id])
+  end
+
   def copy
     @new = current_user.games.find_by(uuid: params[:uuid]).dup
     @new.update(name: params[:name])

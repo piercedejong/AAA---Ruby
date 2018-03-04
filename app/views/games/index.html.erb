@@ -12,6 +12,7 @@
               <td style="padding:0px;width:100%"><a href="<%= game_path(game.uuid) %>" class="btn btn-basic" style="width:100%;padding:0.1vw;font-size:2.7rem"role="button" ><%= game.name %></a></td>
               <td style="padding:0px"><div class="container" style="padding-left:0.5rem;display:grid">
                 <button id="<%=game.uuid %>", style="margin-top:0.2rem;margin-bottom:0.1rem", class="btn btn-default btn-copy shadow-text", role ="button", onclick="copy(this)">Copy Game</button>
+                <%= link_to 'Edit Game', edit_game_path(game.uuid), :class=>"btn btn-danger btn-delete shadow-text" %>
                 <%= link_to 'Delete Game', game_path(game.uuid), :class=>"btn btn-danger btn-delete shadow-text",method: :delete,data: {confirm: "Confirm deletion of game: "+game.name} %>
               </div></td>
             </tr>
