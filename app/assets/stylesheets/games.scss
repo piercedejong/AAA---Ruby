@@ -104,3 +104,15 @@ tr.spaceUnder>td {
 tr.change>td{
   width:50%
 }
+
+.tablerow1 {
+    background-color: rgba(0, 0, 0, 0.4);z-index:-1;
+    font-weight:bold;
+    color:#666666
+}
+
+.tablerow2 {
+    background-color: rgba(0, 0, 0, 0.2);z-index:-1;
+    font-weight:bold;
+    color:#cccccc
+}
