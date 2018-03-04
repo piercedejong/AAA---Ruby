@@ -128,19 +128,12 @@ class GamesController < ApplicationController
       end
     end
     #Go to the next nation
-    current_game.update(current: current_game.current+1)
-    if(current_game.current>current_game.nations.last.nid)
-      current_game.update(current: 0)
-    end
-    # Change eco nation to the new nation
-    eco_to_current
-    reset_units
-    current_game.update(bank: current_nation.bank)
+    current_game.end_turn
   end
 
   # Buy British Pacific Units in Global Games
   def buy_pacific
-    current_game.update(current: current_game.current+1)
+    current_game.buy_pacific
     if request.xhr?
       render :json => {
         nation: current_nation.name,
@@ -152,16 +145,14 @@ class GamesController < ApplicationController
         uuid: current_nation.uuid
       }
     end
-    eco_to_current
-    reset_units
-    current_game.update(bank: current_nation.bank)
+
   end
 
   def buy_unit
     @unit = current_game.units.find_by(uid: params[:uid])
     current_nation.buy_unit(@unit)
     if current_eco!=current_nation
-      eco_to_current
+      current_game.eco_to_current
       if request.xhr?
         render :json => {
           count: @unit.count,
@@ -188,10 +179,7 @@ class GamesController < ApplicationController
   end
 
   def change_eco
-    current_game.update(eco: current_game.eco+1)
-    if(current_game.eco>current_game.nations.last.nid)
-      current_game.update(eco: 0)
-    end
+    current_game.change_eco
     if request.xhr?
       render :json => {
         nation: current_eco.name,
@@ -271,13 +259,6 @@ class GamesController < ApplicationController
   end
 
   private
-    def reset_units
-      current_game.units.each {|u| u.update(count: 0)}
-    end
-
-    def eco_to_current
-      current_game.update(eco: current_game.current)
-    end
 
     def check_current_user
       if !current_user
