@@ -21,6 +21,7 @@ class GamesController < ApplicationController
 
   def edit
     @game = current_user.games.find_by(uuid: params[:id])
+    session[:edit_uuid] = params[:id]
   end
 
   def copy
@@ -228,6 +229,34 @@ class GamesController < ApplicationController
         nation: current_eco.name,
         income: current_eco.income,
         total_income: current_eco.total_income
+      }
+    end
+  end
+
+  def edit_change_bank
+    @nation = current_user.games.find_by(uuid: session[:edit_uuid]).nations.find_by(uuid: params[:uuid])
+    @amount = params[:amount].to_i
+    @nation.update(bank: @nation.bank+@amount)
+    if(@nation.bank<0)
+      @nation.update(bank: 0)
+    end
+    if request.xhr?
+      render :json => {
+        bank: @nation.bank
+      }
+    end
+  end
+
+  def edit_change_income
+    @nation = current_user.games.find_by(uuid: session[:edit_uuid]).nations.find_by(uuid: params[:uuid])
+    @amount = params[:amount].to_i
+    @nation.update(income: @nation.income+@amount)
+    if(@nation.income<0)
+      @nation.update(income: 0)
+    end
+    if request.xhr?
+      render :json => {
+        income: @nation.income
       }
     end
   end

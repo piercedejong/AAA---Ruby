@@ -34,6 +34,10 @@ Rails.application.routes.draw do
 
   get '/game/change_income', to: 'games#change_income'
 
+  get '/game/edit_change_bank', to: 'games#edit_change_bank'
+
+  get '/game/edit_change_income', to: 'games#edit_change_income'
+
   get '/game/buy_pacific', to: 'games#buy_pacific'
 
   get 'game/objectives', to: 'games#objectives', as: :objectives

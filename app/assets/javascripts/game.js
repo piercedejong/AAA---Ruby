@@ -132,6 +132,34 @@ function change_income(element) {
 	})
 }
 
+function edit_change_bank(element) {
+	$.ajax({
+       method: "GET",
+       data:{
+       	amount: element.getAttribute("data-amount"),
+				uuid: element.getAttribute("uuid")
+       },
+       url: window.location.origin + '/game/edit_change_bank'
+	})
+  .done(function(response) {
+    $("#"+element.getAttribute("uuid")+"-bank").text("Bank "+response["bank"]);
+  })
+}
+
+function edit_change_income(element) {
+	$.ajax({
+       method: "GET",
+       data:{
+       	amount: element.getAttribute("data-amount"),
+				uuid: element.getAttribute("uuid")
+       },
+       url: window.location.origin + '/game/edit_change_income'
+	})
+  .done(function(response) {
+    $("#"+element.getAttribute("uuid")+"-income").text("Income "+response["income"]);
+  })
+}
+
 function buy_pacific(element) {
 	$("#pacific").hide();
 	$.ajax({
