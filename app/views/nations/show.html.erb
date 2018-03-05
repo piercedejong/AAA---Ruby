@@ -1,7 +1,7 @@
 <div class="container-fluid" style="padding1.5vw">
   <div class="row content" style="padding-bottom:3.0vw">
     <div class="col-sm-10">
-      <div id="c-nation" class="shadow-text text-center" style="margin-top;margin-bottom:0.9vw;color:<%=@nation.color%>"><%= @nation.obj_inc %></div>
+      <div id="c-nation" class="shadow-text text-center title" style="margin-top;margin-bottom:0.9vw;color:<%=@nation.color%>"><%= @nation.obj_inc %></div>
       <div class="conatiner" style="">
         <% @nation.objectives.each do |o| %>
           <button data-oid="<%=o.oid%>" onclick="update_obj(this)" id="objective-<%=o.oid%>" style="background:<%= o.enabled ? @nation.color : @nation.colorL%>;" class="btn btn-nat shadow-text" role="button"><strong><%= o.value %></strong> :: <%=o.name %></button>

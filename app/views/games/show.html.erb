@@ -1,20 +1,3 @@
-<!-- <div class="container-fluid nations nationsCSS shadow-text">
-  <% current_game.nations.all.each do |n| %>
-    <% if ["1940Global","1940OneEco","1940Grasshopper","1914"].include? current_game.game_name%>
-      <div class="nation" id="<%=n.name%>" style="color:<%=n.color%>">
-    <%elsif ["1942","1940Europe","1940Pacifc"].include? current_game.game_name %>
-      <div class="nation" id="<%=n.name%>" style="width:<%=100/current_game.nations.count%>%;color:<%=n.color%>;">
-    <%end %>
-        <div class="name"><%=n.name%></div>
-        <div class="monay">
-          <div id="<%=n.name%>-bank" class="money text-right"><%=n.bank%></div>
-          <div id="<%=n.name%>-divider" class="money text-center" style="width:0.75vw">|</div>
-          <div id="<%=n.name%>-income" class="money text-left"><%=n.total_income%></div>
-        </div>
-      </div>
-  <% end %>
-</div> -->
-
 <div class="row nations" style="">
   <% @game.nations.all.each do |n| %>
     <div class="nation" style="padding:0.0px;margin:top:0.0px;margin-left:auto;margin-right:auto;color:<%=n.color%>">
