@@ -1,4 +1,4 @@
-<div class="container-fluid nations nationsCSS shadow-text">
+<!-- <div class="container-fluid nations nationsCSS shadow-text">
   <% current_game.nations.all.each do |n| %>
     <% if ["1940Global","1940OneEco","1940Grasshopper","1914"].include? current_game.game_name%>
       <div class="nation" id="<%=n.name%>" style="color:<%=n.color%>">
@@ -13,6 +13,19 @@
         </div>
       </div>
   <% end %>
+</div> -->
+
+<div class="row nations" style="">
+  <% @game.nations.all.each do |n| %>
+    <div class="nation" style="padding:0.0px;margin:top:0.0px;margin-left:auto;margin-right:auto;color:<%=n.color%>">
+      <div class="shadow-text"><%= n.name %></div>
+      <div class="money">
+        <div id="<%=n.name%>-bank" class="shadow-text"><%=n.bank%></div>
+        <div id="<%=n.name%>-divider" class="shadow-text" style="">|</div>
+        <div id="<%=n.name%>-income" class="shadow-text"><%=n.total_income%></div>
+      </div>
+    </div>
+  <%end%>
 </div>
 
 <div class="container-fluid" style="margin-bottom:4.9rem;padding-top:6.0vw">

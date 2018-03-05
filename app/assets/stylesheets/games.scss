@@ -1,40 +1,30 @@
 div.nations {
-  width: 100%;
-  //border: 1px solid black;
-  display: table;
-  table-layout: auto;
-  white-space: nowrap;
-}
-
-div.nationsCSS {
   position:fixed;
-  background:#353535;
+  z-index:99;
   width:100%;
-  padding-left:0.25vw;
-  padding-right:0.25vw;
-  margin-top:-0.25vw;
-  z-index: 99;
+  margin:0px;
+  margin-top:-1.0vw;
+  padding:0px;
+  background-color:#353535;
 }
-
 div.nation {
-  font-size: 3.7vw;
+  font-size: 3.5vw;
   //border: 1px solid grey;
-  display: table-cell;
+//  display: table-cell;
   text-align: center;
 }
-
-div.monay {
-  width: 100%;
-  display: table;
-  white-space: nowrap;
-  table-layout: fixed;
-}
 .money {
-  display:table-cell;
-  line-height: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: -1.25vw;
+  margin-bottom: -0.4vw;
+  padding:0px;
+  display: flex;
+  flex: right;
+  flex-wrap: wrap;
   font-size: 2.15vw;
-  padding-top: 0.5vw;
-  padding-bottom: 1vw;
+  align-items: center;
+  justify-content: center;
 }
 
 div.name {
