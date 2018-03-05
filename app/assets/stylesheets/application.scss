@@ -58,6 +58,8 @@ body {
 }
 
 .btn-copy {
+  margin-top:0.1rem;
+  margin-bottom:0.1rem;
   color:white;
   font-size: 1rem;
   background-color: cadetblue;
@@ -72,8 +74,19 @@ body {
 }
 
 .btn-delete {
+  margin-top:0.1rem;
+  margin-bottom:0.1rem;
   font-size: 1rem;
   background-color: red;
+  padding: 0.2rem;
+  white-space: nowrap;
+}
+
+.btn-edit {
+  margin-top:0.1rem;
+  margin-bottom:0.1rem;
+  font-size: 1rem;
+  background-color: green;
   padding: 0.2rem;
   white-space: nowrap;
 }
