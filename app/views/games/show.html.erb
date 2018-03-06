@@ -118,9 +118,9 @@
 <div class="bottomalignedmiddle c-nation">
     <table style="margin-left:auto;margin-right:auto">
       <tbody>
-        <tr style="background-color:rgba(0,0,0,0.2);">
+        <tr id="c-nation-div" style="background-color:<%=current_nation.colorL%>">
           <td style="pre-wrap:nowrap"><%=image_tag current_nation.roundel , :id => "roundel", :style => "vertical-align:middle;height:5vw"%></td>
-          <td id="c-nation" class="nation shadow text-center" style="font-size:10vh;color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></td>
+          <td id="c-nation" class="nation shadow-text text-center" style="font-size:10vh;color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></td>
         </tr>
       <tbody>
     </table>
@@ -130,8 +130,10 @@
 <%current_nation.researches.all.each do |r|
   if ["Mass Production", "Improved Shipyards"].include? r.name and r.enabled%>
     <body onload="cheap()">
-  <%end
-  end %>
+<%end
+end %>
+
+<body onload="background()">
 
 
 <script>

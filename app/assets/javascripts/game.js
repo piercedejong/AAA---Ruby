@@ -75,6 +75,8 @@ function end_turn() {
 		}else{
 			$("#pacific").hide();
 		}
+		$("#c-nation-div").css('background-color', response["colorL"])
+		background();
   })
 }
 
@@ -243,4 +245,11 @@ function copy(element) {
 	}else{
 		alert("Please enter a name that is at least 3 letters long");
 	}
+}
+
+function background() {
+	var c = $("#c-nation-div").css('background-color');
+	var rgb = c.replace(/^rgba?\(|\s+|\)$/g,'').split(',');
+	var rgba = "rgba("+rgb[0]+","+rgb[1]+","+rgb[2]+",0.3)";
+	$("#c-nation-div").css('background-color', rgba);
 }
