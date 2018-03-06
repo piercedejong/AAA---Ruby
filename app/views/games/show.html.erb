@@ -1,18 +1,21 @@
 <% content_for :title, "aaa - game" %>
-<div class="row nations" style="">
+
+<div class="nations">
   <% @game.nations.all.each do |n| %>
-    <div class="nation" style="padding:0.0px;margin:top:0.0px;margin-left:auto;margin-right:auto;color:<%=n.color%>">
-      <div class="shadow-text"><%= n.name %></div>
-      <div class="money">
-        <div id="<%=n.name%>-bank" class="shadow-text"><%=n.bank%></div>
-        <div id="<%=n.name%>-divider" class="shadow-text" style="">|</div>
-        <div id="<%=n.name%>-income" class="shadow-text"><%=n.total_income%></div>
+        <div class="nation" style="color:<%=n.color%>">
+          <div class="nation-name shadow-text"><%= n.name %>
+          <div class="money">
+            <div id="<%=n.name%>-bank" class="shadow-text"><%=n.bank%></div>
+            <div id="<%=n.name%>-divider" class="shadow-text" style="">|</div>
+            <div id="<%=n.name%>-income" class="shadow-text"><%=n.total_income%></div>
+          </div>
+        </div>
       </div>
-    </div>
-  <%end%>
+    <%end%>
 </div>
 
-<div class="container-fluid" style="margin-bottom:4.7rem;padding-top:6.0vw">
+
+<div class="container-game" style="">
   <div class="row content">
     <div class="col-sm-9" style="padding-left:0px">
       <table style="margin-bottom: 0.1vw; width:100%" class="table table-condensed ">
@@ -115,7 +118,7 @@
 <div class="bottomalignedmiddle c-nation">
     <table style="margin-left:auto;margin-right:auto">
       <tbody>
-        <tr style="background-color:rgba(0, 0, 0, 0.3);">
+        <tr style="background-color:rgba(0,0,0,0.2);">
           <td style="pre-wrap:nowrap"><%=image_tag current_nation.roundel , :id => "roundel", :style => "vertical-align:middle;height:5vw"%></td>
           <td id="c-nation" class="nation shadow text-center" style="font-size:10vh;color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></td>
         </tr>
@@ -127,8 +130,8 @@
 <%current_nation.researches.all.each do |r|
   if ["Mass Production", "Improved Shipyards"].include? r.name and r.enabled%>
     <body onload="cheap()">
-<%end
-end %>
+  <%end
+  end %>
 
 
 <script>

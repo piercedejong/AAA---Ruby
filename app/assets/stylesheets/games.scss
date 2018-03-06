@@ -1,44 +1,40 @@
-div.nations {
+.nations {
   position:fixed;
   z-index:99;
-  width:100%;
-  margin:0px;
-  margin-top:-1.0vw;
-  padding:0px;
   background-color:#353535;
+  width:100%;
+  display: flex;
+  flex-wrap: wrap;
 }
-div.nation {
-  font-size: 3.5vw;
-  //border: 1px solid grey;
-//  display: table-cell;
+.nation {
+  margin-left:auto;
+  margin-right:auto;
+
+}
+.nation-name {
+  font-size: 3.7vw;
   text-align: center;
 }
 .money {
   margin-left: auto;
   margin-right: auto;
-  margin-top: -1.25vw;
-  margin-bottom: -0.4vw;
+  margin-top: -0.25vw;
   padding:0px;
   display: flex;
   flex: right;
   flex-wrap: wrap;
-  font-size: 2.15vw;
+  font-size: 2.5vw;
   align-items: center;
   justify-content: center;
 }
 
-div.name {
-  margin-top: -0.95vw;
-  margin-bottom: -0.75vw;
-}
-
-div.bottom {
-    width: 100%;
-    position: fixed;
-}
-div.bottom span {
-    display: table-cell;
-    text-align: center;
+.container-game{
+  padding-right:15px;
+  padding-left:15px;
+  margin-right:auto;
+  margin-left:auto;
+  margin-bottom:4.4rem;
+  padding-top: 6.75vw;
 }
 
 tr.spaceUnder>td {
@@ -110,6 +106,21 @@ tr.change>td{
     color:#cccccc
 }
 
-.c-nation{
-  margin-bottom:-1vw;
+.new-game{
+  color:white;
+  font-size: 3vw;
+}
+
+@media only screen and (max-width: 768px) {
+  .nation-name{
+    font-size: 1.5em;
+  }
+  .money{
+    font-size: 0.75em;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .container-game{
+    padding-top: 25vw;
+  }
 }
