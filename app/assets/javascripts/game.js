@@ -76,7 +76,7 @@ function end_turn() {
 			$("#pacific").hide();
 		}
 		$("#c-nation-div").css('background-color', response["colorL"])
-		background();
+		c_nation_opacity();
   })
 }
 
@@ -247,9 +247,9 @@ function copy(element) {
 	}
 }
 
-function background() {
+function c_nation_opacity() {
 	var c = $("#c-nation-div").css('background-color');
 	var rgb = c.replace(/^rgba?\(|\s+|\)$/g,'').split(',');
-	var rgba = "rgba("+rgb[0]+","+rgb[1]+","+rgb[2]+",0.3)";
+	var rgba = "rgba("+rgb[0]+","+rgb[1]+","+rgb[2]+",0.4)";
 	$("#c-nation-div").css('background-color', rgba);
 }

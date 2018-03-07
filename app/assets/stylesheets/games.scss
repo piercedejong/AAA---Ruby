@@ -33,7 +33,8 @@
   padding-left:15px;
   margin-right:auto;
   margin-left:auto;
-  margin-bottom:4.4rem;
+  margin-bottom: 0px;
+  padding-bottom:4.4rem;
   padding-top: 6.75vw;
 }
 
@@ -111,14 +112,49 @@ tr.change>td{
   font-size: 3vw;
 }
 
-@media only screen and (max-width: 768px) {
+#c-nation{
+  font-size:10vh;
+  white-space:nowrap
+}
+
+@media only screen and (max-width: 768px) and (orientation:portrait){
   .nation-name{
-    font-size: 1.5em;
+    font-size: 6vw;
   }
   .money{
-    font-size: 0.75em;
+    font-size: 4vw;
+  }
+  #c-nation{
+    font-size:5vh;
+    white-space:nowrap
+  }
+  #roundel{
+    height:1.5vh;
+  }
+  #end-turn{
+    font-size: 2.0vh
   }
 }
+
+@media only screen and (max-width: 768px) and (orientation:landscape){
+  .nation-name{
+    font-size: 3.75vw;
+  }
+  .money{
+    font-size: 2.5vw;
+  }
+  #c-nation{
+    font-size:9vh;
+    white-space:nowrap
+  }
+  #roundel{
+    height:1.5vh;
+  }
+  #end-turn{
+    font-size: 4.0vh
+  }
+}
+
 @media only screen and (max-width: 500px) {
   .container-game{
     padding-top: 25vw;

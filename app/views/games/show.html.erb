@@ -119,10 +119,10 @@
     <table style="margin-left:auto;margin-right:auto">
       <tbody>
         <tr id="c-nation-div" style="background-color:<%=current_nation.colorL%>">
-          <td style="pre-wrap:nowrap"><%=image_tag current_nation.roundel , :id => "roundel", :style => "vertical-align:middle;height:5vw"%></td>
-          <td id="c-nation" class="nation shadow-text text-center" style="font-size:10vh;color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></td>
+          <td style=""><%=image_tag current_nation.roundel , :id => "roundel", :style => "vertical-align:middle;height:5vw"%></td>
+          <td id="c-nation" onload="c_nation_opacity()" class="nation shadow-text text-center" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></td>
         </tr>
-      <tbody>
+      </tbody>
     </table>
 </div>
     <button id="end-turn" class="bottomalignedright nation btn btn-end-turn" onclick="end_turn()" style="background:<%=current_nation.color%>" role="button">End Turn</button>
@@ -132,9 +132,6 @@
     <body onload="cheap()">
 <%end
 end %>
-
-<body onload="background()">
-
 
 <script>
 (function($) {
