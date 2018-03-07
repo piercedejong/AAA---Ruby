@@ -172,8 +172,11 @@ background-image{
   display: block;
   margin-left: auto;
   margin-right: auto;
+  padding-top:0px;
+  padding-bottom: 0px;
+  margin-top: 0px;
+  margin-bottom: 0px;
   color: #fff;
-  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
 .shadow {
@@ -219,4 +222,11 @@ background-image{
   position:fixed; bottom:0;
    margin-bottom:0.1vw;
    right: 0;
-   margin-right:0.1vw}
+   margin-right:0.1vw
+ }
+
+@media only screen and (max-width: 768px){
+ .title {
+   font-size: 4rem;
+ }
+}
