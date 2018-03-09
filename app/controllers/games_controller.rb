@@ -262,7 +262,7 @@ class GamesController < ApplicationController
   end
 
   def reset_buy
-    reset_units
+    current_game.reset_units
     current_nation.update(bank: current_game.bank)
     if request.xhr?
       render :json => {

@@ -40,12 +40,11 @@ class Game < ApplicationRecord
     end
   end
 
+  def reset_units
+    self.units.each {|u| u.update(count: 0)}
+  end
+
   protected
-
-    def reset_units
-      self.units.each {|u| u.update(count: 0)}
-    end
-
     def eco_to_current
       self.update(eco: self.current)
     end
