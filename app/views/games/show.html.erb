@@ -35,7 +35,7 @@
           <tbody class="" style="font-weight:500;font-size: 1.35rem;">
             <% current_game.units.each do |u| %>
               <% if u.uid%2 ==  0 %>
-                <tr class="tablerow1 shadow-text" style="background-color:rgba(200, 200, 200, 0.4);color:<%= current_nation.color%>">
+                <tr class="tablerow1" style="background-color:<%= current_nation.color%>">
               <% else %>
                 <tr class="tablerow2 shadow-text" style="background-color:rgba(0, 0, 0, 0.4)">
               <% end %>
@@ -120,7 +120,7 @@
       <tbody>
         <tr id="c-nation-div" style="background-color:<%=current_nation.colorL%>">
           <td style=""><%=image_tag current_nation.roundel , :id => "roundel", :style => "vertical-align:middle;height:5vw"%></td>
-          <td id="c-nation" onload="c_nation_opacity()" class="nation shadow-text text-center" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></td>
+          <td id="c-nation" class="nation shadow-text text-center" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></td>
         </tr>
       </tbody>
     </table>
@@ -132,6 +132,8 @@
     <body onload="cheap()">
 <%end
 end %>
+
+<body onload="c_nation_opacity()">
 
 <script>
 (function($) {

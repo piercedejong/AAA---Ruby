@@ -60,7 +60,7 @@ function end_turn() {
 	  }
 
 		$('.tablerow1').each(function(){
-			$(this).css("color", response["color"])
+			//$(this).css("color", response["color"])
 		})
 
 		$('.tablerow2').each(function(){
@@ -252,4 +252,5 @@ function c_nation_opacity() {
 	var rgb = c.replace(/^rgba?\(|\s+|\)$/g,'').split(',');
 	var rgba = "rgba("+rgb[0]+","+rgb[1]+","+rgb[2]+",0.4)";
 	$("#c-nation-div").css('background-color', rgba);
+	$(".tablerow1").css('background-color', rgba);
 }
