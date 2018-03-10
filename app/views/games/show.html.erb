@@ -40,7 +40,7 @@
               <% if u.uid%2 ==  0 %>
                 <tr class="tablerow1" style="background-color:<%= current_nation.color%>">
               <% else %>
-                <tr class="tablerow2" style="background-color:rgba(0, 0, 0, 0.4)">
+                <tr class="tablerow2 shadow-text" style="background-color:rgba(0, 0, 0, 0.4)">
               <% end %>
                 <td id="<%=u.uid%>" class=" text-center count"><%= u.count %></td>
                 <td class="text-center"><button data-uid="<%=u.uid%>" id="<%=u.name%>" onclick="buy_unit(this)" style="background:<%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="<%=u.name%> btn btn-unit shadow-text" role="button">$<%= u.cost %></button></td>
