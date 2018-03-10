@@ -2,16 +2,15 @@
 
 <div class="nations">
   <% @game.nations.all.each do |n| %>
-        <div class="nation" style="color:<%=n.color%>">
-          <div class="nation-name shadow-text"><%= n.name %>
-          <div class="money">
-            <div id="<%=n.name%>-bank" class="shadow-text"><%=n.bank%></div>
-            <div id="<%=n.name%>-divider" class="shadow-text" style="">|</div>
-            <div id="<%=n.name%>-income" class="shadow-text"><%=n.total_income%></div>
-          </div>
-        </div>
+    <div class="nation" style="color:<%=n.color%>">
+      <div class="nation-name shadow-text"><%= n.name %></div>
+      <div class="money">
+        <div id="<%=n.name%>-bank" class="shadow-text"><%=n.bank%></div>
+        <div id="<%=n.name%>-divider" class="shadow-text" style="">|</div>
+        <div id="<%=n.name%>-income" class="shadow-text"><%=n.total_income%></div>
       </div>
-    <%end%>
+    </div>
+  <%end%>
 </div>
 
 

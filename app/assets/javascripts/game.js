@@ -250,7 +250,7 @@ function copy(element) {
 function c_nation_opacity() {
 	var c = $("#c-nation-div").css('background-color');
 	var rgb = c.replace(/^rgba?\(|\s+|\)$/g,'').split(',');
-	var rgba = "rgba("+rgb[0]+","+rgb[1]+","+rgb[2]+",0.4)";
+	var rgba = "rgba("+rgb[0]+","+rgb[1]+","+rgb[2]+",0.6)";
 	$("#c-nation-div").css('background-color', rgba);
 	$(".tablerow1").css('background-color', rgba);
 }
