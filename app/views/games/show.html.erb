@@ -2,7 +2,11 @@
 
 <div class="nations">
   <% @game.nations.all.each do |n| %>
-    <div class="nation" style="color:<%=n.color%>">
+    <% if n.name.eql? current_nation.name%>
+      <div id="<%=n.name%>" class="nation" style="color:<%=n.color%>">
+    <%else%>
+      <div id="<%=n.name%>" class="nation" style="color:<%=n.color%>">
+    <%end%>
       <div class="nation-name shadow-text"><%= n.name %></div>
       <div class="money">
         <div id="<%=n.name%>-bank" class="shadow-text"><%=n.bank%></div>
@@ -113,7 +117,7 @@
     </div>
   </div>
 </div>
-    <%= link_to "Exit", home_path, :class =>"bottomaligned nation btn btn-basic", :style=>"padding:0.5rem;padding-top:0.2rem;padding-bottom:0.2rem", :role => "button" %>
+    <%= link_to "Exit", home_path, :class =>"bottomaligned btn btn-basic", :style=>"padding:0.5rem;padding-top:0.2rem;padding-bottom:0.2rem", :role => "button" %>
 <div class="bottomalignedmiddle c-nation">
     <table style="margin-left:auto;margin-right:auto">
       <tbody>
@@ -124,7 +128,7 @@
       </tbody>
     </table>
 </div>
-    <button id="end-turn" class="bottomalignedright nation btn btn-end-turn" onclick="end_turn()" style="background:<%=current_nation.color%>" role="button">End Turn</button>
+    <button id="end-turn" class="bottomalignedright btn btn-end-turn" onclick="end_turn()" style="background:<%=current_nation.color%>" role="button">End Turn</button>
 
 <%current_nation.researches.all.each do |r|
   if ["Mass Production", "Improved Shipyards"].include? r.name and r.enabled%>
@@ -132,8 +136,7 @@
 <%end
 end %>
 
-<body onload="c_nation_opacity()">
-
+<body onload="c_nation_opacity(<%=current_nation.name%>)">
 <script>
 (function($) {
     $(function cheap() {

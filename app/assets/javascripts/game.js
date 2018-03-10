@@ -76,7 +76,8 @@ function end_turn() {
 			$("#pacific").hide();
 		}
 		$("#c-nation-div").css('background-color', response["colorL"])
-		c_nation_opacity();
+		$(".nation").css('background-color', "transparent")
+		c_nation_opacity(response["nation"])
   })
 }
 
@@ -177,6 +178,7 @@ function buy_pacific(element) {
 		$('#roundel').attr("src","/assets/"+response['roundel']);
 		$('.count').text("0");
 		change_eco_nation(response);
+		c_nation_opacity(response["nation"])
 	})
 }
 
@@ -247,10 +249,12 @@ function copy(element) {
 	}
 }
 
-function c_nation_opacity() {
+function c_nation_opacity(name) {
 	var c = $("#c-nation-div").css('background-color');
 	var rgb = c.replace(/^rgba?\(|\s+|\)$/g,'').split(',');
 	var rgba = "rgba("+rgb[0]+","+rgb[1]+","+rgb[2]+",0.6)";
 	$("#c-nation-div").css('background-color', rgba);
 	$(".tablerow1").css('background-color', rgba);
+	$(".nation").css('background-color', "transparent")
+	$("#"+name).css('background-color', rgba);
 }
