@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180223092251) do
+ActiveRecord::Schema.define(version: 20180310084019) do
 
   create_table "games", force: :cascade do |t|
     t.string   "name"
@@ -91,9 +91,10 @@ ActiveRecord::Schema.define(version: 20180223092251) do
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
     t.string   "uuid"
+    t.boolean  "sepia",      default: false
   end
 
   create_table "victories", force: :cascade do |t|

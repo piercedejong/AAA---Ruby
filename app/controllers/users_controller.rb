@@ -24,6 +24,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def toggle_background
+    current_user.update(sepia: !current_user.sepia)
+    if request.xhr?
+      render :json => {
+        sepia: current_user.sepia
+      }
+    end
+  end
+
   protected
 
   def auth_hash

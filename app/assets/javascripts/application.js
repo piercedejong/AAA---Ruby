@@ -18,3 +18,22 @@
 $(document).ready(function () {
   //$('body').height(document.documentElement.clientHeight);
 })
+
+
+$(function() {
+  $('#sepia-toggle').change(function(){
+		$.ajax({
+			method: "GET",
+		  data:{
+		  },
+		  url: window.location.origin + '/user/toggle_background'
+		})
+		.done(function(response) {
+      if(response["sepia"]){
+        $(".bg").css("background-image", "url(/assets/backgrounds/sepia/background1.jpeg)")
+      }else{
+        $(".bg").css("background-image", "url(/assets/backgrounds/bandw/background2.jpeg)")
+      }
+		})
+  });
+})

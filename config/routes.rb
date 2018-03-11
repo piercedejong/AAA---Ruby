@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   get '/auth/google/callback', to: "users#create"
 
+  get '/user/toggle_background', to: "users#toggle_background"
+
   get '/logout', to: "sessions#destroy", as: :logout
 
   get '/welcome', to: "welcome#show", as: :home
