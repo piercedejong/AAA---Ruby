@@ -1,5 +1,5 @@
 class ResearchesController < ApplicationController
-
+  before_action :check_current_user
   def show
     @game = Game.find_by(uuid: params[:id])
   end
@@ -34,7 +34,12 @@ class ResearchesController < ApplicationController
         }
       end
     end
-
-
+  end
+  
+  private
+  def check_current_user
+    if !current_user
+      redirect_to root_path
+    end
   end
 end

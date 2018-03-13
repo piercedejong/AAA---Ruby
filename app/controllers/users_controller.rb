@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     else
       if !(User.find_by(email: auth_hash.info.email))
         @user = User.create_user(auth_hash)
+        cookies.permanent.signed[:permanent_user_id] = @user.id
       else
         @user = User.find_by(email: auth_hash.info.email)
       end
