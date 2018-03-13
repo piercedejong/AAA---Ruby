@@ -1,4 +1,5 @@
 class VictoriesController < ApplicationController
+  before_action :check_current_user
 
   def show
     @game = Game.find_by(uuid: params[:id])
@@ -20,6 +21,12 @@ class VictoriesController < ApplicationController
         }
       end
     end
+  end
 
+  private
+  def check_current_user
+    if !current_user
+      redirect_to root_path
+    end
   end
 end

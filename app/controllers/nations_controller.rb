@@ -1,4 +1,5 @@
 class NationsController < ApplicationController
+  before_action :check_current_user
 
   def show
     @nation = current_game.nations.find_by(uuid: params[:id])
@@ -22,6 +23,14 @@ class NationsController < ApplicationController
         color: @color,
         nation: current_eco.obj_inc
       }
+    end
+  end
+
+
+  private
+  def check_current_user
+    if !current_user
+      redirect_to root_path
     end
   end
 end

@@ -10,8 +10,13 @@ class ApplicationController < ActionController::Base
   helper_method :objective_income
 
     def current_user
-      @current_user ||= (User.find(session[:user_id]) if session[:user_id])
-      #@current_user ||= User.find_by_token(cookies[:token]) if cookies[:token]
+      return unless cookies.signed[:permanent_user_id] || session[:user_id]
+      #@current_user ||= (User.find(session[:user_id]) if session[:user_id])
+      begin
+        @current_user ||= User.find(cookies.signed[:permanent_user_id] || session[:user_id])
+      rescue Mongoid::Errors::DocumentNotFound
+        nil
+      end
     end
 
     def current_game
