@@ -16,7 +16,6 @@ class UsersController < ApplicationController
       else
         @user = User.find_by(email: auth_hash.info.email)
       end
-      binding.pry
       cookies.permanent.signed[:permanent_user_id] = @user.id
       session[:user_id] = @user.id
       redirect_to home_path
