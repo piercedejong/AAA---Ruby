@@ -129,23 +129,15 @@
     </table>
 </div>
     <button id="end-turn" class="bottomalignedright btn btn-end-turn" onclick="end_turn()" style="background:<%=current_nation.color%>" role="button">End Turn</button>
+</div>
 
-<%current_nation.researches.all.each do |r|
-  if ["Mass Production", "Improved Shipyards"].include? r.name and r.enabled%>
-    <body onload="cheap()">
-<%end
-end %>
 
-<body onload="c_nation_opacity(<%=current_nation.name%>)">
 <script>
-(function($) {
-    $(function cheap() {
-      $(".Submarine").text("$5");
-      $(".Transport").text("$6");
-      $(".Destroyer").text("$7");
-      $(".Cruiser").text("$9");
-      $(".Battleship").text("$17");
-      $(".Carrier").text("$13");
-    });
-}(jQuery));
+  var name = "<%= current_nation.name %>"
+  $(document).ready(c_nation_opacity(name));
+  <%current_nation.researches.all.each do |r| %>
+  <%  if ["Mass Production", "Improved Shipyards"].include? r.name and r.enabled%>
+      $(document).ready(cheap(true));
+    <%end%>
+  <%end %>
 </script>

@@ -43,21 +43,7 @@ function end_turn() {
 			}
 			count++;
 		})
-		if(response["cheaper"]){
-	    $(".Submarine").text("$5");
-	    $(".Transport").text("$6");
-	    $(".Destroyer").text("$7");
-	    $(".Cruiser").text("$9");
-	    $(".Battleship").text("$17");
-	    $(".Carrier").text("$13");
-	  }else{
-	    $(".Submarine").text("$6");
-	    $(".Transport").text("$7");
-	    $(".Destroyer").text("$8");
-	    $(".Cruiser").text("$12");
-	    $(".Battleship").text("$20");
-	    $(".Carrier").text("$16");
-	  }
+		cheap(response["cheaper"]);
 
 		$('.tablerow1').each(function(){
 			//$(this).css("color", response["color"])
@@ -250,11 +236,32 @@ function copy(element) {
 }
 
 function c_nation_opacity(name) {
+	var nat = name;
 	var c = $("#c-nation-div").css('background-color');
 	var rgb = c.replace(/^rgba?\(|\s+|\)$/g,'').split(',');
 	var rgba = "rgba("+rgb[0]+","+rgb[1]+","+rgb[2]+",0.6)";
 	$("#c-nation-div").css('background-color', rgba);
 	$(".tablerow1").css('background-color', rgba);
-	$(".nation").css('background-color', "transparent")
-	$("#"+name).css('background-color', rgba);
+	$(".nation").css('background-color', "transparent");
+	$("#"+nat).css('background-color', rgba);
+
+}
+
+function cheap(enabled) {
+	if(enabled){
+		$(".Submarine").text("$5");
+		$(".Transport").text("$6");
+		$(".Destroyer").text("$7");
+		$(".Cruiser").text("$9");
+		$(".Battleship").text("$17");
+		$(".Carrier").text("$13");
+	}else{
+		$(".Submarine").text("$6");
+		$(".Transport").text("$7");
+		$(".Destroyer").text("$8");
+		$(".Cruiser").text("$12");
+		$(".Battleship").text("$20");
+		$(".Carrier").text("$16");
+	}
+
 }
