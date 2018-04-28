@@ -6,7 +6,7 @@
       Game Type: <%= select(:game, :game_name, [['1940 Europe','1940Europe'],['1940 Global','1940Global'],['1940 Global (Britian 1 Economy)','1940OneEco'],['1940 Grasshopper','1940Grasshopper'],['1940 Pacific','1940Pacific'],['1942 Spring','1942'],['1914 WWI', '1914']], {:style=> "font-size:3vw"})%>
       <br>
       <br>
-      Game Name: <%= f.text_field :name, :style=> "" %>
+      Game Name: <%= f.text_field :name, :value => "" %>
       </div>
   </div>
 </div>
@@ -26,4 +26,5 @@
   <% end %>
 
   <%= f.submit :class=>"btn btn-basic btn-lg bottomalignedright", :role=>"button"%>
+  
 <% end %>

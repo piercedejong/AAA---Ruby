@@ -24,6 +24,12 @@ class GamesController < ApplicationController
     session[:edit_uuid] = params[:id]
   end
 
+  def update
+    @game = current_user.games.find_by(uuid: session[:edit_uuid])
+    @game.update(name: params[:game][:name])
+    redirect_to games_path
+  end
+
   def copy
     @new = current_user.games.find_by(uuid: params[:uuid]).dup
     @new.update(name: params[:name])

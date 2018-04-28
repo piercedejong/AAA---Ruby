@@ -1,48 +1,5 @@
 <% content_for :title, "aaa - edit game" %>
-<div class="title text-center shadow-text" style=""><%=@game.name%></div>
 
-<div class="" style="margin:0px;padding:0px">
-  <div class="row" style="width:100%;margin:0px">
-    <% @game.nations.all.each do |n| %>
-      <div style="padding:0.0px;margin-left:auto;margin-right:auto">
-        <div class="text-center shadow-text" style="color:<%=n.color%>;font-size:2rem">
-          <%= n.name %>
-        </div>
-        <table style="width:100%">
-          <tbody>
-            <tr class="change">
-              <td style="padding:0.5rem;color:white" class="text-center col nowrap shadow-text" id="<%=n.uuid%>-bank">Bank <%=n.bank%></td>
-              <td style="padding:0.5rem;color:white" class="text-center col nowrap shadow-text" id="<%=n.uuid%>-income">Income <%=n.income%></td>
-            </tr>
-            <tr class="change">
-              <td><button data-amount="1" uuid="<%=n.uuid%>" onclick="edit_change_bank(this)" style="background:<%=n.color%>" class="change-eco-pos text-center col btn btn-change shadow-text" role="button">+1</button></td>
-              <td><button data-amount="1" uuid="<%=n.uuid%>" onclick="edit_change_income(this)" style="background:<%=n.color%>" class="change-eco-pos text-center col btn btn-change shadow-text" role="button">+1</button></td>
-            </tr>
-            <tr class="change">
-              <td><button data-amount="-1" uuid="<%=n.uuid%>" onclick="edit_change_bank(this)" style="background:<%=n.colorL%>" class="change-eco-neg text-center col btn btn-change shadow-text" role="button">-1</button></td>
-              <td><button data-amount="-1" uuid="<%=n.uuid%>" onclick="edit_change_income(this)" style="background:<%=n.colorL%>" class="change-eco-neg text-center col btn btn-change shadow-text" role="button">-1</button></td>
-            </tr>
-            <tr class="change">
-              <td><button data-amount="5" uuid="<%=n.uuid%>" onclick="edit_change_bank(this)" style="background:<%=n.color%>" class="change-eco-pos text-center col btn btn-change shadow-text" role="button">+5</button></td>
-              <td><button data-amount="5" uuid="<%=n.uuid%>" onclick="edit_change_income(this)" style="background:<%=n.color%>" class="change-eco-pos text-center col btn btn-change shadow-text" role="button">+5</button></td>
-            </tr>
-            <tr class="change">
-              <td><button data-amount="-5" uuid="<%=n.uuid%>" onclick="edit_change_bank(this)" style="background:<%=n.colorL%>" class="change-eco-neg text-center col btn btn-change shadow-text" role="button">-5</button></td>
-              <td><button data-amount="-5" uuid="<%=n.uuid%>" onclick="edit_change_income(this)" style="background:<%=n.colorL%>" class="change-eco-neg text-center col btn btn-change shadow-text" role="button">-5</button></td>
-            </tr>
-            <tr class="change">
-              <td><button data-amount="10" uuid="<%=n.uuid%>" onclick="edit_change_bank(this)" style="background:<%=n.color%>" class="change-eco-pos text-center col btn btn-change shadow-text" role="button">+10</button></td>
-              <td><button data-amount="10" uuid="<%=n.uuid%>" onclick="edit_change_income(this)" style="background:<%=n.color%>" class="change-eco-pos text-center col btn btn-change shadow-text" role="button">+10</button></td>
-            </tr>
-            <tr class="change">
-              <td><button data-amount="-10" uuid="<%=n.uuid%>" onclick="edit_change_bank(this)" style="background:<%=n.colorL%>" class="change-eco-neg text-center col btn btn-change shadow-text" role="button">-10</button></td>
-              <td><button data-amount="-10" uuid="<%=n.uuid%>" onclick="edit_change_income(this)" style="background:<%=n.colorL%>" class="change-eco-neg text-center col btn btn-change shadow-text" role="button">-10</button></td>
-            </tr>
-          </tbody>
-        </table>
-      </div >
-    <% end %>
-  </div>
-</div>
+<%= render 'formEdit' %>
 
 <%= link_to "Back", games_path, :class =>"btn btn-basic bottomaligned", :role => "button"%>
