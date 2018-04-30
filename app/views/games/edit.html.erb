@@ -1,5 +1,11 @@
 <% content_for :title, "aaa - edit game" %>
-
 <%= render 'formEdit' %>
+
+<script>
+  <%@game.nations.all.each do |n| %>
+      var name = "<%= n.name %>"
+      $(document).ready(edit_nation_opacity(name));
+  <%end%>
+</script>
 
 <!-- <%= link_to "Back", games_path, :class =>"btn btn-basic bottomaligned", :role => "button"%> -->

@@ -238,13 +238,24 @@ function copy(element) {
 function c_nation_opacity(name) {
 	var nat = name;
 	var c = $("#c-nation-div").css('background-color');
-	var rgb = c.replace(/^rgba?\(|\s+|\)$/g,'').split(',');
-	var rgba = "rgba("+rgb[0]+","+rgb[1]+","+rgb[2]+",0.6)";
+	var rgba = opacity(c);
 	$("#c-nation-div").css('background-color', rgba);
 	$(".tablerow1").css('background-color', rgba);
 	$(".nation").css('background-color', "transparent");
 	$("#"+nat).css('background-color', rgba);
 
+}
+
+function edit_nation_opacity(name){
+	var c = $("#"+name).css('background-color');
+	var rgba = opacity(c);
+	$(".edit-"+name).css('background-color',rgba);
+}
+
+function opacity(color){
+	var rgb = color.replace(/^rgba?\(|\s+|\)$/g,'').split(',');
+	var rgba = "rgba("+rgb[0]+","+rgb[1]+","+rgb[2]+",0.6)";
+	return rgba
 }
 
 function cheap(enabled) {
