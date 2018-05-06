@@ -9,12 +9,12 @@
       <table style="width:100%;padding:0px;margin-top:0.5rem; border-collapse:unset">
         <tbody>
           <% current_user.games.each do |game| %>
-            <tr class="spaceUnder",style="padding-top:0.5rem">
-              <td style="padding:0px;width:100%"><a href="<%= game_path(game.uuid) %>" class="btn btn-basic" style="width:100%;padding:0.1vw;font-size:2.7rem"role="button" ><%= game.name %></a></td>
+            <tr class="spaceUnder",style="padding-top:1rem">
+              <td style="padding:0px;width:100%;"><a href="<%= game_path(game.uuid) %>" class="btn btn-basic" style="width:100%;padding:0.1vw;font-size:4.0rem"role="button" ><%= game.name %></a></td>
               <td style="padding:0px"><div class="container" style="padding-left:0.5rem;display:grid">
-                <button id="<%=game.uuid %>", style="", class="btn btn-copy shadow-text", role ="button", onclick="copy(this)">Copy Game</button>
-                <%= link_to 'Edit Game', edit_game_path(game.uuid), :class=>"btn btn-edit shadow-text" %>
-                <%= link_to 'Delete Game', game_path(game.uuid), :class=>"btn btn-delete shadow-text",method: :delete,data: {confirm: "Confirm deletion of game: "+game.name} %>
+                <button id="<%=game.uuid %>", style="", class="btn btn-edit-game btn-copy shadow-text", role ="button", onclick="copy(this)">Copy Game</button>
+                <%= link_to 'Edit Game', edit_game_path(game.uuid), :class=>"btn btn-edit-game btn-edit shadow-text" %>
+                <%= link_to 'Delete Game', game_path(game.uuid), :class=>"btn btn-edit-game btn-delete shadow-text",method: :delete,data: {confirm: "Confirm deletion of game: "+game.name} %>
               </div></td>
             </tr>
           <% end %>
@@ -28,5 +28,5 @@
 
 <%= link_to "Back", home_path, :class =>"btn btn-basic btn-lg bottomaligned", :role => "button"%>
 <% if current_user.games.first && current_user.games.second%>
-  <%= link_to 'Delete All Games', game_destroy_all_path ,:class=>"bottomalignedright btn btn-delete",:style=>"font-size:1.5rem", method: :delete,data: {confirm: "Confirm deletion of ALL games"} %>
+  <%= link_to 'Delete All Games', game_destroy_all_path ,:class=>"bottomalignedright btn btn-edit-game btn-delete",:style=>"font-size:3.0rem", method: :delete,data: {confirm: "Confirm deletion of ALL games"} %>
 <% end %>

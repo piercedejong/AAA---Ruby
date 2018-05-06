@@ -23,7 +23,7 @@
     <div class="col-sm-9" style="padding-left:0px">
       <table style="margin-bottom: 0.1vw; width:100%" class="table table-condensed ">
           <thead>
-            <tr style="color:<%=current_nation.color%>;font-size:1.6rem;background-color:rgba(200, 200, 200, 0.4)" class="shadow-text table-top">
+            <tr style="color:<%=current_nation.color%>;font-size:2.75rem;background-color:rgba(50, 50, 50, 0.4)" class="shadow-text table-top">
               <th class="text-center">Count</th>
               <th class="text-center">Buy</th>
               <th class="text-center">Name</th>
@@ -35,7 +35,7 @@
               <%end%>
             </tr>
           </thead>
-          <tbody class="" style="font-weight:500;font-size: 1.35rem;">
+          <tbody class="" style="font-weight:500;font-size: 2.30rem;">
             <% current_game.units.each do |u| %>
               <% if u.uid%2 ==  0 %>
                 <tr class="tablerow1" style="background-color:<%= current_nation.color%>">
@@ -58,8 +58,8 @@
             <% end %>
             <tr>
               <td></td>
-              <td><button id="reset" onclick="reset_buy()" class="btn btn-delete btn-game shadow-text" role="button">Reset Buy</button></td>
-              <td><button id="pacific" onclick="buy_pacific()" class="btn btn-copy btn-game shadow-text" role="button" style="<%if !["Britain","United Kingdom"].include? current_nation.name%>display:none<% end %>">Buy Pacific Units</button></td>
+              <td><button id="reset" onclick="reset_buy()" class="btn btn-edit-game btn-delete btn-game shadow-text" role="button">Reset Buy</button></td>
+              <td><button id="pacific" onclick="buy_pacific()" class="btn btn-edit-game btn-copy btn-game shadow-text" role="button" style="<%if !["Britain","United Kingdom"].include? current_nation.name%>display:none<% end %>">Buy Pacific Units</button></td>
               <td></td>
               <td></td>
               <td></td>

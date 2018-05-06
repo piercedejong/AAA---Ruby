@@ -20,6 +20,12 @@
     //src: url('https://ff.cdn.1001fonts.net/a/l/alte-din-1451-mittelschrift.regular.ttf'); /*URL to font*/
 }
 
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  //src: url('../fonts/glyphicons-halflings-regular.eot');
+  //src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+
 html {
   min-height: 100% !important;
   height: 100%;
@@ -27,7 +33,7 @@ html {
 
 body {
  background-color: #353535;
- font-family: 'test','ariel', serif;
+ font-family: 'ariel', serif;
  color: #0d0d0d;
  height:100%;
  line-height: unset;
@@ -49,6 +55,7 @@ body {
   white-space: pre-wrap;
   border-width:0.15rem;
   border-color: black;
+  border-radius: 4px;
   font-size: 1rem;
 }
 
@@ -57,18 +64,10 @@ body {
   padding:1.0vw;
 }
 
-.btn-copy {
-  margin-top:0.1rem;
-  margin-bottom:0.1rem;
-  color:white;
-  font-size: 1rem;
-  background-color: cadetblue;
-  padding: 0.2rem;
-  white-space: nowrap;
-}
+
 
 .btn-main {
-  font-size: 2rem;
+  font-size: 3rem;
   width:100%;
   margin-top: 0.5rem;
 }
@@ -89,22 +88,25 @@ body {
   background-color: #eeeeee;
 }
 
-.btn-delete {
+.btn-edit-game{
   margin-top:0.1rem;
   margin-bottom:0.1rem;
-  font-size: 1rem;
-  background-color: red;
   padding: 0.2rem;
+  font-size: 1.5rem;
   white-space: nowrap;
 }
 
-.btn-edit {
-  margin-top:0.1rem;
-  margin-bottom:0.1rem;
-  font-size: 1rem;
+.btn-copy {
+  color:white;
+  background-color: cadetblue;
+}
+
+.btn-delete {
+  background-color: red;
+}
+
+.btn-edit{
   background-color: green;
-  padding: 0.2rem;
-  white-space: nowrap;
 }
 
 .btn-end-turn {
@@ -132,7 +134,7 @@ body {
 }
 
 .btn-research-top{
-  font-size: 1rem;
+  font-size: 1.75rem;
   width:100%;
   height:6rem;
   padding-left:0.2rem;
@@ -145,7 +147,7 @@ body {
   padding-left: 0.2rem;
   padding-top: 0.4rem;
   padding-bottom: 0.4rem;
-  font-size:1.5rem;
+  font-size:2.0rem;
   width:100%;
 }
 
@@ -159,6 +161,11 @@ body {
 .btn-unit {
   padding:0.1rem;
   width:100%;
+  font-size: 1.85rem;
+}
+
+.btn-change {
+  font-size: 1.5rem;
 }
 
 .btn-victory{
@@ -166,7 +173,7 @@ body {
   margin-bottom:0.5vw;
   padding:0.75vw;
   text-align:left;
-  font-size:1.2rem;
+  font-size:2.0rem;
   width:100%
 }
 
@@ -182,7 +189,7 @@ background-image{
 }
 
 .title {
-  font-size: 6rem;
+  font-size: 10rem;
   color: black;
   display: block;
   margin-left: auto;

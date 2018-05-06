@@ -12,7 +12,7 @@
             <tr>
               <% current_nation.researches.each do |r| %>
                 <% if r.rid <3 %>
-                  <th style="padding:0px"><div><button class="btn btn-research-top shadow-text" style="background-color:#669999"><strong><%= r.name %></button></strong></div></th>
+                  <th style="padding:0px;"><div><button class="btn btn-research-top shadow-text" style="background-color:#669999"><strong><%= r.name %></button></strong></div></th>
                 <%end%>
               <%end%>
             </tr>

@@ -1,7 +1,7 @@
 .nations {
   position:fixed;
   z-index:99;
-  background-color:rgba(255,255,255,0.3);
+  background-color:rgba(100,100,100,0.4);
   width:100%;
   display: flex;
   flex-wrap: wrap;
@@ -64,7 +64,7 @@ tr.spaceUnder>td {
 }
 
 #change-eco {
-  font-size: 2.5rem;
+  font-size: 3.5rem;
   width:100%
 }
 
@@ -86,10 +86,6 @@ tr.spaceUnder>td {
 
 .change-eco-pos {
   font-size: 2vw;
-}
-
-#research-title {
-  font-size: 2rem;
 }
 
 .table-top {
