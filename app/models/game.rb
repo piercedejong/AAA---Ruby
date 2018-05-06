@@ -14,16 +14,16 @@ class Game < ApplicationRecord
       self.update(current: 0)
     end
     # Change eco nation to the new nation
-    eco_to_current
-    reset_units
-    self.update(bank: self.bank)
+    self.eco_to_current
+    self.reset_units
+    self.update(bank: self.nations.find_by(nid: self.current).bank)
   end
 
   def buy_pacific
     self.update(current: self.current+1)
     self.eco_to_current
     self.reset_units
-    self.update(bank: self.bank)
+    self.update(bank: self.nations.find_by(nid: self.current).bank)
   end
 
   def change_eco
