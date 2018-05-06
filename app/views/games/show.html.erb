@@ -105,11 +105,11 @@
           </tbody>
         </table>
         <div class="container" style="padding:0.2rem; margin-top:0.5rem">
-          <% if["1940Global","1940OneEco","1940Pacific","1940Europe","1940Grasshopper"].include? current_game.game_name%>
+          <% if["1940Global","1940OneEco","1940Pacific","1940Europe","1940Grasshopper","1940House"].include? current_game.game_name%>
             <%= link_to "National Objectives", nation_path(current_eco.uuid), :id => "objective", :class =>"btn btn-side shadow-text", :role => "button", :style =>"background:"+current_eco.color %>
             <%= link_to "Research and Development", research_path(current_game.uuid), :id => "research", :class =>"btn btn-side shadow-text", :role => "button", :style => "background:"+current_eco.colorL %>
           <%end%>
-          <%if ["1940Grasshopper"].include? current_game.game_name%>
+          <%if ["1940Grasshopper","1940House"].include? current_game.game_name%>
             <%= link_to "Victory Objectives", victory_path(current_game.uuid), :id => "victory", :class =>"btn btn-side shadow-text", :role => "button", :style =>"background:"+current_eco.color %>
           <%end%>
         </div>

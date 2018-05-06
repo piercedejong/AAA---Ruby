@@ -86,6 +86,23 @@ class Nation < ApplicationRecord
       end
     end
 
+    def self.create_1940_house(game)
+      nations = [
+        {nid: 0,name: 'Germany',roundel: 'roundels/germany.png',color: @germany,colorL: @germanyL,bank: 30,income: 30},
+        {nid: 1,name: 'USSR',   roundel: 'roundels/ussr.png',   color: @ussr,   colorL: @ussrL,   bank: 37,income: 37},
+        {nid: 2,name: 'Japan',  roundel: 'roundels/japan.png',  color: @japan,  colorL: @japanL,  bank: 26,income: 26},
+        {nid: 3,name: 'USA',    roundel: 'roundels/usa.png',    color: @usa,    colorL: @usaL,    bank: 52,income: 52},
+        {nid: 4,name: 'China',  roundel: 'roundels/china.png',  color: @china,  colorL: @chinaL,  bank: 12,income: 12},
+        {nid: 5,name: 'Britain',roundel: 'roundels/britain.png',color: @britain,colorL: @britainL,bank: 45,income: 45},
+        {nid: 6,name: 'Italy',  roundel: 'roundels/italy.png',  color: @italy,  colorL: @italyL,  bank: 10,income: 10},
+        {nid: 7,name: 'ANZAC',  roundel: 'roundels/anzac.png',  color: @anzac,  colorL: @anzacL,  bank: 10,income: 10},
+        {nid: 8,name: 'France', roundel: 'roundels/france.png', color: @france, colorL: @franceL, bank: 19,income: 19},
+      ]
+      nations.each do |n|
+        game.nations.create(n)
+      end
+    end
+
     def self.create_1940_one_eco(game)
       nations = [
         {nid: 0,name: 'Germany',roundel: 'roundels/germany.png',color: @germany,colorL: @germanyL,bank: 30,income: 30},

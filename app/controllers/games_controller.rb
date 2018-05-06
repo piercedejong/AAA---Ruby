@@ -313,6 +313,13 @@ class GamesController < ApplicationController
         Special.create_1940(@game)
         Objective.create_1940(@game)
         Research.create_1940(@game)
+      when "1940House"
+        Nation.create_1940_house(@game)
+        Unit.create_1940_house(@game)
+        Special.create_1940_house(@game)
+        Objective.create_1940_house(@game)
+        Research.create_1940_grasshopper(@game)
+        Victory.create_1940_grasshopper(@game)
       when "1940OneEco"
         Nation.create_1940_one_eco(@game)
         Unit.create_1940(@game)

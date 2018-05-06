@@ -7,7 +7,7 @@ class ResearchesController < ApplicationController
   def clicked
     @nation = current_game.nations.find_by(name: params[:name])
     @research = @nation.researches.find_by(rid: params[:id])
-    if current_game.game_name.eql? "1940Grasshopper"
+    if ["1940Grasshopper","1940House"].include? current_game.game_name
       #If a victory mission was completed
       if session[:research_point]
         session[:research_point] = false
@@ -35,7 +35,7 @@ class ResearchesController < ApplicationController
       end
     end
   end
-  
+
   private
   def check_current_user
     if !current_user
