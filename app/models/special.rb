@@ -49,7 +49,7 @@ class Special < ApplicationRecord
         {sid: 0,title: "No Combat Value", info: "Has a combat value of 0, cannot fire in the attacking or defending units fire steps"},
         {sid: 1,title: "Doesn't Block Enemy Movement", info: "Any sea zones containing only transports does not stop enemny ships from passing through. Any air or naval units ending thier combat round in a sea zone with only enemy transports will destroy those transport"},
         {sid: 2,title: "Carry Land Units", info: "Transports can carry one infantry and one of any land unit"},
-        {sid: 3,title: "Landing and Offloading", info: "Can load cargo in freindly sea zones, before, dunring, ad after moving. Loading onto and/or off a trnasport counts as a land unit's entire move"},
+        {sid: 3,title: "Loading and Offloading", info: "Can load cargo in freindly sea zones, before, dunring, ad after moving. Loading onto and/or off a trnasport counts as a land unit's entire move"},
       ],
       dst = [
         {sid: 0,title: "Anit-Sub Vessel", info: "Cancells sumbarins suprise strike, submerisble, and can't be hit by enemy aircraft"},
