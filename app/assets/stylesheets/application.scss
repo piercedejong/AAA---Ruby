@@ -64,6 +64,18 @@ body {
   padding:1.0vw;
 }
 
+.btn-glyph{
+  padding:0px;
+  border-radius: 0px;
+  border-width: 0px;
+  background-color: transparent;
+  font-size: 2rem;
+}
+
+.glyphicon {
+    //font-size: 50px;
+}
+
 
 
 .btn-main {
@@ -182,6 +194,10 @@ body {
   color: black;
   text-shadow: black 0px 0px 0vw;
   border-color: #bfbfbf;
+}
+
+.btn-glyph:hover{
+  background-color: transparent;
 }
 
 background-image{

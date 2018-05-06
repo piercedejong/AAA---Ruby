@@ -2,24 +2,29 @@
 
 <div class="col-sm-3" style="padding-left:0px;padding-right:0.25vw">
   <div class="row" style="margin-left:0px; margin-right:0px">
-    <table style="width:100%">
+    <table style="table-layout: fixed;width:100%">
       <thead>
-        <tr style="font-size: 3vw;background-color:rgba(200, 200, 200, 0.4)" class="shadow-text table-top">
-          <th class="text-center">Count</th>
-          <th class="text-center">Type</th>
-          <th class="text-center">Count</th>
+        <tr style="font-size: 3rem;background-color:rgba(200, 200, 200, 0.4)" class="shadow-text table-top">
+          <th class="text-center" >Count</th>
+          <th class="text-center" >Type</th>
+          <th class="text-center" >Count</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody class="unit-input">
         <tr class="change">
-          <td class="text-center col nowrap shadow-text" id="eco-bank">
-            <input type="text" name="lname" style="width:40%">
-            <button type="button" class="btn btn-default">
-              <span class="glyphicon glyphicon-search"></span> Search
-            </button>
-          </td>
-          <!-- <td class="text-center col nowrap shadow-text" id="eco-income">(Mech) Infantry</td>
-          <td class="text-center col nowrap shadow-text" id="eco-bank"><input type="text" name="lname" style="width:40%"></td> -->
+          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" name="aInf" min="0" max="99"></input></td>
+          <td class="text-center col nowrap shadow-text" >Infantry</td>
+          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" name="dInf" min="0" max="99"></input></td>
+        </tr>
+        <tr class="change">
+          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" name="aArt" min="0" max="99"></input></td>
+          <td class="text-center col nowrap shadow-text" >Artillery</td>
+          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" name="dArt" min="0" max="99"></input></td>
+        </tr>
+        <tr class="change">
+          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" name="aArm" min="0" max="99"></input></td>
+          <td class="text-center col nowrap shadow-text" >Armor</td>
+          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" name="dArm" min="0" max="99"></input></td>
         </tr>
       </tbody>
     </table>
@@ -32,5 +37,5 @@
 
 
 
-
+<button id="" class="bottomalignedright btn btn-end-turn" onclick="calc()" role="button">Run Simulation</button>
 <%= link_to "Back", home_path, :class =>"btn btn-basic btn-lg bottomaligned", :role => "button"%>
