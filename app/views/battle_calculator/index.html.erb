@@ -1,7 +1,6 @@
 <div class=" title text-center shadow-text">Battle Calculator</div>
 
-<div class="col-sm-3" style="padding-left:0px;padding-right:0.25vw">
-  <div class="row" style="margin-left:0px; margin-right:0px">
+<div class="col-sm-3" style="padding-left:0px;padding-right:0px;margin-left:auto;margin-right:auto;">
     <table style="table-layout: fixed;width:100%">
       <thead>
         <tr style="font-size: 3rem;background-color:rgba(200, 200, 200, 0.4)" class="shadow-text table-top">
@@ -12,30 +11,38 @@
       </thead>
       <tbody class="unit-input">
         <tr class="change">
-          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" name="aInf" min="0" max="99"></input></td>
+          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" id="aInf" value="0" min="0" max="99"></input></td>
           <td class="text-center col nowrap shadow-text" >Infantry</td>
-          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" name="dInf" min="0" max="99"></input></td>
+          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" id="dInf" value="0" min="0" max="99"></input></td>
         </tr>
         <tr class="change">
-          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" name="aArt" min="0" max="99"></input></td>
+          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" id="aArt" value="0" min="0" max="99"></input></td>
           <td class="text-center col nowrap shadow-text" >Artillery</td>
-          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" name="dArt" min="0" max="99"></input></td>
+          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" id="dArt" value="0" min="0" max="99"></input></td>
         </tr>
         <tr class="change">
-          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" name="aArm" min="0" max="99"></input></td>
+          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" id="aArm" value="0" min="0" max="99"></input></td>
           <td class="text-center col nowrap shadow-text" >Armor</td>
-          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" name="dArm" min="0" max="99"></input></td>
+          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" id="dArm" value="0" min="0" max="99"></input></td>
+        </tr>
+        <tr class="change">
+          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" id="aFgh" value="0" min="0" max="99"></input></td>
+          <td class="text-center col nowrap shadow-text" >Fighter</td>
+          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" id="dFgh" value="0" min="0" max="99"></input></td>
+        </tr>
+        <tr class="change">
+          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" id="aTac" value="0" min="0" max="99"></input></td>
+          <td class="text-center col nowrap shadow-text" >Tactical</td>
+          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" id="dTac" value="0" min="0" max="99"></input></td>
+        </tr>
+        <tr class="change">
+          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" id="aBmb" value="0" min="0" max="99"></input></td>
+          <td class="text-center col nowrap shadow-text" >Bomber</td>
+          <td class="text-center col nowrap shadow-text"><input class="battle-input" type="number" id="dBmb" value="0" min="0" max="99"></input></td>
         </tr>
       </tbody>
     </table>
-  </div>
 </div>
 
-
-
-
-
-
-
-<button id="" class="bottomalignedright btn btn-end-turn" onclick="calc()" role="button">Run Simulation</button>
+<button id="battle" class="bottomalignedright btn btn-end-turn" role="button">Run Simulation</button>
 <%= link_to "Back", home_path, :class =>"btn btn-basic btn-lg bottomaligned", :role => "button"%>

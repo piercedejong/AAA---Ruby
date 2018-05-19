@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   resources :researches
 
+  get 'battle_calculator/simulation', to: 'battle_calculator#simulation', :as => :simulation
+
   resources :battle_calculator
 
   get 'users/new'
@@ -55,6 +57,10 @@ Rails.application.routes.draw do
   get 'victory/clicked', to: 'victories#clicked'
 
   get 'research/clicked', to: 'researches#clicked'
+
+
+
+
 
   root 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
