@@ -20,14 +20,3 @@
 <input id="sepia-toggle" class="" type="checkbox" data-toggle="toggle" data-on="Black and White" data-off="Sepia"  data-onstyle="bandw" data-offstyle="sepia">
 </div> -->
 <h3 id="signed-in" style="" class="text-center bottomalignedright shadow-text">Signed in: <%=current_user.email%></h3>
-
-<script>
-function toggle_back(sepia) {
-  if(sepia){
-    $('#sepia-toggle').bootstrapToggle('on')
-  }else{
-    $('#sepia-toggle').bootstrapToggle('off')
-  }
-}
-</script>
-<body onload="toggle_back(<%=current_user.sepia%>)">
