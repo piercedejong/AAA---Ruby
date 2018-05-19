@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
   before_action :check_current_user
-  #before_action :next_nation, only: [:show, :end_turn]
+  # before_action :next_nation, only: [:show, :end_turn]
 
   def create
     @game = current_user.games.new(game_params)
@@ -42,7 +42,7 @@ class GamesController < ApplicationController
     @game.units.all.each {|u| u.destroy}
     @game.destroy
     if request.xhr?
-      render :json => {
+      render json: {
       }
     end
     redirect_to games_path
@@ -295,63 +295,63 @@ class GamesController < ApplicationController
 
   private
 
-    def check_current_user
-      if !current_user
-        redirect_to root_path
-      end
+  def check_current_user
+    if !current_user
+      redirect_to root_path
     end
+  end
 
-    def game_params
-      params.require(:game).permit(:game_name, :name)
-    end
+  def game_params
+    params.require(:game).permit(:game_name, :name)
+  end
 
-    def create_game
-      case @game.game_name
-      when "1940Global"
-        Nation.create_1940(@game)
-        Unit.create_1940(@game)
-        Special.create_1940(@game)
-        Objective.create_1940(@game)
-        Research.create_1940(@game)
-      when "1940House"
-        Nation.create_1940_house(@game)
-        Unit.create_1940_house(@game)
-        Special.create_1940_house(@game)
-        Objective.create_1940_house(@game)
-        Research.create_1940_grasshopper(@game)
-        Victory.create_1940_grasshopper(@game)
-      when "1940OneEco"
-        Nation.create_1940_one_eco(@game)
-        Unit.create_1940(@game)
-        Special.create_1940(@game)
-        Objective.create_1940_one_eco(@game)
-        Research.create_1940(@game)
-      when "1940Pacific"
-        Nation.create_1940_pacific(@game)
-        Unit.create_1940(@game)
-        Special.create_1940(@game)
-        Objective.create_1940_pacific(@game)
-        Research.create_1940(@game)
-      when "1940Europe"
-        Nation.create_1940_europe(@game)
-        Unit.create_1940(@game)
-        Special.create_1940(@game)
-        Objective.create_1940_europe(@game)
-        Research.create_1940(@game)
-      when "1940Grasshopper"
-        Nation.create_1940_grasshopper(@game)
-        Unit.create_1940(@game)
-        Special.create_1940(@game)
-        Objective.create_1940_grasshopper(@game)
-        Victory.create_1940_grasshopper(@game)
-        Research.create_1940_grasshopper(@game)
-      when "1942"
-        Nation.create_1942(@game)
-        Unit.create_1942(@game)
-      when "1914"
-        Nation.create_1914(@game)
-        Unit.create_1914(@game)
-      else
-      end
+  def create_game
+    case @game.game_name
+    when "1940Global"
+      Nation.create_1940(@game)
+      Unit.create_1940(@game)
+      Special.create_1940(@game)
+      Objective.create_1940(@game)
+      Research.create_1940(@game)
+    when "1940House"
+      Nation.create_1940_house(@game)
+      Unit.create_1940_house(@game)
+      Special.create_1940_house(@game)
+      Objective.create_1940_house(@game)
+      Research.create_1940_house(@game)
+      Victory.create_1940_grasshopper(@game)
+    when "1940OneEco"
+      Nation.create_1940_one_eco(@game)
+      Unit.create_1940(@game)
+      Special.create_1940(@game)
+      Objective.create_1940_one_eco(@game)
+      Research.create_1940(@game)
+    when "1940Pacific"
+      Nation.create_1940_pacific(@game)
+      Unit.create_1940(@game)
+      Special.create_1940(@game)
+      Objective.create_1940_pacific(@game)
+      Research.create_1940(@game)
+    when "1940Europe"
+      Nation.create_1940_europe(@game)
+      Unit.create_1940(@game)
+      Special.create_1940(@game)
+      Objective.create_1940_europe(@game)
+      Research.create_1940(@game)
+    when "1940Grasshopper"
+      Nation.create_1940_grasshopper(@game)
+      Unit.create_1940(@game)
+      Special.create_1940(@game)
+      Objective.create_1940_grasshopper(@game)
+      Victory.create_1940_grasshopper(@game)
+      Research.create_1940_grasshopper(@game)
+    when "1942"
+      Nation.create_1942(@game)
+      Unit.create_1942(@game)
+    when "1914"
+      Nation.create_1914(@game)
+      Unit.create_1914(@game)
+    else
     end
+  end
 end
