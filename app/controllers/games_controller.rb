@@ -155,32 +155,24 @@ class GamesController < ApplicationController
   end
 
   def buy_unit
+    @change = false
     @unit = current_game.units.find_by(uid: params[:uid])
     current_nation.buy_unit(@unit)
     if current_eco!=current_nation
       current_game.eco_to_current
-      if request.xhr?
-        render :json => {
-          count: @unit.count,
-          name: params[:uid],
-          nation: current_nation.name,
-          bank: current_nation.bank,
-          income: current_nation.income,
-          color: current_nation.color,
-          colorL: current_nation.colorL,
-          change: true
-        }
-      end
-    else
-      if request.xhr?
-        render :json => {
-          count: @unit.count,
-          name: params[:uid],
-          nation: current_nation.name,
-          bank: current_nation.bank,
-          change: false
-        }
-      end
+      @change = true
+    end
+    if request.xhr?
+      render :json => {
+        count: @unit.count,
+        name: params[:uid],
+        nation: current_nation.name,
+        bank: current_nation.bank,
+        income: current_nation.income,
+        color: current_nation.color,
+        colorL: current_nation.colorL,
+        change: true
+      }
     end
   end
 

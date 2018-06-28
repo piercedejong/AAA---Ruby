@@ -44,10 +44,9 @@ class Game < ApplicationRecord
     self.units.each {|u| u.update(count: 0)}
   end
 
-  protected
-    def eco_to_current
-      self.update(eco: self.current)
-    end
+  def eco_to_current
+    self.update(eco: self.current)
+  end
 
   private
     def create_uuid
