@@ -22,7 +22,6 @@ function buy_unit(element) {
 }
 
 function end_turn() {
-
 	var count = 0;
   $.ajax({
     method: "GET",
@@ -44,11 +43,9 @@ function end_turn() {
 			count++;
 		})
 		cheap(response["cheaper"]);
-
 		$('.tablerow1').each(function(){
 			//$(this).css("color", response["color"])
 		})
-
 		$('.tablerow2').each(function(){
 			//$(this).css("color", response["colorL"])
 		})

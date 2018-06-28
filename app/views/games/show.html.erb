@@ -23,7 +23,7 @@
     <div class="col-sm-9" style="padding-left:0px">
       <table style="margin-bottom: 0.1vw; width:100%" class="table table-condensed ">
           <thead>
-            <tr style="color:<%=current_nation.color%>;font-size:2.75rem;background-color:rgba(50, 50, 50, 0.4)" class="shadow-text table-top">
+            <tr style="color:<%=current_nation.color%>;font-size:2.75rem;background-color:rgba(150, 150, 150, 0.5)" class="shadow-text table-top">
               <th class="text-center">Count</th>
               <th class="text-center">Buy</th>
               <th class="text-center">Name</th>
@@ -70,49 +70,47 @@
     </div>
 
     <div class="col-sm-3" style="padding-left:0px;padding-right:0.25vw">
-      <div class="row" style="margin-left:0px; margin-right:0px">
-        <button id="change-eco" onclick="change_eco()" style="background:<%=current_eco.color%>" class="text-center col btn" role="button"><%=current_eco.name%></button>
-        <table style="width:100%">
-          <tbody>
-            <tr class="change">
-              <td class="text-center col nowrap shadow-text" id="eco-bank">Bank <%=current_eco.bank%></td>
-              <td class="text-center col nowrap shadow-text" id="eco-income">Income <%=current_eco.income%></td>
-            </tr>
-            <tr class="change">
-              <td><button data-amount="1" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center col btn btn-change shadow-text" role="button">+1</button></td>
-              <td><button data-amount="1" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center col btn btn-change shadow-text" role="button">+1</button></td>
-            </tr>
-            <tr class="change">
-              <td><button data-amount="-1" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center col btn btn-change shadow-text" role="button">-1</button></td>
-              <td><button data-amount="-1" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center col btn btn-change shadow-text" role="button">-1</button></td>
-            </tr>
-            <tr class="change">
-              <td><button data-amount="5" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center col btn btn-change shadow-text" role="button">+5</button></td>
-              <td><button data-amount="5" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center col btn btn-change shadow-text" role="button">+5</button></td>
-            </tr>
-            <tr class="change">
-              <td><button data-amount="-5" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center col btn btn-change shadow-text" role="button">-5</button></td>
-              <td><button data-amount="-5" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center col btn btn-change shadow-text" role="button">-5</button></td>
-            </tr>
-            <tr class="change">
-              <td><button data-amount="10" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center col btn btn-change shadow-text" role="button">+10</button></td>
-              <td><button data-amount="10" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center col btn btn-change shadow-text" role="button">+10</button></td>
-            </tr>
-            <tr class="change">
-              <td><button data-amount="-10" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center col btn btn-change shadow-text" role="button">-10</button></td>
-              <td><button data-amount="-10" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center col btn btn-change shadow-text" role="button">-10</button></td>
-            </tr>
-          </tbody>
-        </table>
-        <div class="container" style="padding:0.2rem; margin-top:0.5rem">
-          <% if["1940Global","1940OneEco","1940Pacific","1940Europe","1940Grasshopper","1940House"].include? current_game.game_name%>
-            <%= link_to "National Objectives", nation_path(current_eco.uuid), :id => "objective", :class =>"btn btn-side shadow-text", :role => "button", :style =>"background:"+current_eco.color %>
-            <%= link_to "Research and Development", research_path(current_game.uuid), :id => "research", :class =>"btn btn-side shadow-text", :role => "button", :style => "background:"+current_eco.colorL %>
-          <%end%>
-          <%if ["1940Grasshopper","1940House"].include? current_game.game_name%>
-            <%= link_to "Victory Objectives", victory_path(current_game.uuid), :id => "victory", :class =>"btn btn-side shadow-text", :role => "button", :style =>"background:"+current_eco.color %>
-          <%end%>
-        </div>
+      <button id="change-eco" onclick="change_eco()" style="background:<%=current_eco.color%>;margin-top:0.25rem" class="text-center col btn" role="button"><%=current_eco.name%></button>
+      <table style="width:100%">
+        <tbody>
+          <tr class="change">
+            <td class="text-center col nowrap shadow-text" id="eco-bank">Bank <%=current_eco.bank%></td>
+            <td class="text-center col nowrap shadow-text" id="eco-income">Income <%=current_eco.income%></td>
+          </tr>
+          <tr class="change">
+            <td><button data-amount="1" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center col btn btn-change shadow-text" role="button">+1</button></td>
+            <td><button data-amount="1" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center col btn btn-change shadow-text" role="button">+1</button></td>
+          </tr>
+          <tr class="change">
+            <td><button data-amount="-1" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center col btn btn-change shadow-text" role="button">-1</button></td>
+            <td><button data-amount="-1" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center col btn btn-change shadow-text" role="button">-1</button></td>
+          </tr>
+          <tr class="change">
+            <td><button data-amount="5" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center col btn btn-change shadow-text" role="button">+5</button></td>
+            <td><button data-amount="5" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center col btn btn-change shadow-text" role="button">+5</button></td>
+          </tr>
+          <tr class="change">
+            <td><button data-amount="-5" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center col btn btn-change shadow-text" role="button">-5</button></td>
+            <td><button data-amount="-5" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center col btn btn-change shadow-text" role="button">-5</button></td>
+          </tr>
+          <tr class="change">
+            <td><button data-amount="10" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center col btn btn-change shadow-text" role="button">+10</button></td>
+            <td><button data-amount="10" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center col btn btn-change shadow-text" role="button">+10</button></td>
+          </tr>
+          <tr class="change">
+            <td><button data-amount="-10" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center col btn btn-change shadow-text" role="button">-10</button></td>
+            <td><button data-amount="-10" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center col btn btn-change shadow-text" role="button">-10</button></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="container" style="padding:0.2rem; margin-top:0.5rem">
+        <% if["1940Global","1940OneEco","1940Pacific","1940Europe","1940Grasshopper","1940House"].include? current_game.game_name%>
+          <%= link_to "National Objectives", nation_path(current_eco.uuid), :id => "objective", :class =>"btn btn-side shadow-text", :role => "button", :style =>"background:"+current_eco.color %>
+          <%= link_to "Research and Development", research_path(current_game.uuid), :id => "research", :class =>"btn btn-side shadow-text", :role => "button", :style => "background:"+current_eco.colorL %>
+        <%end%>
+        <%if ["1940Grasshopper","1940House"].include? current_game.game_name%>
+          <%= link_to "Victory Objectives", victory_path(current_game.uuid), :id => "victory", :class =>"btn btn-side shadow-text", :role => "button", :style =>"background:"+current_eco.color %>
+        <%end%>
       </div>
     </div>
   </div>

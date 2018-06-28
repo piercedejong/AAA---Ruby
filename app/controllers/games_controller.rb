@@ -152,7 +152,6 @@ class GamesController < ApplicationController
         uuid: current_nation.uuid
       }
     end
-
   end
 
   def buy_unit
