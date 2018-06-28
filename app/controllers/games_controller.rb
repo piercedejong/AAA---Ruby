@@ -74,65 +74,29 @@ class GamesController < ApplicationController
     current_nation.end_turn
     # IF nation is britain and pacific is next nation (i.e Did not buy for Pacific)
     if ["Britain","United Kingdom"].include? current_nation.name and ["Pacific","UK Pacific","FEC"].include? next_nation.name
-      if true
-        # Move to pacific
-        current_game.update(current: current_game.current+1)
-        # End pacific turn
-        current_nation.end_turn
-        if request.xhr?
-          render :json => {
-            oo_nation: prev_nation.name,
-            oo_bank: prev_nation.bank,
-            o_nation: current_game.nations.find_by(nid: current_game.current).name,
-            o_bank: current_game.nations.find_by(nid: current_game.current).bank,
-            nation: next_nation.name,
-            color: next_nation.color,
-            colorL: next_nation.colorL,
-            bank: next_nation.bank,
-            income: next_nation.income,
-            roundel: next_nation.roundel,
-            uuid: next_nation.uuid,
-            cheaper: @cheaper,
-            pacific: @pacific
-          }
-        end
-      end
-
+      # Move to pacific
+      current_game.update(current: current_game.current+1)
+      # End pacific turn
+      current_nation.end_turn
     elsif ["Pacific","UK Pacific","FEC"].include? current_nation.name
       prev_nation.end_turn
-      if request.xhr?
-        render :json => {
-          oo_nation: prev_nation.name,
-          oo_bank: prev_nation.bank,
-          o_nation: current_game.nations.find_by(nid: current_game.current).name,
-          o_bank: current_game.nations.find_by(nid: current_game.current).bank,
-          nation: next_nation.name,
-          color: next_nation.color,
-          colorL: next_nation.colorL,
-          bank: next_nation.bank,
-          income: next_nation.income,
-          roundel: next_nation.roundel,
-          uuid: next_nation.uuid,
-          cheaper: @cheaper,
-          pacific: @pacific
-        }
-      end
-    else
-      if request.xhr?
-        render :json => {
-          o_nation: current_nation.name,
-          o_bank: current_nation.bank,
-          nation: next_nation.name,
-          color: next_nation.color,
-          colorL: next_nation.colorL,
-          bank: next_nation.bank,
-          income: next_nation.income,
-          roundel: next_nation.roundel,
-          uuid: next_nation.uuid,
-          cheaper: @cheaper,
-          pacific: @pacific
-        }
-      end
+    end
+    if request.xhr?
+      render :json => {
+        oo_nation: prev_nation.name,
+        oo_bank: prev_nation.bank,
+        o_nation: current_nation.name,
+        o_bank: current_nation.bank,
+        nation: next_nation.name,
+        color: next_nation.color,
+        colorL: next_nation.colorL,
+        bank: next_nation.bank,
+        income: next_nation.income,
+        roundel: next_nation.roundel,
+        uuid: next_nation.uuid,
+        cheaper: @cheaper,
+        pacific: @pacific
+      }
     end
     #Go to the next nation
     current_game.end_turn
@@ -279,7 +243,6 @@ class GamesController < ApplicationController
   end
 
   private
-
   def check_current_user
     if !current_user
       redirect_to root_path
