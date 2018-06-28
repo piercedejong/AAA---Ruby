@@ -17,7 +17,6 @@ class NationsController < ApplicationController
       current_eco.update(obj_income: current_eco.obj_income + @objective.value)
       @color = current_eco.color
     end
-
     if request.xhr?
       render :json => {
         color: @color,
@@ -25,7 +24,6 @@ class NationsController < ApplicationController
       }
     end
   end
-
 
   private
   def check_current_user

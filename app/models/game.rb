@@ -33,13 +33,6 @@ class Game < ApplicationRecord
     end
   end
 
-  def change_bank(amount)
-    self.update(bank: self.bank+amount)
-    if(self.bank<0)
-      self.update(bank: 0)
-    end
-  end
-
   def reset_units
     self.units.each {|u| u.update(count: 0)}
   end

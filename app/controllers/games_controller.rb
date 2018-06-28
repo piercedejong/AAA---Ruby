@@ -68,7 +68,7 @@ class GamesController < ApplicationController
       end
     end
 
-    if(["Britain","United Kingdom"].include? next_nation.name and ["Pacific","FEC", "UK  Pacfic"].include? current_game.nations[next_nation.nid+1].name)
+    if(["Britain","United Kingdom"].include? next_nation.name and ["Pacific","FEC","UK Pacfic"].include? current_game.nations[next_nation.nid+1].name)
       @pacific = true
     end
     current_nation.end_turn
@@ -157,10 +157,7 @@ class GamesController < ApplicationController
   def change_bank
     @same = false
     @amount = params[:amount].to_i
-    current_eco.update(bank: current_eco.bank+@amount)
-    if(current_eco.bank<0)
-      current_eco.update(bank: 0)
-    end
+    current_eco.change_bank(@amount)
     if current_eco==current_nation
         @same = true
     end
@@ -175,10 +172,7 @@ class GamesController < ApplicationController
 
   def change_income
     @amount = params[:amount].to_i
-    current_eco.update(income: current_eco.income+@amount)
-    if(current_eco.income<0)
-      current_eco.update(income: 0)
-    end
+    current_eco.change_income(@amount)
     if request.xhr?
       render :json => {
         nation: current_eco.name,
@@ -191,10 +185,7 @@ class GamesController < ApplicationController
   def edit_change_bank
     @nation = current_user.games.find_by(uuid: session[:edit_uuid]).nations.find_by(uuid: params[:uuid])
     @amount = params[:amount].to_i
-    @nation.update(bank: @nation.bank+@amount)
-    if(@nation.bank<0)
-      @nation.update(bank: 0)
-    end
+    @nation.change_bank(@amount)
     if request.xhr?
       render :json => {
         bank: @nation.bank
@@ -205,10 +196,7 @@ class GamesController < ApplicationController
   def edit_change_income
     @nation = current_user.games.find_by(uuid: session[:edit_uuid]).nations.find_by(uuid: params[:uuid])
     @amount = params[:amount].to_i
-    @nation.update(income: @nation.income+@amount)
-    if(@nation.income<0)
-      @nation.update(income: 0)
-    end
+    @nation.change_income(@amount)
     if request.xhr?
       render :json => {
         income: @nation.income

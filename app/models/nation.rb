@@ -28,6 +28,20 @@ class Nation < ApplicationRecord
     end
   end
 
+  def change_bank(amount)
+    self.update(bank: self.bank+amount)
+    if(self.bank<0)
+      self.update(bank: 0)
+    end
+  end
+
+  def change_income(amount)
+    self.update(income: self.income+amount)
+    if(self.income<0)
+      self.update(income: 0)
+    end
+  end
+
   def obj_inc
     return self.name + " - " + self.obj_income.to_s
   end
