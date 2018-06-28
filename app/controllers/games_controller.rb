@@ -191,27 +191,21 @@ class GamesController < ApplicationController
   end
 
   def change_bank
+    @same = false
     @amount = params[:amount].to_i
     current_eco.update(bank: current_eco.bank+@amount)
     if(current_eco.bank<0)
       current_eco.update(bank: 0)
     end
     if current_eco==current_nation
-      if request.xhr?
-        render :json => {
-          nation: current_eco.name,
-          bank: current_eco.bank,
-          same_n: true
-        }
-      end
-    else
-      if request.xhr?
-        render :json => {
-          nation: current_eco.name,
-          bank: current_eco.bank,
-          same_n: false
-        }
-      end
+        @same = true
+    end
+    if request.xhr?
+      render :json => {
+        nation: current_eco.name,
+        bank: current_eco.bank,
+        same_n: @same
+      }
     end
   end
 
