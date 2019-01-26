@@ -17,7 +17,6 @@
   <%end%>
 </div>
 
-
 <div class="container-game" style="">
   <div class="row content">
     <div class="col-sm-9" style="padding-left:0px">
@@ -35,7 +34,7 @@
               <%end%>
             </tr>
           </thead>
-          <tbody class="" style="font-weight:500;font-size: 2.30rem;">
+          <tbody class="unit-table">
             <% current_game.units.each do |u| %>
               <% if u.uid%2 ==  0 %>
                 <tr class="tablerow1" style="background-color:<%= current_nation.color%>">
@@ -58,7 +57,7 @@
             <% end %>
             <tr>
               <td></td>
-              <td><button id="reset" onclick="reset_buy()" class="btn btn-edit-game btn-delete btn-game shadow-text" role="button">Reset Buy</button></td>
+
               <td><button id="pacific" onclick="buy_pacific()" class="btn btn-edit-game btn-copy btn-game shadow-text" role="button" style="<%if !["Britain","United Kingdom"].include? current_nation.name%>display:none<% end %>">Buy Pacific Units</button></td>
               <td></td>
               <td></td>
@@ -115,18 +114,23 @@
     </div>
   </div>
 </div>
-    <%= link_to "Exit", home_path, :class =>"bottomaligned btn btn-basic", :style=>"padding:0.5rem;padding-top:0.2rem;padding-bottom:0.2rem", :role => "button" %>
-<div class="bottomalignedmiddle c-nation">
-    <table style="margin-left:auto;margin-right:auto">
-      <tbody>
-        <tr id="c-nation-div" style="background-color:<%=current_nation.colorL%>">
-          <td style=""><%=image_tag current_nation.roundel , :id => "roundel", :style => "vertical-align:middle;height:5vw"%></td>
-          <td id="c-nation" class="nation shadow-text text-center" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></td>
-        </tr>
-      </tbody>
-    </table>
-</div>
-    <button id="end-turn" class="bottomalignedright btn btn-end-turn" onclick="end_turn()" style="background:<%=current_nation.color%>" role="button">End Turn</button>
+
+<div>
+  <%= link_to "Exit", home_path, :class =>"bottomaligned btn btn-basic", :style=>"padding:0.5rem;padding-top:0.2rem;padding-bottom:0.2rem", :role => "button" %>
+  <div class="bottomalignedmiddle c-nation">
+      <table style="margin-left:auto;margin-right:auto">
+        <tbody>
+          <tr id="c-nation-div" style="background-color:<%=current_nation.colorL%>">
+            <td><button id="reset" onclick="reset_buy()" class="btn shadow-text btn-reset-buy" role="button">Reset Buy</button></td>
+            <td style=""><%=image_tag current_nation.roundel , :id => "roundel", :style => "vertical-align:middle;height:5vw"%></td>
+            <td id="c-nation" class="nation shadow-text text-center" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  <div class = "bottomalignedright">
+    <button id="end-turn" class="btn btn-end-turn" onclick="end_turn()" style="background:<%=current_nation.color%>" role="button">End Turn</button>
+  </div>
 </div>
 
 
