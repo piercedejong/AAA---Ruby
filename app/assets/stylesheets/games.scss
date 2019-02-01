@@ -90,6 +90,8 @@ tr.spaceUnder>td {
 
 .table-top {
   font-weight: bold;
+  font-size:2.25rem;
+  background-color:rgba(150, 150, 150, 0.5)
 }
 
 tr.change>td{
@@ -119,7 +121,7 @@ tr.change>td{
 }
 
 .unit-table{
-  font-size: 2.30rem;
+  font-size: 1.6rem;
 }
 
 @media only screen and (max-width: 768px) and (orientation:portrait){
@@ -173,5 +175,14 @@ tr.change>td{
 @media only screen and (max-width: 500px) {
   .container-game{
     padding-top: 25vw;
+  }
+}
+
+@media only screen and (width: 1920px){
+  .table-top{
+    font-size: 2.75rem;
+  }
+  .unit-table{
+    font-size: 2.30rem
   }
 }

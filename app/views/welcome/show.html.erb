@@ -5,12 +5,12 @@
     <div class="col-sm-4">
     </div>
     <div class="col-sm-4">
-      <%= link_to "New Game",  new_game_path, :class =>"btn btn-main btn-basic", :role => "button"%>
-      <%= link_to "Load Game", games_path,    :class =>"btn btn-main btn-basic", :role => "button"%>
+      <%= link_to "New Game",  new_game_path, :class =>"btn btn-main btn-basic shadow-text", :role => "button"%>
+      <%= link_to "Load Game", games_path,    :class =>"btn btn-main btn-basic shadow-text", :role => "button"%>
       <% if current_user.role.eql? "admin" %>
-      <%= link_to "Battle Calulator", battle_calculator_index_path,    :class =>"btn btn-main btn-basic", :role => "button"%>
+      <%= link_to "Battle Calulator", battle_calculator_index_path,    :class =>"btn btn-main btn-basic shadow-text", :role => "button"%>
       <% end %>
-      <%= link_to "Sign-out",  logout_path,   :class =>"btn btn-main btn-basic", :role => "button"%>
+      <%= link_to "Sign-out",  logout_path,   :class =>"btn btn-main btn-basic shadow-text", :role => "button"%>
     </div>
     <div class="col-sm-4">
     </div>

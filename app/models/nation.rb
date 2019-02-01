@@ -52,23 +52,23 @@ class Nation < ApplicationRecord
   end
 
   protected
-    @germany  = "#0d0d0d"
+    @germany  = "#262626"
     @germanyL = '#8a8d8f'
-    @ussr     = '#8f1919'
+    @ussr     = '#ad1f1f'
     @ussrL    = "#ed9292"
-    @japan    = "#a2642a"
+    @japan    = "#e67300"
     @japanL   = "#e5be9a"
-    @usa      = "#4d6e2b"
+    @usa      = "#669339"
     @usaL     = "#a6cd7e"
-    @china    = "#b3a632"
-    @chinaL   = "#ddd588"
+    @china    = "#cdc04c"
+    @chinaL   = "#e3dc9c"
     @britain  = "#cb9b67"
     @britainL = "#e4cdb4"
-    @italy    = "#754100"
+    @italy    = "#995400"
     @italyL   = "#d79f5b"
-    @anzac    = "#7f6d66"
+    @anzac    = "#998780"
     @anzacL   = "#d2cac6"
-    @france   = "#365e7d"
+    @france   = "#4d80b3"
     @franceL  = "#b8cfe0"
     def self.create_1940(game)
       nations = [
