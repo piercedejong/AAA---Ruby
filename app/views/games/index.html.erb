@@ -26,7 +26,7 @@
   </div>
 </div>
 
-<%= link_to "Back", home_path, :class =>"btn btn-basic btn-lg bottomaligned", :role => "button"%>
+<%= link_to "Back", root_path, :class =>"btn btn-basic btn-lg bottomaligned", :role => "button"%>
 <% if current_user.games.first && current_user.games.second%>
   <%= link_to 'Delete All Games', game_destroy_all_path ,:class=>"bottomalignedright btn btn-edit-game btn-delete",:style=>"font-size:3.0rem", method: :delete,data: {confirm: "Confirm deletion of ALL games"} %>
 <% end %>

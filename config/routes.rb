@@ -22,7 +22,7 @@ Rails.application.routes.draw do
 
   get '/logout', to: "sessions#destroy", as: :logout
 
-  get '/welcome', to: "welcome#show", as: :home
+  get '/welcome', to: "welcome#index", as: :home
 
   delete '/game/destroy_all', to: 'games#destroy_all'
 

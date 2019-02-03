@@ -3,7 +3,6 @@ class UsersController < ApplicationController
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(:email => data["email"]).first
-    user
   end
 
   def create
@@ -18,7 +17,7 @@ class UsersController < ApplicationController
       end
       cookies.permanent.signed[:permanent_user_id] = @user.id
       session[:user_id] = @user.id
-      redirect_to home_path
+      redirect_to root_path
     end
   end
 

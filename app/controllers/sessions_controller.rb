@@ -1,6 +1,7 @@
 class SessionsController < ApplicationController
 
   def new
+    binding.pry
     if current_user
       redirect_to root_path
     end
