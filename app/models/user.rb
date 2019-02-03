@@ -1,8 +1,11 @@
 #AAA
 class User < ApplicationRecord
   before_create :create_uuid
+  validates :email, presence: true, uniqueness: true
+  validates :name, presence: true
   #before_save :generate_token
   has_many :games
+  has_secure_password
 
   def self.create_user(auth_hash)
     User.create(

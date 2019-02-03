@@ -10,6 +10,10 @@ Rails.application.routes.draw do
 
   resources :researches
 
+  resources :users
+
+  resources :sessions, only: [:new, :create, :destroy]
+
   get 'battle_calculator/simulation', to: 'battle_calculator#simulation', :as => :simulation
 
   resources :battle_calculator
@@ -58,7 +62,8 @@ Rails.application.routes.draw do
 
   get 'research/clicked', to: 'researches#clicked'
 
-
+  get 'login', to: 'sessions#new', as: 'signin'
+  get 'signup', to: 'users#new', as: 'signup'
 
 
 
