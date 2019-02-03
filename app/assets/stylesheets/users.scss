@@ -1,0 +1,36 @@
+#sign-in{
+  font-size: 7rem;
+  color: rgb(230,230,230);
+  font-weight: normal;
+  font-style: normal;
+  padding: 1rem;
+  padding-bottom:0rem;
+}
+
+#sign-in-form{
+  padding:1rem;
+}
+
+.form-text{
+  font-size: 2rem;
+  color: rgb(230,230,230);
+  font-weight: normal;
+  font-style: normal;
+}
+
+.form-input{
+  font-size: 2rem;
+  color: rgba(150,150,150,0.5);
+  font-weight: normal;
+  font-style: normal;
+  width:75%
+}
+
+@media only screen and (max-width: 768px){
+ .form-text,.form-input {
+   font-size: 4rem;
+ }
+ #sign-in{
+   font-size: 10rem
+ }
+}

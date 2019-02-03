@@ -30,7 +30,8 @@
     <div class="col-sm-4">
     </div>
     <div class="col-sm-4">
-      <a class="btn btn-main btn-basic shadow-text" style="margin-left:auto;margin-right:auto" href="<%= '/auth/google' %>">Sign-in using Google</a>
+      <%= link_to "Sign in using Email",  signin_path, :class =>"btn btn-main btn-basic shadow-text", :role => "button"%>
+      <a class="btn btn-main btn-basic shadow-text" style="margin-left:auto;margin-right:auto" href="<%= '/auth/google' %>">Sign in using Google</a>
     </div>
     <div class="col-sm-4">
     </div>
