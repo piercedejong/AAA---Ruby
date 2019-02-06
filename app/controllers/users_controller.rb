@@ -27,8 +27,8 @@ class UsersController < ApplicationController
           @user = User.find_by(email: auth_hash.info.email)
         end
       end
-      cookies.permanent.signed[:permanent_user_id] = @user.id
-      session[:user_id] = @user.id
+      cookies.permanent.signed[:permanent_user_id] = @user.uuid
+      session[:user_id] = @user.uuid
       redirect_to root_path
     end
   end

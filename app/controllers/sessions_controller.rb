@@ -8,9 +8,12 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.find_by_email(params[:email])
-    if @user && @user.authenticate(params[:password])
-      cookies.permanent.signed[:permanent_user_id] = @user.id
-      session[:user_id] = @user.id
+    if @user.password_digest.eql? "google"
+      redirect_to home_path
+      flash.now[:alert] = "Account was made with google"
+    elsif @user && @user.authenticate(params[:password])
+      cookies.permanent.signed[:permanent_user_id] = @user.uuid
+      session[:user_id] = @user.uuid
       redirect_to root_url, notice: "Logged in!"
     else
       flash.now[:alert] = "Email or password is invalid"
