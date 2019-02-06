@@ -8,8 +8,8 @@
 
 Victory.all.each do |v| v.destroy end
 Research.all.each do |r| r.destroy end
-Objectives.all.each do |o| o.destroy end
-Specials.all.each do |u| u.destroy end
-Units.all.each do |u| u.destroy end
-Nations.all.each do |n| n.destroy end
+Objective.all.each do |o| o.destroy end
+Special.all.each do |u| u.destroy end
+Unit.all.each do |u| u.destroy end
+Nation.all.each do |n| n.destroy end
 Game.all.each do |g| g.destroy end
