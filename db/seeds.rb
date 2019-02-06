@@ -5,3 +5,11 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Victory.all.each do |v| v.destroy end
+Research.all.each do |r| r.destroy end
+Objectives.all.each do |o| o.destroy end
+Specials.all.each do |u| u.destroy end
+Units.all.each do |u| u.destroy end
+Nations.all.each do |n| n.destroy end
+Game.all.each do |g| g.destroy end
