@@ -30,8 +30,38 @@
     <div class="col-sm-4">
     </div>
     <div class="col-sm-4">
-      <%= link_to "Sign in using Email",  signin_path, :class =>"btn btn-main btn-basic shadow-text", :role => "button"%>
-      <a class="btn btn-main btn-basic shadow-text" style="margin-left:auto;margin-right:auto" href="<%= '/auth/google' %>">Sign in using Google</a>
+      <div class="card">
+      <article class="card-body">
+        <%= link_to 'Sign Up', signup_path, :id=>"sign-up", :class=>"btn btn-outline-primary float-right", :role=>"button" %>
+      	<h1 class="card-title mb-4 mt-1">Sing in</h1>
+        <p>
+          <a class="btn btn-block btn-outline-info" href="<%= '/auth/google' %>"><i class="fab fa-google"></i>   Login via Google</a>
+        </p>
+        <%= form_tag sessions_path do |form| %>
+        	<form>
+        	<div class="form-group">
+        	<div class="input-group">
+        		<div class="input-group-prepend">
+        		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+        		 </div>
+             <%= text_field_tag :username, "", placeholder:"Email or Username", class:"form-control" %>
+        	</div> <!-- input-group.// -->
+        	</div> <!-- form-group// -->
+        	<div class="form-group">
+        	<div class="input-group">
+        		<div class="input-group-prepend">
+        		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+        		 </div>
+             <%= password_field_tag :password, "", placeholder:"Password",  class:"form-control"%>
+        	</div> <!-- input-group.// -->
+        	</div> <!-- form-group// -->
+        	<div class="form-group">
+            <%= submit_tag 'Login', :class=>"btn btn-primary btn-block" %>
+        	</div> <!-- form-group// -->
+        	</form>
+        <% end %>
+      </article>
+      </div> <!-- card.// -->
     </div>
     <div class="col-sm-4">
     </div>

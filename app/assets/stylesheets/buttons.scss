@@ -1,16 +1,13 @@
 .btn{
   white-space: pre-wrap;
-  border-width:0.15rem;
-  border-radius: 4px;
-  font-size: 1rem;
 }
 
 .btn-basic{
   color: white;
   border-color: black;
   background-color: #464646;
-  font-size: 3vh;
-  padding:1.0vw;
+  border-width:0.15rem;
+  border-radius: 4px;
 }
 
 .btn-glyph{
@@ -154,7 +151,7 @@
   width:100%
 }
 
-.btn:hover{
+.btn-basic:hover{
   background-color:rgba(150,150,150,0.5) !important;
   color:#262626;
   border-color: black;

@@ -48,8 +48,7 @@ body {
   width:100%;
   position:fixed
 }
-
-background-image{
+#background-image{
   filter: blur(20px);
 }
 
@@ -90,6 +89,11 @@ background-image{
 
 .middle {
   vertical-align: middle;
+}
+
+.top-aligned-left{
+  margin:0.1vw;
+  position: absolute;
 }
 
 .bottomaligned {
