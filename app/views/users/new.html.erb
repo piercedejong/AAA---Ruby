@@ -1,4 +1,21 @@
-<div id="sign-in" class="shadow-text">New Player</div>
-<%= render 'form', user: @user %>
-
-<%= link_to 'Back', root_url, :class=>"bottomaligned btn btn-outline-light" %>
+<% content_for :title, "aaa - sign up" %>
+<div class="title text-center shadow-text">Axis and Allies Economy</div>
+<div class="container" style="padding-top:2vw">
+  <div class="row">
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <div class="card">
+      <article class="card-body">
+        <%= link_to 'Sign in', root_path, class:"btn btn-outline-primary float-right", role:"button" %>
+        <h1 class="card-title mb-4 mt-1">Sing up</h1>
+        <%= form_tag sessions_path do |form| %>
+          <form>
+          <%= render 'form', user: @user %>
+          </form>
+        <% end %>
+      </article>
+      </div> <!-- card.// -->
+    </div>
+    <div class="col-sm-4"></div>
+    </div>
+</div>

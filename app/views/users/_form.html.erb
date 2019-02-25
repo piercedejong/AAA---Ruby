@@ -10,26 +10,39 @@
       </ul>
     </div>
   <% end %>
-<div id="new-user--form"class="form">
   <div class="form-group">
-    <%= form.label :email, "Your Email", class:'form-text shadow-text' %>
-    <%= form.text_field :email, class:"form-input" %>
-  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+     </div>
+     <%= text_field_tag :email, "", placeholder:"Email", class:"form-control" %>
+  </div> <!-- input-group.// -->
+  </div> <!-- form-group// -->
   <div class="form-group">
-    <%= form.label :name, "Your Username", class:'form-text shadow-text' %>
-    <%= form.text_field :name, class:"form-input" %>
-  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+     </div>
+     <%= text_field_tag :username, "", placeholder:"Username", class:"form-control" %>
+  </div> <!-- input-group.// -->
+  </div> <!-- form-group// -->
   <div class="form-group">
-    <%= form.label :password, "Your Password", class:'form-text shadow-text' %>
-    <%= form.password_field :password, class:'form-input' %>
-  </div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+     </div>
+     <%= password_field_tag :password, "", placeholder:"Password",  class:"form-control"%>
+  </div> <!-- input-group.// -->
+  </div> <!-- form-group// -->
   <div class="form-group">
-    <%= form.label :password_confirmation, "Confirm Password", class:'form-text shadow-text' %>
-    <%= form.password_field :password_confirmation, class:"form-input" %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "Create Player", :class=>"btn btn-basic btn-login" %>
-  </div>
-</div>
+  <div class="input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+     </div>
+     <%= password_field_tag :password_confirmation, "", placeholder:"Confirm Password",  class:"form-control"%>
+  </div> <!-- input-group.// -->
+  </div> <!-- form-group// -->
+  <div class="form-group">
+    <%= form.submit "Sign Up", :class=>"btn btn-block btn-primary" %>
+  </div> <!-- form-group// -->
 <% end %>
