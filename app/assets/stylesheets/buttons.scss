@@ -10,8 +10,8 @@
   font-size: 2rem;
 }
 
-#new-game-btn, #load-game-btn{
-  font-size: 3rem;
+.btn-welcome{
+  color: #f9f2de;
   border: solid 2px;
   border-color: #262626;
   background-color: rgba(20,20,20,0.3);
@@ -19,7 +19,16 @@
   &:hover {
     text-shadow: none;
     background-color: rgba(230,230,230,0.3);
+    color:#262626
   }
+}
+
+#btn-new-game, #btn-load-game, #btn-about{
+  font-size: 3rem;
+}
+
+#btn-sign-out{
+  font-size: 1.5rem;
 }
 
 .btn-main {

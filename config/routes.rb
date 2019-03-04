@@ -65,7 +65,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new', as: 'signin'
   get 'signup', to: 'users#new', as: 'signup'
 
-
+  get 'about', to: 'welcome#show', as: 'about'
 
   root 'welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
