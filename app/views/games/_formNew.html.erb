@@ -1,35 +1,34 @@
 <%= form_for @game do |f| %>
-<br>
-<div class="container-fluid">
-  <div class="row content" style="font-size:3vw">
-    <div class="container" style="padding:0px;margin-left:auto;margin-right:auto">
-      <% if current_user.role.eql? "admin" %>
-        Game Type: <%= select(:game, :game_name, [['1940 Europe','1940Europe'],['1940 Global','1940Global'],['1940 Global (Britian 1 Economy)','1940OneEco'],['1940 Global House','1940House'],['1940 Grasshopper','1940Grasshopper'],['1940 Pacific','1940Pacific'],['1942 Spring','1942'],['1914 WWI', '1914']], {:style=> "font-size:3vw"})%>
-      <% else %>
-        Game Type: <%= select(:game, :game_name, [['1940 Europe','1940Europe'],['1940 Global','1940Global'],['1940 Global (Britian 1 Economy)','1940OneEco'],['1940 Grasshopper','1940Grasshopper'],['1940 Pacific','1940Pacific'],['1942 Spring','1942'],['1914 WWI', '1914']], {:style=> "font-size:3vw"})%>
-      <%end%>
-
-      <br>
-      <br>
-      Game Name: <%= f.text_field :name, :value => "" %>
-      </div>
+<% if @game.errors.any? %>
+  <div id="error_explanation">
+    <h2>
+      <%= pluralize(@game.errors.count, "error") %>
+      prohibited this game from being created:
+    </h2>
+    <ul>
+      <% @game.errors.full_messages.each do |msg| %>
+        <li style="font-size:1.5rem"><%= msg %></li>
+      <% end %>
+    </ul>
   </div>
-</div>
-
-  <% if @game.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@game.errors.count, "error") %>
-        prohibited this game from being created:
-      </h2>
-      <ul>
-        <% @game.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= f.submit :class=>"btn btn-basic btn-lg bottomalignedright", :id=>"submit", :role=>"button"%>
-
+<% end %>
+<form>
+  <div class="form-group">
+  <div class="input-group" sryle="font-size:2rem">
+    <div class="input-group-prepend">
+        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+     </div>
+     <%= select_tag "game[gamename]", content_tag(:option,'Select a Game Version...',:value=>"")+options_for_select([['1940 Europe','1940Europe'],['1940 Global','1940Global'],['1940 Global (Britian 1 Economy)','1940OneEco'],['1940 Grasshopper','1940Grasshopper'],['1940 Pacific','1940Pacific'],['1942 Spring','1942'],['1914 WWI', '1914']]), class:'input-group-form game-select-form' %>
+  </div> <!-- input-group.// -->
+  </div> <!-- form-group// -->
+  <div class="form-group">
+  <div class="input-group">
+    <div class="input-group-prepend">
+        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+     </div>
+     <%= f.text_field :name, placeholder:"Game Name (3-20 characters)",style:"font-size:2rem",class:"game-select-form form-control input-group-form" %>
+  </div> <!-- input-group.// -->
+  </div> <!-- form-group// -->
+  <%= f.submit :class=>"btn btn-default bottom-aligned-right", :id=>"btn-create-game", :role=>"button"%>
+</form>
 <% end %>

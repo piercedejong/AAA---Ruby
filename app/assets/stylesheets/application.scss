@@ -89,7 +89,7 @@ body {
   position: absolute;
 }
 
-.bottom-aligned {
+.bottom-aligned-left {
   position:fixed;
   bottom:0;
   margin-bottom:0.1vw;
@@ -115,4 +115,12 @@ body {
  .title {
    font-size: 4rem;
  }
+}
+
+.input-group-prepend{
+  flex: 0 0 auto;
+}
+
+.input-group-form{
+  flex: 1 0 auto;
 }
