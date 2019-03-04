@@ -6,27 +6,24 @@
     <div class="col-sm-4">
     </div>
     <div class="col-sm-4">
-      <table style="width:100%;padding:0px;margin-top:0.5rem; border-collapse:unset">
-        <tbody>
-          <% current_user.games.each do |game| %>
-            <tr class="spaceUnder",style="padding-top:1rem">
-              <td style="padding:0px;width:100%;"><a href="<%= game_path(game.uuid) %>" class="btn btn-basic" style="width:100%;padding:0.1vw;font-size:4.0rem"role="button" ><%= game.name %></a></td>
-              <td style="padding:0px"><div class="container" style="padding-left:0.5rem;display:grid">
-                <button id="<%=game.uuid %>", style="", class="btn btn-edit-game btn-copy shadow-text", role ="button", onclick="copy(this)">Copy Game</button>
-                <%= link_to 'Edit Game', edit_game_path(game.uuid), :class=>"btn btn-edit-game btn-edit shadow-text" %>
-                <%= link_to 'Delete Game', game_path(game.uuid), :class=>"btn btn-edit-game btn-delete shadow-text",method: :delete,data: {confirm: "Confirm deletion of game: "+game.name} %>
-              </div></td>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+      <% current_user.games.each do |game| %>
+        <div class="d-flex mb-4">
+          <%=link_to game.name, game_path(game.uuid), class:"btn btn-default btn-block my-auto shadow-text", role:"button" %>
+          <div class="d-flex" style="align-items:center">
+        <!--    <button id="<%=game.uuid %>", style="", class="btn copy", role ="button", onclick="copy(this)">Copy</button> -->
+            <%= link_to 'Copy', nil, class:"btn btn-edit copy", onclick:"copy(this)" , role:"button"%>
+            <%= link_to 'Edit', edit_game_path(game.uuid), class:"btn btn-edit edit", role:"button" %>
+            <%= link_to 'Delete', game_path(game.uuid), class:"btn btn-edit delete",role:"button", method: :delete,data: {confirm: "Confirm deletion of game: "+game.name} %>
+          </div>
+        </div>
+      <% end %>
     </div>
     <div class="col-sm-4">
     </div>
   </div>
 </div>
 
-<%= link_to "Back", root_path, :class =>"btn btn-basic btn-lg bottomaligned", :role => "button"%>
+<%= link_to "Back", root_path, class:"btn btn-default btn-back bottom-aligned-left", role: "button"%>
 <% if current_user.games.first && current_user.games.second%>
-  <%= link_to 'Delete All Games', game_destroy_all_path ,:class=>"bottomalignedright btn btn-edit-game btn-delete",:style=>"font-size:3.0rem", method: :delete,data: {confirm: "Confirm deletion of ALL games"} %>
+  <%= link_to 'Delete All Games', game_destroy_all_path ,:class=>"bottom-aligned-right btn btn-edit delete",style:"font-size:3.0rem", method: :delete,data: {confirm: "Confirm deletion of ALL games"} %>
 <% end %>

@@ -52,30 +52,31 @@
   background-color: #eeeeee;
 }
 
-.btn-edit-game{
-  margin-top:0.1rem;
-  margin-bottom:0.1rem;
-  padding: 0.2rem;
-  font-size: 1.5rem;
-  white-space: nowrap;
+.edit{
+  background-color:#52ad6a !important;
 }
 
-.btn-copy {
-  color:white;
-  background-color: cadetblue;
+.delete{
+  background-color:#ad5252 !important;
 }
 
-.btn-delete {
-  background-color: red;
+.copy{
+  background-color:#5296ad !important;
+}
+
+.btn-edit{
+  border: solid 1px;
+  margin:1px;
+  color:#262626;
+
+  &:hover{
+    background-color: rgba(230,230,230,0.3) !important;
+  }
 }
 
 .btn-reset-buy {
   background-color: red;
   font-size: 3vh;
-}
-
-.btn-edit{
-  background-color: green;
 }
 
 .btn-end-turn {
