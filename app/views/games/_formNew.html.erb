@@ -18,7 +18,7 @@
     <div class="input-group-prepend">
         <span class="input-group-text"> <i style="font-size:2rem" class="fas fa-dice-d6"></i> </span>
      </div>
-     <%= select_tag "game[gamename]", content_tag(:option,'Select a Game Version...',:value=>"")+options_for_select([['1940 Europe','1940Europe'],['1940 Global','1940Global'],['1940 Global (Britian 1 Economy)','1940OneEco'],['1940 Grasshopper','1940Grasshopper'],['1940 Pacific','1940Pacific'],['1942 Spring','1942'],['1914 WWI', '1914']]), class:'input-group-form game-select-form' %>
+     <%= select_tag "game[game_name]", content_tag(:option,'Select a Game Version...',:value=>"")+options_for_select([['1940 Europe','1940Europe'],['1940 Global','1940Global'],['1940 Global (Britian 1 Economy)','1940OneEco'],['1940 Grasshopper','1940Grasshopper'],['1940 Pacific','1940Pacific'],['1942 Spring','1942'],['1914 WWI', '1914']]), class:'input-group-form game-select-form' %>
   </div> <!-- input-group.// -->
   </div> <!-- form-group// -->
   <div class="form-group">
