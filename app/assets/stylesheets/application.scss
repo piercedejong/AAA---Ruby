@@ -96,14 +96,14 @@ body {
   position: absolute;
 }
 
-.bottomaligned {
+.bottom-aligned {
   position:fixed;
   bottom:0;
   margin-bottom:0.1vw;
   left: 0;
   margin-left:0.1vw}
 
-.bottomalignedmiddle {
+.bottom-aligned-middle {
   margin-left: auto;
   margin-right: auto;
   position: fixed;
@@ -111,7 +111,7 @@ body {
   left: 50%;
   transform: translate(-50%);
 }
-.bottomalignedright {
+.bottom-aligned-right {
   position:fixed; bottom:0;
    margin-bottom:0.1vw;
    right: 0;

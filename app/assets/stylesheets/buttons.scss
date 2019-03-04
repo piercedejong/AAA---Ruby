@@ -2,14 +2,6 @@
   white-space: pre-wrap;
 }
 
-.btn-basic{
-  color: white;
-  border-color: black;
-  background-color: #464646;
-  border-width:0.15rem;
-  border-radius: 4px;
-}
-
 .btn-glyph{
   padding:0px;
   border-radius: 0px;
@@ -18,26 +10,20 @@
   font-size: 2rem;
 }
 
-.glyphicon {
-    //font-size: 50px;
+#new-game-btn, #load-game-btn{
+  font-size: 3rem;
+  border: solid 2px;
+  border-color: #262626;
+  background-color: rgba(20,20,20,0.3);
+
+  &:hover {
+    text-shadow: none;
+    background-color: rgba(230,230,230,0.3);
+  }
 }
 
 .btn-main {
   font-size: 3rem;
-  width:100%;
-  margin-top: 0.5rem;
-}
-
-.btn-bandw {
-    background-color: #464646;
-    border-color: #464646;
-    white-space: nowrap;
-}
-
-.btn-sepia {
-  background-color: #f0ad4e;
-  border-color: #f0ad4e;
-  color:white;
 }
 
 .btn-sign-up{
