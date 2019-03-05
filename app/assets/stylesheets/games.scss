@@ -5,29 +5,15 @@
   color:#262626 !important;
 }
 
-
-
-
-
-
-
-
-
 .nations {
   position:fixed;
   z-index:99;
   background-color:rgba(150,150,150,0.5);
   width:100%;
-  display: flex;
   flex-wrap: wrap;
 }
-.nation {
-  margin-left:auto;
-  margin-right:auto;
-
-}
 .nation-name {
-  font-size: 3.7vw;
+  font-size: 5rem;
   text-align: center;
 }
 
@@ -49,10 +35,6 @@
 }
 
 .container-game{
-  padding-right:15px;
-  padding-left:15px;
-  margin-right:auto;
-  margin-left:auto;
   margin-bottom: 0px;
   padding-bottom:4.4rem;
   padding-top: 6.75vw;

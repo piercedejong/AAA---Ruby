@@ -13,12 +13,13 @@
 .btn-default{
   color: #f9f2de;
   border: solid 2px;
-  border-color: #262626;
+  border-color: #f9f2de;
   background-color: rgba(20,20,20,0.3);
   font-size: 2rem;
   &:hover {
     text-shadow: none;
     background-color: rgba(230,230,230,0.3);
+    border-color: rgba(20,20,20,0.3);
     color:#262626
   }
 }
@@ -75,8 +76,16 @@
 }
 
 .btn-reset-buy {
-  background-color: red;
-  font-size: 3vh;
+  background-color:#ad5252;
+  font-size: 3rem;
+  line-height: 7rem;
+  margin-right: 0.2rem;
+  border:solid 1px;
+
+  &:hover{
+    background-color:rgba(173, 82, 82, 0.7);
+    color:#f9f2fe
+  }
 }
 
 .btn-end-turn {
@@ -159,11 +168,6 @@
   color:white;
   border-color:#007bff
 }
-
-.btn-reset-buy:hover{
-  background-color:rgba(250,128,114,0.7);
-}
-
 .btn-glyph:hover{
   background-color: transparent;
 }

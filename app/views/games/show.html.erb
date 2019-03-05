@@ -1,12 +1,8 @@
 <% content_for :title, "aaa -"+@game.name %>
 
-<div class="nations">
+<div class="nations d-flex">
   <% @game.nations.all.each do |n| %>
-    <% if n.name.eql? current_nation.name%>
-      <div id="<%=n.name%>" class="nation" style="color:<%=n.color%>">
-    <%else%>
-      <div id="<%=n.name%>" class="nation" style="color:<%=n.color%>">
-    <%end%>
+    <div id="<%=n.name%>" class="nation mx-auto" style="color:<%=n.color%>">
       <div class="nation-name shadow-text"><%= n.name %></div>
       <div class="money">
         <div id="<%=n.name%>-bank" class="shadow-text"><%=n.bank%></div>
@@ -17,9 +13,9 @@
   <%end%>
 </div>
 
-<div class="container-game" style="">
-  <div class="row content">
-    <div class="col-sm-9" style="padding-left:0px">
+<div class="container container-game" style="max-width:100%">
+  <div class="row">
+    <div class="col-sm-8" style="padding-left:0px">
       <table style="margin-bottom: 0.1vw; width:100%" class="table table-condensed ">
           <thead>
             <tr style="color:<%=current_nation.color%>;" class="shadow-text table-top">
@@ -67,7 +63,7 @@
           </tbody>
       </table>
     </div>
-
+    <div class="col-sm-1"></div>
     <div class="col-sm-3" style="padding-left:0px;padding-right:0.25vw">
       <button id="change-eco" onclick="change_eco()" style="background:<%=current_eco.color%>;margin-top:0.25rem" class="text-center col btn" role="button"><%=current_eco.name%></button>
       <table style="width:100%">
@@ -115,20 +111,16 @@
   </div>
 </div>
 
-<div>
-  <%= link_to "Exit", root_path, :class =>"bottomaligned btn btn-basic", :style=>"padding:0.5rem;padding-top:0.2rem;padding-bottom:0.2rem", :role => "button" %>
-  <div class="bottomalignedmiddle c-nation">
-      <table style="margin-left:auto;margin-right:auto">
-        <tbody>
-          <tr id="c-nation-div" style="background-color:<%=current_nation.colorL%>">
-            <td><button id="reset" onclick="reset_buy()" class="btn shadow-text btn-reset-buy" role="button">Reset Buy</button></td>
-            <td style=""><%=image_tag current_nation.roundel , :id => "roundel", :style => "vertical-align:middle;height:5vw"%></td>
-            <td id="c-nation" class="nation shadow-text text-center" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></td>
-          </tr>
-        </tbody>
-      </table>
+<div id="bottom-row">
+  <%= link_to "Exit", root_path, class:"bottom-aligned-left btn btn-default", role:"button" %>
+  <div class="bottom-aligned-middle d-flex">
+    <%=link_to "Reset Buy", nil, onclick:"reset_buy()", class:"center btn btn-reset-buy", role:"button" %>
+    <div id="c-nation-div" class="d-flex c-nation" style="background-color:<%=current_nation.colorL%>">
+      <%=image_tag current_nation.roundel , :id => "roundel", :style => "vertical-align:middle;height:5vw"%>
+      <div id="c-nation" class="nation shadow-text text-center" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></div>
+    </div>
   </div>
-  <div class = "bottomalignedright">
+  <div class = "bottom-aligned-right">
     <button id="end-turn" class="btn btn-end-turn" onclick="end_turn()" style="background:<%=current_nation.color%>" role="button">End Turn</button>
   </div>
 </div>
@@ -137,9 +129,13 @@
 <script>
   var name = "<%= current_nation.name %>"
   $(document).ready(c_nation_opacity(name));
+  $(document).ready(game_padding_resize());
   <%current_nation.researches.all.each do |r| %>
   <%  if ["Mass Production", "Improved Shipyards"].include? r.name and r.enabled%>
       $(document).ready(cheap(true));
     <%end%>
   <%end %>
+  $(window).resize(function () {
+    game_padding_resize();
+  });
 </script>

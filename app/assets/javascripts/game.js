@@ -21,6 +21,12 @@ function buy_unit(element) {
   })
 }
 
+function game_padding_resize(){
+	console.log("Height changed");
+	$(".container-game").css("padding-top", $(".nations").height()+5);
+
+}
+
 function end_turn() {
 	var count = 0;
   $.ajax({
