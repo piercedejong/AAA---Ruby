@@ -113,9 +113,9 @@
 
 <div id="bottom-row">
   <%= link_to "Exit", root_path, class:"bottom-aligned-left btn btn-default", role:"button" %>
-  <div class="bottom-aligned-middle d-flex">
-    <%=link_to "Reset Buy", nil, onclick:"reset_buy()", class:"center btn btn-reset-buy", role:"button" %>
-    <div id="c-nation-div" class="d-flex c-nation" style="background-color:<%=current_nation.colorL%>">
+  <div id="c-nation-body" class="bottom-aligned-middle d-flex">
+    <button id="reset-buy" class="btn btn-reset-buy" onclick="reset_buy()" role="button">Reset Buy</button>
+    <div id="c-nation-card" class="d-flex c-nation" style="background-color:<%=current_nation.colorL%>">
       <%=image_tag current_nation.roundel , :id => "roundel", :style => "vertical-align:middle;height:5vw"%>
       <div id="c-nation" class="nation shadow-text text-center" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></div>
     </div>

@@ -22,8 +22,9 @@ function buy_unit(element) {
 }
 
 function game_padding_resize(){
-	console.log("Height changed");
+	console.log($(".c-nation-div").height());
 	$(".container-game").css("padding-top", $(".nations").height()+5);
+	$(".container-game").css("padding-bottom", $("#c-nation-body").height()+5);
 
 }
 
@@ -240,7 +241,8 @@ function copy(element) {
 
 function c_nation_opacity(name) {
 	var nat = name;
-	var c = $("#c-nation-div").css('background-color');
+	var c = $("#c-nation-card").css('background-color');
+	console.log(c);
 	var rgba = opacity(c);
 	$("#c-nation-div").css('background-color', rgba);
 	$(".tablerow1").css('background-color', rgba);
@@ -251,6 +253,7 @@ function c_nation_opacity(name) {
 
 function edit_nation_opacity(name){
 	var c = $("#"+name).css('background-color');
+	console.log(c);
 	var rgba = opacity(c);
 	$(".edit-"+name).css('background-color',rgba);
 }
