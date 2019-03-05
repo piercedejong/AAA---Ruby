@@ -33,12 +33,12 @@
           <tbody class="unit-table">
             <% current_game.units.each do |u| %>
               <% if u.uid%2 ==  0 %>
-                <tr class="tablerow1" style="background-color:<%= current_nation.color%>">
+                <tr class="tablerow1">
               <% else %>
-                <tr class="tablerow2 shadow-text" style="background-color:rgba(0, 0, 0, 0.4)">
+                <tr class="tablerow2 shadow-text">
               <% end %>
                 <td id="<%=u.uid%>" class=" text-center count"><%= u.count %></td>
-                <td class="text-center"><button data-uid="<%=u.uid%>" id="<%=u.name%>" onclick="buy_unit(this)" style="background:<%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="<%=u.name%> btn btn-unit shadow-text" role="button">$<%= u.cost %></button></td>
+                <td class="text-center"><button data-uid="<%=u.uid%>" id="<%=u.name%>" onclick="buy_unit(this)" style="background:<%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="<%=u.name%> btn btn-unit  btn-block shadow-text" role="button">$<%= u.cost %></button></td>
                 <td class="text-center nowrap"><%= u.name %></td>
                 <td class="text-center"><%= u.attack %></td>
                 <td class="text-center"><%= u.defense %></td>
@@ -53,7 +53,6 @@
             <% end %>
             <tr>
               <td></td>
-
               <td><button id="pacific" onclick="buy_pacific()" class="btn btn-edit-game btn-copy btn-game shadow-text" role="button" style="<%if !["Britain","United Kingdom"].include? current_nation.name%>display:none<% end %>">Buy Pacific Units</button></td>
               <td></td>
               <td></td>
@@ -116,7 +115,7 @@
   <div id="c-nation-body" class="bottom-aligned-middle d-flex" style="background-color:rgba(20,20,20,0.3)">
     <button id="reset-buy" class="btn btn-reset-buy my-auto" onclick="reset_buy()" role="button">Reset Buy</button>
     <div id="c-nation-card" class="d-flex c-nation" style="background-color:<%=current_nation.colorL%>">
-      <%=image_tag current_nation.roundel , :id => "roundel", :style => "vertical-align:middle;height:5vw"%>
+      <%=image_tag current_nation.roundel , id:"roundel", class:"my-auto"%>
       <div id="c-nation" class="nation shadow-text text-center" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></div>
     </div>
   </div>

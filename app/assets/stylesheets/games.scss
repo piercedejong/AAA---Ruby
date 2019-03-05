@@ -98,13 +98,11 @@ tr.change>td{
 
 .tablerow1 {
     background-color: rgba(0, 0, 0, 0.4);z-index:-1;
-    font-weight:bold;
-    color:#111111
+    color:#262626
 }
 
 .tablerow2 {
-    background-color: rgba(0, 0, 0, 0.2);z-index:-1;
-    font-weight:bold;
+    background-color: rgba(0, 0, 0, 0.6);z-index:-1;
     color:#f9f2de
 }
 
@@ -119,7 +117,7 @@ tr.change>td{
 }
 
 #c-nation{
-  font-size:10vh;
+  font-size:5rem;
   white-space:nowrap
 }
 
@@ -131,25 +129,16 @@ tr.change>td{
   font-size: 1.6rem;
 }
 
+#roundel{
+  height: 5rem;
+}
+
 @media only screen and (max-width: 768px) and (orientation:portrait){
   .nation-name{
     font-size: 6vw;
   }
   .money{
     font-size: 4vw;
-  }
-  #c-nation{
-    font-size:5vh;
-    white-space:nowrap
-  }
-  #roundel{
-    height:1.5vh;
-  }
-  #end-turn{
-    font-size: 2.0vh
-  }
-  #reset{
-    font-size: 1.5vh
   }
 
   .unit-table{
@@ -163,19 +152,6 @@ tr.change>td{
   }
   .money{
     font-size: 2.5vw;
-  }
-  #c-nation{
-    font-size:9vh;
-    white-space:nowrap
-  }
-  #roundel{
-    height:1.5vh;
-  }
-  #end-turn{
-    font-size: 4.0vh
-  }
-  #reset{
-    font-size: 3.0vh
   }
 }
 
