@@ -11,6 +11,8 @@ class ApplicationController < ActionController::Base
   helper_method :display_end_turn
   helper_method :display_buy_pacific
   helper_method :check_britain_economy
+  helper_method :is_1940_game
+  helper_method :is_victories_game
 
     def current_user
       return unless cookies.signed[:permanent_user_id] || session[:user_id]
@@ -79,6 +81,22 @@ class ApplicationController < ActionController::Base
 
     def check_britain_economy
       if ["1940Global","1940Grasshopper","1940House"].include? current_game.game_name
+        return true
+      else
+        return false
+      end
+    end
+
+    def is_1940_game
+      if ["1940Global","1940OneEco","1940Pacific","1940Europe","1940Grasshopper","1940House"].include? current_game.game_name
+        return true
+      else
+        return false
+      end
+    end
+
+    def is_victories_game
+      if ["1940Grasshopper","1940House"].include? current_game.game_name
         return true
       else
         return false

@@ -90,11 +90,11 @@
         </tbody>
       </table>
       <div class="mt-3">
-        <% if["1940Global","1940OneEco","1940Pacific","1940Europe","1940Grasshopper","1940House"].include? current_game.game_name%>
+        <% if is_1940_game%>
           <%= link_to "National Objectives", nation_path(current_eco.uuid), :id => "objective", :class =>"btn btn-change btn-side btn-block shadow-text", :role => "button", :style =>"background:"+current_eco.color %>
           <%= link_to "Research and Development", research_path(current_game.uuid), :id => "research", :class =>"btn btn-change btn-side btn-block shadow-text", :role => "button", :style => "background:"+current_eco.colorL %>
         <%end%>
-        <%if ["1940Grasshopper","1940House"].include? current_game.game_name%>
+        <%if is_victories_game%>
           <%= link_to "Victory Objectives", victory_path(current_game.uuid), :id => "victory", :class =>"btn btn-change btn-side btn-block shadow-text", :role => "button", :style =>"background:"+current_eco.color %>
         <%end%>
       </div>
@@ -103,7 +103,9 @@
 </div>
 
 <div id="bottom-row">
-  <%= link_to "Exit", root_path, class:"bottom-aligned-left btn btn-default", role:"button" %>
+  <div class="bottom-aligned-left pb-1 pl-1">
+      <%= link_to "Exit", root_path, class:"btn btn-default shadow-text", role:"button" %>
+  </div>
   <div id="c-nation-body" class="bottom-aligned-middle d-flex" style="background-color:rgba(20,20,20,0.3)">
     <button id="reset-buy" class="btn btn-reset-buy my-auto" onclick="reset_buy()" role="button">Reset Buy</button>
     <div id="c-nation-card" class="d-flex c-nation" style="background-color:<%=current_nation.colorL%>">
@@ -111,7 +113,7 @@
       <div id="c-nation" class="nation shadow-text text-center" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></div>
     </div>
   </div>
-  <div class = "bottom-aligned-right">
+  <div class = "bottom-aligned-right pb-1 pr-1">
     <button id="pacific" onclick="buy_pacific()" class="btn btn-pacific shadow-text" role="button" style="<%=display_buy_pacific%>">Buy Pacific Units</button>
     <button id="end-turn" class="btn btn-end-turn shadow-text" onclick="end_turn()" style="background:<%=current_nation.color%>; <%=display_end_turn%>" role="button">End Turn</button>
   </div>

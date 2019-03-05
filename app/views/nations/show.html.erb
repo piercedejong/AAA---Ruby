@@ -20,12 +20,12 @@
     </div>
   </div>
 </div>
-<div class="bottom-aligned-left" >
-  <%= link_to "Back", game_path(current_game.uuid), :class =>"btn btn-default", :role => "button"%>
-  <% if["1940Global","1940OneEco","1940Pacific","1940Europe"].include? current_game.game_name%>
-    <%= link_to "Research and Development", research_path(current_game.uuid), :class =>"btn btn-default", :role => "button" %>
-  <% elsif ["1940Grasshopper","1940House"] .include? current_game.game_name %>
-    <%= link_to "Victory Objectives", victory_path(current_game.uuid), :class =>"btn btn-default", :role => "button" %>
-    <%= link_to "Research and Development", research_path(current_game.uuid), :class =>"btn btn-default", :role => "button" %>
+<div class="bottom-aligned-left pb-1 pl-1" >
+  <%= link_to "Back", game_path(current_game.uuid), class:"btn btn-default shadow-text", role:"button"%>
+  <% if is_1940_game%>
+    <%= link_to "Research and Development", research_path(current_game.uuid), class:"btn btn-default shadow-text", role:"button" %>
+  <% end %>
+  <% if is_victories_game %>
+    <%= link_to "Victory Objectives", victory_path(current_game.uuid), class:"btn btn-default shadow-text", role:"button" %>
   <%end %>
 </div>
