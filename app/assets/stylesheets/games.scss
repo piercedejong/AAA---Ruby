@@ -8,7 +8,7 @@
 .nations {
   position:fixed;
   z-index:99;
-  background-color:rgba(150,150,150,0.5);
+  background-color:rgba(150,150,150,0.9);
   width:100%;
   flex-wrap: wrap;
 }
@@ -56,7 +56,7 @@ tr.spaceUnder>td {
 #exit {
   position: fixed;
   bottom:0;
-  color: white;
+  color: #f9f2de;
   font-size: 1.5vw;
 }
 
@@ -70,7 +70,7 @@ tr.spaceUnder>td {
   font-size: 2.5rem;
   padding-top: 0.5vw;
   padding:0px;
-  color:white;
+  color:#f9f2de;
 
 }
 
@@ -78,7 +78,7 @@ tr.spaceUnder>td {
   font-size: 1rem;
   padding-top: 0.5vw;
   padding:0px;
-  color:white;
+  color:#f9f2de;
 
 }
 
@@ -105,11 +105,11 @@ tr.change>td{
 .tablerow2 {
     background-color: rgba(0, 0, 0, 0.2);z-index:-1;
     font-weight:bold;
-    color:#ffffff
+    color:#f9f2de
 }
 
 .new-game{
-  color:white;
+  color:#f9f2de;
   font-size: 3vw;
 }
 
@@ -121,6 +121,10 @@ tr.change>td{
 #c-nation{
   font-size:10vh;
   white-space:nowrap
+}
+
+#end-turn{
+  font-size: 4rem
 }
 
 .unit-table{

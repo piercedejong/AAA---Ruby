@@ -2,7 +2,7 @@
 
 <div class="nations d-flex">
   <% @game.nations.all.each do |n| %>
-    <div id="<%=n.name%>" class="nation mx-auto" style="color:<%=n.color%>">
+    <div id="<%=n.name%>" class="nation mx-auto pl-1 pr-1" style="color:<%=n.color%>;border-radius:0.5rem">
       <div class="nation-name shadow-text"><%= n.name %></div>
       <div class="money">
         <div id="<%=n.name%>-bank" class="shadow-text"><%=n.bank%></div>
@@ -113,15 +113,15 @@
 
 <div id="bottom-row">
   <%= link_to "Exit", root_path, class:"bottom-aligned-left btn btn-default", role:"button" %>
-  <div id="c-nation-body" class="bottom-aligned-middle d-flex">
-    <button id="reset-buy" class="btn btn-reset-buy" onclick="reset_buy()" role="button">Reset Buy</button>
+  <div id="c-nation-body" class="bottom-aligned-middle d-flex" style="background-color:rgba(20,20,20,0.3)">
+    <button id="reset-buy" class="btn btn-reset-buy my-auto" onclick="reset_buy()" role="button">Reset Buy</button>
     <div id="c-nation-card" class="d-flex c-nation" style="background-color:<%=current_nation.colorL%>">
       <%=image_tag current_nation.roundel , :id => "roundel", :style => "vertical-align:middle;height:5vw"%>
       <div id="c-nation" class="nation shadow-text text-center" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></div>
     </div>
   </div>
   <div class = "bottom-aligned-right">
-    <button id="end-turn" class="btn btn-end-turn" onclick="end_turn()" style="background:<%=current_nation.color%>" role="button">End Turn</button>
+    <button id="end-turn" class="btn btn-end-turn shadow-text" onclick="end_turn()" style="background:<%=current_nation.color%>" role="button">End Turn</button>
   </div>
 </div>
 
