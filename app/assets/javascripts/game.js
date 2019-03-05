@@ -23,7 +23,7 @@ function buy_unit(element) {
 
 function game_padding_resize(){
 	$(".container-game").css("padding-top", $(".nations").height()+5);
-	$(".container-game").css("padding-bottom", $("#c-nation-body").height()+5);
+	$(".container-game").css("padding-bottom", $("#c-nation-body").height()+7);
 
 }
 

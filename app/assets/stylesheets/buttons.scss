@@ -153,13 +153,6 @@
   padding: 0rem;
 }
 
-.btn-pacific{
-  background-color: #cb9b67;
-  padding:1rem;
-  color: #f9f2fe;
-  font-size: 4rem !important;
-}
-
 .btn-change, .btn-change-eco, .btn-end-turn, .btn-unit, .btn-pacific {
   font-size: 1.5rem;
   color:#f9f2de;
@@ -171,6 +164,13 @@
     background-color: rgba(230,230,230,0.5) !important;
     color:#262626 !important;
   }
+}
+
+.btn-pacific{
+  background-color: #cb9b67;
+  padding:1rem;
+  color: #f9f2fe;
+  font-size: 4rem;
 }
 
 .btn-victory{

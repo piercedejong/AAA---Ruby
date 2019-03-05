@@ -102,18 +102,18 @@
   </div>
 </div>
 
-<div id="bottom-row">
-  <div class="bottom-aligned-left pb-1 pl-1">
-      <%= link_to "Exit", root_path, class:"btn btn-default shadow-text", role:"button" %>
+<div id="bottom-row" class="pb-1 d-flex bottom-aligned w-100">
+  <div class="pl-1 mt-auto">
+      <%= link_to "Exit", root_path, class:"btn btn-default btn-back shadow-text", role:"button" %>
   </div>
-  <div id="c-nation-body" class="bottom-aligned-middle d-flex" style="background-color:rgba(20,20,20,0.3)">
+  <div id="c-nation-body" class="d-flex mt-auto mx-auto pb-1">
     <button id="reset-buy" class="btn btn-reset-buy my-auto" onclick="reset_buy()" role="button">Reset Buy</button>
     <div id="c-nation-card" class="d-flex c-nation" style="background-color:<%=current_nation.colorL%>">
       <%=image_tag current_nation.roundel , id:"roundel", class:"my-auto"%>
-      <div id="c-nation" class="nation shadow-text text-center" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></div>
+      <div id="c-nation" class="nation shadow-text text-center my-auto" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></div>
     </div>
   </div>
-  <div class = "bottom-aligned-right pb-1 pr-1">
+  <div class="pr-1 mt-auto">
     <button id="pacific" onclick="buy_pacific()" class="btn btn-pacific shadow-text" role="button" style="<%=display_buy_pacific%>">Buy Pacific Units</button>
     <button id="end-turn" class="btn btn-end-turn shadow-text" onclick="end_turn()" style="background:<%=current_nation.color%>; <%=display_end_turn%>" role="button">End Turn</button>
   </div>
