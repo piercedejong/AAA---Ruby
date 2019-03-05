@@ -29,7 +29,7 @@
   display: flex;
   flex: right;
   flex-wrap: wrap;
-  font-size: 2.5vw;
+  font-size: 3.5rem;
   align-items: center;
   justify-content: center;
 }
@@ -133,39 +133,30 @@ tr.change>td{
   height: 5rem;
 }
 
-@media only screen and (max-width: 768px) and (orientation:portrait){
-  .nation-name{
-    font-size: 6vw;
-  }
-  .money{
-    font-size: 4vw;
+@media only screen and (max-width: 500px) and (orientation:portrait){
+  .nation-name,.money{
+    font-size: 2rem;
   }
 
-  .unit-table{
-    font-size: 1.60rem;
+  .special{
+    display: none
   }
 }
 
-@media only screen and (max-width: 768px) and (orientation:landscape){
-  .nation-name{
-    font-size: 3.75vw;
-  }
-  .money{
-    font-size: 2.5vw;
+@media only screen and (max-width: 500px) and (orientation:landscape){
+  .nation-name,.money{
+    font-size: 2rem;
   }
 }
 
-@media only screen and (max-width: 500px) {
-  .container-game{
-    padding-top: 25vw;
+@media only screen and (max-width: 800px) and (orientation:portrait){
+  .nation-name,.money{
+    font-size: 2.5rem;
   }
 }
 
-@media only screen and (width: 1920px){
-  .table-top{
-    font-size: 2.75rem;
-  }
-  .unit-table{
-    font-size: 2.30rem
+@media only screen and (max-width: 800px) and (orientation:landscape){
+  .nation-name,.money{
+    font-size: 3rem;
   }
 }
