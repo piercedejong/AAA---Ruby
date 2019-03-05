@@ -8,6 +8,8 @@ class ApplicationController < ActionController::Base
   helper_method :next_eco
   helper_method :prev_eco
   helper_method :objective_income
+  helper_method :double_economy
+  helper_method :double_economy_2
 
     def current_user
       return unless cookies.signed[:permanent_user_id] || session[:user_id]
@@ -54,6 +56,23 @@ class ApplicationController < ActionController::Base
       end
       return @objective_income
     end
+
+    def double_economy
+      if ["1940Global","1940Grasshopper","1940House"].include? current_game.game_name and !["Britain","United Kingdom"].include? current_nation.name
+        return "display:none"
+      else
+        return ""
+      end
+    end
+
+    def double_economy_2
+      if ["1940Global","1940Grasshopper","1940House"].include? current_game.game_name and ["Britain","United Kingdom"].include? current_nation.name
+        return "display:none"
+      else
+        return ""
+      end
+    end
+
 
     protect_from_forgery with: :exception
 end
