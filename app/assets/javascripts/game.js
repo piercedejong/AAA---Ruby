@@ -22,7 +22,6 @@ function buy_unit(element) {
 }
 
 function game_padding_resize(){
-	console.log($(".c-nation-div").height());
 	$(".container-game").css("padding-top", $(".nations").height()+5);
 	$(".container-game").css("padding-bottom", $("#c-nation-body").height()+5);
 
@@ -65,7 +64,7 @@ function end_turn() {
 		}else{
 			$("#pacific").hide();
 		}
-		$("#c-nation-div").css('background-color', response["colorL"])
+		$("#c-nation-card").css('background-color', response["colorL"])
 		$(".nation").css('background-color', "transparent")
 		c_nation_opacity(response["nation"])
   })
@@ -244,7 +243,7 @@ function c_nation_opacity(name) {
 	var c = $("#c-nation-card").css('background-color');
 	console.log(c);
 	var rgba = opacity(c);
-	$("#c-nation-div").css('background-color', rgba);
+	$("#c-nation-card").css('background-color', rgba);
 	$(".tablerow1").css('background-color', rgba);
 	$(".nation").css('background-color', "transparent");
 	$("#"+nat).css('background-color', rgba);
