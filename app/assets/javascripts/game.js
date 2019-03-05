@@ -60,9 +60,11 @@ function end_turn() {
 		change_eco_nation(response);
 
 		if(response["pacific"]){
+			$("#end-turn").hide();
 			$("#pacific").show();
 		}else{
 			$("#pacific").hide();
+			$("#end-turn").show();
 		}
 		$("#c-nation-card").css('background-color', response["colorL"])
 		$(".nation").css('background-color', "transparent")
@@ -168,6 +170,7 @@ function buy_pacific(element) {
 		$('.count').text("0");
 		change_eco_nation(response);
 		c_nation_opacity(response["nation"])
+		$("#end-turn").show();
 	})
 }
 

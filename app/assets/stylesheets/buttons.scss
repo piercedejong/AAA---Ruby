@@ -89,9 +89,9 @@
 }
 
 .btn-end-turn {
-  padding:1vh;
-  color: white;
-  font-size: 5vh;
+  padding:1rem;
+  color: #f9f2fe;
+  font-size: 4rem;
 }
 
 .btn-game {
@@ -101,7 +101,7 @@
 
 .btn-menu{
   background-color: #464646;
-  color: white;
+  color: #f9f2fe;
   font-size: 1.75vw;
   padding:0.5rem
 }
@@ -140,7 +140,14 @@
   padding: 0rem;
 }
 
-.btn-change, .btn-change-eco, .btn-end-turn, .btn-unit {
+.btn-pacific{
+  background-color: #cb9b67;
+  padding:1rem;
+  color: #f9f2fe;
+  font-size: 4rem !important;
+}
+
+.btn-change, .btn-change-eco, .btn-end-turn, .btn-unit, .btn-pacific {
   font-size: 1.5rem;
   color:#f9f2de;
   border-color: #262626 !important;
