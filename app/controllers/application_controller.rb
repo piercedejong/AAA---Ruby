@@ -58,6 +58,9 @@ class ApplicationController < ActionController::Base
     end
 
     def double_economy
+      if !["1940Global","1940Grasshopper","1940House"].include? current_game.game_name
+        return "display:none"
+      end
       if ["1940Global","1940Grasshopper","1940House"].include? current_game.game_name and !["Britain","United Kingdom"].include? current_nation.name
         return "display:none"
       else
