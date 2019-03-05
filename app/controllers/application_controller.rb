@@ -8,8 +8,9 @@ class ApplicationController < ActionController::Base
   helper_method :next_eco
   helper_method :prev_eco
   helper_method :objective_income
-  helper_method :double_economy
-  helper_method :double_economy_2
+  helper_method :display_end_turn
+  helper_method :display_buy_pacific
+  helper_method :check_britain_economy
 
     def current_user
       return unless cookies.signed[:permanent_user_id] || session[:user_id]
@@ -57,24 +58,33 @@ class ApplicationController < ActionController::Base
       return @objective_income
     end
 
-    def double_economy
-      if !["1940Global","1940Grasshopper","1940House"].include? current_game.game_name
+    def display_buy_pacific
+      if !check_britain_economy
         return "display:none"
       end
-      if ["1940Global","1940Grasshopper","1940House"].include? current_game.game_name and !["Britain","United Kingdom"].include? current_nation.name
+      if check_britain_economy and !["Britain","United Kingdom"].include? current_nation.name
         return "display:none"
       else
         return ""
       end
     end
 
-    def double_economy_2
-      if ["1940Global","1940Grasshopper","1940House"].include? current_game.game_name and ["Britain","United Kingdom"].include? current_nation.name
+    def display_end_turn
+      if check_britain_economy and ["Britain","United Kingdom"].include? current_nation.name
         return "display:none"
       else
         return ""
       end
     end
+
+    def check_britain_economy
+      if ["1940Global","1940Grasshopper","1940House"].include? current_game.game_name
+        return true
+      else
+        return false
+      end
+    end
+
 
 
     protect_from_forgery with: :exception
