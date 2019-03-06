@@ -11,16 +11,15 @@
 }
 
 .btn-default{
-  color: #f9f2de;
-  border: solid 2px;
-  border-color: #f9f2de;
-  background-color: rgba(20,20,20,0.3);
   font-size: 2rem;
-  &:hover {
+  color:#f9f2de;
+  border-color: #262626 !important;
+  border:solid 1px;
+  background-color: rgba(20,20,20,0.3);
+  &:hover{
     text-shadow: none;
-    background-color: rgba(230,230,230,0.3);
-    border-color: rgba(20,20,20,0.3);
-    color:#262626
+    background-color: rgba(230,230,230,0.5) !important;
+    color:#262626 !important;
   }
 }
 
@@ -69,22 +68,17 @@
   border: solid 1px;
   margin:1px;
   color:#262626;
-
-  &:hover{
-    background-color: rgba(230,230,230,0.3) !important;
-  }
 }
 
 .btn-reset-buy {
   background-color:#ad5252;
   margin-right: 0.2rem;
-  border:solid 1px;
   font-size: 2.5rem;
   margin:auto;
   margin-right:0.5rem;
   &:hover{
-    background-color:rgba(173, 82, 82, 0.7);
-    color:#f9f2fe
+    background-color:rgba(173, 82, 82, 0.5) !important;
+    color:#262626 !important;
   }
 }
 
@@ -99,87 +93,65 @@
   padding:0.4rem;
 }
 
-.btn-menu{
-  background-color: #464646;
-  color: #f9f2fe;
-  font-size: 1.75vw;
-  padding:0.5rem
-
-}
-
-.btn-nation, .btn-objective {
-  color: #f9f2fe;
-  width: 100%;
-  font-size: 2rem;
-  border: solid 1px;
-  border-color: #262626 !important;
-
-  &:hover{
-    text-shadow: none;
-    background-color: rgba(230,230,230,0.5) !important;
-    color:#262626 !important;
-  }
-}
-
-.btn-objective{
-  text-align: left
-}
-
-.btn-research-top{
-  font-size: 1.75rem;
-  width:100%;
-  height:6rem;
-  padding-left:0.2rem;
-  padding-right:0.2rem;
-
-}
-
 .btn-research {
   padding-right: 0.2rem;
   padding-left: 0.2rem;
   padding-top: 0.4rem;
   padding-bottom: 0.4rem;
-  font-size:2.0rem;
-  width:100%;
+}
+
+.btn-change{
+  font-size: 1.5rem
 }
 
 .btn-side{
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
 
 .btn-unit {
   padding: 0rem;
-}
-
-.btn-change, .btn-change-eco, .btn-end-turn, .btn-unit, .btn-pacific {
   font-size: 1.5rem;
-  color:#f9f2de;
-  border-color: #262626 !important;
-  border:solid 1px;
-
-  &:hover{
-    text-shadow: none;
-    background-color: rgba(230,230,230,0.5) !important;
-    color:#262626 !important;
-  }
 }
 
 .btn-pacific{
   background-color: #cb9b67;
   padding:1rem;
-  color: #f9f2fe;
   font-size: 4rem;
 }
 
 .btn-victory{
-  background-color: grey;
-  margin-bottom:0.5vw;
-  padding:0.75vw;
-  text-align:left;
-  font-size:2.0rem;
-  width:100%
+  text-align: left;
+  background-color: rgba(100,100,100,0.8);
+}
+
+.btn-victory-axis{
+  background-color:#ff6666 !important;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &:hover:active {
+    text-decoration: none;
+    color: #f9f2de !important;
+    background-color:#ff6666 !important;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  }
+}
+
+.btn-victory-allies{
+  background-color:#66ccff !important;
+
+  &:hover,
+  &:focus,
+  &:active,
+  &:hover:active {
+    text-decoration: none;
+    color: #f9f2de !important;
+    background-color:#66ccff !important;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  }
 }
 
 .btn-sign-up:hover{

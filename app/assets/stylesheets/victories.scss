@@ -2,11 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#v-title {
-  font-size: 7vh;
+.v-title {
+  font-size: 6rem;
 }
 
-.victory {
-  font-size: 1.0vh;
-  color: #orange;
+.axis{
+  color:#ff1a1a;
+}
+
+.allies{
+  color:#0040ff;
+}
+
+
+@media only screen and (max-width: 768px){
+  .v-title {
+    font-size: 4rem;
+  }
 }

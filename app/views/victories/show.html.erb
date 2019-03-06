@@ -1,30 +1,30 @@
 <% content_for :title, "aaa - victories" %>
-<div class=" title text-center shadow-text" style="margin-bottom:-3.0vw">Victory Objectives</div>
-<div class="container-fluid" style="margin-bottom:5.0vw">
-  <div class="row content">
+<div class=" title text-center shadow-text">Victory Objectives</div>
+<div class="container" style="margin-bottom:5rem">
+  <div class="row ">
     <div class="col-sm-6">
-      <div class="container">
-        <h1 id="v-title" class="text-center shadow-text" style="color:#ff1a1a"> Axis </h1>
+      <div class="axis">
+        <div class="v-title axis text-center shadow-text">Axis</div>
         <% @game.victories.each do |v| %>
           <% if v.axis %>
             <% if v.enabled %>
-              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" style="background-color:#ff6666" class="shadow-text victory btn btn-victory" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
+              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" style="cursor:default" class="shadow-text btn-block btn btn-victory btn-victory-axis btn-default"><strong><%= v.name %></strong> :: <%=v.text %></button>
             <%else%>
-              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" style="" class="shadow-text victory btn btn-victory" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
+              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" class="shadow-text btn btn-block btn-victory btn-default" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
             <%end%>
           <%end%>
         <%end %>
       </div>
     </div>
     <div class="col-sm-6">
-      <div class="container">
-        <h1 id="v-title" class="text-center shadow-text" style=color:#0040ff> Allies </h1>
+      <div class="allies">
+        <div class="v-title allies text-center shadow-text">Allies</div>
         <% @game.victories.each do |v| %>
           <% if !v.axis %>
             <% if v.enabled %>
-              <button data-id="<%=v.vid%>" id="victory-<%=v.vid%>" style="background:#66ccff" class="shadow-text victory btn btn-victory" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
+              <button data-id="<%=v.vid%>" id="victory-<%=v.vid%>" style="cursor:default" class="shadow-text btn btn-block btn-victory btn-victory-allies btn-default" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
             <%else%>
-              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>"  class="shadow-text victory btn btn-victory" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
+              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>"  class="shadow-text btn btn-block btn-victory btn-default" role="button"><strong><%= v.name %></strong> :: <%=v.text %></button>
             <%end%>
           <%end%>
         <%end %>
@@ -35,6 +35,6 @@
 <div class="bottom-aligned-left pb-1 pl-1" >
   <%= link_to "Back", game_path(current_game.uuid), class:"btn btn-default shadow-text", role:"button" %>
   <%= link_to "National Objectives", nation_path(current_eco.uuid), class:"btn btn-default shadow-text", role:"button" %>
-  <%= link_to "Research and Development", research_path(current_game.uuid), class:"btn btn-default shadow-textt", role:"button" %>
+  <%= link_to "Research and Development", research_path(current_game.uuid), class:"btn btn-default shadow-text", role:"button" %>
   <button class="btn btn-default reset-victory shadow-text" onclick="reset_GrassHopper()"role= "button">Reset</button>
 </div>
