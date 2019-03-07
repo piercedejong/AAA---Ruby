@@ -71,7 +71,6 @@ tr.spaceUnder>td {
   padding-top: 0.5vw;
   padding:0px;
   color:#f9f2de;
-
 }
 
 #edit-bank, #edit-income {
@@ -79,7 +78,6 @@ tr.spaceUnder>td {
   padding-top: 0.5vw;
   padding:0px;
   color:#f9f2de;
-
 }
 
 .change-eco-pos {
@@ -138,7 +136,7 @@ tr.change>td{
   border-radius: 0.5rem;
 }
 
-@media only screen and (max-width: 500px) and (orientation:portrait){
+@media only screen and (max-width: 500px){
   .nation-name,.money{
     font-size: 2rem;
   }
@@ -161,22 +159,51 @@ tr.change>td{
   #c-nation{
     font-size: 3rem;
   }
+  #eco-bank, #eco-income {
+    font-size: 1.5rem;
+  }
+
+  .btn-change{
+    padding: 0.1rem
+  }
 }
 
-@media only screen and (max-width: 500px) and (orientation:landscape){
+@media only screen and (max-height: 500px) and (orientation:landscape){
   .nation-name,.money{
     font-size: 2rem;
   }
-}
 
-@media only screen and (max-width: 800px) and (orientation:portrait){
-  .nation-name,.money{
-    font-size: 2.5rem;
+  .special{
+    display: none
   }
-}
+  .btn-change{
+    padding: 0.1rem
+  }
 
-@media only screen and (max-width: 800px) and (orientation:landscape){
-  .nation-name,.money{
+  #change-eco{
+    font-size: 2rem
+  }
+
+  #objective, #research, #victory, .btn-change{
+    padding: 0.5rem;
+    font-size: 1.5rem
+  }
+  #reset-buy,#pacific{
+    font-size: 1.25rem;
+  }
+
+  #end-turn{
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  #roundel{
+    height: 1.75rem;
+  }
+  #c-nation{
     font-size: 3rem;
+  }
+  #eco-bank, #eco-income {
+    font-size: 1.5rem;
   }
 }
