@@ -17,11 +17,12 @@ function update_obj(element) {
   })
   .done(function(response) {
     $("#c-nation").text(response["nation"]);
-    $(element).css("background",response["color"]);
     if(response["enabled"]){
-      $(element).addClass("btn-objective-enabled").addClass("shadow-text").removeClass("btn-objective")
+      $(element).addClass("btn-objective-enabled").removeClass("btn-objective")
+      $(element).css("background",response["color"]);
     }else{
-      $(element).removeClass("btn-objective-enabled").removeClass("shadow-text").addClass("btn-objective")
+      $(element).removeClass("btn-objective-enabled").addClass("btn-objective")
+      $(element).css("background","rgba(20,20,20,0.5)");
     }
   })
 }

@@ -124,19 +124,21 @@
 
 .btn-victory{
   text-align: left;
-  background-color: rgba(100,100,100,0.8);
+  background-color: rgba(20,20,20,0.8);
   font-size: 1.75rem;
   height: 50%;
 }
 
 .btn-objective{
-  color:#262626;
-  text-align: left
+  color:#f9f2de;
+  text-align: left;
+  background-color: rgba(20,20,20,0.5);
 }
 
 .btn-objective-enabled{
   color:#f9f2de;
-  text-align: left
+  text-align: left;
+  border-color: white !important;
 }
 
 .btn-victory-axis{
