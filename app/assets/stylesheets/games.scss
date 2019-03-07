@@ -133,6 +133,11 @@ tr.change>td{
   height: 5rem;
 }
 
+.economy-card{
+  background-color: #262626;
+  border-radius: 0.5rem;
+}
+
 @media only screen and (max-width: 500px) and (orientation:portrait){
   .nation-name,.money{
     font-size: 2rem;

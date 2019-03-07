@@ -8,7 +8,7 @@
     <div class="col-sm-4">
       <% current_user.games.each do |game| %>
         <div class="d-flex mb-4">
-          <%=link_to game.name, game_path(game.uuid), class:"btn btn-default btn-block my-auto shadow-text", role:"button" %>
+          <%=link_to game.name, game_path(game.uuid), class:"btn btn-default  btn-block my-auto shadow-text", role:"button" %>
           <div class="d-flex" style="align-items:center">
         <!--    <button id="<%=game.uuid %>", style="", class="btn copy", role ="button", onclick="copy(this)">Copy</button> -->
             <%= link_to 'Copy', nil, class:"btn btn-edit copy", onclick:"copy(this)" , role:"button"%>
@@ -23,7 +23,7 @@
   </div>
 </div>
 
-<%= link_to "Back", root_path, class:"btn btn-default btn-back bottom-aligned-left", role: "button"%>
+<%= link_to "Back", root_path, class:"btn  btn-default btn-back bottom-aligned-left", role: "button"%>
 <% if current_user.games.first && current_user.games.second%>
   <%= link_to 'Delete All Games', game_destroy_all_path ,:class=>"bottom-aligned-right btn btn-edit delete",style:"font-size:3.0rem", method: :delete,data: {confirm: "Confirm deletion of ALL games"} %>
 <% end %>

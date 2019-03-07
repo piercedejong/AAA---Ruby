@@ -8,13 +8,13 @@
       </div>
       <div class="conatiner mt-4" style="">
         <% @nation.objectives.each do |o| %>
-          <button data-oid="<%=o.oid%>" onclick="update_obj(this)" id="objective-<%=o.oid%>" style="background:<%= o.enabled ? @nation.color : @nation.colorL%>;" class="btn btn-objective btn-block shadow-text" role="button"><strong><%= o.value %></strong> :: <%=o.name %></button>
+          <button data-oid="<%=o.oid%>" onclick="update_obj(this)" id="objective-<%=o.oid%>" style="background:<%= o.enabled ? @nation.color : @nation.colorL%>;" class="btn btn-default btn-block <%= o.enabled ? "shadow-text btn-objective-enabled" : "btn-objective" %>" role="button"><strong><%= o.value %></strong> :: <%=o.name %></button>
         <% end %>
       </div>
     </div>
     <div class="col-sm-2 mt-1">
       <% current_game.nations.each do |n| %>
-        <div class=""><%= link_to n.name, nation_path(n.uuid), class:"btn btn-nation text-center shadow-text", style: "padding:0.1vw;padding-top:"+((90/current_game.nations.last.nid-0.2)/2-2).to_s+"vh;height:"+(90/current_game.nations.last.nid-0.2).to_s+"vh;background-color:"+n.color%>
+        <div class=""><%= link_to n.name, nation_path(n.uuid), class:"btn btn-nation btn-block btn-default text-center shadow-text", style: "padding:0.1vw;padding-top:"+((90/current_game.nations.last.nid-0.2)/2-2).to_s+"vh;height:"+(90/current_game.nations.last.nid-0.2).to_s+"vh;background-color:"+n.color%>
         </div>
       <% end %>
     </div>

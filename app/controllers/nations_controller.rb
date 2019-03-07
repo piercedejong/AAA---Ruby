@@ -20,7 +20,8 @@ class NationsController < ApplicationController
     if request.xhr?
       render :json => {
         color: @color,
-        nation: current_eco.obj_inc
+        nation: current_eco.obj_inc,
+        enabled:@objective.enabled
       }
     end
   end

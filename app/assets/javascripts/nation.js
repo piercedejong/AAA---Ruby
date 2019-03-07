@@ -18,5 +18,10 @@ function update_obj(element) {
   .done(function(response) {
     $("#c-nation").text(response["nation"]);
     $(element).css("background",response["color"]);
+    if(response["enabled"]){
+      $(element).addClass("btn-objective-enabled").addClass("shadow-text").removeClass("btn-objective")
+    }else{
+      $(element).removeClass("btn-objective-enabled").removeClass("shadow-text").addClass("btn-objective")
+    }
   })
 }

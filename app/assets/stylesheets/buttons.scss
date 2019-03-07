@@ -14,7 +14,7 @@
   font-size: 2rem;
   color:#f9f2de;
   border-color: #262626 !important;
-  border:solid 1px;
+  border:solid 3px;
   background-color: rgba(20,20,20,0.3);
   &:hover{
     text-shadow: none;
@@ -105,7 +105,7 @@
 }
 
 .btn-side{
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
 }
@@ -113,6 +113,7 @@
 .btn-unit {
   padding: 0rem;
   font-size: 1.5rem;
+  border: solid 1px
 }
 
 .btn-pacific{
@@ -126,6 +127,16 @@
   background-color: rgba(100,100,100,0.8);
   font-size: 1.75rem;
   height: 50%;
+}
+
+.btn-objective{
+  color:#262626;
+  text-align: left
+}
+
+.btn-objective-enabled{
+  color:#f9f2de;
+  text-align: left
 }
 
 .btn-victory-axis{

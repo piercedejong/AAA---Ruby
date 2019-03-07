@@ -7,9 +7,9 @@
     </div>
     <div class="col-sm-4">
       <div class="button-container">
-        <%= link_to "New Game",  new_game_path, class:"btn btn-outline-light btn-default btn-block shadow-text", role:"button", id:"btn-new-game"%>
-        <%= link_to "Load Game", games_path,    class:"btn btn-outline-light btn-default btn-block shadow-text", role:"button", id:"btn-load-game"%>
-        <%= link_to "About", about_path,    class:"btn btn-outline-light btn-default btn-block shadow-text", role:"button", id:"btn-about"%>
+        <%= link_to "New Game",  new_game_path, class:"btn btn-outline-light btn-default  btn-block shadow-text", role:"button", id:"btn-new-game"%>
+        <%= link_to "Load Game", games_path,    class:"btn btn-outline-light btn-default  btn-block shadow-text", role:"button", id:"btn-load-game"%>
+        <%= link_to "About", about_path,    class:"btn btn-outline-light btn-default  btn-block shadow-text", role:"button", id:"btn-about"%>
         <% if current_user.role.eql? "admin" %>
         <%= link_to "Battle Calulator", battle_calculator_index_path,    :class =>"btn btn-main btn-basic shadow-text", :role => "button"%>
         <% end %>
@@ -25,7 +25,7 @@
 <div class="bottom-aligned-right d-flex">
   <div id="signed-in" style="" class="h3 my-auto text-center shadow-text"> Welcome <%=current_user.email%> </div>
   <pre>  </pre>
-  <%= link_to "Sign-out",logout_path, id:"btn-sign-out", class:"btn btn-default btn-outline-light", role:"button"%>
+  <%= link_to "Sign-out",logout_path, id:"btn-sign-out", class:"btn btn-default shadow-text ", role:"button"%>
 </div>
 
 

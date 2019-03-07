@@ -37,7 +37,7 @@
               <% else %>
                 <tr class="tablerow2 shadow-text">
               <% end %>
-                <td id="<%=u.uid%>" class=" text-center count"><%= u.count %></td>
+                <td id="<%=u.uid%>" class=" text-center count" style="font-weight:bold"><%= u.count %></td>
                 <td class="text-center"><button data-uid="<%=u.uid%>" id="<%=u.name%>" onclick="buy_unit(this)" style="background:<%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="<%=u.name%> btn btn-unit btn-default btn-block shadow-text" role="button">$<%= u.cost %></button></td>
                 <td class="text-center nowrap"><%= u.name %></td>
                 <td class="text-center"><%= u.attack %></td>
@@ -60,8 +60,8 @@
       <table style="width:100%">
         <tbody>
           <tr class="change">
-            <td class="text-center nowrap shadow-text mb-4" id="eco-bank">Bank <%=current_eco.bank%></td>
-            <td class="text-center nowrap shadow-text mb-4" id="eco-income">Income <%=current_eco.income%></td>
+            <td class="text-center nowrap shadow-text mb-4"><div class="economy-card mr-1 mb-1" id="eco-bank">Bank <%=current_eco.bank%></div></td>
+            <td class="text-center nowrap shadow-text mb-4"><div class="economy-card ml-1 mb-1" id="eco-income">Income <%=current_eco.income%></div></td>
           </tr>
           <tr class="change">
             <td><button data-amount="1" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center btn-default btn-block btn btn-change shadow-text" role="button">+1</button></td>
@@ -104,7 +104,7 @@
 
 <div id="bottom-row" class="pb-1 d-flex bottom-aligned w-100">
   <div class="pl-1 mt-auto">
-      <%= link_to "Exit", root_path, class:"btn btn-default btn-back shadow-text", role:"button" %>
+      <%= link_to "Exit", root_path, class:"btn btn-default  btn-back shadow-text", role:"button" %>
   </div>
   <div id="c-nation-body" class="d-flex mt-auto mx-auto pb-1">
     <button id="reset-buy" class="btn btn-default btn-reset-buy my-auto" onclick="reset_buy()" role="button">Reset Buy</button>
