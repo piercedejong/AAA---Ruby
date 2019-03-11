@@ -491,18 +491,39 @@ tr.change > td {
 }
 
 /* line 8, app/assets/stylesheets/researches.scss */
-.no-padding {
-  padding: 0px !important;
+.research {
+  font-size: 1.75rem;
+  height: 100%;
+  width: 100%;
 }
 
-/* line 12, app/assets/stylesheets/researches.scss */
-.table-research {
-  table-layout: fixed;
+/* line 14, app/assets/stylesheets/researches.scss */
+.w-33 {
+  width: 33%;
+  padding-right: 0.1rem !important;
+  padding-left: 0.1rem !important;
 }
 
-/* line 16, app/assets/stylesheets/researches.scss */
+/* line 20, app/assets/stylesheets/researches.scss */
 .chart-1 {
   background-color: #669999 !important;
+  border-radius: 0.25rem;
+}
+
+/* line 25, app/assets/stylesheets/researches.scss */
+.chart-2 {
+  background-color: #666699;
+}
+
+@media only screen and (min-width: 800px) {
+  /* line 30, app/assets/stylesheets/researches.scss */
+  .left-research-col {
+    padding-right: 0px !important;
+  }
+  /* line 34, app/assets/stylesheets/researches.scss */
+  .right-research-col {
+    padding-left: 0px !important;
+  }
 }
 /* line 1, app/assets/stylesheets/users.scss */
 #sign-in {

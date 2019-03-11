@@ -2,16 +2,15 @@
 <div class="container-fluid" >
   <div class="text-center title shadow-text" style="margin-bottom:-1.0vw">Research</div>
 </div>
-<div class="no-padding" >
-  <div class="row content no-padding" style="margin:0px">
-    <div class="col-sm-2 no-padding" style="margin-left:auto">
-      <div id="research-title" class="text-center shadow-text" style="color:#669999">Chart 1</div>
-      <table class="table table-research text-center">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-3 left-research-col">
+      <table class="table table-condensed table-research text-center">
         <thead>
-          <tr>
+          <tr class="chart-1">
             <% current_nation.researches.each do |r| %>
               <% if r.rid <3 %>
-                <th class="no-padding"><div><button class="btn btn-research-top shadow-text chart-1"><strong><%= r.name %></button></strong></div></th>
+                <th class="w-33"><div class="research"><div><strong><%= r.name %></strong</div></div></th>
               <%end%>
             <%end%>
           </tr>
@@ -22,7 +21,8 @@
               <tr>
                 <% n.researches.all.each do |r| %>
                   <% if r.rid <3 %>
-                    <td class="no-padding"><button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-research shadow-text" style=";background:<%= r.enabled ? n.color : n.colorL%>;" role="button"><%=n.name%></button>
+                    <td class="w-33">
+                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block btn-research shadow-text" style=";background:<%= r.enabled ? n.color : n.colorL%>;" role="button"><%=n.name%></button>
                     </td>
                   <%end%>
                 <%end%>
@@ -32,14 +32,13 @@
         </tbody>
       </table>
     </div>
-    <div class="col-sm-2 no-padding" style="margin-right:auto">
-      <div id="research-title" class="text-center shadow-text" style="color:#669999">Chart 1</div>
-      <table class="table table-research text-center" style="table-layout:fixed">
+    <div class="col-sm-3 right-research-col">
+      <table class="table table-condensed table-research text-center">
         <thead>
-          <tr>
+          <tr class="chart-1">
             <% current_nation.researches.each do |r| %>
-              <% if 3<= r.rid and r.rid <6 %>
-                <th class="no-padding"><div><button class="btn btn-research-top shadow-text chart-1"><strong><%= r.name %></button></strong></div></th>
+              <% if 2< r.rid and r.rid <6 %>
+                <th class="w-33"><div class=" research"><div><strong><%= r.name %></strong</div></div></th>
               <%end%>
             <%end%>
           </tr>
@@ -49,8 +48,9 @@
             <% if !["Pacific","China","France"].include? n.name %>
               <tr>
                 <% n.researches.all.each do |r| %>
-                  <% if 3<= r.rid and r.rid <6 %>
-                    <td class="no-padding"><button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-research shadow-text" style=";background:<%= r.enabled ? n.color : n.colorL%>;" role="button"><%=n.name%></button>
+                  <% if 2<r.rid and r.rid <6 %>
+                    <td class="w-33">
+                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block btn-research shadow-text" style=";background:<%= r.enabled ? n.color : n.colorL%>;" role="button"><%=n.name%></button>
                     </td>
                   <%end%>
                 <%end%>
@@ -60,121 +60,63 @@
         </tbody>
       </table>
     </div>
-    <div class="col-sm-2 no-padding" style="margin-left:auto">
-        <div id="research-title" class="text-center shadow-text" style="color:#666699">Chart 2</div>
-        <table class="table table-research text-center" style="table-layout:fixed">
-          <thead>
-            <tr>
-              <% current_nation.researches.each do |r| %>
-                <% if r.rid >=6 and r.rid <9 %>
-                  <th class="no-padding"><div><button class="btn btn-research-top shadow-text" style="background-color:#666699"><%= r.name %></button></div></th>
-                <%end%>
-              <%end%>
-            </tr>
-          </thead>
-          <tbody>
-            <% current_game.nations.all.each do |n| %>
-              <% if !["Pacific","China","France"].include? n.name %>
-                <tr>
-                  <% n.researches.all.each do |r| %>
-                    <% if r.rid >=6 and r.rid <9 %>
-                      <td class="no-padding"><button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-research shadow-text" style=";background:<%= r.enabled ? n.color : n.colorL%>;" role="button"><%=n.name%></button>
-                      </td>
-                    <%end%>
-                  <%end%>
-                </tr>
-              <%end%>
-            <%end%>
-          </tbody>
-        </table>
-    </div>
-    <div class="col-sm-2 no-padding" style="margin-right:auto">
-        <div id="research-title" class="text-center shadow-text" style="color:#666699">Chart 2</div>
-        <table class="table table-research text-center" style="table-layout:fixed">
-          <thead>
-            <tr>
-              <% current_nation.researches.each do |r| %>
-                <% if 12 > r.rid and r.rid >=9 %>
-                  <th class="no-padding"><div><button class="btn btn-research-top shadow-text" style="background-color:#666699"><%= r.name %></button></div></th>
-                <%end%>
-              <%end%>
-            </tr>
-          </thead>
-          <tbody>
-            <% current_game.nations.all.each do |n| %>
-              <% if !["Pacific","China","France"].include? n.name %>
-                <tr>
-                  <% n.researches.all.each do |r| %>
-                    <% if 12 > r.rid and r.rid >=9 %>
-                      <td class="no-padding"><button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-research shadow-text" style=";background:<%= r.enabled ? n.color : n.colorL%>;" role="button"><%=n.name%></button></td>
-                    <%end%>
-                  <%end%>
-                </tr>
-              <%end%>
-            <%end%>
-          </tbody>
-        </table>
-    </div>
 
-<% if current_game.nations.first.researches.last.rid > 12 %>
-    <div class="col-sm-2 no-padding" style="margin-left:auto">
-        <div id="research-title" class="text-center shadow-text" style="color:#69ad55">Chart 3</div>
-        <table class="table table-research text-center" style="table-layout:fixed">
-          <thead>
-            <tr>
-              <% current_nation.researches.each do |r| %>
-                <% if r.rid >=12 and r.rid < 15 %>
-                  <th class="no-padding"><div><button class="btn btn-research-top shadow-text" style="background-color:#69ad55"><%= r.name %></button></div></th>
-                <%end%>
-              <%end%>
-            </tr>
-          </thead>
-          <tbody>
-            <% current_game.nations.all.each do |n| %>
-              <% if !["Pacific","China","France"].include? n.name %>
-                <tr>
-                  <% n.researches.all.each do |r| %>
-                    <% if r.rid >=12 and r.rid < 15 %>
-                      <td class="no-padding"><button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-research shadow-text" style=";background:<%= r.enabled ? n.color : n.colorL%>;" role="button"><%=n.name%></button></td>
-                    <%end%>
-                  <%end%>
-                </tr>
+    <div class="col-sm-3 left-research-col">
+      <table class="table table-condensed table-research text-center">
+        <thead>
+          <tr class="chart-2">
+            <% current_nation.researches.each do |r| %>
+              <% if r.rid >5 and r.rid < 9  %>
+                <th class="w-33"><div class="research"><div><strong><%= r.name %></strong</div></div></th>
               <%end%>
             <%end%>
-          </tbody>
-        </table>
-    </div>
-
-    <div class="col-sm-2 no-padding" style="margin-right:auto">
-        <div id="research-title" class="text-center shadow-text" style="color:#69ad55">Chart 3</div>
-        <table class="table table-research text-center" style="table-layout:fixed">
-          <thead>
-            <tr>
-              <% current_nation.researches.each do |r| %>
-                <% if r.rid >=15 %>
-                  <th class="no-padding"><div><button class="btn btn-research-top shadow-text" style="background-color:#69ad55"><%= r.name %></button></div></th>
-                <%end%>
-              <%end%>
-            </tr>
-          </thead>
-          <tbody>
-            <% current_game.nations.all.each do |n| %>
-              <% if !["Pacific","China","France"].include? n.name %>
-                <tr>
-                  <% n.researches.all.each do |r| %>
-                    <% if r.rid >=15 %>
-                      <td class="no-padding"><button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-research shadow-text" style=";background:<%= r.enabled ? n.color : n.colorL%>;" role="button"><%=n.name%></button>
-                      </td>
-                    <%end%>
+          </tr>
+        </thead>
+        <tbody>
+          <% current_game.nations.all.each do |n| %>
+            <% if !["Pacific","China","France"].include? n.name %>
+              <tr>
+                <% n.researches.all.each do |r| %>
+                  <% if r.rid >5 and r.rid < 9 %>
+                    <td class="w-33">
+                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block btn-research shadow-text" style=";background:<%= r.enabled ? n.color : n.colorL%>;" role="button"><%=n.name%></button>
+                    </td>
                   <%end%>
-                </tr>
+                <%end%>
+              </tr>
+            <%end%>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-3 right-research-col">
+      <table class="table table-condensed table-research text-center">
+        <thead>
+          <tr class="chart-2">
+            <% current_nation.researches.each do |r| %>
+              <% if r.rid > 8%>
+                <th class="w-33"><div class=" research"><div><strong><%= r.name %></strong</div></div></th>
               <%end%>
             <%end%>
-          </tbody>
-        </table>
+          </tr>
+        </thead>
+        <tbody>
+          <% current_game.nations.all.each do |n| %>
+            <% if !["Pacific","China","France"].include? n.name %>
+              <tr>
+                <% n.researches.all.each do |r| %>
+                  <% if r.rid >8 %>
+                    <td class="w-33">
+                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block btn-research shadow-text" style=";background:<%= r.enabled ? n.color : n.colorL%>;" role="button"><%=n.name%></button>
+                    </td>
+                  <%end%>
+                <%end%>
+              </tr>
+            <%end%>
+          <%end%>
+        </tbody>
+      </table>
     </div>
-    <%end%>
-
   </div>
 </div>
 

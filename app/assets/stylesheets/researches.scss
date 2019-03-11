@@ -5,14 +5,33 @@
   font-size: 6rem;
 }
 
-.no-padding {
-  padding:0px !important
+.research{
+  font-size: 1.75rem;
+  height: 100%;
+  width: 100%;
 }
 
-.table-research{
-  table-layout: fixed;
+.w-33{
+  width:33%;
+  padding-right:0.1rem !important;
+  padding-left: 0.1rem !important
 }
 
 .chart-1{
-  background-color: #669999 !important
+  background-color: #669999 !important;
+  border-radius: 0.25rem;
+}
+
+.chart-2{
+  background-color:#666699;
+}
+
+@media only screen and (min-width: 800px){
+  .left-research-col{
+    padding-right: 0px !important;
+  }
+
+  .right-research-col{
+    padding-left: 0px !important
+  }
 }
