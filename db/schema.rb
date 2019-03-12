@@ -10,106 +10,106 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20190203075052) do
+ActiveRecord::Schema.define(version: 2019_02_03_075052) do
 
   create_table "games", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "current",    default: 0
-    t.integer  "round",      default: 1
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.string   "uuid"
-    t.string   "game_name"
-    t.integer  "user_id"
-    t.string   "user_uuid"
-    t.integer  "eco",        default: 0
-    t.integer  "bank"
+    t.string "name"
+    t.integer "current", default: 0
+    t.integer "round", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "uuid"
+    t.string "game_name"
+    t.integer "user_id"
+    t.string "user_uuid"
+    t.integer "eco", default: 0
+    t.integer "bank"
   end
 
   create_table "nations", force: :cascade do |t|
-    t.string   "name"
-    t.string   "roundel"
-    t.string   "color"
-    t.integer  "bank"
-    t.integer  "income"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
-    t.integer  "game_id"
-    t.integer  "nid"
-    t.string   "colorL"
-    t.string   "uuid"
-    t.integer  "obj_income", default: 0
+    t.string "name"
+    t.string "roundel"
+    t.string "color"
+    t.integer "bank"
+    t.integer "income"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "game_id"
+    t.integer "nid"
+    t.string "colorL"
+    t.string "uuid"
+    t.integer "obj_income", default: 0
   end
 
   create_table "objectives", force: :cascade do |t|
-    t.integer  "nation_id"
-    t.integer  "value"
-    t.string   "name"
-    t.text     "info"
-    t.boolean  "enabled"
+    t.integer "nation_id"
+    t.integer "value"
+    t.string "name"
+    t.text "info"
+    t.boolean "enabled"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "oid"
+    t.integer "oid"
   end
 
   create_table "researches", force: :cascade do |t|
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.string   "uuid"
-    t.string   "text"
-    t.boolean  "enabled",     default: false
-    t.string   "nation_uuid"
-    t.integer  "nation_id"
-    t.integer  "rid"
-    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "uuid"
+    t.string "text"
+    t.boolean "enabled", default: false
+    t.string "nation_uuid"
+    t.integer "nation_id"
+    t.integer "rid"
+    t.string "name"
   end
 
   create_table "specials", force: :cascade do |t|
-    t.string   "title"
-    t.string   "info"
-    t.string   "unit_id"
-    t.integer  "sid"
+    t.string "title"
+    t.string "info"
+    t.string "unit_id"
+    t.integer "sid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "units", force: :cascade do |t|
-    t.string   "name"
-    t.string   "special",    default: ""
-    t.integer  "attack"
-    t.integer  "defense"
-    t.integer  "movement"
-    t.integer  "cost"
-    t.integer  "count"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.integer  "game_id"
-    t.integer  "uid"
-    t.string   "uuid"
+    t.string "name"
+    t.string "special", default: ""
+    t.integer "attack"
+    t.integer "defense"
+    t.integer "movement"
+    t.integer "cost"
+    t.integer "count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "game_id"
+    t.integer "uid"
+    t.string "uuid"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "email"
-    t.string   "name"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.string   "uuid"
-    t.boolean  "sepia",           default: false
-    t.string   "role",            default: "user"
-    t.string   "password_digest"
+    t.string "email"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "uuid"
+    t.boolean "sepia", default: false
+    t.string "role", default: "user"
+    t.string "password_digest"
   end
 
   create_table "victories", force: :cascade do |t|
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.string   "uuid"
-    t.boolean  "axis"
-    t.string   "text"
-    t.boolean  "enabled",    default: false
-    t.integer  "vid"
-    t.string   "name"
-    t.string   "game_uuid"
-    t.integer  "game_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "uuid"
+    t.boolean "axis"
+    t.string "text"
+    t.boolean "enabled", default: false
+    t.integer "vid"
+    t.string "name"
+    t.string "game_uuid"
+    t.integer "game_id"
   end
 
 end
