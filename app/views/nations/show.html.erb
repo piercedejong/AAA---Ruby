@@ -20,7 +20,7 @@
       </div>
       <div class="conatiner mt-4" style="">
         <% @nation.objectives.each do |o| %>
-          <button data-oid="<%=o.oid%>" onclick="update_obj(this)" id="objective-<%=o.oid%>" style="background:<%= o.enabled ? @nation.color : ""%>;" class="btn btn-default btn-block shadow-text <%= o.enabled ? "btn-objective-enabled" : "btn-objective" %>" role="button"><strong><%= o.value %></strong> :: <%=o.name %></button>
+          <button data-oid="<%=o.oid%>" onclick="update_obj(this)" id="objective-<%=o.oid%>" style="background-color:<%= o.enabled ? @nation.color : ""%>;" class="btn btn-default btn-block <%= o.enabled ? "shadow-text btn-objective-enabled" : "btn-objective" %>" role="button"><strong><%= o.value %></strong> :: <%=o.name %></button>
         <% end %>
       </div>
     </div>

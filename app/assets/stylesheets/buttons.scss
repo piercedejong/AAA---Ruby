@@ -135,21 +135,24 @@
 }
 
 .btn-victory{
-  text-align: left;
-  background-color: rgba(20,20,20,0.8);
   font-size: 1.5rem;
   height: 50%;
 }
 
-.btn-objective{
-  color:#f9f2de;
+.btn-objective, .btn-objective-enabled, .btn-victory{
+  color:#262626;
   text-align: left;
-  background-color: rgba(20,20,20,0.5);
+  background-color: rgba(230,230,230,0.5);
+
+  &:hover{
+    background-color: rgba(20,20,20,0.2) !important;
+    color:#f9f2de;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  }
 }
 
 .btn-objective-enabled{
   color:#f9f2de;
-  text-align: left;
   border-color: white !important;
 }
 
@@ -161,9 +164,9 @@
   &:active,
   &:hover:active {
     text-decoration: none;
-    color: #f9f2de !important;
+    color: #262626 !important;
     background-color:#ff6666 !important;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-shadow: none;
   }
 }
 
@@ -175,9 +178,9 @@
   &:active,
   &:hover:active {
     text-decoration: none;
-    color: #f9f2de !important;
+    color: #262626 !important;
     background-color:#66ccff !important;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-shadow: none;
   }
 }
 

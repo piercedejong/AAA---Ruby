@@ -18,11 +18,11 @@ function update_obj(element) {
   .done(function(response) {
     $("#c-nation").text(response["nation"]);
     if(response["enabled"]){
-      $(element).addClass("btn-objective-enabled").removeClass("btn-objective")
+      $(element).addClass("btn-objective-enabled").removeClass("btn-objective").addClass("shadow-text")
       $(element).css("background",response["color"]);
     }else{
-      $(element).removeClass("btn-objective-enabled").addClass("btn-objective")
-      $(element).css("background","rgba(20,20,20,0.5)");
+      $(element).removeClass("btn-objective-enabled").addClass("btn-objective").removeClass("shadow-text")
+      $(element).css("background","rgba(230,230,230,0.5)");
     }
   })
 }

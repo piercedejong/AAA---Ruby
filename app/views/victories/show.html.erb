@@ -18,9 +18,9 @@
         <% @game.victories.each do |v| %>
           <% if v.axis %>
             <% if v.enabled %>
-              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" style="cursor:default" class="shadow-text btn-block btn btn-victory btn-victory-axis btn-default"><strong><%= v.name %></strong> : <%=v.text %></button>
+              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" style="cursor:default" class="btn-block btn btn-victory btn-victory-axis btn-default"><strong><%= v.name %></strong> : <%=v.text %></button>
             <%else%>
-              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" class="shadow-text btn btn-block btn-victory btn-default" role="button"><strong><%= v.name %></strong> : <%=v.text %> <small class="h4 my-auto"> <%=v.nation%></small></button>
+              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" class="btn btn-block btn-victory btn-default" role="button"><strong><%= v.name %></strong> : <%=v.text %> <small class="h4 my-auto"> <%=v.nation%></small></button>
             <%end%>
           <%end%>
         <%end %>
@@ -32,9 +32,9 @@
         <% @game.victories.each do |v| %>
           <% if !v.axis %>
             <% if v.enabled %>
-              <button data-id="<%=v.vid%>" id="victory-<%=v.vid%>" style="cursor:default" class="shadow-text btn btn-block btn-victory btn-victory-allies btn-default" role="button"><strong><%= v.name %></strong> : <%=v.text %></button>
+              <button data-id="<%=v.vid%>" id="victory-<%=v.vid%>" style="cursor:default" class="btn btn-block btn-victory btn-victory-allies btn-default" role="button"><strong><%= v.name %></strong> : <%=v.text %></button>
             <%else%>
-              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>"  class="shadow-text btn btn-block btn-victory btn-default" role="button"><strong><%= v.name %></strong> : <%=v.text %> <small class="h4 my-auto"> <%=v.nation%></small></button>
+              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>"  class="btn btn-block btn-victory btn-default" role="button"><strong><%= v.name %></strong> : <%=v.text %> <small class="h4 my-auto"> <%=v.nation%></small></button>
             <%end%>
           <%end%>
         <%end %>
