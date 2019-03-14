@@ -2,12 +2,12 @@
 
 <div class="nations d-flex">
   <% @game.nations.all.each do |n| %>
-    <div id="<%=n.name%>" class="nation mx-auto pl-1 pr-1" style="color:<%=n.color%>;border-radius:0.5rem">
-      <div class="nation-name shadow-text"><%= n.name %></div>
+    <div id="<%=n.name%>" class="nation mx-auto pl-1 pr-1 shadow-text" style="color:<%=n.color%>;border-radius:0.5rem">
+      <div class="nation-name"><%= n.name %></div>
       <div class="money">
-        <div id="<%=n.name%>-bank" class="shadow-text"><%=n.bank%></div>
-        <div id="<%=n.name%>-divider" class="shadow-text" style="">|</div>
-        <div id="<%=n.name%>-income" class="shadow-text"><%=n.total_income%></div>
+        <div id="<%=n.name%>-bank"><%=n.bank%></div>
+        <div id="<%=n.name%>-divider">|</div>
+        <div id="<%=n.name%>-income"><%=n.total_income%></div>
       </div>
     </div>
   <%end%>
