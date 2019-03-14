@@ -19,10 +19,10 @@
     <div class="col-sm-3 left-research-col">
       <table class="table table-condensed table-research text-center">
         <thead>
-          <tr class="chart-1">
+          <tr id="1" class="chart-1">
             <% current_nation.researches.each do |r| %>
               <% if r.rid <3 %>
-                <th class="w-33"><div class="research"><div><strong><%= r.name %></strong</div></div></th>
+                <th class="w-33"><div class="research"><strong><%= r.name %></strong</div></th>
               <%end%>
             <%end%>
           </tr>
@@ -47,7 +47,7 @@
     <div class="col-sm-3 right-research-col">
       <table class="table table-condensed table-research text-center">
         <thead>
-          <tr class="chart-1">
+          <tr id="2" class="chart-1">
             <% current_nation.researches.each do |r| %>
               <% if 2< r.rid and r.rid <6 %>
                 <th class="w-33"><div class=" research"><div><strong><%= r.name %></strong</div></div></th>
@@ -76,7 +76,7 @@
     <div class="col-sm-3 left-research-col">
       <table class="table table-condensed table-research text-center">
         <thead>
-          <tr class="chart-2">
+          <tr id="3" class="chart-2">
             <% current_nation.researches.each do |r| %>
               <% if r.rid >5 and r.rid < 9  %>
                 <th class="w-33"><div class="research"><div><strong><%= r.name %></strong</div></div></th>
@@ -104,7 +104,7 @@
     <div class="col-sm-3 right-research-col">
       <table class="table table-condensed table-research text-center">
         <thead>
-          <tr class="chart-2">
+          <tr id="4" class="chart-2">
             <% current_nation.researches.each do |r| %>
               <% if r.rid > 8%>
                 <th class="w-33"><div class=" research"><div><strong><%= r.name %></strong</div></div></th>
@@ -132,7 +132,11 @@
   </div>
 </div>
 
-<div class="bottom-aligned-left pb-1 pl-1" >
-  <%= link_to "Back", game_path(current_game.uuid), class:"btn btn-default shadow-text", role:"button"%>
-  <%= link_to "National Objectives", nation_path(current_eco.uuid), class:"btn btn-default shadow-text", role:"button" %>
-</div>
+<script>
+  $(document).ready(function () {
+    table_head_resize();
+  });
+  $(window).resize(function () {
+    table_head_resize();
+  });
+</script>
