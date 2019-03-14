@@ -19,7 +19,18 @@
   &:hover{
     text-shadow: none;
     background-color: rgba(230,230,230,0.5) !important;
-    color:#262626 !important;
+    color:#262626;
+  }
+}
+
+.btn-switch{
+  font-size: 1.25rem;
+  color:#262626;
+  border:none;
+  background-color:transparent;
+  &:hover{
+    text-shadow: none;
+    background-color: rgba(230,230,230,0.5) !important;
   }
 }
 
@@ -125,7 +136,7 @@
 .btn-victory{
   text-align: left;
   background-color: rgba(20,20,20,0.8);
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   height: 50%;
 }
 
