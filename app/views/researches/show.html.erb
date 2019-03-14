@@ -22,7 +22,7 @@
           <tr id="1" class="chart-1">
             <% current_nation.researches.each do |r| %>
               <% if r.rid <3 %>
-                <th class="w-33"><div class="research"><strong><%= r.name %></strong</div></th>
+                <th class="w-33"><div id="test" class="research" data-toggle="tooltip" data-placement="top" rel="tooltip" title="Tooltip on top"><strong><%= r.name %></strong</div></th>
               <%end%>
             <%end%>
           </tr>
@@ -34,7 +34,7 @@
                 <% n.researches.all.each do |r| %>
                   <% if r.rid <3 %>
                     <td class="w-33">
-                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block btn-research" style=";background:<%= r.enabled ? n.color : ""%>;" role="button"><%=n.name%></button>
+                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block <%= r.enabled ? "btn-research-enabled" : "btn-research"%>" style=";<%= r.enabled ? "background:"+n.color+";" : ""%>;" role="button"><%=n.name%></button>
                     </td>
                   <%end%>
                 <%end%>
@@ -62,8 +62,9 @@
                 <% n.researches.all.each do |r| %>
                   <% if 2<r.rid and r.rid <6 %>
                     <td class="w-33">
-                        <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block btn-research" style=";background:<%= r.enabled ? n.color : ""%>;" role="button"><%=n.name%></button>
-                  <%end%>
+                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block <%= r.enabled ? "btn-research-enabled" : "btn-research"%>" style=";<%= r.enabled ? "background:"+n.color+";" : ""%>;" role="button"><%=n.name%></button>
+                    </td>
+                    <%end%>
                 <%end%>
               </tr>
             <%end%>
@@ -90,7 +91,7 @@
                 <% n.researches.all.each do |r| %>
                   <% if r.rid >5 and r.rid < 9 %>
                     <td class="w-33">
-                        <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block btn-research" style=";background:<%= r.enabled ? n.color : ""%>;" role="button"><%=n.name%></button>
+                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block <%= r.enabled ? "btn-research-enabled" : "btn-research"%>" style=";<%= r.enabled ? "background:"+n.color+";" : ""%>;" role="button"><%=n.name%></button>
                     </td>
                   <%end%>
                 <%end%>
@@ -118,7 +119,7 @@
                 <% n.researches.all.each do |r| %>
                   <% if r.rid >8 %>
                     <td class="w-33">
-                        <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block btn-research" style=";background:<%= r.enabled ? n.color : ""%>;" role="button"><%=n.name%></button>
+                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block <%= r.enabled ? "btn-research-enabled" : "btn-research"%>" style=";<%= r.enabled ? "background:"+n.color+";" : ""%>;" role="button"><%=n.name%></button>
                     </td>
                   <%end%>
                 <%end%>
