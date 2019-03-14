@@ -38,7 +38,9 @@ Rails.application.routes.draw do
 
   get '/game/reset_buy', to: 'games#reset_buy'
 
-  get '/game/change_eco', to: 'games#change_eco'
+  get '/game/change_eco_forward', to: 'games#change_eco_forward'
+
+  get '/game/change_eco_backward', to: 'games#change_eco_backward'
 
   get '/game/change_bank', to: 'games#change_bank'
 

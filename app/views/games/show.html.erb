@@ -56,7 +56,11 @@
     </div>
     <div class="col-sm-1"></div>
     <div class="col-sm-3">
-      <button id="change-eco" onclick="change_eco()" style="background:<%=current_eco.color%>;margin-top:0.25rem" class="text-center btn btn-block btn-default btn-change-eco shadow-text mb-2" role="button"><%=current_eco.name%></button>
+      <div class="d-flex shadow-text">
+        <div class="my-auto p-0 mr-1"><button id="change-eco-backward" class="btn-change-eco p-0 my-auto" onclick="change_eco_backward()"><span><i class="fas fa-arrow-circle-left change-eco-card"></i></span></button></div>
+        <div id="change-eco" style="background:<%=current_eco.color%>" class="text-center shadow-text mb-2 mt-1"><%=current_eco.name%></div>
+        <div class="my-auto p-0 ml-1 "><button id="change-eco-forward" class="btn-change-eco p-0 my-auto" onclick="change_eco_forward()"><span><i class="fas fa-arrow-circle-right change-eco-card"></i></span></button></div>
+      </div>
       <table class="w-100">
         <tbody>
           <tr class="change">

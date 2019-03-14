@@ -116,11 +116,6 @@
   font-size: 1.15rem
 }
 
-.btn-change-eco {
-  font-size: 2.5rem;
-  color: #f9f2de;
-}
-
 .btn-side{
   font-size: 1.75rem;
   padding-top: 1rem;
@@ -192,6 +187,13 @@
   border-color:#007bff
 }
 .btn-glyph:hover{
+  background-color: transparent;
+}
+
+.btn-change-eco{
+  border:none;
+  font-size: 3rem;
+  color: #f9f2de;
   background-color: transparent;
 }
 

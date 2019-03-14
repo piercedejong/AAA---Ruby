@@ -85,10 +85,20 @@ function reset_buy() {
   })
 }
 
-function change_eco() {
+function change_eco_forward() {
 	$.ajax({
        method: "GET",
-       url: window.location.origin + '/game/change_eco'
+       url: window.location.origin + '/game/change_eco_forward'
+	})
+  .done(function(response) {
+  	change_eco_nation(response)
+  })
+}
+
+function change_eco_backward() {
+	$.ajax({
+       method: "GET",
+       url: window.location.origin + '/game/change_eco_backward'
 	})
   .done(function(response) {
   	change_eco_nation(response)
