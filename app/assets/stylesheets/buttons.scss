@@ -75,6 +75,10 @@
   background-color:#5296ad !important;
 }
 
+.btn-reset-victory{
+  color: red;
+}
+
 .btn-edit{
   border: solid 1px;
   margin:1px;
@@ -104,14 +108,6 @@
   padding:0.4rem;
 }
 
-.btn-research {
-  padding-right: 0.2rem;
-  padding-left: 0.2rem;
-  padding-top: 0.4rem;
-  padding-bottom: 0.4rem;
-  font-size: 1.5rem;
-}
-
 .btn-change{
   font-size: 1.15rem
 }
@@ -139,7 +135,7 @@
   height: 50%;
 }
 
-.btn-objective, .btn-objective-enabled, .btn-victory{
+.btn-objective, .btn-objective-enabled, .btn-victory, .btn-research{
   color:#262626;
   text-align: left;
   background-color: rgba(230,230,230,1);
@@ -154,6 +150,15 @@
 .btn-objective-enabled{
   color:#f9f2de;
   border-color: white !important;
+}
+
+.btn-research {
+  padding-right: 0.2rem;
+  padding-left: 0.2rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  font-size: 1.5rem;
+  text-align: center;
 }
 
 .btn-victory-axis{
