@@ -22,7 +22,7 @@
           <tr id="1" class="chart-1">
             <% current_nation.researches.each do |r| %>
               <% if r.rid <3 %>
-                <th class="w-33"><div id="test" class="research" data-toggle="tooltip" data-placement="top" rel="tooltip" title="Tooltip on top"><strong><%= r.name %></strong</div></th>
+                <th class="w-33"><div id="test" class="research research-tooltip"><div class="tooltiptext"><%=r.text%></div><strong><%= r.name %></strong</div></th>
               <%end%>
             <%end%>
           </tr>
@@ -50,7 +50,7 @@
           <tr id="2" class="chart-1">
             <% current_nation.researches.each do |r| %>
               <% if 2< r.rid and r.rid <6 %>
-                <th class="w-33"><div class=" research"><div><strong><%= r.name %></strong</div></div></th>
+                <th class="w-33"><div id="test" class="research research-tooltip"><div class="tooltiptext"><%=r.text%></div><strong><%= r.name %></strong</div></th>
               <%end%>
             <%end%>
           </tr>
@@ -79,7 +79,7 @@
           <tr id="3" class="chart-2">
             <% current_nation.researches.each do |r| %>
               <% if r.rid >5 and r.rid < 9  %>
-                <th class="w-33"><div class="research"><div><strong><%= r.name %></strong</div></div></th>
+                <th class="w-33"><div id="test" class="research research-tooltip"><div class="tooltiptext"><%=r.text%></div><strong><%= r.name %></strong</div></th>
               <%end%>
             <%end%>
           </tr>
@@ -107,8 +107,8 @@
           <tr id="4" class="chart-2">
             <% current_nation.researches.each do |r| %>
               <% if r.rid > 8%>
-                <th class="w-33"><div class=" research"><div><strong><%= r.name %></strong</div></div></th>
-              <%end%>
+                <th class="w-33"><div id="test" class="research research-tooltip"><div class="tooltiptext"><%=r.text%></div><strong><%= r.name %></strong</div></th>
+              <% end %>
             <%end%>
           </tr>
         </thead>

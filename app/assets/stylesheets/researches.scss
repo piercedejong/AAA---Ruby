@@ -26,6 +26,36 @@
   background-color:#666699;
 }
 
+.research-tooltip {
+  //position: relative !important;
+  //display: inline-block !important;
+  //opacity: 100 !important;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  background-color: rgb(180,180,180);
+  color: #262626;
+  text-align: center;
+  border:solid 1px;
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+  font-size: 1.25rem;
+  width: 100px;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top:4rem;
+}
+
+.research-tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+.tooltiptext-right{
+  right:1.5rem;
+}
+
 @media only screen and (min-width: 800px){
   .left-research-col{
     padding-right: 0px !important;
