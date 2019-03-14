@@ -60,12 +60,6 @@ tr.spaceUnder>td {
   font-size: 1.5vw;
 }
 
-#change-eco {
-  font-size: 3.5rem;
-  width:100%;
-  color: #f9f2de;
-}
-
 #eco-bank, #eco-income {
   font-size: 2.5rem;
   padding-top: 0.5vw;
@@ -119,10 +113,6 @@ tr.change>td{
   white-space:nowrap
 }
 
-#end-turn{
-  font-size: 4rem
-}
-
 .unit-table{
   font-size: 1.6rem;
 }
@@ -136,7 +126,7 @@ tr.change>td{
   border-radius: 0.5rem;
 }
 
-@media only screen and (max-width: 500px){
+@media only screen and (max-width: 823px){
   .nation-name,.money{
     font-size: 2rem;
   }
@@ -147,10 +137,6 @@ tr.change>td{
 
   #reset-buy,#pacific{
     font-size: 1.25rem;
-  }
-
-  #end-turn{
-    font-size: 1.5rem
   }
 
   #roundel{
@@ -165,45 +151,5 @@ tr.change>td{
 
   .btn-change{
     padding: 0.1rem
-  }
-}
-
-@media only screen and (max-height: 500px) and (orientation:landscape){
-  .nation-name,.money{
-    font-size: 2rem;
-  }
-
-  .special{
-    display: none
-  }
-  .btn-change{
-    padding: 0.1rem
-  }
-
-  #change-eco{
-    font-size: 2rem
-  }
-
-  #objective, #research, #victory, .btn-change{
-    padding: 0.5rem;
-    font-size: 1.5rem
-  }
-  #reset-buy,#pacific{
-    font-size: 1.25rem;
-  }
-
-  #end-turn{
-    font-size: 1.5rem;
-    padding: 0.5rem;
-  }
-
-  #roundel{
-    height: 1.75rem;
-  }
-  #c-nation{
-    font-size: 3rem;
-  }
-  #eco-bank, #eco-income {
-    font-size: 1.5rem;
   }
 }
