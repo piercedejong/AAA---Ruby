@@ -22,7 +22,7 @@ function update_obj(element) {
       $(element).css("background",response["color"]);
     }else{
       $(element).removeClass("btn-objective-enabled").addClass("btn-objective").removeClass("shadow-text")
-      $(element).css("background","rgba(230,230,230,0.5)");
+      $(element).css("background","rgba(230,230,230,1)");
     }
   })
 }
