@@ -6,13 +6,11 @@
     <div class="col-sm-4">
       <div class="card">
       <article class="card-body">
-        <%= link_to 'Sign in', root_path, class:"btn btn-outline-primary float-right", role:"button" %>
-        <h1 class="card-title mb-4 mt-1">Sing up</h1>
-          <form>
-          <%= render 'form', user: @user %>
-          </form>
+        <%= link_to 'Log in', root_path, class:"btn btn-outline-primary float-right", role:"button" %>
+        <div class="card-title mb-4 mt-1 h2">Sign up</div>
+        <%= render 'form', user: @user %>
       </article>
-      </div> <!-- card.// -->
+      </div>
     </div>
     <div class="col-sm-4"></div>
     </div>
