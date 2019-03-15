@@ -210,6 +210,11 @@
   background-color: transparent;
 }
 
+.btn-nation{
+  padding-top:7%;
+  padding-bottom:7%;
+}
+
 // mobile sizes
 @media only screen and (max-width: 823px){
   .btn-end-turn{
@@ -237,6 +242,17 @@
   }
 
   .btn-unit{
+    font-size: 1.25rem;
+  }
+
+  .btn-nation{
+    padding-top: 3.5%;
+    padding-bottom:3.5%;
+    padding-left:0;
+    padding-right:0;
+  }
+
+  .btn-objective, .btn-objective-enabled{
     font-size: 1.25rem;
   }
 }
