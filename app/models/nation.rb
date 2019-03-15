@@ -60,7 +60,7 @@ class Nation < ApplicationRecord
     @japanL   = "#e5be9a"
     @usa      = "#669339"
     @usaL     = "#a6cd7e"
-    @china    = "#cdc04c"
+    @china    = "#b3a632"
     @chinaL   = "#e3dc9c"
     @britain  = "#cb9b67"
     @britainL = "#e4cdb4"
