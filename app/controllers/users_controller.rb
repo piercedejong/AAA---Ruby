@@ -22,7 +22,6 @@ class UsersController < ApplicationController
         end
       # User is using google to sign up / log in
       else
-        binding.pry
         # If user can not be find by email then create a new user
         if !(User.find_by(email: auth_hash.info.email))
           @user = User.new
