@@ -14,7 +14,7 @@
   font-size: 2rem;
   color:#f9f2de;
   border-color: #262626 !important;
-  border:solid 3px;
+  border:solid 2px;
   background-color: rgba(20,20,20,0.8);
   &:hover{
     text-shadow: none;
@@ -100,7 +100,7 @@
 .btn-end-turn {
   padding:1rem;
   color: #f9f2fe;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .btn-game {
@@ -116,6 +116,7 @@
   font-size: 1.75rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  text-align: center !important;
 }
 
 .btn-unit {
@@ -127,7 +128,7 @@
 .btn-pacific{
   background-color: #cb9b67;
   padding:1rem;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .btn-victory{
@@ -135,7 +136,7 @@
   height: 50%;
 }
 
-.btn-objective, .btn-objective-enabled, .btn-victory, .btn-research, .btn-research-enabled{
+.btn-objective, .btn-objective-enabled, .btn-victory, .btn-research, .btn-research-enabled, .btn-side{
   color:#262626;
   text-align: left;
   background-color: rgba(230,230,230,1);

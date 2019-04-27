@@ -58,9 +58,9 @@ class Nation < ApplicationRecord
     @ussrL    = "#ed9292"
     @japan    = "#e67300"
     @japanL   = "#e5be9a"
-    @usa      = "#669339"
+    @usa      = "#399339"
     @usaL     = "#a6cd7e"
-    @china    = "#b3a632"
+    @china    = "#cdc04c"
     @chinaL   = "#e3dc9c"
     @britain  = "#cb9b67"
     @britainL = "#e4cdb4"
@@ -68,7 +68,7 @@ class Nation < ApplicationRecord
     @italyL   = "#d79f5b"
     @anzac    = "#998780"
     @anzacL   = "#d2cac6"
-    @france   = "#4d80b3"
+    @france   = "#4d66b3"
     @franceL  = "#b8cfe0"
     def self.create_1940(game)
       nations = [
