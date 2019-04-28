@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by_email(params[:email])
+    @user = User.where("lower(name) = ?", params[:username].downcase).first || User.where("lower(email) = ?", params[:username].downcase).first
     if @user.password_digest.eql? "google"
       redirect_to home_path
       flash.now[:alert] = "Account was made with google"
@@ -20,8 +20,6 @@ class SessionsController < ApplicationController
       render "new"
     end
   end
-
-
 
   def failure
     redirect_to root_path, notice: "Sorry, but you didn't allow access to our app!"
