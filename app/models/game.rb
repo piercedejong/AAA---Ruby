@@ -26,10 +26,17 @@ class Game < ApplicationRecord
     self.update(bank: self.nations.find_by(nid: self.current).bank)
   end
 
-  def change_eco
+  def change_eco_forward
     self.update(eco: self.eco+1)
     if(self.eco>self.nations.last.nid)
       self.update(eco: 0)
+    end
+  end
+
+  def change_eco_backward
+    self.update(eco: self.eco-1)
+    if(self.eco<0)
+      self.update(eco: self.nations.last.nid)
     end
   end
 

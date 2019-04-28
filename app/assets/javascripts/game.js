@@ -24,7 +24,6 @@ function buy_unit(element) {
 function game_padding_resize(){
 	$(".container-game").css("padding-top", $(".nations").height()+5);
 	$(".container-game").css("padding-bottom", $("#c-nation-body").height()+7);
-
 }
 
 function end_turn() {
@@ -56,6 +55,11 @@ function end_turn() {
 			//$(this).css("color", response["colorL"])
 		})
 		$(".table-top").css("color",response["color"]);
+		if(response["nation"] == 'Germany'){
+		//	$(".table-top").removeClass("shadow-text");
+		}else{
+		//	$(".table-top").addClass("shadow-text");
+		}
     $('.count').text("0");
 		change_eco_nation(response);
 
@@ -85,10 +89,20 @@ function reset_buy() {
   })
 }
 
-function change_eco() {
+function change_eco_forward() {
 	$.ajax({
        method: "GET",
-       url: window.location.origin + '/game/change_eco'
+       url: window.location.origin + '/game/change_eco_forward'
+	})
+  .done(function(response) {
+  	change_eco_nation(response)
+  })
+}
+
+function change_eco_backward() {
+	$.ajax({
+       method: "GET",
+       url: window.location.origin + '/game/change_eco_backward'
 	})
   .done(function(response) {
   	change_eco_nation(response)
@@ -188,10 +202,10 @@ function change_eco_nation(response){
 	$("#eco-income").text("Income "+response["income"]);
 	$(".change-eco-pos").css("background",response["color"])
 	$(".change-eco-neg").css("background",response["colorL"])
-	$("#objective").css("background",response["color"]);
+	//$("#objective").css("background",response["color"]);
 	$("#objective").attr("href", "/nations/"+response["uuid"]);
-	$("#victory").css("background",response["color"]);
-	$("#research").css("background",response["colorL"]);
+	//$("#victory").css("background",response["color"]);
+	//$("#research").css("background",response["color"]);
 }
 
 function reset_1940(){
@@ -244,7 +258,6 @@ function copy(element) {
 function c_nation_opacity(name) {
 	var nat = name;
 	var c = $("#c-nation-card").css('background-color');
-	console.log(c);
 	var rgba = opacity(c);
 	$("#c-nation-card").css('background-color', rgba);
 	$(".tablerow1").css('background-color', rgba);
@@ -255,14 +268,13 @@ function c_nation_opacity(name) {
 
 function edit_nation_opacity(name){
 	var c = $("#"+name).css('background-color');
-	console.log(c);
 	var rgba = opacity(c);
 	$(".edit-"+name).css('background-color',rgba);
 }
 
 function opacity(color){
 	var rgb = color.replace(/^rgba?\(|\s+|\)$/g,'').split(',');
-	var rgba = "rgba("+rgb[0]+","+rgb[1]+","+rgb[2]+",0.6)";
+	var rgba = "rgba("+rgb[0]+","+rgb[1]+","+rgb[2]+",0.8)";
 	return rgba
 }
 

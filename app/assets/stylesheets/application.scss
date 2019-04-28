@@ -58,6 +58,18 @@ body {
   color: #f9f2de;
 }
 
+.vertical-line{
+  border-left: solid 1px;
+  border-color: #f9f2de;
+}
+
+.top-bar{
+  background-color: #85b1e0;
+  z-index: 99;
+  border-bottom: solid 1px;
+  border-color:black;
+}
+
 .sub-title{
   font-size: 2.5rem
 }
@@ -89,8 +101,9 @@ body {
 }
 
 .top-aligned-left{
-  margin:0.1vw;
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 .bottom-aligned-left {

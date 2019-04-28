@@ -140,8 +140,22 @@ class GamesController < ApplicationController
     end
   end
 
-  def change_eco
-    current_game.change_eco
+  def change_eco_forward
+    current_game.change_eco_forward
+    if request.xhr?
+      render :json => {
+        nation: current_eco.name,
+        color: current_eco.color,
+        colorL: current_eco.colorL,
+        bank: current_eco.bank,
+        income: current_eco.income,
+        uuid: current_eco.uuid
+      }
+    end
+  end
+
+  def change_eco_backward
+    current_game.change_eco_backward
     if request.xhr?
       render :json => {
         nation: current_eco.name,

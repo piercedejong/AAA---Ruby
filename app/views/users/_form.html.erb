@@ -1,8 +1,7 @@
-<%= form_for @user do |form| %>
+<%= form_with(model: user, local: true) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul>
       <% user.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -10,12 +9,13 @@
       </ul>
     </div>
   <% end %>
+  <form>
   <div class="form-group">
   <div class="input-group">
     <div class="input-group-prepend">
         <span class="input-group-text"> <i class="fa fa-user"></i> </span>
      </div>
-     <%= text_field_tag :email, "", placeholder:"Email", class:"form-control" %>
+     <%= form.text_field :email, placeholder:"Email", class:"form-control" %>
   </div> <!-- input-group.// -->
   </div> <!-- form-group// -->
   <div class="form-group">
@@ -23,7 +23,7 @@
     <div class="input-group-prepend">
         <span class="input-group-text"> <i class="fa fa-user"></i> </span>
      </div>
-     <%= text_field_tag :username, "", placeholder:"Username", class:"form-control" %>
+     <%= form.text_field :name, placeholder:"Username (5-15 Characters)", class:"form-control" %>
   </div> <!-- input-group.// -->
   </div> <!-- form-group// -->
   <div class="form-group">
@@ -31,7 +31,7 @@
     <div class="input-group-prepend">
         <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
      </div>
-     <%= password_field_tag :password, "", placeholder:"Password",  class:"form-control"%>
+     <%= form.password_field :password, placeholder:"Password (6-20 Characters)",  class:"form-control"%>
   </div> <!-- input-group.// -->
   </div> <!-- form-group// -->
   <div class="form-group">
@@ -39,10 +39,11 @@
     <div class="input-group-prepend">
         <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
      </div>
-     <%= password_field_tag :password_confirmation, "", placeholder:"Confirm Password",  class:"form-control"%>
+     <%= form.password_field :password_confirmation, placeholder:"Confirm Password",  class:"form-control"%>
   </div> <!-- input-group.// -->
   </div> <!-- form-group// -->
   <div class="form-group">
     <%= form.submit "Sign Up", :class=>"btn btn-block btn-primary" %>
   </div> <!-- form-group// -->
+  </form>
 <% end %>

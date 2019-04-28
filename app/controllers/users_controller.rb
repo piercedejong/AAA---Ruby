@@ -10,27 +10,35 @@ class UsersController < ApplicationController
   end
 
   def create
-    if params[:denied]
-      redirect_to sessions_path
-    else
+      # User is created by signing up
       if auth_hash.nil?
         @user = User.new(user_params)
-        @user.save
+        if @user.save
+          cookies.permanent.signed[:permanent_user_id] = @user.uuid
+          session[:user_id] = @user.uuid
+          redirect_to root_path
+        else
+          redirect_to signup_path
+        end
+      # User is using google to sign up / log in
       else
+        # If user can not be find by email then create a new user
         if !(User.find_by(email: auth_hash.info.email))
           @user = User.new
           @user.update(email: auth_hash.info.email)
           @user.update(name: auth_hash.info.name)
           @user.update(password_digest: "google")
           #@user = User.create_user(auth_hash)
+        # else find the user by email
         else
           @user = User.find_by(email: auth_hash.info.email)
         end
+        # Kepp the user signed in at all times
+        cookies.permanent.signed[:permanent_user_id] = @user.uuid
+        session[:user_id] = @user.uuid
+        # Go back to root path
+        redirect_to root_path
       end
-      cookies.permanent.signed[:permanent_user_id] = @user.uuid
-      session[:user_id] = @user.uuid
-      redirect_to root_path
-    end
   end
 
   def index

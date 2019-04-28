@@ -1,16 +1,28 @@
 <% content_for :title, "aaa - research" %>
-<div class="container-fluid" >
-  <div class="text-center title shadow-text" style="margin-bottom:-1.0vw">Research</div>
+<div class="top-aligned-left d-flex w-100 p-1 top-bar">
+  <%= link_to "Back", game_path(current_game.uuid), class:"btn btn-default btn-switch", role:"button" %>
+  <div class="d-flex ml-auto">
+    <%= link_to "National Objectives", nation_path(current_eco.uuid), class:"btn btn-default btn-switch mx-1", role:"button" %>
+    <div class="vertical-line"></div>
+    <% if is_victories_game %>
+      <%= link_to "Victory Objectives", victory_path(current_game.uuid), class:"btn btn-default btn-switch mx-1", role:"button"%>
+      <div class="vertical-line"></div>
+      <button class="btn btn-default btn-reset-victory btn-switch mx-1" onclick="reset_GrassHopper()"role= "button">Reset</button>
+    <% else %>
+      <button class="btn btn-default btn-reset-victory btn-switch mx-1" onclick="reset_1940()"role= "button">Reset</button>
+    <%end %>
+  </div>
 </div>
 <div class="container-fluid">
+  <div class="text-center v-title shadow-text" style="padding-top:40px">Research and Development</div>
   <div class="row">
     <div class="col-sm-3 left-research-col">
       <table class="table table-condensed table-research text-center">
         <thead>
-          <tr class="chart-1">
+          <tr id="1" class="chart-1">
             <% current_nation.researches.each do |r| %>
               <% if r.rid <3 %>
-                <th class="w-33"><div class="research"><div><strong><%= r.name %></strong</div></div></th>
+                <th class="w-33"><div id="test" class="research research-tooltip"><div class="tooltiptext"><%=r.text%></div><strong><%= r.name %></strong</div></th>
               <%end%>
             <%end%>
           </tr>
@@ -22,7 +34,7 @@
                 <% n.researches.all.each do |r| %>
                   <% if r.rid <3 %>
                     <td class="w-33">
-                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block btn-research shadow-text" style=";background:<%= r.enabled ? n.color : n.colorL%>;" role="button"><%=n.name%></button>
+                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block <%= r.enabled ? "btn-research-enabled" : "btn-research"%>" style=";<%= r.enabled ? "background:"+n.color+";" : ""%>;" role="button"><%=n.name%></button>
                     </td>
                   <%end%>
                 <%end%>
@@ -35,10 +47,10 @@
     <div class="col-sm-3 right-research-col">
       <table class="table table-condensed table-research text-center">
         <thead>
-          <tr class="chart-1">
+          <tr id="2" class="chart-1">
             <% current_nation.researches.each do |r| %>
               <% if 2< r.rid and r.rid <6 %>
-                <th class="w-33"><div class=" research"><div><strong><%= r.name %></strong</div></div></th>
+                <th class="w-33"><div id="test" class="research research-tooltip"><div class="tooltiptext"><%=r.text%></div><strong><%= r.name %></strong</div></th>
               <%end%>
             <%end%>
           </tr>
@@ -50,9 +62,9 @@
                 <% n.researches.all.each do |r| %>
                   <% if 2<r.rid and r.rid <6 %>
                     <td class="w-33">
-                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block btn-research shadow-text" style=";background:<%= r.enabled ? n.color : n.colorL%>;" role="button"><%=n.name%></button>
+                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block <%= r.enabled ? "btn-research-enabled" : "btn-research"%>" style=";<%= r.enabled ? "background:"+n.color+";" : ""%>;" role="button"><%=n.name%></button>
                     </td>
-                  <%end%>
+                    <%end%>
                 <%end%>
               </tr>
             <%end%>
@@ -64,10 +76,10 @@
     <div class="col-sm-3 left-research-col">
       <table class="table table-condensed table-research text-center">
         <thead>
-          <tr class="chart-2">
+          <tr id="3" class="chart-2">
             <% current_nation.researches.each do |r| %>
               <% if r.rid >5 and r.rid < 9  %>
-                <th class="w-33"><div class="research"><div><strong><%= r.name %></strong</div></div></th>
+                <th class="w-33"><div id="test" class="research research-tooltip"><div class="tooltiptext"><%=r.text%></div><strong><%= r.name %></strong</div></th>
               <%end%>
             <%end%>
           </tr>
@@ -79,7 +91,7 @@
                 <% n.researches.all.each do |r| %>
                   <% if r.rid >5 and r.rid < 9 %>
                     <td class="w-33">
-                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block btn-research shadow-text" style=";background:<%= r.enabled ? n.color : n.colorL%>;" role="button"><%=n.name%></button>
+                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block <%= r.enabled ? "btn-research-enabled" : "btn-research"%>" style=";<%= r.enabled ? "background:"+n.color+";" : ""%>;" role="button"><%=n.name%></button>
                     </td>
                   <%end%>
                 <%end%>
@@ -92,11 +104,11 @@
     <div class="col-sm-3 right-research-col">
       <table class="table table-condensed table-research text-center">
         <thead>
-          <tr class="chart-2">
+          <tr id="4" class="chart-2">
             <% current_nation.researches.each do |r| %>
               <% if r.rid > 8%>
-                <th class="w-33"><div class=" research"><div><strong><%= r.name %></strong</div></div></th>
-              <%end%>
+                <th class="w-33"><div id="test" class="research research-tooltip"><div class="tooltiptext"><%=r.text%></div><strong><%= r.name %></strong</div></th>
+              <% end %>
             <%end%>
           </tr>
         </thead>
@@ -107,7 +119,7 @@
                 <% n.researches.all.each do |r| %>
                   <% if r.rid >8 %>
                     <td class="w-33">
-                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block btn-research shadow-text" style=";background:<%= r.enabled ? n.color : n.colorL%>;" role="button"><%=n.name%></button>
+                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block <%= r.enabled ? "btn-research-enabled" : "btn-research"%>" style=";<%= r.enabled ? "background:"+n.color+";" : ""%>;" role="button"><%=n.name%></button>
                     </td>
                   <%end%>
                 <%end%>
@@ -120,13 +132,11 @@
   </div>
 </div>
 
-<div class="bottom-aligned-left pb-1 pl-1" >
-  <%= link_to "Back", game_path(current_game.uuid), class:"btn btn-default shadow-text", role:"button"%>
-  <%= link_to "National Objectives", nation_path(current_eco.uuid), class:"btn btn-default shadow-text", role:"button" %>
-  <% if is_victories_game %>
-    <%= link_to "Victory Objectives", victory_path(current_game.uuid), class:"btn btn-default shadow-text", role:"button"%>
-    <button class="btn btn-default reset-victory shadow-text" onclick="reset_GrassHopper()"role= "button">Reset</button>
-  <% else %>
-    <button class="btn btn-default reset-victory shadow-text" onclick="reset_1940()"role= "button">Reset</button>
-  <%end %>
-</div>
+<script>
+  $(document).ready(function () {
+    table_head_resize();
+  });
+  $(window).resize(function () {
+    table_head_resize();
+  });
+</script>

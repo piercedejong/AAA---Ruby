@@ -60,12 +60,6 @@ tr.spaceUnder>td {
   font-size: 1.5vw;
 }
 
-#change-eco {
-  font-size: 3.5rem;
-  width:100%;
-  color: #f9f2de;
-}
-
 #eco-bank, #eco-income {
   font-size: 2.5rem;
   padding-top: 0.5vw;
@@ -84,10 +78,11 @@ tr.spaceUnder>td {
   font-size: 2vw;
 }
 
-.table-top {
-  font-weight: bold;
+#unit-table-top {
+  font-weight: normal !important;
   font-size:2.25rem;
-  background-color:rgba(150, 150, 150, 0.5)
+  background-color:rgb(150,150,150);
+  color:#262626;
 }
 
 tr.change>td{
@@ -119,10 +114,6 @@ tr.change>td{
   white-space:nowrap
 }
 
-#end-turn{
-  font-size: 4rem
-}
-
 .unit-table{
   font-size: 1.6rem;
 }
@@ -136,7 +127,20 @@ tr.change>td{
   border-radius: 0.5rem;
 }
 
-@media only screen and (max-width: 500px){
+#change-eco{
+  font-size: 2.5rem;
+  color: #f9f2de;
+  width: fill;
+  padding:1rem;
+  border-radius: 0.25rem;
+}
+
+.change-eco-card{
+  background-color: rgba(20,20,20,0.7);
+  border-radius: 50% ;
+}
+
+@media only screen and (max-width: 823px){
   .nation-name,.money{
     font-size: 2rem;
   }
@@ -147,54 +151,11 @@ tr.change>td{
 
   #reset-buy,#pacific{
     font-size: 1.25rem;
-  }
-
-  #end-turn{
-    font-size: 1.5rem
-  }
-
-  #roundel{
-    height: 1.75rem;
-  }
-  #c-nation{
-    font-size: 3rem;
-  }
-  #eco-bank, #eco-income {
-    font-size: 1.5rem;
-  }
-
-  .btn-change{
-    padding: 0.1rem
-  }
-}
-
-@media only screen and (max-height: 500px) and (orientation:landscape){
-  .nation-name,.money{
-    font-size: 2rem;
-  }
-
-  .special{
-    display: none
-  }
-  .btn-change{
-    padding: 0.1rem
   }
 
   #change-eco{
-    font-size: 2rem
-  }
-
-  #objective, #research, #victory, .btn-change{
-    padding: 0.5rem;
-    font-size: 1.5rem
-  }
-  #reset-buy,#pacific{
-    font-size: 1.25rem;
-  }
-
-  #end-turn{
-    font-size: 1.5rem;
-    padding: 0.5rem;
+    padding:0.5rem;
+    font-size: 2rem;
   }
 
   #roundel{
@@ -205,5 +166,9 @@ tr.change>td{
   }
   #eco-bank, #eco-income {
     font-size: 1.5rem;
+  }
+
+  .btn-change{
+    padding: 0.1rem
   }
 }

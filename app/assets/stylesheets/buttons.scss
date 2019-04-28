@@ -14,12 +14,23 @@
   font-size: 2rem;
   color:#f9f2de;
   border-color: #262626 !important;
-  border:solid 3px;
-  background-color: rgba(20,20,20,0.3);
+  border:solid 2px;
+  background-color: rgba(20,20,20,0.8);
   &:hover{
     text-shadow: none;
     background-color: rgba(230,230,230,0.5) !important;
-    color:#262626 !important;
+    color:#262626;
+  }
+}
+
+.btn-switch{
+  font-size: 1.25rem;
+  color:#262626;
+  border:none;
+  background-color:transparent;
+  &:hover{
+    text-shadow: none;
+    background-color: rgba(230,230,230,0.5) !important;
   }
 }
 
@@ -64,6 +75,10 @@
   background-color:#5296ad !important;
 }
 
+.btn-reset-victory{
+  color: red;
+}
+
 .btn-edit{
   border: solid 1px;
   margin:1px;
@@ -85,7 +100,7 @@
 .btn-end-turn {
   padding:1rem;
   color: #f9f2fe;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .btn-game {
@@ -93,21 +108,15 @@
   padding:0.4rem;
 }
 
-.btn-research {
-  padding-right: 0.2rem;
-  padding-left: 0.2rem;
-  padding-top: 0.4rem;
-  padding-bottom: 0.4rem;
-}
-
 .btn-change{
-  font-size: 1.5rem
+  font-size: 1.15rem
 }
 
 .btn-side{
   font-size: 1.75rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
+  text-align: center !important;
 }
 
 .btn-unit {
@@ -119,26 +128,43 @@
 .btn-pacific{
   background-color: #cb9b67;
   padding:1rem;
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 .btn-victory{
-  text-align: left;
-  background-color: rgba(20,20,20,0.8);
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   height: 50%;
 }
 
-.btn-objective{
-  color:#f9f2de;
+.btn-objective, .btn-objective-enabled, .btn-victory, .btn-research, .btn-research-enabled, .btn-side{
+  color:#262626;
   text-align: left;
-  background-color: rgba(20,20,20,0.5);
+  background-color: rgba(230,230,230,1);
+
+  &:hover{
+    background-color: rgba(20,20,20,0.2) !important;
+    color:#f9f2de;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  }
 }
 
 .btn-objective-enabled{
   color:#f9f2de;
-  text-align: left;
   border-color: white !important;
+}
+
+.btn-research, .btn-research-enabled {
+  padding-right: 0.2rem;
+  padding-left: 0.2rem;
+  padding-top: 0.4rem;
+  padding-bottom: 0.4rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.btn-research-enabled{
+  color:#f9f2de;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
 .btn-victory-axis{
@@ -149,9 +175,9 @@
   &:active,
   &:hover:active {
     text-decoration: none;
-    color: #f9f2de !important;
+    color: #262626 !important;
     background-color:#ff6666 !important;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-shadow: none;
   }
 }
 
@@ -163,9 +189,9 @@
   &:active,
   &:hover:active {
     text-decoration: none;
-    color: #f9f2de !important;
+    color: #262626 !important;
     background-color:#66ccff !important;
-    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-shadow: none;
   }
 }
 
@@ -176,4 +202,58 @@
 }
 .btn-glyph:hover{
   background-color: transparent;
+}
+
+.btn-change-eco{
+  border:none;
+  font-size: 3rem;
+  color: #f9f2de;
+  background-color: transparent;
+}
+
+.btn-nation{
+  padding-top:7%;
+  padding-bottom:7%;
+}
+
+// mobile sizes
+@media only screen and (max-width: 823px){
+  .btn-end-turn{
+    font-size: 1.5rem;
+    padding:0.2rem;
+    padding-top:0.6rem;
+    padding-bottom:0.6rem;
+  }
+
+  .btn-side{
+    font-size: 1.25rem;
+    margin-top:0.2rem;
+    padding:0.3rem;
+  }
+
+  .btn-back{
+    font-size: 1.25rem;
+    padding: 0.3rem;
+    border:solid 1px;
+  }
+
+  .btn-change{
+    padding-top:0.05rem;
+    padding-bottom:0.05rem;
+  }
+
+  .btn-unit{
+    font-size: 1.25rem;
+  }
+
+  .btn-nation{
+    padding-top: 3.5%;
+    padding-bottom:3.5%;
+    padding-left:0;
+    padding-right:0;
+  }
+
+  .btn-objective, .btn-objective-enabled{
+    font-size: 1.25rem;
+  }
 }
