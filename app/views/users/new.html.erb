@@ -8,7 +8,7 @@
       <article class="card-body">
         <%= link_to 'Sign in', root_path, class:"btn btn-outline-primary float-right", role:"button" %>
         <h1 class="card-title mb-4 mt-1">Sing up</h1>
-        <%= form_tag sessions_path do |form| %>
+        <%= form_tag users_path do |form| %>
           <form>
           <%= render 'form', user: @user %>
           </form>
