@@ -5,6 +5,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   #before_save :generate_token
   has_many :games
+  has_one :battle_calculator
   has_secure_password
 
   def self.create_user(auth_hash)

@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_13_063011) do
+ActiveRecord::Schema.define(version: 2019_05_01_000136) do
+
+  create_table "battle_calculators", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "uuid"
+    t.string "user_uuid"
+    t.string "winner"
+    t.string "game"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "games", force: :cascade do |t|
     t.string "name"
