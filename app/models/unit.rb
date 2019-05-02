@@ -1,10 +1,22 @@
 class Unit < ApplicationRecord
   before_create :create_uuid
   belongs_to :game
-  has_many :specials
 
   default_scope { order(created_at: :asc) }
 
+  def specials
+    @search = self.game.game_name
+    @name = self.name
+    if @search.include?"House"
+      return Special.where(game: "House").where("unit_name like ?", "#{@name}")
+    elsif @search.include?"1940"
+      return Special.where(game: "1940").where("unit_name like ?", "#{@name}")
+    elsif @search.include?"1914"
+      return Special.where(game: "1940").where("unit_name like ?", "#{@name}")
+    elsif @search.include?"1942"
+      return Special.where(game: "1942").where("unit_name like ?", "#{@name}")
+    end
+  end
 
   protected
     def self.create_1940(game)
