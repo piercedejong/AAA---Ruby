@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_01_000136) do
+ActiveRecord::Schema.define(version: 2019_05_01_213643) do
 
   create_table "battle_calculators", force: :cascade do |t|
     t.integer "user_id"
@@ -81,6 +81,8 @@ ActiveRecord::Schema.define(version: 2019_05_01_000136) do
     t.integer "sid"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "unit_name"
+    t.string "game"
   end
 
   create_table "units", force: :cascade do |t|
