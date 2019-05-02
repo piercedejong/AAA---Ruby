@@ -12,7 +12,7 @@ Special.create(
   [
     {sid: 0,game: "1940",unit_name:"Infantry", title: "Supported by Artillery", info: "Attack at a 2 when paired with artillery on a one-to-one scale"},
     {sid: 0,game: "1940",unit_name:"Mechanized Infantry",title: "Supported by Artillery", info: "Attack at a 2 when paired with artillery on a one-to-one scale"},
-    {sid: 1,game: "1940",unit_name:"Mechanized Infantry",title: "Blitz", info: "Can Blitz (see Tanks) through enemy territoyr when paried with a Tank"},
+    {sid: 1,game: "1940",unit_name:"Mechanized Infantry",title: "Blitz", info: "Can Blitz (see Tanks) through enemy territory when paried with a Tank"},
     {sid: 0,game: "1940",unit_name:"Artillery",title: "Supports (Mechanized) Infantry", info: "Increases attack of one (mechanized) infantry to 2 on a one-to-one scale"},
     {sid: 0,game: "1940",unit_name:"Tank",title: "Blitz", info: "Move through an unoccupied enemy territory then into a frienldy or hostile territory. Must occur during combat phase. Established control of first territory"},
     {sid: 1,game: "1940",unit_name:"Tank",title: "Combined Arms", info: "Can be combined with a tactical bomber or a mechanized infatnry \nTactical Bomber: Each tactical bomber paired with a tank has an increased attack from 3 to 4 \nMechanized Infantry:Each mecanized infantry paired with a tank to blitz"},

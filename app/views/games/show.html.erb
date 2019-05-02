@@ -44,12 +44,10 @@
                 <td class="text-center"><%= u.defense %></td>
                 <td class="text-center"><%= u.movement %></td>
                 <% if !current_game.units.first.special.eql? "" %>
-                  <td class="special" style="padding-left:20px">
-                    <div class="d-flex my-auto" style="flex-wrap: wrap;">
-                      <% u.specials.all.each  do |s|%>
-                      <div class="ml-1 mr-4">
-                        <%= s.title%>
-                      </div>
+                  <td class="special" style="padding-left:20px;">
+                    <div class="d-flex my-auto" style="flex-wrap:wrap;">
+                      <% u.specials.each do |s|  %>
+                      <div id="" class="unit-tooltip mr-4"><div class="unit-tooltiptext mt-4"><%=s.info%></div><strong><%= s.title %></strong></div>
                       <% end %>
                     </div>
                   </td>

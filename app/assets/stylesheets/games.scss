@@ -1,5 +1,26 @@
 //New Game
 
+.unit-tooltiptext {
+  visibility: hidden;
+  background-color: rgb(180,180,180);
+  color: #262626;
+  text-align: center;
+  border:solid 1px;
+  border-radius: 0.5rem;
+  padding: 0.25rem;
+  font-size: 1.25rem;
+  width: 25%;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  //top:4rem;
+  text-shadow:none
+}
+
+.unit-tooltip:hover .unit-tooltiptext {
+  visibility: visible;
+}
+
 .game-select-form{
   font-size: 2rem !important;
   color:#262626 !important;
