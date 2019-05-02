@@ -260,38 +260,32 @@ class GamesController < ApplicationController
     when "1940Global"
       Nation.create_1940(@game)
       Unit.create_1940(@game)
-      Special.create_1940(@game)
       Objective.create_1940(@game)
       Research.create_1940(@game)
     when "1940House"
       Nation.create_1940_house(@game)
       Unit.create_1940_house(@game)
-      Special.create_1940_house(@game)
       Objective.create_1940_house(@game)
       Research.create_1940_house(@game)
       Victory.create_1940_grasshopper(@game)
     when "1940OneEco"
       Nation.create_1940_one_eco(@game)
       Unit.create_1940(@game)
-      Special.create_1940(@game)
       Objective.create_1940_one_eco(@game)
       Research.create_1940(@game)
     when "1940Pacific"
       Nation.create_1940_pacific(@game)
       Unit.create_1940(@game)
-      Special.create_1940(@game)
       Objective.create_1940_pacific(@game)
       Research.create_1940(@game)
     when "1940Europe"
       Nation.create_1940_europe(@game)
       Unit.create_1940(@game)
-      Special.create_1940(@game)
       Objective.create_1940_europe(@game)
       Research.create_1940(@game)
     when "1940Grasshopper"
       Nation.create_1940_grasshopper(@game)
       Unit.create_1940(@game)
-      Special.create_1940(@game)
       Objective.create_1940_grasshopper(@game)
       Victory.create_1940_grasshopper(@game)
       Research.create_1940_grasshopper(@game)
