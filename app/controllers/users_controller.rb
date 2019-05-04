@@ -13,12 +13,15 @@ class UsersController < ApplicationController
       # User is created by signing up
       if auth_hash.nil?
         @user = User.new(user_params)
-        if @user.save
-          cookies.permanent.signed[:permanent_user_id] = @user.uuid
-          session[:user_id] = @user.uuid
-          redirect_to root_path
-        else
-          redirect_to signup_path
+        respond_to do |format|
+          if @user.save
+            cookies.permanent.signed[:permanent_user_id] = @user.uuid
+            session[:user_id] = @user.uuid
+            format.html { redirect_to root_path }
+          else
+            format.html { render :new }
+            format.json { render json: @user.errors, status: :unprocessable_entity }
+          end
         end
       # User is using google to sign up / log in
       else
@@ -42,8 +45,11 @@ class UsersController < ApplicationController
   end
 
   def index
-    #@user = User.find(params[:id])
-    @users = User.all
+    if current_user
+      @users = User.all
+    else
+      redirect_to signup_path
+    end
   end
 
   def toggle_background
