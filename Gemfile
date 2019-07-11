@@ -5,6 +5,7 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+gem 'pg'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.2'
@@ -57,11 +58,11 @@ group :development do
 end
 
 group :development, :test do
-  gem 'sqlite3', '~> 1.3.6'
+  #gem 'sqlite3', '~> 1.3.6'
 end
 
 group :production do
-  gem 'pg'#, '~> 0.21'
+  #gem 'pg'#, '~> 0.21'
   gem 'rails_12factor'
 end
 
