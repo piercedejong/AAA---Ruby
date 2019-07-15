@@ -5,7 +5,8 @@ class CreateBattleCalculators < ActiveRecord::Migration[5.2]
       t.string :uuid
       t.string :user_uuid
       t.string :winner
-      t.string :game
+      t.string :game_version, default:"1940Global"
+      t.string :battle_type, default:"land"
 
       t.timestamps
     end

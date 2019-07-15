@@ -20,7 +20,8 @@ ActiveRecord::Schema.define(version: 2019_07_15_194527) do
     t.string "uuid"
     t.string "user_uuid"
     t.string "winner"
-    t.string "game"
+    t.string "game_version", default: "1940Global"
+    t.string "battle_type", default: "land"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "current_round", default: 1
