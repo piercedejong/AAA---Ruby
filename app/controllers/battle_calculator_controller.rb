@@ -4,6 +4,7 @@ class BattleCalculatorController < ApplicationController
     if !current_user
       redirect_to root_path
     end
+  #  (1..6).to_a.shuffle.first
   end
 
   def simulation; body; end;

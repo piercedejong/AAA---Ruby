@@ -19,6 +19,16 @@ class UsersController < ApplicationController
             session[:user_id] = @user.uuid
             @battle = BattleCalculator.create
             @battle.update(user_id: @user.id)
+
+            @team = Team.create
+            @team.update(battle_calculator_id: @battle.id)
+            @team.update(attacker: true)
+
+            @team = Team.create
+            @team.update(battle_calculator_id: @battle.id)
+
+            binding.pry
+            
             format.html { redirect_to root_path }
           else
             format.html { render :new }
