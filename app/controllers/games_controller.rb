@@ -4,7 +4,6 @@ class GamesController < ApplicationController
 
   def create
     @game = current_user.games.new(game_params)
-    @game.update(user_uuid: current_user.uuid)
     if @game.save
       create_game
       session[:game_uuid] = @game.uuid
