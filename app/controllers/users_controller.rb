@@ -17,6 +17,8 @@ class UsersController < ApplicationController
           if @user.save
             cookies.permanent.signed[:permanent_user_id] = @user.uuid
             session[:user_id] = @user.uuid
+            @battle = BattleCalculator.create
+            @battle.update(user_id: @user.id)
             format.html { redirect_to root_path }
           else
             format.html { render :new }
@@ -31,6 +33,8 @@ class UsersController < ApplicationController
           @user.update(email: auth_hash.info.email)
           @user.update(name: auth_hash.info.name)
           @user.update(password_digest: "google")
+          @battle = BattleCalculator.create
+          @battle.update(user_id: @user.id)
           #@user = User.create_user(auth_hash)
         # else find the user by email
         else

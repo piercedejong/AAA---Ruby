@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_15_172909) do
+ActiveRecord::Schema.define(version: 2019_07_15_173451) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "battle_calculators", force: :cascade do |t|
-    t.integer "user_id"
+    t.string "user_id"
     t.string "uuid"
     t.string "user_uuid"
     t.string "winner"

@@ -9,6 +9,7 @@ class User < ApplicationRecord
   validates :name, :uniqueness => { :case_sensitive => false }, format:{ with: /\A[a-zA-Z0-9]+\z/i, message: "can only contain letters and numbers." }, length: { in: 5..20, message: "must be between 5 and 20 characters long"}
   validates :password, length: { in: 6..20}
   has_one :battle_calculator
+  default_scope { order(created_at: :asc) }
   has_secure_password
 
   def self.create_user(auth_hash)
