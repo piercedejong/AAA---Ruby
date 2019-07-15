@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_09_170957) do
+ActiveRecord::Schema.define(version: 2019_07_15_170402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_170957) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "games", force: :cascade do |t|
+  create_table "games", id: :serial, force: :cascade do |t|
     t.string "name"
     t.integer "current", default: 0
     t.integer "round", default: 1
@@ -39,7 +39,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_170957) do
     t.integer "bank"
   end
 
-  create_table "nations", force: :cascade do |t|
+  create_table "nations", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "roundel"
     t.string "color"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_170957) do
     t.integer "obj_income", default: 0
   end
 
-  create_table "objectives", force: :cascade do |t|
+  create_table "objectives", id: :serial, force: :cascade do |t|
     t.integer "nation_id"
     t.integer "value"
     t.string "name"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_170957) do
     t.integer "oid"
   end
 
-  create_table "researches", force: :cascade do |t|
+  create_table "researches", id: :serial, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "uuid"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_170957) do
     t.string "name"
   end
 
-  create_table "specials", force: :cascade do |t|
+  create_table "specials", id: :serial, force: :cascade do |t|
     t.string "title"
     t.string "info"
     t.string "unit_id"
@@ -88,7 +88,7 @@ ActiveRecord::Schema.define(version: 2019_07_09_170957) do
     t.string "game"
   end
 
-  create_table "units", force: :cascade do |t|
+  create_table "units", id: :serial, force: :cascade do |t|
     t.string "name"
     t.string "special", default: ""
     t.integer "attack"
@@ -103,18 +103,17 @@ ActiveRecord::Schema.define(version: 2019_07_09_170957) do
     t.string "uuid"
   end
 
-  create_table "users", id: false, force: :cascade do |t|
+  create_table "users", primary_key: "uuid", id: :serial, force: :cascade do |t|
     t.string "email"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "id"
     t.boolean "sepia", default: false
     t.string "role", default: "user"
     t.string "password_digest"
   end
 
-  create_table "victories", force: :cascade do |t|
+  create_table "victories", id: :serial, force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "uuid"
