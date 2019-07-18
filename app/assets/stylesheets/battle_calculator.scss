@@ -5,10 +5,17 @@
 
 
 .unit-input{
-  font-size: 3rem;
-  color:white;
+  font-size: 2rem;
+  //color:#f9f2de;
 }
 
 .battle-input{
   width:50%
+}
+
+.battle-card{
+  border-radius: 1rem;
+  border:solid;
+  padding:0.5rem;
+  background-color: rgba(200,200,200,0.8);
 }

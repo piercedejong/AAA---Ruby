@@ -4,44 +4,38 @@
   <div class="row">
     <div class="col-sm-4"></div>
     <div class="col-sm-4" style="">
-      <div class="input-group">
+      <div class="input-group mb-2">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i style="font-size:2rem" class="fas fa-dice-d6"></i> </span>
          </div>
          <%= select_tag "game[game_name]", content_tag(:option,'Select a Game Version...',:value=>"")+options_for_select([['1940 Global','1940Global'],['1942 Spring','1942'],['1914 WWI', '1914']]), class:'input-group-form game-select-form' %>
       </div>
-      <div class="input-group">
+      <div class="input-group mb-4">
         <div class="input-group-prepend">
             <span class="input-group-text"> <i style="font-size:2rem" class="fas fa-dice-d6"></i> </span>
          </div>
          <%= select_tag "game[game_name]", content_tag(:option,'Select a Battle Type...',:value=>"")+options_for_select([['Land','land'],['Water','water'],['Amphibious', 'amphibious']]), class:'input-group-form game-select-form' %>
       </div>
-        <table style="table-layout: fixed;width:100%">
+      <div class="battle-card">
+        <table style="table-layout:fixed%">
           <thead>
             <tr class="h2 table-top">
-              <th class="text-center" >Count</th>
-              <th class="text-center" >Type</th>
-              <th class="text-center" >Count</th>
+              <th class="text-center" style="width:20%">Attacker</th>
+              <th class="text-center" style="width:60%"></th>
+              <th class="text-center" style="width:20%">Defender</th>
             </tr>
           </thead>
           <tbody class="unit-input">
-            <tr class="change">
-              <td class="text-center col nowrap shadow-text"><input style="width:100%" class="battle-input" type="number" id="aInf" value="0" min="0" max="99"></input></td>
-              <td class="text-center col nowrap shadow-text" >Infantry</td>
-              <td class="text-center col nowrap shadow-text"><input style="width:100%"class="battle-input" type="number" id="dInf" value="0" min="0" max="99"></input></td>
-            </tr>
-            <tr class="change">
-              <td class="text-center col nowrap shadow-text"><input style="width:100%"class="battle-input" type="number" id="aArt" value="0" min="0" max="99"></input></td>
-              <td class="text-center col nowrap shadow-text" >Artillery</td>
-              <td class="text-center col nowrap shadow-text"><input style="width:100%"class="battle-input" type="number" id="dArt" value="0" min="0" max="99"></input></td>
-            </tr>
-            <tr class="change">
-              <td class="text-center col nowrap shadow-text"><input style="width:100%"class="battle-input" type="number" id="aArm" value="0" min="0" max="99"></input></td>
-              <td class="text-center col nowrap shadow-text" >Armor</td>
-              <td class="text-center col nowrap shadow-text"><input style="width:100%"class="battle-input" type="number" id="dArm" value="0" min="0" max="99"></input></td>
-            </tr>
+            <% current_user.battle_calculator.teams.first.units.all.each do |u| %>
+              <tr class="change">
+                <td class="m-0 p-0 text-center col nowrap"><input class="" type="number" id="aInf" value="0" min="0" max="99"></input></td>
+                <td class="m-0 p-0 text-center col nowrap"><%=u.name%></td>
+                <td class="m-0 p-0 text-center col nowrap"><input class="" type="number" id="dInf" value="0" min="0" max="99"></input></td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
+      </div>
     </div>
     <div class="col-sm-4"></div>
   </div>
