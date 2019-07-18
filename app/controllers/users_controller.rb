@@ -23,12 +23,14 @@ class UsersController < ApplicationController
             @team = Team.create
             @team.update(battle_calculator_id: @battle.id)
             @team.update(attacker: true)
+            Unit.create_1940Land(@team)
 
             @team = Team.create
             @team.update(battle_calculator_id: @battle.id)
+            Unit.create_1940Land(@team)
 
             binding.pry
-            
+
             format.html { redirect_to root_path }
           else
             format.html { render :new }
