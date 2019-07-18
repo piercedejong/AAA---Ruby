@@ -126,6 +126,41 @@ class Unit < ApplicationRecord
       end
     end
 
+    def self.create_1940Water(team)
+      units = [
+        {uid: 1, name: 'Fighter',               special: 'fgh', attack: 3, defense: 4, movement: 4, cost: 10, count: 0},
+        {uid: 2, name: 'Tactical Bomber',       special: 'tac', attack: 3, defense: 3, movement: 4, cost: 11, count: 0},
+        {uid: 4, name: 'Strategic Bomber',      special: 'str', attack: 4, defense: 1, movement: 5, cost: 12, count: 0},
+        {uid: 5, name: 'Submarine',             special: 'sub', attack: 2, defense: 1, movement: 2, cost: 6, count: 0},
+        {uid: 6, name: 'Transport',             special: 'tnt', attack: 0, defense: 1, movement: 2, cost: 7, count: 0},
+        {uid: 7, name: 'Destroyer',             special: 'dst', attack: 2, defense: 2, movement: 2, cost: 8, count: 0},
+        {uid: 8, name: 'Cruiser',               special: 'crs', attack: 3, defense: 3, movement: 2, cost: 12, count: 0},
+        {uid: 9, name: 'Aircraft Carrier',      special: 'car', attack: 0, defense: 2, movement: 2, cost: 16, count: 0},
+        {uid: 10,name: 'Battleship',            special: 'btl', attack: 4, defense: 4, movement: 2, cost: 20, count: 0},
+        ]
+      units.each do |u|
+        team.units.create(u)
+      end
+    end
+
+    def self.create_1940Amphibious(team)
+      units = [
+        {uid: 0, name: 'Infantry',              special: 'inf', attack: 1, defense: 2, movement: 1, cost: 3, count: 0},
+        {uid: 1, name: 'Mechanized Infantry',   special: 'mec', attack: 1, defense: 2, movement: 2, cost: 4, count: 0},
+        {uid: 2, name: 'Artillery',             special: 'art', attack: 2, defense: 2, movement: 1, cost: 4, count: 0},
+        {uid: 3, name: 'Tank',                  special: 'tnk', attack: 3, defense: 3, movement: 2, cost: 6, count: 0},
+        {uid: 4, name: 'Antiaircraft Artillery',special: 'aaa', attack: 0, defense: 1, movement: 1, cost: 5, count: 0},
+        {uid: 5, name: 'Fighter',               special: 'fgh', attack: 3, defense: 4, movement: 4, cost: 10, count: 0},
+        {uid: 6, name: 'Tactical Bomber',       special: 'tac', attack: 3, defense: 3, movement: 4, cost: 11, count: 0},
+        {uid: 7, name: 'Strategic Bomber',      special: 'str', attack: 4, defense: 1, movement: 5, cost: 12, count: 0},
+        {uid: 8, name: 'Cruiser',               special: 'crs', attack: 3, defense: 3, movement: 2, cost: 12, count: 0},
+        {uid: 9,name: 'Battleship',            special: 'btl', attack: 4, defense: 4, movement: 2, cost: 20, count: 0},
+      ]
+      units.each do |u|
+        team.units.create(u)
+      end
+    end
+
     private
       def create_uuid
         begin
