@@ -4,17 +4,8 @@
   <div class="row">
     <div class="col-sm-4"></div>
     <div class="col-sm-4" style="">
-      <div class="input-group mb-2">
-        <div class="input-group-prepend">
-            <span class="input-group-text"> <i style="font-size:2rem" class="fas fa-dice-d6"></i> </span>
-         </div>
-         <%= select_tag "game[game_name]", content_tag(:option,'Select a Game Version...',:value=>"")+options_for_select([['1940 Global','1940Global'],['1942 Spring','1942'],['1914 WWI', '1914']]), class:'input-group-form game-select-form' %>
-      </div>
-      <div class="input-group mb-4">
-        <div class="input-group-prepend">
-            <span class="input-group-text"> <i style="font-size:2rem" class="fas fa-dice-d6"></i> </span>
-         </div>
-         <%= select_tag "game[game_name]", content_tag(:option,'Select a Battle Type...',:value=>"")+options_for_select([['Land','land'],['Water','water'],['Amphibious', 'amphibious']]), class:'input-group-form game-select-form' %>
+      <div class="mb-4">
+        <%= render 'form', battle_calculator: @battle_calculator %>
       </div>
       <div class="battle-card">
         <table style="table-layout:fixed%">
@@ -38,6 +29,10 @@
       </div>
     </div>
     <div class="col-sm-4"></div>
+  </div>
+
+  <div class="row">
+
   </div>
 </div>
 
