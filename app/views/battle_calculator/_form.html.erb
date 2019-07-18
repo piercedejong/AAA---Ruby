@@ -1,16 +1,16 @@
-<%= form_for @battle_calculator, url: simulation_path, method: :post  do |form| %>
+<%= form_for @battle_calculator do |form| %>
   <form style="width:100%">
     <div class="input-group mb-2">
       <div class="input-group-prepend">
           <span class="input-group-text"> <i style="font-size:2rem" class="fas fa-dice-d6"></i> </span>
        </div>
-       <%= select_tag "game[game_name]", options_for_select([['1940 Global','1940Global'],['1942 Spring','1942'],['1914 WWI', '1914']],@battle_calculator.game_version), class:'input-group-form game-select-form' %>
+       <%= select_tag "battle_calculator[game_version]", options_for_select([['1940 Global','1940Global'],['1942 Spring','1942'],['1914 WWI', '1914']],@battle_calculator.game_version), class:'input-group-form game-select-form' %>
     </div>
     <div class="input-group mb-2">
       <div class="input-group-prepend">
           <span class="input-group-text"> <i style="font-size:2rem" class="fas fa-dice-d6"></i> </span>
        </div>
-       <%= select_tag "game[game_name]", options_for_select([['Land','land'],['Water','water'],['Amphibious', 'amphibious']],@battle_calculator.battle_type), class:'input-group-form game-select-form' %>
+       <%= select_tag "battle_calculator[battle_type]", options_for_select([['Land','land'],['Water','water'],['Amphibious', 'amphibious']],@battle_calculator.battle_type), class:'input-group-form game-select-form' %>
     </div>
     <div class="w-100 d-flex justify-content-center">
       <%= submit_tag "Update", class:"btn btn-default shadow-text "%>
