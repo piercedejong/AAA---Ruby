@@ -2,11 +2,14 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-4"></div>
+    <div class="mb-4 mx-auto justify-content-center battle-card px-3">
+      <div class="sub-title">Game Version and Battle Type</div>
+      <%= render 'form', battle_calculator: @battle_calculator %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2"></div>
     <div class="col-sm-4" style="">
-      <div class="mb-4">
-        <%= render 'form', battle_calculator: @battle_calculator %>
-      </div>
       <div class="battle-card">
         <table style="table-layout:fixed%">
           <thead>
@@ -18,17 +21,71 @@
           </thead>
           <tbody class="unit-input">
             <% current_user.battle_calculator.teams.first.units.all.each do |u| %>
-              <tr class="change">
-                <td class="m-0 p-0 text-center col nowrap"><input class="" type="number" id="aInf" value="0" min="0" max="99"></input></td>
+              <tr class="">
+                <td class="m-0 p-0 text-center col nowrap">
+                  <% if !u.name.eql? "Antiaircraft Artillery" %>
+                  <input class="" type="number" id="a-<%=u.special%>" value="0" min="0" max="99"></input>
+                  <% end %>
+                </td>
                 <td class="m-0 p-0 text-center col nowrap"><%=u.name%></td>
-                <td class="m-0 p-0 text-center col nowrap"><input class="" type="number" id="dInf" value="0" min="0" max="99"></input></td>
+                <td class="m-0 p-0 text-center col nowrap">
+                  <input class="" type="number" id="d-<%=u.special%>" value="0" min="0" max="99"></input>
+                </td>
               </tr>
             <% end %>
           </tbody>
         </table>
       </div>
     </div>
-    <div class="col-sm-4"></div>
+    <div class="col-sm-4">
+      <div class="battle-card mb-4">
+        <table style="table-layout:fixed">
+          <tbody class = "unit-input">
+            <tr class="">
+              <td>Total Simulations - </td>
+              <td><input class="" type="number" id="total-simulations" value="0" min="0" max="99999"></input></td>
+            </tr>
+            <tr class="">
+              <td>Max Rounds - </td>
+              <td><input class="" type="number" id="max-rounds" value="0" min="0" max="99"></input></td>
+            </tr>
+            <tr class="">
+              <td>Something - </td>
+              <td><input class="" type="number" id="something" value="0" min="0" max="99"></input></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="battle-card">
+        <table style="table-layout:fixed">
+          <thead>
+            <tr class="h2 table-top">
+              <th class="text-center" style="width:20%"></th>
+              <th class="text-center" style="width:40%">Attacker</th>
+              <th class="text-center" style="width:40%">Defender</th>
+            </tr>
+          </thead>
+          <tbody class = "unit-input">
+            <tr class="">
+              <td>Win %</td>
+              <td id="attacker-wins"></td>
+              <td id="defender-wins"></td>
+            </tr>
+            <tr class="">
+              <td>Loss %</td>
+              <td id="attacker-loses"></td>
+              <td id="defender-loses"></td>
+            </tr>
+            <tr class="">
+              <td>Units Remaining</td>
+              <td id="attacker-units-remaining"></td>
+              <td id="defender-units-remaining"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
   </div>
 
   <div class="row">
