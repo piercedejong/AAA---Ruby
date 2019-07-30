@@ -3,24 +3,29 @@ function sim() {
 		method: "GET",
 		url: window.location.origin + '/battle_calculator/simulation'
 	}
+
 	if($("#title").attr("game_version")=="1940"){
-		params.data = {
-			ainf: $("#ainf").val(),
-			amec: $("#amec").val(),
-			aart: $("#aart").val(),
-			atnk: $("#atnk").val(),
-			afgh: $("#afgh").val(),
-			atac: $("#atac").val(),
-			astr: $("#astr").val(),
-			dinf: $("#dinf").val(),
-			dmec: $("#dmec").val(),
-			dart: $("#dart").val(),
-			dtnk: $("#dtnk").val(),
-			daaa: $("#daaa").val(),
-			dfgh: $("#dfgh").val(),
-			dtac: $("#dtac").val(),
-			dstr: $("#dstr").val()
+		attacker = {
+			inf: $("#ainf").val(),
+			mec: $("#amec").val(),
+			art: $("#aart").val(),
+			tnk: $("#atnk").val(),
+			aaa: 0,
+			fgh: $("#afgh").val(),
+			tac: $("#atac").val(),
+			str: $("#astr").val()
 		}
+		defender = {
+			inf: $("#dinf").val(),
+			mec: $("#dmec").val(),
+			art: $("#dart").val(),
+			tnk: $("#dtnk").val(),
+			aaa: $("#daaa").val(),
+			fgh: $("#dfgh").val(),
+			tac: $("#dtac").val(),
+			str: $("#dstr").val()
+		}
+		params.data = {attacker:attacker,defender:defender}
 	}else{
 	}
 	$.ajax(params)

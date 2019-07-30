@@ -154,7 +154,7 @@ class Unit < ApplicationRecord
         {uid: 6, name: 'Tactical Bomber',       special: 'tac', attack: 3, defense: 3, movement: 4, cost: 11, count: 0},
         {uid: 7, name: 'Strategic Bomber',      special: 'str', attack: 4, defense: 1, movement: 5, cost: 12, count: 0},
         {uid: 8, name: 'Cruiser',               special: 'crs', attack: 3, defense: 3, movement: 2, cost: 12, count: 0},
-        {uid: 9,name: 'Battleship',            special: 'btl', attack: 4, defense: 4, movement: 2, cost: 20, count: 0},
+        {uid: 9,name: 'Battleship',             special: 'btl', attack: 4, defense: 4, movement: 2, cost: 20, count: 0},
       ]
       units.each do |u|
         team.units.create(u)

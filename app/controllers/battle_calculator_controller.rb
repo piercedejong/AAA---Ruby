@@ -36,8 +36,9 @@ class BattleCalculatorController < ApplicationController
   end
 
   def simulation
-    binding.pry
     @bc = current_user.battle_calculator
+    update_units
+    update_bc
     if @bc.battle_type.eql? "land"
       land_battle
     elsif @bc.battle_type.eql? "water"
@@ -47,18 +48,47 @@ class BattleCalculatorController < ApplicationController
     end
   end
 
-
-
-
   private
     def land_battle
-      # binding.pry
     end
 
     def water_battle
     end
 
     def amphibious_battle
+    end
+
+    def update_units
+      a = params[:attacker]
+      @bc.teams.first.units.all.zip(a).each do |x|
+        x.first.update(count:x.second.second)
+      end
+      d = params[:defender]
+      @bc.teams.second.units.all.zip(d).each do |x|
+        x.first.update(count:x.second.second)
+      end
+      binding.pry
+    end
+
+    def update_bc
+      @bc.update(current_simulation:1)
+      @bc.update(current_round:1)
+      # @bc.update(max_simulations:params[:maxsimulations])
+      # @bc.update(max_round:params[:maxround])
+      @bc.update(winner:"")
+      @bc.teams.all.each do |t|
+        t.update(wins:0)
+        t.update(loses:0)
+        t.update(starting_land:0)
+        t.update(starting_air:0)
+        t.update(starting_water:0)
+        count = 0
+        t.units.all.each do |u|
+          count = count + u.count
+        end
+        t.update(starting_units:count)
+        binding.pry
+      end
     end
 
     def battle_calculator_params
