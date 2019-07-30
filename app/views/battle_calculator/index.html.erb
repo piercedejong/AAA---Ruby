@@ -1,4 +1,4 @@
-<div class=" title text-center shadow-text">Battle Calculator</div>
+<div id="title" game_version="<%=@battle_calculator.game_version%>" battle-type="<%= @battle_calculator.battle_type%>"class=" title text-center shadow-text">Battle Calculator</div>
 
 <div class="container">
   <div class="row">
@@ -24,12 +24,12 @@
               <tr class="">
                 <td class="m-0 p-0 text-center col nowrap">
                   <% if !u.name.eql? "Antiaircraft Artillery" %>
-                  <input class="" type="number" id="a-<%=u.special%>" value="0" min="0" max="99"></input>
+                  <input class="" type="number" id="a<%=u.special%>" value="0" min="0" max="99"></input>
                   <% end %>
                 </td>
                 <td class="m-0 p-0 text-center col nowrap"><%=u.name%></td>
                 <td class="m-0 p-0 text-center col nowrap">
-                  <input class="" type="number" id="d-<%=u.special%>" value="0" min="0" max="99"></input>
+                  <input class="" type="number" id="d<%=u.special%>" value="0" min="0" max="99"></input>
                 </td>
               </tr>
             <% end %>
@@ -86,6 +86,7 @@
       </div>
     </div>
     <div class="col-sm-2"></div>
+
   </div>
 
   <div class="row">
@@ -94,5 +95,5 @@
 </div>
 
 
-<button class="btn-default bottom-aligned-right shadow-text" role="button">Run Simulation</button>
+<button class="btn-default bottom-aligned-right shadow-text" role="button" onclick="sim()">Run Simulation</button>
 <%= link_to "Back", root_path, id:"btn-back", class: "btn btn-default bottom-aligned-left shadow-text", role:"button"%>
