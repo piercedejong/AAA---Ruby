@@ -87,7 +87,6 @@ class BattleCalculatorController < ApplicationController
           count = count + u.count
         end
         t.update(starting_units:count)
-        binding.pry
       end
     end
 
