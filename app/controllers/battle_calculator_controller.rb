@@ -97,7 +97,6 @@ class BattleCalculatorController < ApplicationController
         end
       else
         u = team.units.first
-        binding.pry
         while hits > 0 and team.current_units > 0
           if u.count > 0 and hits > 0
             u.update(count: u.count-1)
