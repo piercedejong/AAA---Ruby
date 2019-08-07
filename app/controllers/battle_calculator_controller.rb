@@ -37,7 +37,9 @@ class BattleCalculatorController < ApplicationController
 
   def simulation
     @bc = current_user.battle_calculator
-    update_units
+    @attacker = @bc.teams.first
+    @defender = @bc.teams.last
+    update_starting_units
     update_bc
     if @bc.battle_type.eql? "land"
       land_battle
@@ -50,6 +52,9 @@ class BattleCalculatorController < ApplicationController
 
   private
     def land_battle
+      #while @attacker.current_units > 0 && @defender.current_units > 0
+        round
+      #end
     end
 
     def water_battle
@@ -58,16 +63,65 @@ class BattleCalculatorController < ApplicationController
     def amphibious_battle
     end
 
-    def update_units
+
+    def round
+      @attacker_hits = team_roll(@attacker)
+      @defender_hits = team_roll(@defender)
+
+      @attacker = team_hits(@defender_hits, @attacker)
+      @defender = team_hits(@attacker_hits, @defender)
+
+    end
+
+
+    def team_roll(team)
+      hits = 0
+      team.units.all.each do |u|
+        x = 0
+        while x < u.count
+          r = roll
+          if r <= u.attack
+            hits += 1
+          end
+          x = x+1
+        end
+      end
+      return hits
+    end
+
+    # Removes the amount of units from the hits starting with inf and ending with bombers
+    def team_hits(hits, team)
+      if team.current_units <= hits
+        team.units.all.each do |u|
+          u.update(count:0)
+        end
+      else
+        u = team.units.first
+        binding.pry
+        while hits > 0 and team.current_units > 0
+          if u.count > 0 and hits > 0
+            u.update(count: u.count-1)
+            hits-=1
+          else
+            u = u.next
+          end
+        end
+        return team
+      end
+
+
+
+    end
+
+    def update_starting_units
       a = params[:attacker]
-      @bc.teams.first.units.all.zip(a).each do |x|
+      @attacker.units.all.zip(a).each do |x|
         x.first.update(count:x.second.second)
       end
       d = params[:defender]
-      @bc.teams.second.units.all.zip(d).each do |x|
+      @defender.units.all.zip(d).each do |x|
         x.first.update(count:x.second.second)
       end
-      binding.pry
     end
 
     def update_bc
@@ -88,6 +142,11 @@ class BattleCalculatorController < ApplicationController
         end
         t.update(starting_units:count)
       end
+    end
+
+    # Roll a 6 sided dice
+    def roll
+      return 1 + rand(6)
     end
 
     def battle_calculator_params
