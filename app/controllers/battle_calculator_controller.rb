@@ -15,8 +15,7 @@ class BattleCalculatorController < ApplicationController
       @battle_calculator.teams.second.units.destroy_all
       if battle_calculator_params[:game_version].eql?"1940"
         if battle_calculator_params[:battle_type].eql? "land"
-          Unit.create_1940Land(@battle_calculator.teams.first)
-          Unit.create_1940Land(@battle_calculator.teams.second)
+          Unit.create_1940Land(@battle_calculator)
         elsif battle_calculator_params[:battle_type].eql? "water"
           Unit.create_1940Water(@battle_calculator.teams.first)
           Unit.create_1940Water(@battle_calculator.teams.second)
@@ -96,7 +95,7 @@ class BattleCalculatorController < ApplicationController
           u.update(count:0)
         end
       else
-        u = team.units.first
+        u = team.units.where(priority:1).first
         while hits > 0 and team.current_units > 0
           if u.count > 0 and hits > 0
             u.update(count: u.count-1)
@@ -107,9 +106,6 @@ class BattleCalculatorController < ApplicationController
         end
         return team
       end
-
-
-
     end
 
     def update_starting_units
