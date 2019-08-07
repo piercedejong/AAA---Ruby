@@ -19,6 +19,10 @@ class Unit < ApplicationRecord
     end
   end
 
+  def next
+    self.class.where("id > ?", id).first
+  end
+
   protected
     def self.create_1940(game)
       units = [
