@@ -36,8 +36,6 @@ class BattleCalculatorController < ApplicationController
 
   def simulation
     @bc = current_user.battle_calculator
-    @attacker = @bc.teams.first
-    @defender = @bc.teams.last
     update_starting_units
     update_bc
     if @bc.battle_type.eql? "land"
@@ -51,9 +49,14 @@ class BattleCalculatorController < ApplicationController
 
   private
     def land_battle
-      #while @attacker.current_units > 0 && @defender.current_units > 0
+      while attacker.current_units > 0 && defender.current_units > 0
         round
-      #end
+      end
+      if attacker.current_units <= 0
+        defender.update(wins: defender.wins+1)
+      elsif defender.current_units <= 0
+        attacker.update(wins: attacker.wins+1)
+      end
     end
 
     def water_battle
@@ -64,12 +67,11 @@ class BattleCalculatorController < ApplicationController
 
 
     def round
-      @attacker_hits = team_roll(@attacker)
-      @defender_hits = team_roll(@defender)
+      attacker_hits = team_roll(attacker)
+      defender_hits = team_roll(defender)
 
-      @attacker = team_hits(@defender_hits, @attacker)
-      @defender = team_hits(@attacker_hits, @defender)
-
+      team_hits(defender_hits, attacker)
+      team_hits(attacker_hits, defender)
     end
 
 
@@ -110,32 +112,32 @@ class BattleCalculatorController < ApplicationController
 
     def update_starting_units
       a = params[:attacker]
-      @attacker.units.all.zip(a).each do |x|
+      attacker.units.all.zip(a).each do |x|
         x.first.update(count:x.second.second)
       end
       d = params[:defender]
-      @defender.units.all.zip(d).each do |x|
+      defender.units.all.zip(d).each do |x|
         x.first.update(count:x.second.second)
       end
     end
 
     def update_bc
-      @bc.update(current_simulation:1)
-      @bc.update(current_round:1)
+      @bc.update(current_simulation: 1)
+      @bc.update(current_round: 1)
       # @bc.update(max_simulations:params[:maxsimulations])
       # @bc.update(max_round:params[:maxround])
-      @bc.update(winner:"")
+      @bc.update(winner: "")
       @bc.teams.all.each do |t|
-        t.update(wins:0)
-        t.update(loses:0)
-        t.update(starting_land:0)
-        t.update(starting_air:0)
-        t.update(starting_water:0)
+        t.update(wins: 0)
+        t.update(loses: 0)
+        t.update(starting_land: 0)
+        t.update(starting_air: 0)
+        t.update(starting_water: 0)
         count = 0
         t.units.all.each do |u|
           count = count + u.count
         end
-        t.update(starting_units:count)
+        t.update(starting_units: count)
       end
     end
 
@@ -146,5 +148,13 @@ class BattleCalculatorController < ApplicationController
 
     def battle_calculator_params
       params.require(:battle_calculator).permit(:game_version,:battle_type)
+    end
+
+    def attacker
+      @bc.teams.first
+    end
+
+    def defender
+      @bc.teams.second
     end
 end
