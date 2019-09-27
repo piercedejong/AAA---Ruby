@@ -24,14 +24,11 @@ class BattleCalculatorController < ApplicationController
           Unit.create_1940Amphibious(@battle_calculator.teams.second)
         end
       elsif battle_calculator_params[:game_version].eql?"1942"
-
+        #Something
       else
-
       end
-      redirect_to battle_calculator_index_path
-    else
-      redirect_to battle_calculator_index_path
     end
+    redirect_to battle_calculator_index_path
   end
 
   def simulation
@@ -52,11 +49,7 @@ class BattleCalculatorController < ApplicationController
       while attacker.current_units > 0 && defender.current_units > 0
         round
       end
-      if attacker.current_units <= 0
-        defender.update(wins: defender.wins+1)
-      elsif defender.current_units <= 0
-        attacker.update(wins: attacker.wins+1)
-      end
+      update_winner
     end
 
     def water_battle
@@ -65,6 +58,13 @@ class BattleCalculatorController < ApplicationController
     def amphibious_battle
     end
 
+    def update_winner
+      if attacker.current_units <= 0
+        defender.update(wins: defender.wins+1)
+      elsif defender.current_units <= 0
+        attacker.update(wins: attacker.wins+1)
+      end
+    end
 
     def round
       attacker_hits = team_roll(attacker)
