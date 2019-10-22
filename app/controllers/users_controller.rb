@@ -17,19 +17,17 @@ class UsersController < ApplicationController
           if @user.save
             cookies.permanent.signed[:permanent_user_id] = @user.uuid
             session[:user_id] = @user.uuid
-            @battle = BattleCalculator.create
-            @battle.update(user_id: @user.id)
-
-            @team = Team.create
-            @team.update(battle_calculator_id: @battle.id)
-            @team.update(attacker: true)
-            Unit.create_1940Land(@team)
-
-            @team = Team.create
-            @team.update(battle_calculator_id: @battle.id)
-            Unit.create_1940Land(@team)
-
-            binding.pry
+            # @battle = BattleCalculator.create
+            # @battle.update(user_id: @user.id)
+            #
+            # @team = Team.create
+            # @team.update(battle_calculator_id: @battle.id)
+            # @team.update(attacker: true)
+            # Unit.create_1940Land(@team)
+            #
+            # @team = Team.create
+            # @team.update(battle_calculator_id: @battle.id)
+            # Unit.create_1940Land(@team)
 
             format.html { redirect_to root_path }
           else

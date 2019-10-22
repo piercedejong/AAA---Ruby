@@ -12,10 +12,11 @@ default: &default
 development:
   adapter: postgresql
   encoding: unicode
-  database: aaa_online_development
+  database: aaa_development
   pool: 5
-  username: pierce
+  username: piercedejong
   password:
+  host: localhost
   timeout: 5000
 
 # Warning: The database defined as "test" will be erased and
@@ -24,10 +25,11 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: aaa_online_test
+  database: aaa_test
   pool: 5
-  username: pierce
+  username: piercedejong
   password:
+  host: localhost
   timeout: 5000
 
 production:
