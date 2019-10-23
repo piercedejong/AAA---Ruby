@@ -6,7 +6,7 @@
       <div class="nation-name"><%= n.name %></div>
       <div class="money">
         <div id="<%=n.name%>-bank"><%=n.bank%></div>
-        <div id="<%=n.name%>-divider">|</div>
+        <div id="<%=n.name%>-divider" style="padding-left:2px;padding-right:2px;">|</div>
         <div id="<%=n.name%>-income"><%=n.total_income%></div>
       </div>
     </div>
@@ -130,6 +130,7 @@
 <script>
   var name = "<%= current_nation.name %>"
   $(document).ready(c_nation_opacity(name));
+  $(document).ready(eco_nation_opacity());
   $(document).ready(game_padding_resize());
   <%current_nation.researches.all.each do |r| %>
   <%  if ["Mass Production", "Improved Shipyards"].include? r.name and r.enabled%>

@@ -41,7 +41,12 @@ class Game < ApplicationRecord
   end
 
   def reset_units
-    self.units.each {|u| u.update(count: 0)}
+    bank = 0
+    self.units.each { |u|
+      bank += u.count*u.cost
+      u.update(count: 0)
+    }
+    return bank
   end
 
   def eco_to_current

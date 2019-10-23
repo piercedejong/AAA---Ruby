@@ -96,6 +96,7 @@ function change_eco_forward() {
 	})
   .done(function(response) {
   	change_eco_nation(response)
+		eco_nation_opacity()
   })
 }
 
@@ -106,6 +107,7 @@ function change_eco_backward() {
 	})
   .done(function(response) {
   	change_eco_nation(response)
+		eco_nation_opacity()
   })
 }
 
@@ -198,10 +200,12 @@ function home() {
 function change_eco_nation(response){
 	$("#change-eco").text(response["nation"]);
 	$("#change-eco").css("background",response["color"])
+	//$("#change-eco").css("color",response["colorL"])
 	$("#eco-bank").text("Bank "+response["bank"]);
 	$("#eco-income").text("Income "+response["income"]);
 	$(".change-eco-pos").css("background",response["color"])
 	$(".change-eco-neg").css("background",response["colorL"])
+	eco_nation_opacity()
 	//$("#objective").css("background",response["color"]);
 	$("#objective").attr("href", "/nations/"+response["uuid"]);
 	//$("#victory").css("background",response["color"]);
@@ -258,23 +262,28 @@ function copy(element) {
 function c_nation_opacity(name) {
 	var nat = name;
 	var c = $("#c-nation-card").css('background-color');
-	var rgba = opacity(c);
+	var rgba = opacity(c,0.8);
 	$("#c-nation-card").css('background-color', rgba);
 	$(".tablerow1").css('background-color', rgba);
 	$(".nation").css('background-color', "transparent");
 	$("#"+nat).css('background-color', rgba);
+}
 
+function eco_nation_opacity(){
+	var c = $("#change-eco").css('background-color');
+	var rgba = opacity(c,0.8);
+	$("#change-eco").css('background-color', rgba);
 }
 
 function edit_nation_opacity(name){
 	var c = $("#"+name).css('background-color');
-	var rgba = opacity(c);
+	var rgba = opacity(c,0.8);
 	$(".edit-"+name).css('background-color',rgba);
 }
 
-function opacity(color){
+function opacity(color, percent){
 	var rgb = color.replace(/^rgba?\(|\s+|\)$/g,'').split(',');
-	var rgba = "rgba("+rgb[0]+","+rgb[1]+","+rgb[2]+",0.8)";
+	var rgba = "rgba("+rgb[0]+","+rgb[1]+","+rgb[2]+","+percent+")";
 	return rgba
 }
 

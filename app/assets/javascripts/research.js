@@ -10,6 +10,7 @@ function research(element) {
   .done(function(response) {
     if(response){
       $("#"+response["id"]).css("background",response["color"]);
+        $("#"+response["id"]).css("color","#f9f2de");
     }
   })
 }
