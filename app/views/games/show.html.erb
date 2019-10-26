@@ -1,5 +1,19 @@
 <% content_for :title, "aaa - "+@game.name %>
-
+<div class="top">
+<div class="d-flex w-100 p-1 top-bar">
+  <%= link_to "Exit", root_path, class:"btn btn-default btn-switch", role:"button" %>
+  <div class="d-flex ml-auto">
+    <%= link_to "National Objectives", nation_path(current_eco.uuid), class:"btn btn-default btn-switch mx-1", role:"button" %>
+    <div class="vertical-line"></div>
+    <% if is_1940_game%>
+      <%= link_to "Research and Development", research_path(current_game.uuid), class:"btn btn-default btn-switch mx-1", role:"button" %>
+    <% end %>
+    <% if is_victories_game %>
+      <div class="vertical-line"></div>
+      <%= link_to "Victory Objectives", victory_path(current_game.uuid), class:"btn btn-default btn-switch mx-1", role:"button" %>
+    <%end %>
+  </div>
+</div>
 <div class="nations d-flex">
   <% @game.nations.all.each do |n| %>
     <div id="<%=n.name%>" class="nation mx-auto pl-1 pr-1 shadow-text" style="color:<%=n.color%>;border-radius:0.5rem">
@@ -12,8 +26,8 @@
     </div>
   <%end%>
 </div>
-
-<div class="container container-game" style="max-width:100%">
+</div>
+<div class="container container-game" style="max-width:100%;">
   <div class="row">
     <div class="col-sm-8">
       <table class="table table-condensed w-100">

@@ -33,9 +33,17 @@
   color:#262626 !important;
 }
 
-.nations {
+.top{
   position:fixed;
   z-index:99;
+  //background-color:rgba(150,150,150,0.75);
+  width:100%;
+  flex-wrap: wrap;
+}
+
+.nations {
+  // position:fixed;
+  // z-index:99;
   background-color:rgba(150,150,150,0.75);
   width:100%;
   flex-wrap: wrap;
