@@ -1,7 +1,7 @@
 <% content_for :title, "aaa - "+@game.name %>
 <div class="top">
 <div class="d-flex w-100 p-1 top-bar">
-  <%= link_to "Exit", root_path, class:"btn btn-default btn-switch", role:"button" %>
+  <%= link_to "Home", root_path, class:"btn btn-default btn-switch", role:"button" %>
   <div class="d-flex ml-auto">
     <%= link_to "National Objectives", nation_path(current_eco.uuid), class:"btn btn-default btn-switch mx-1", role:"button" %>
     <div class="vertical-line"></div>
@@ -110,23 +110,11 @@
           </tr>
         </tbody>
       </table>
-      <div class="mt-4">
-        <% if is_1940_game%>
-          <%= link_to "National Objectives", nation_path(current_eco.uuid), id: "objective", class:"btn btn-default btn-side btn-block ", role: "button", x:"background:"+current_eco.color %>
-          <%= link_to "Research and Development", research_path(current_game.uuid), id: "research", class:"btn btn-default btn-side btn-block ", role: "button", x: "background:"+current_eco.color %>
-        <%end%>
-        <%if is_victories_game%>
-          <%= link_to "Victory Objectives", victory_path(current_game.uuid), id: "victory", class:"btn btn-default btn-change btn-side btn-block ", role: "button", x:"background:"+current_eco.color %>
-        <%end%>
-      </div>
     </div>
   </div>
 </div>
 
 <div id="bottom-row" class="pb-1 d-flex bottom-aligned w-100">
-  <div class="pl-1 mt-auto">
-      <%= link_to "Exit", root_path, class:"btn btn-default btn-back shadow-text", role:"button" %>
-  </div>
   <div id="c-nation-body" class="d-flex mt-auto mx-auto pb-1">
     <button id="reset-buy" class="btn btn-default btn-reset-buy my-auto" onclick="reset_buy()" role="button">Reset Buy</button>
     <div id="c-nation-card" class="d-flex c-nation" style="background-color:<%=current_nation.colorL%>">
