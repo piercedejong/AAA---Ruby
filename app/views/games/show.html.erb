@@ -16,7 +16,7 @@
 </div>
 <div class="nations d-flex">
   <% @game.nations.all.each do |n| %>
-    <div id="<%=n.name%>" class="nation mx-auto pl-3 pr-3 pt-3 shadow-text" style="color:<%=n.color%>;border-radius:0.5rem">
+    <div id="<%=n.name%>" class="nation mx-auto shadow-text" style="color:<%=n.color%>;border-radius:0.5rem">
       <div class="w-100">
         <%=image_tag n.flag , id:"", class:"mx-auto flag"%>
       </div>

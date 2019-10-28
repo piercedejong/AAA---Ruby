@@ -51,7 +51,12 @@
   // z-index:99;
   background-color:rgba(150,150,150,0.75);
   width:100%;
+
   flex-wrap: wrap;
+}
+.nation{
+  padding:1rem;
+  padding-bottom:0rem;
 }
 .nation-name {
   font-size: 5rem;
@@ -184,6 +189,14 @@ tr.change>td{
 @media only screen and (max-width: 823px){
   .nation-name,.money{
     font-size: 2rem;
+  }
+
+  .nation{
+    padding:0rem !important;
+  }
+
+  .flag{
+    height:2rem;
   }
 
   .special{
