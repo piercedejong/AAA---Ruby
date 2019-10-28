@@ -54,12 +54,14 @@ function end_turn() {
 		$('.tablerow2').each(function(){
 			//$(this).css("color", response["colorL"])
 		})
-		$(".table-top").css("color",response["color"]);
+
+		//$(".table-top").css("color",response["color"]);
 		if(response["nation"] == 'Germany'){
-		//	$(".table-top").removeClass("shadow-text");
+			//$(".table-top").removeClass("shadow-text");
 		}else{
-		//	$(".table-top").addClass("shadow-text");
+			//$(".table-top").addClass("shadow-text");
 		}
+
     $('.count').text("0");
 		change_eco_nation(response);
 

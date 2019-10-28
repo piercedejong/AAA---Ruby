@@ -34,27 +34,23 @@
   <div class="row">
     <div class="col-sm-1"></div>
     <div class="col-sm-8">
-      <table class="table table-condensed w-100">
+      <table class="table table-condensed table-borderless w-100" style="background:rgba(150,150,150,0.75); border-radius:2rem">
           <thead>
             <tr id="unit-table-top"style="" class="">
-              <th class="text-center">Count</th>
-              <th class="text-center">Buy</th>
-              <th class="text-center">Name</th>
-              <th class="text-center">A</th>
-              <th class="text-center">D</th>
-              <th class="text-center">M</th>
+              <th class="table-top text-center">Count</th>
+              <th class="table-top text-center">Buy</th>
+              <th class="table-top text-center">Name</th>
+              <th class="table-top text-center">A</th>
+              <th class="table-top text-center">D</th>
+              <th class="table-top text-center">M</th>
               <% if !current_game.units.first.special.eql? "" %>
-                <th class="text-center special">Special Ability</th>
+                <th class="table-top text-center special">Special Ability</th>
               <%end%>
             </tr>
           </thead>
           <tbody class="unit-table">
             <% current_game.units.each do |u| %>
-              <% if u.uid%2 ==  0 %>
-                <tr class="tablerow1">
-              <% else %>
-                <tr class="tablerow2 shadow-text">
-              <% end %>
+                <tr class="tablerow">
                 <td id="<%=u.uid%>" class=" text-center count" style="font-weight:bold"><%= u.count %></td>
                 <td class="text-center"><button data-uid="<%=u.uid%>" id="<%=u.name%>" onclick="buy_unit(this)" style="background:<%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="<%=u.name%> btn btn-unit btn-default btn-block shadow-text" role="button">$<%= u.cost %></button></td>
                 <td class="text-center nowrap"><%= u.name %></td>
@@ -65,7 +61,10 @@
                   <td class="special">
                     <div class="d-flex my-auto" style="flex-wrap:wrap;">
                       <% u.specials.each do |s|  %>
-                      <div id="" class="unit-tooltip mr-4"><div class="unit-tooltiptext mt-4"><%=s.info%></div><strong><%= s.title %></strong></div>
+                      <div id="" class="unit-tooltip"><div class="unit-tooltiptext mt-4"><%=s.info%></div><%= s.title %></div>
+                      <% if !s.eql? u.specials.last %>
+                        <div class="special-vertical-line mx-2"></div>
+                      <% end %>
                       <% end %>
                     </div>
                   </td>

@@ -1,5 +1,6 @@
 class Special < ApplicationRecord
-  
+    default_scope { order(created_at: :asc) }
+    
   protected
 
   def self.create_1940_house(game)

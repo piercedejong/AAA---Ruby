@@ -7,6 +7,11 @@
   margin: 1rem;
 }
 
+.special-vertical-line{
+  border-left: solid 2px;
+  border-color: rgb(0,0,0);
+}
+
 .unit-tooltiptext {
   visibility: hidden;
   background-color: rgb(180,180,180);
@@ -125,10 +130,11 @@ tr.spaceUnder>td {
 }
 
 #unit-table-top {
-  font-weight: normal !important;
-  font-size:2.25rem;
-  background-color:rgb(150,150,150);
+  //font-weight: normal !important;
+  font-size:2.5rem;
+  //background-color:rgb(150,150,150);
   color:#262626;
+  border-color: red;
 }
 
 tr.change>td{
