@@ -16,7 +16,10 @@
 </div>
 <div class="nations d-flex">
   <% @game.nations.all.each do |n| %>
-    <div id="<%=n.name%>" class="nation mx-auto pl-1 pr-1 shadow-text" style="color:<%=n.color%>;border-radius:0.5rem">
+    <div id="<%=n.name%>" class="nation mx-auto pl-3 pr-3 pt-3 shadow-text" style="color:<%=n.color%>;border-radius:0.5rem">
+      <div class="w-100">
+        <%=image_tag n.flag , id:"", class:"mx-auto flag"%>
+      </div>
       <div class="nation-name"><%= n.name %></div>
       <div class="money">
         <div id="<%=n.name%>-bank"><%=n.bank%></div>
@@ -29,6 +32,7 @@
 </div>
 <div class="container container-game" style="max-width:100%;">
   <div class="row">
+    <div class="col-sm-1"></div>
     <div class="col-sm-8">
       <table class="table table-condensed w-100">
           <thead>
@@ -71,8 +75,8 @@
           </tbody>
       </table>
     </div>
-    <div class="col-sm-1"></div>
-    <div class="col-sm-3">
+
+    <div class="col-sm-2">
       <div class="d-flex shadow-text">
         <div class="my-auto p-0 mr-1"><button id="change-eco-backward" class="btn-change-eco p-0 my-auto" onclick="change_eco_backward()"><span><i class="fas fa-arrow-circle-left change-eco-card"></i></span></button></div>
         <div id="change-eco" style="background:<%=current_eco.color%>" class="text-center shadow-text mb-2 mt-1"><%=current_eco.name%></div>
@@ -111,6 +115,7 @@
         </tbody>
       </table>
     </div>
+    <div class="col-sm-1"></div>
   </div>
 </div>
 
