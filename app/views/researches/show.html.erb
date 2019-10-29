@@ -13,11 +13,11 @@
     <%end %>
   </div>
 </div>
-<div class="container-fluid">
-  <div class="text-center v-title shadow-text objective-card mx-auto" style="padding-top:40px;padding-bottom:10px">Research and Development</div>
-  <div class="row">
+<div class="container-fluid" style="padding-top:30px">
+  <div class="text-center v-title shadow-text objective-card mx-auto mt-4" style="">Research and Development</div>
+  <div class="row" style="padding-top:1rem">
     <div class="col-sm-3 left-research-col">
-      <table class="table table-condensed table-research text-center">
+      <table class="table table-condensed table-research text-center table-borderless">
         <thead>
           <tr id="1" class="chart-1">
             <% current_nation.researches.each do |r| %>
@@ -45,7 +45,7 @@
       </table>
     </div>
     <div class="col-sm-3 right-research-col">
-      <table class="table table-condensed table-research text-center">
+      <table class="table table-condensed table-research text-center table-borderless">
         <thead>
           <tr id="2" class="chart-1">
             <% current_nation.researches.each do |r| %>
@@ -74,7 +74,7 @@
     </div>
 
     <div class="col-sm-3 left-research-col">
-      <table class="table table-condensed table-research text-center">
+      <table class="table table-condensed table-research text-center table-borderless">
         <thead>
           <tr id="3" class="chart-2">
             <% current_nation.researches.each do |r| %>
@@ -91,7 +91,7 @@
                 <% n.researches.all.each do |r| %>
                   <% if r.rid >5 and r.rid < 9 %>
                     <td class="w-33">
-                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block <%= r.enabled ? "btn-research-enabled" : "btn-research"%>" style=";<%= r.enabled ? "background:"+n.color+";" : ""%>;" role="button"><%=n.name%></button>
+                      <button data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block <%= r.enabled ? "btn-research-enabled" : "btn-research"%>" style=";<%= r.enabled ? "background:"+n.color+";" : ""%>;" role="button"><%=n.name%></button>
                     </td>
                   <%end%>
                 <%end%>
@@ -102,7 +102,7 @@
       </table>
     </div>
     <div class="col-sm-3 right-research-col">
-      <table class="table table-condensed table-research text-center">
+      <table class="table table-condensed table-research text-center table-borderless">
         <thead>
           <tr id="4" class="chart-2">
             <% current_nation.researches.each do |r| %>
