@@ -31,7 +31,6 @@
 
 <% else %>
 <% content_for :title, "aaa - login" %>
-<div class="title text-center shadow-text">Axis and Allies Economy</div>
 <!--<%= image_tag "title.png" , :id=> "title"%>-->
 <div class="container" style="padding-top:2vw">
   <div class="row content">
@@ -41,7 +40,7 @@
       <div class="card">
       <article class="card-body">
         <%= link_to 'Sign Up', signup_path, :id=>"sign-up", :class=>"btn btn-outline-primary float-right", :role=>"button" %>
-      	<h1 class="card-title mb-4 mt-1">Sing in</h1>
+      	<h1 class="card-title mb-4 mt-1" style="color:black">Sing in</h1>
         <p>
           <a class="btn btn-block btn-outline-info" href="<%= '/auth/google' %>"><i class="fab fa-google"></i>   Login via Google</a>
         </p>
