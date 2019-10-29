@@ -2,6 +2,11 @@
 <div class="top">
 <div class="d-flex w-100 p-1 top-bar">
   <%= link_to "Home", root_path, class:"btn btn-default btn-switch", role:"button" %>
+  <div class="vertical-line"></div>
+  <%= link_to "Help", root_path, class:"btn btn-default btn-switch", role:"button" %>
+  <div class="ml-auto h-100">
+    <div class="text-center title game-title h-100">Axis and Allies Economy</div>
+  </div>
   <div class="d-flex ml-auto">
     <%= link_to "National Objectives", nation_path(current_eco.uuid), class:"btn btn-default btn-switch mx-1", role:"button" %>
     <div class="vertical-line"></div>
@@ -35,9 +40,9 @@
     <div class="col-sm-1"></div>
     <div class="col-sm-8">
       <div class="grey-background round mt-3">
-        <table class="table table-condensed table-borderless w-100 p-0" >
+        <table class="unit-table table table-condensed table-borderless w-100 p-0" style="height:300px;overflow-y: scroll;" >
             <thead>
-              <tr id="unit-table-top">
+              <tr class="unit-table-top">
                 <th class="table-top text-center">Count</th>
                 <th class="table-top text-center">Buy</th>
                 <th class="table-top text-center">Name</th>
@@ -49,7 +54,7 @@
                 <%end%>
               </tr>
             </thead>
-            <tbody class="unit-table">
+            <tbody class="unit-table-body">
               <% current_game.units.each do |u| %>
                   <tr class="tablerow">
                   <td id="<%=u.uid%>" class=" text-center count" style="font-weight:bold"><%= u.count %></td>

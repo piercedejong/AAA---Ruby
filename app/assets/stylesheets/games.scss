@@ -134,14 +134,15 @@ tr.spaceUnder>td {
   font-size: 2vw;
 }
 
-#unit-table-top {
-  //font-weight: normal !important;
-  font-size:2.5rem;
-  //background-color:rgb(150,150,150);
+.unit-table{
+  //display: block;
+}
+
+.unit-table-top {
+  font-size:2rem;
   color:#262626;
   border-bottom: 2px solid;
   border-color: rgb(255,255,255);
-  margin-bottom:10px;
 }
 
 tr.change>td{
@@ -177,7 +178,7 @@ tr.change>td{
   padding-bottom:0rem;
 }
 
-.unit-table{
+.unit-table-body{
   font-size: 1.6rem;
 }
 
@@ -242,5 +243,14 @@ tr.change>td{
 
   .btn-change{
     padding: 0.1rem
+  }
+
+  .unit-table{
+    display: block;
+  }
+
+  .unit-table-body{
+    max-height: 190px !important;
+    overflow-y: scroll;
   }
 }
