@@ -79,7 +79,8 @@ function end_turn() {
 		$("#c-nation-card").css('background-color', response["colorL"])
 		$("#c-nation-card").css('border-color', response["color"])
 		$(".nation").css('background-color', "transparent")
-		$(".nation").css("border", "0px solid");
+		$(".nation").css('border-color', "transparent")
+		//$(".nation").css("border", "3px solid");
 		c_nation_opacity(response["nation"])
   })
 }
@@ -200,13 +201,13 @@ function buy_pacific(element) {
 	  url: window.location.origin + '/game/buy_pacific'
 	})
 	.done(function(response) {
+		$(".nation").css("border-color", "transparent");
 		$("#c-nation").text(response["nation"]+"-"+response["bank"]);
     $("#c-nation").css("color",response["color"]);
 		$('#end-turn').css("background",response["color"]);
 		$('#roundel').attr("src","/assets/"+response['roundel']);
 		$('.count').text("0");
 		change_eco_nation(response);
-		$(".nation").css("border", "0px solid");
 		c_nation_opacity(response["nation"])
 		$("#end-turn").show();
 	})
