@@ -229,6 +229,18 @@ class GamesController < ApplicationController
     end
   end
 
+  def reset_turn
+    current_game.reset_units
+    current_nation.update(bank: current_game.bank)  # Reset everything inlcuding added money
+    #current_nation.update(bank: current_nation.bank+cost) # Reset only bought units moeny
+    if request.xhr?
+      render :json => {
+        nation: current_nation.name,
+        bank: current_nation.bank,
+      }
+    end
+  end
+
   def reset_victory_research
     current_game.victories.each do |v|
       v.update(enabled: false)
