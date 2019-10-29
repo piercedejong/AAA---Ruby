@@ -14,7 +14,7 @@
     <%end %>
   </div>
 </div>
-<div class="nations d-flex">
+<div class="nations d-flex grey-background p-0">
   <% @game.nations.all.each do |n| %>
     <div id="<%=n.name%>" class="nation mx-auto shadow-text" style="color:<%=n.color%>;border-radius:0.5rem">
       <div class="w-100">
@@ -34,85 +34,91 @@
   <div class="row">
     <div class="col-sm-1"></div>
     <div class="col-sm-8">
-      <table class="table table-condensed table-borderless w-100" style="background:rgba(150,150,150,0.75); border-radius:2rem">
-          <thead>
-            <tr id="unit-table-top"style="" class="">
-              <th class="table-top text-center">Count</th>
-              <th class="table-top text-center">Buy</th>
-              <th class="table-top text-center">Name</th>
-              <th class="table-top text-center">A</th>
-              <th class="table-top text-center">D</th>
-              <th class="table-top text-center">M</th>
-              <% if !current_game.units.first.special.eql? "" %>
-                <th class="table-top text-center special">Special Ability</th>
-              <%end%>
-            </tr>
-          </thead>
-          <tbody class="unit-table">
-            <% current_game.units.each do |u| %>
-                <tr class="tablerow">
-                <td id="<%=u.uid%>" class=" text-center count" style="font-weight:bold"><%= u.count %></td>
-                <td class="text-center"><button data-uid="<%=u.uid%>" id="<%=u.name%>" onclick="buy_unit(this)" style="background:<%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="<%=u.name%> btn btn-unit btn-default btn-block shadow-text" role="button">$<%= u.cost %></button></td>
-                <td class="text-center nowrap"><%= u.name %></td>
-                <td class="text-center"><%= u.attack %></td>
-                <td class="text-center"><%= u.defense %></td>
-                <td class="text-center"><%= u.movement %></td>
+      <div class="grey-background round mt-3">
+        <table class="table table-condensed table-borderless w-100 p-0" >
+            <thead>
+              <tr id="unit-table-top">
+                <th class="table-top text-center">Count</th>
+                <th class="table-top text-center">Buy</th>
+                <th class="table-top text-center">Name</th>
+                <th class="table-top text-center">A</th>
+                <th class="table-top text-center">D</th>
+                <th class="table-top text-center">M</th>
                 <% if !current_game.units.first.special.eql? "" %>
-                  <td class="special">
-                    <div class="d-flex my-auto" style="flex-wrap:wrap;">
-                      <% u.specials.each do |s|  %>
-                      <div id="" class="unit-tooltip"><div class="unit-tooltiptext mt-4"><%=s.info%></div><%= s.title %></div>
-                      <% if !s.eql? u.specials.last %>
-                        <div class="special-vertical-line mx-2"></div>
-                      <% end %>
-                      <% end %>
-                    </div>
-                  </td>
-                <% end%>
+                  <th class="table-top text-center special">Special Ability</th>
+                <%end%>
               </tr>
-            <% end %>
-          </tbody>
-      </table>
+            </thead>
+            <tbody class="unit-table">
+              <% current_game.units.each do |u| %>
+                  <tr class="tablerow">
+                  <td id="<%=u.uid%>" class=" text-center count" style="font-weight:bold"><%= u.count %></td>
+                  <td class="text-center"><button data-uid="<%=u.uid%>" id="<%=u.name%>" onclick="buy_unit(this)" style="background:<%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="<%=u.name%> btn btn-unit btn-default btn-block shadow-text" role="button">$<%= u.cost %></button></td>
+                  <td class="text-center nowrap"><%= u.name %></td>
+                  <td class="text-center"><%= u.attack %></td>
+                  <td class="text-center"><%= u.defense %></td>
+                  <td class="text-center"><%= u.movement %></td>
+                  <% if !current_game.units.first.special.eql? "" %>
+                    <td class="special">
+                      <div class="d-flex my-auto" style="flex-wrap:wrap;">
+                        <% u.specials.each do |s|  %>
+                        <div id="" class="unit-tooltip"><div class="unit-tooltiptext mt-4"><%=s.info%></div><%= s.title %></div>
+                        <% if !s.eql? u.specials.last %>
+                          <div class="special-vertical-line mx-2"></div>
+                        <% end %>
+                        <% end %>
+                      </div>
+                    </td>
+                  <% end%>
+                </tr>
+              <% end %>
+            </tbody>
+        </table>
+      </div>
+
     </div>
 
-    <div class="col-sm-2">
-      <div class="d-flex shadow-text">
-        <div class="my-auto p-0 mr-1"><button id="change-eco-backward" class="btn-change-eco p-0 my-auto" onclick="change_eco_backward()"><span><i class="fas fa-arrow-circle-left change-eco-card"></i></span></button></div>
-        <div id="change-eco" style="background:<%=current_eco.color%>" class="text-center shadow-text mb-2 mt-1"><%=current_eco.name%></div>
-        <div class="my-auto p-0 ml-1 "><button id="change-eco-forward" class="btn-change-eco p-0 my-auto" onclick="change_eco_forward()"><span><i class="fas fa-arrow-circle-right change-eco-card"></i></span></button></div>
+    <div class="col-sm-2" style="">
+      <div class="grey-background round mt-3">
+        <div class="d-flex shadow-text">
+          <div class="my-auto p-0 mr-1"><button id="change-eco-backward" class="btn-change-eco p-0 my-auto" onclick="change_eco_backward()"><span><i class="fas fa-arrow-circle-left change-eco-card"></i></span></button></div>
+          <div id="change-eco" style="background:<%=current_eco.colorL%>;color:<%=current_eco.color%>" class="text-center shadow-text mb-2 mt-1"><%=current_eco.name%></div>
+          <div class="my-auto p-0 ml-1 "><button id="change-eco-forward" class="btn-change-eco p-0 my-auto" onclick="change_eco_forward()"><span><i class="fas fa-arrow-circle-right change-eco-card"></i></span></button></div>
+        </div>
+        <table class="w-100 mb-1">
+          <tbody>
+            <tr class="change">
+              <td class="text-center nowrap shadow-text mb-4"><div class="economy-card mr-1 mb-1" id="eco-bank">Bank <%=current_eco.bank%></div></td>
+              <td class="text-center nowrap shadow-text mb-4"><div class="economy-card ml-1 mb-1" id="eco-income">Income <%=current_eco.income%></div></td>
+            </tr>
+            <tr class="change">
+              <td><button data-amount="1" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center btn-default btn-block btn btn-change shadow-text" role="button">+1</button></td>
+              <td><button data-amount="1" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center btn-default btn-block btn btn-change shadow-text" role="button">+1</button></td>
+            </tr>
+            <tr class="change">
+              <td><button data-amount="-1" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center btn-default btn-block btn btn-change shadow-text" role="button">-1</button></td>
+              <td><button data-amount="-1" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center btn-default btn-block btn btn-change shadow-text" role="button">-1</button></td>
+            </tr>
+            <tr class="change">
+              <td><button data-amount="5" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center btn-default btn-block btn btn-change shadow-text" role="button">+5</button></td>
+              <td><button data-amount="5" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center btn-default btn-block btn btn-change shadow-text" role="button">+5</button></td>
+            </tr>
+            <tr class="change">
+              <td><button data-amount="-5" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center btn-default btn-block btn btn-change shadow-text" role="button">-5</button></td>
+              <td><button data-amount="-5" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center btn-default btn-block btn btn-change shadow-text" role="button">-5</button></td>
+            </tr>
+            <tr class="change">
+              <td><button data-amount="10" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center btn-default btn-block btn btn-change shadow-text" role="button">+10</button></td>
+              <td><button data-amount="10" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center btn-default btn-block btn btn-change shadow-text" role="button">+10</button></td>
+            </tr>
+            <tr class="change">
+              <td><button data-amount="-10" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center btn-default btn-block btn btn-change shadow-text" role="button">-10</button></td>
+              <td><button data-amount="-10" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center btn-default btn-block btn btn-change shadow-text" role="button">-10</button></td>
+            </tr>
+          </tbody>
+        </table>
       </div>
-      <table class="w-100 mb-1">
-        <tbody>
-          <tr class="change">
-            <td class="text-center nowrap shadow-text mb-4"><div class="economy-card mr-1 mb-1" id="eco-bank">Bank <%=current_eco.bank%></div></td>
-            <td class="text-center nowrap shadow-text mb-4"><div class="economy-card ml-1 mb-1" id="eco-income">Income <%=current_eco.income%></div></td>
-          </tr>
-          <tr class="change">
-            <td><button data-amount="1" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center btn-default btn-block btn btn-change shadow-text" role="button">+1</button></td>
-            <td><button data-amount="1" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center btn-default btn-block btn btn-change shadow-text" role="button">+1</button></td>
-          </tr>
-          <tr class="change">
-            <td><button data-amount="-1" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center btn-default btn-block btn btn-change shadow-text" role="button">-1</button></td>
-            <td><button data-amount="-1" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center btn-default btn-block btn btn-change shadow-text" role="button">-1</button></td>
-          </tr>
-          <tr class="change">
-            <td><button data-amount="5" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center btn-default btn-block btn btn-change shadow-text" role="button">+5</button></td>
-            <td><button data-amount="5" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center btn-default btn-block btn btn-change shadow-text" role="button">+5</button></td>
-          </tr>
-          <tr class="change">
-            <td><button data-amount="-5" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center btn-default btn-block btn btn-change shadow-text" role="button">-5</button></td>
-            <td><button data-amount="-5" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center btn-default btn-block btn btn-change shadow-text" role="button">-5</button></td>
-          </tr>
-          <tr class="change">
-            <td><button data-amount="10" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center btn-default btn-block btn btn-change shadow-text" role="button">+10</button></td>
-            <td><button data-amount="10" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center btn-default btn-block btn btn-change shadow-text" role="button">+10</button></td>
-          </tr>
-          <tr class="change">
-            <td><button data-amount="-10" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center btn-default btn-block btn btn-change shadow-text" role="button">-10</button></td>
-            <td><button data-amount="-10" onclick="change_income(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center btn-default btn-block btn btn-change shadow-text" role="button">-10</button></td>
-          </tr>
-        </tbody>
-      </table>
+
     </div>
     <div class="col-sm-1"></div>
   </div>
@@ -121,7 +127,7 @@
 <div id="bottom-row" class="pb-1 d-flex bottom-aligned w-100">
   <div id="c-nation-body" class="d-flex mt-auto mx-auto pb-1">
     <button id="reset-buy" class="btn btn-default btn-reset-buy my-auto" onclick="reset_buy()" role="button">Reset Buy</button>
-    <div id="c-nation-card" class="d-flex c-nation" style="background-color:<%=current_nation.colorL%>">
+    <div id="c-nation-card" class="d-flex c-nation" style="background-color:<%=current_nation.colorL%>;border: 3px solid; border-color:<%=current_nation.color%>">
       <%=image_tag current_nation.roundel , id:"roundel", class:"my-auto"%>
       <div id="c-nation" class="nation shadow-text text-center my-auto" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></div>
     </div>

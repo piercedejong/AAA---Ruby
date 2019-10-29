@@ -73,7 +73,9 @@ function end_turn() {
 			$("#end-turn").show();
 		}
 		$("#c-nation-card").css('background-color', response["colorL"])
+		$("#c-nation-card").css('border-color', response["color"])
 		$(".nation").css('background-color', "transparent")
+		$(".nation").css("border", "0px solid");
 		c_nation_opacity(response["nation"])
   })
 }
@@ -187,6 +189,7 @@ function buy_pacific(element) {
 		$('#roundel').attr("src","/assets/"+response['roundel']);
 		$('.count').text("0");
 		change_eco_nation(response);
+		$(".nation").css("border", "0px solid");
 		c_nation_opacity(response["nation"])
 		$("#end-turn").show();
 	})
@@ -201,8 +204,8 @@ function home() {
 
 function change_eco_nation(response){
 	$("#change-eco").text(response["nation"]);
-	$("#change-eco").css("background",response["color"])
-	//$("#change-eco").css("color",response["colorL"])
+	$("#change-eco").css("background",response["colorL"])
+	$("#change-eco").css("color",response["color"])
 	$("#eco-bank").text("Bank "+response["bank"]);
 	$("#eco-income").text("Income "+response["income"]);
 	$(".change-eco-pos").css("background",response["color"])
@@ -269,6 +272,8 @@ function c_nation_opacity(name) {
 	$(".tablerow1").css('background-color', rgba);
 	$(".nation").css('background-color', "transparent");
 	$("#"+nat).css('background-color', rgba);
+	$("#"+nat).css("border-color", c);
+	$("#"+nat).css("border", "3px solid");
 }
 
 function eco_nation_opacity(){
