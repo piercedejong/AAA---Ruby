@@ -135,7 +135,7 @@ tr.spaceUnder>td {
 }
 
 .unit-table{
-  //display: block;
+  display: block;
 }
 
 .unit-table-top {
@@ -204,10 +204,24 @@ tr.change>td{
   background-color: rgba(20,20,20,0.7);
   border-radius: 50% ;
 }
-
-@media only screen and (max-width: 823px){
+@media only screen and (max-width: 1200px){
   .nation-name,.money{
+    font-size: 3rem;
+  }
+  .money{
+    font-size: 2.25rem;
+  }
+  .flag{
+    height: 4rem;
+  }
+}
+
+@media only screen and (max-width: 1024px){
+  .nation-name{
     font-size: 2rem;
+  }
+  .money{
+    font-size: 1.5rem;
   }
 
   .nation{
@@ -218,11 +232,7 @@ tr.change>td{
     height:2rem;
   }
 
-  .special{
-    display: none
-  }
-
-  #reset-buy,#pacific{
+  #pacific{
     font-size: 1.25rem;
   }
 
@@ -244,13 +254,9 @@ tr.change>td{
   .btn-change{
     padding: 0.1rem
   }
-
-  .unit-table{
-    display: block;
-  }
-
-  .unit-table-body{
-    max-height: 190px !important;
-    overflow-y: scroll;
+}
+@media only screen and (max-width: 750px){
+  .special{
+    display: none
   }
 }

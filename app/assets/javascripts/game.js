@@ -23,7 +23,11 @@ function buy_unit(element) {
 
 function game_padding_resize(){
 	$(".container-game").css("padding-top", $(".top").height()+5);
-	$(".container-game").css("padding-bottom", $("#c-nation-body").height()+7);
+}
+
+function unit_table_resize(){
+	x = $(window).height() - $(".top").height() - $("#bottom-row").height() - 50;
+	$(".unit-table").css("max-height",x);
 }
 
 function end_turn() {
@@ -84,6 +88,19 @@ function reset_buy() {
   $.ajax({
     method: "GET",
     url: window.location.origin + '/game/reset_buy'
+  })
+  .done(function(response) {
+    $("#"+response["nation"]+"-bank").text(response["bank"]);
+		$("#c-nation").text(response["nation"]+"-"+response["bank"]);
+		$("#eco-bank").text("Bank "+response["bank"]);
+    $('.count').text("0");
+  })
+}
+
+function reset_turn() {
+  $.ajax({
+    method: "GET",
+    url: window.location.origin + '/game/reset_turn'
   })
   .done(function(response) {
     $("#"+response["nation"]+"-bank").text(response["bank"]);

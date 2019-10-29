@@ -87,8 +87,7 @@
 
 .btn-reset-buy {
   background-color:#ad5252;
-  margin-right: 0.2rem;
-  font-size: 2.5rem;
+  font-size: 2rem;
   margin:auto;
   margin-right:0.5rem;
   &:hover{
@@ -258,6 +257,10 @@
   }
 
   .btn-objective, .btn-objective-enabled{
+    font-size: 1.25rem;
+  }
+
+  .btn-reset-buy{
     font-size: 1.25rem;
   }
 }
