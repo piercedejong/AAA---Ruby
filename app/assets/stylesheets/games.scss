@@ -206,8 +206,20 @@ tr.change>td{
   background-color: rgba(20,20,20,0.7);
   border-radius: 50% ;
 }
-@media only screen and (max-width: 1200px){
-  .nation-name,.money{
+@media only screen and (max-width: 1406px){
+  .nation-name{
+    font-size: 3.5rem;
+  }
+  .money{
+    font-size: 2.5rem;
+  }
+  .flag{
+    height: 5rem;
+  }
+}
+
+@media only screen and (max-width: 1240px){
+  .nation-name{
     font-size: 3rem;
   }
   .money{
@@ -218,7 +230,67 @@ tr.change>td{
   }
 }
 
-@media only screen and (max-width: 1024px){
+@media only screen and (max-width: 1080px){
+  .nation-name{
+    font-size: 2.75rem;
+  }
+  .money{
+    font-size: 2rem;
+  }
+  .flag{
+    height: 3.5rem;
+  }
+}
+
+@media only screen and (max-width: 1000px){
+  .nation-name{
+    font-size: 2.25rem;
+  }
+  .money{
+    font-size: 1.75rem;
+  }
+  .flag{
+    height: 3.25rem;
+  }
+}
+
+@media only screen and (max-width: 892px){
+  .nation-name{
+    font-size: 2rem;
+  }
+  .money{
+    font-size: 1.5rem;
+  }
+  .flag{
+    height: 2.5rem;
+  }
+}
+
+@media only screen and (max-width: 785px){
+  .nation-name{
+    font-size: 1.75rem;
+  }
+  .money{
+    font-size: 1.25rem;
+  }
+  .flag{
+    height: 2rem;
+  }
+}
+
+@media only screen and (max-width: 673px){
+  .nation-name{
+    font-size: 2.5rem;
+  }
+  .money{
+    font-size: 2rem;
+  }
+  .flag{
+    height: 4rem;
+  }
+}
+
+@media only screen and (max-width: 500px){
   .nation-name{
     font-size: 2rem;
   }
