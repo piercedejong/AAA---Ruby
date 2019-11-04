@@ -30,48 +30,47 @@
 
 
 <% else %>
-<% content_for :title, "aaa - login" %>
+<% content_for :title, "aaa - log in" %>
 <!--<%= image_tag "title.png" , :id=> "title"%>-->
-<div class="container" style="padding-top:2vw">
-  <div class="row content">
-    <div class="col-sm-4">
-    </div>
-    <div class="col-sm-4">
-      <div class="card">
-      <article class="card-body">
-        <%= link_to 'Sign Up', signup_path, :id=>"sign-up", :class=>"btn btn-outline-primary float-right", :role=>"button" %>
-      	<h1 class="card-title mb-4 mt-1" style="color:black">Sing in</h1>
-        <p>
-          <a class="btn btn-block btn-outline-info" href="<%= '/auth/google' %>"><i class="fab fa-google"></i>   Login via Google</a>
-        </p>
-        <%= form_tag sessions_path do |form| %>
-        	<form>
-        	<div class="form-group">
-        	<div class="input-group">
-        		<div class="input-group-prepend">
-        		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-        		 </div>
+<div class="login-bar">
+  <div class="d-flex login-line">
+    <div class="title text-center pt-4 mt-4">Axis and Allies Economy</div>
+    <div class="login-form">
+      <%= form_tag sessions_path, :class => 'd-flex' do |form| %>
+        <form class="">
+          <div class="form-group login-group">
+          <div class="login-info">Username</div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+             </div>
              <%= text_field_tag :username, "", placeholder:"Email or Username", class:"form-control" %>
-        	</div> <!-- input-group.// -->
-        	</div> <!-- form-group// -->
-        	<div class="form-group">
-        	<div class="input-group">
-        		<div class="input-group-prepend">
-        		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-        		 </div>
+          </div> <!-- input-group.// -->
+          </div> <!-- form-group// -->
+          <div class="form-group login-group">
+          <div class="login-info">Password</div>
+          <div class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+             </div>
              <%= password_field_tag :password, "", placeholder:"Password",  class:"form-control"%>
-        	</div> <!-- input-group.// -->
-        	</div> <!-- form-group// -->
-        	<div class="form-group">
-            <%= submit_tag 'Login', :class=>"btn btn-primary btn-block" %>
-        	</div> <!-- form-group// -->
-        	</form>
-        <% end %>
-      </article>
-      </div> <!-- card.// -->
-    </div>
-    <div class="col-sm-4">
+          </div> <!-- input-group.// -->
+          <div class="login-info mt-2">Forgot Password?</div>
+          </div> <!-- form-group// -->
+          <div class="form-group login-group">
+          <div class="login-info">.</div>
+            <%= submit_tag 'Log In', :class=>"btn btn-secondary btn-block" %>
+          </div> <!-- form-group// -->
+          <div class="form-group login-group">
+          <div class="login-info">.</div>
+            <a class="btn btn-block btn-secondary" href="<%= '/auth/google' %>"><i class="fab fa-google"></i>   Log in via Google</a>
+
+          </div>
+        </form>
+      <% end %>
     </div>
   </div>
 </div>
+<% link_to 'Sign Up', signup_path, :id=>"sign-up", :class=>"btn btn-outline-primary float-right", :role=>"button" %>
+
 <%end%>
