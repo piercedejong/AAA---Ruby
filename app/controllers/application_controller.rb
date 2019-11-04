@@ -13,7 +13,8 @@ class ApplicationController < ActionController::Base
   helper_method :check_britain_economy
   helper_method :is_1940_game
   helper_method :is_victories_game
-
+  helper_method :title
+  
     def current_user
       return unless cookies.signed[:permanent_user_id] || session[:user_id]
       #@current_user ||= (User.find(session[:user_id]) if session[:user_id])
@@ -101,6 +102,10 @@ class ApplicationController < ActionController::Base
       else
         return false
       end
+    end
+
+    def title
+      return "Axis and Allies Economy"
     end
 
 

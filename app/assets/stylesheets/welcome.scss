@@ -10,10 +10,12 @@
 
 
 .login-bar{
-  background-color: #cccccc;
+  background-color: #878C8F;
   z-index: 99;
   border-bottom: solid 1px;
   border-color:black;
+  //width:100%;
+  //position:fixed;
   //padding: 1rem !important;
   //height: 5rem;
 }
@@ -47,6 +49,16 @@
   padding: 1rem;
   padding-left: 2rem;
   padding-right: 2rem;
-  background-color: #cccccc;
+  background-color: #878C8F;
   width:fit-content;
+}
+
+
+.center-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
 }
