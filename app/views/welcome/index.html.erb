@@ -30,7 +30,7 @@
 
 
 <% else %>
-<% content_for :title, "aaa - log in" %>
+<% content_for :title, "aaa - log in or sign up" %>
 <!--<%= image_tag "title.png" , :id=> "title"%>-->
 <div class="login-bar">
   <div class="d-flex login-line">
@@ -44,7 +44,7 @@
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-user"></i> </span>
              </div>
-             <%= text_field_tag :username, "", placeholder:"Email or Username", class:"form-control" %>
+             <%= text_field_tag :username, "", placeholder:"Email or Username", class:"form-control", required:"true"%>
           </div> <!-- input-group.// -->
           </div> <!-- form-group// -->
           <div class="form-group login-group">
@@ -53,24 +53,84 @@
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
              </div>
-             <%= password_field_tag :password, "", placeholder:"Password",  class:"form-control"%>
+             <%= password_field_tag :password, "", placeholder:"Password",  class:"form-control", required:"true"%>
           </div> <!-- input-group.// -->
           <div class="login-info mt-2">Forgot Password?</div>
           </div> <!-- form-group// -->
           <div class="form-group login-group">
-          <div class="login-info">.</div>
+          <div class="login-info" style="visibility: hidden;">.</div>
             <%= submit_tag 'Log In', :class=>"btn btn-secondary btn-block" %>
           </div> <!-- form-group// -->
           <div class="form-group login-group">
-          <div class="login-info">.</div>
+          <div class="login-info" style="visibility: hidden;">.</div>
             <a class="btn btn-block btn-secondary" href="<%= '/auth/google' %>"><i class="fab fa-google"></i>   Log in via Google</a>
-
           </div>
         </form>
       <% end %>
     </div>
   </div>
 </div>
-<% link_to 'Sign Up', signup_path, :id=>"sign-up", :class=>"btn btn-outline-primary float-right", :role=>"button" %>
+<div class="container" style="padding-top:2vw">
+  <div class="row content">
+    <div class="col-sm-7">
+    </div>
+    <div class="col-sm-4 signup-card">
+      <div class="title" style="">Create an account</div>
+      <%= form_with(model: @user, local: true) do |form| %>
+        <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+            <ul>
+            <% user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+            </ul>
+          </div>
+        <% end %>
+        <form>
+        <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+           </div>
+           <%= form.text_field :email, placeholder:"Email", autocomplete:"", required:"true", type:"text", class:"form-control input-group-form" %>
+        </div> <!-- input-group.// -->
+        </div> <!-- form-group// -->
+        <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fas fa-envelope"></i> </span>
+           </div>
+           <%= form.text_field :name, placeholder:"Username (5-15 Characters)", required:"true", autocomplete:"", type:"text", class:"form-control" %>
+        </div> <!-- input-group.// -->
+        </div> <!-- form-group// -->
+        <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+           </div>
+           <%= form.password_field :password, placeholder:"Password (6-20 Characters)", autocomplete:"new-password", required:"true", type:"text", class:"form-control"%>
+        </div> <!-- input-group.// -->
+        </div> <!-- form-group// -->
+        <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+           </div>
+           <%= form.password_field :password_confirmation, placeholder:"Confirm Password", autocomplete:"new-password", required:"true", type:"text", class:"form-control"%>
+        </div> <!-- input-group.// -->
+        </div> <!-- form-group// -->
+        <div class="form-group">
+          <%= form.submit "Sign Up", :class=>"btn btn-block btn-primary" %>
+        </div> <!-- form-group// -->
+        </form>
+      <% end %>
+
+    </div>
+    <div class="col-sm-1">
+    </div>
+  </div>
+</div>
+
 
 <%end%>
