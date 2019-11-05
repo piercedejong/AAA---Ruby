@@ -60,7 +60,8 @@ body {
 
 .title {
   font-size: 6rem;
-  display: block;
+  //position: absolute;
+  //width:100%;
   color: #f9f2de;
 }
 
@@ -74,6 +75,7 @@ body {
   z-index: 99;
   border-bottom: solid 1px;
   border-color:black;
+  justify-content: space-between;
   //padding: 1rem !important;
 }
 
