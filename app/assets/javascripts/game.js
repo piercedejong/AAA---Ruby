@@ -26,7 +26,7 @@ function game_padding_resize(){
 }
 
 function unit_table_resize(){
-	x = $(window).height() - $(".top").height() - $("#bottom-row").height() - 50;
+	x = $(window).height() - $(".top").height() - $("#bottom-row").height() - 35;
 	$(".unit-table").css("max-height",x);
 }
 
@@ -37,8 +37,8 @@ function end_turn() {
     url: window.location.origin + '/game/end_turn'
   })
   .done(function(response) {
-		$("#"+response["oo_nation"]+"-bank").text(response["oo_bank"]);
-    $("#"+response["o_nation"]+"-bank").text(response["o_bank"]);
+		$("#"+response["oo_nation"]+"-bank").text("Bank: "+response["oo_bank"]);
+    $("#"+response["o_nation"]+"-bank").text("Bank: "+response["o_bank"]);
     $("#c-nation").text(response["nation"]+"-"+response["bank"]);
     $("#c-nation").css("color",response["color"]);
 		$('#end-turn').css("background",response["color"]);
@@ -78,9 +78,9 @@ function end_turn() {
 		}
 		$("#c-nation-card").css('background-color', response["colorL"])
 		$("#c-nation-card").css('border-color', response["color"])
-		$(".nation").css('background-color', "transparent")
+		//$(".nation").css('background-color', "transparent")
 		$(".nation").css('border-color', "transparent")
-		//$(".nation").css("border", "3px solid");
+		//$(".nation").css("border", "5px solid");
 		c_nation_opacity(response["nation"])
   })
 }
@@ -145,7 +145,7 @@ function change_bank(element) {
 		if(response["same_n"]){
 			$("#c-nation").text(response["nation"]+"-"+response["bank"])
 		}
-    $("#"+response["nation"]+"-bank").text(response["bank"]);
+    $("#"+response["nation"]+"-bank").text("Bank: "+response["bank"]);
 		$("#eco-bank").text("Bank "+response["bank"]);
   })
 }
@@ -159,7 +159,7 @@ function change_income(element) {
 	  url: window.location.origin + '/game/change_income'
 	})
 	.done(function(response) {
-		$("#"+response["nation"]+"-income").text(response["total_income"]);
+		$("#"+response["nation"]+"-income").text("Income: "+response["total_income"]);
 		$("#eco-income").text("Income "+response["income"]);
 	})
 }
@@ -288,10 +288,10 @@ function c_nation_opacity(name) {
 	var rgba = opacity(c,0.8);
 	$("#c-nation-card").css('background-color', rgba);
 	$(".tablerow1").css('background-color', rgba);
-	$(".nation").css('background-color', "transparent");
-	$("#"+nat).css('background-color', rgba);
-	$("#"+nat).css("border-color", c);
-	$("#"+nat).css("border", "3px solid");
+	//$(".nation").css('background-color', "transparent");
+	//$("#"+nat).css('background-color', rgba);
+	$("#"+nat).css("border-color", $("#c-nation-card").css('border-color'));
+	//$("#"+nat).css("border", "5px solid");
 }
 
 function eco_nation_opacity(){

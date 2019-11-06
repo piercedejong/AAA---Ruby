@@ -45,11 +45,6 @@
   color:#262626 !important;
 }
 
-.flag{
-  height:6rem;
-  display:block;
-}
-
 .top{
   position:fixed;
   z-index:99;
@@ -58,38 +53,26 @@
   flex-wrap: wrap;
 }
 
-.nations {
-  // position:fixed;
-  // z-index:99;
-  width:100%;
-  flex-wrap: wrap;
+.flag{
+  height:7rem;
+  display:block;
 }
+
 .nation{
   padding:1rem;
   padding-bottom:0rem;
-  border: 3px solid;
+  border: 5px solid;
   border-color:transparent;
+  border-radius:0.5rem;
 }
 .nation-name {
   font-size: 4rem;
-  text-align: center;
 }
 
-.nation-border {
-  border-style: solid;
-  border-color: white;
-}
 .money {
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: -0.25vw;
   padding:0px;
-  display: flex;
   flex: right;
-  flex-wrap: wrap;
-  font-size: 3rem;
-  align-items: center;
-  justify-content: center;
+  font-size: 2.5rem;
 }
 
 .container-game{
@@ -119,7 +102,7 @@ tr.spaceUnder>td {
 }
 
 #eco-bank, #eco-income {
-  font-size: 2.5rem;
+  font-size: 2rem;
   padding-top: 0.5vw;
   padding:0px;
   color:#f9f2de;
