@@ -34,7 +34,7 @@ Special.create(
     {sid: 0,game: "1940",unit_name:"Transport",title: "No Combat Value", info: "Has a combat value of 0, cannot fire in the attacking or defending units fire steps"},
     {sid: 1,game: "1940",unit_name:"Transport",title: "Doesn't Block Enemy Movement", info: "Any sea zones containing only transports does not stop enemny ships from passing through. Any air or naval units ending thier combat round in a sea zone with only enemy transports will destroy those transport"},
     {sid: 2,game: "1940",unit_name:"Transport",title: "Carry Land Units", info: "Transports can carry one infantry and one of any land unit"},
-    {sid: 3,game: "1940",unit_name:"Transport",title: "Loading and Offloading", info: "Can load cargo in freindly sea zones, before, dunring, ad after moving. Loading onto and/or off a trnasport counts as a land unit's entire move"},
+    {sid: 3,game: "1940",unit_name:"Transport",title: "Loading and Offloading", info: "Can load cargo in friendly sea zones, before, dunring, ad after moving. Loading onto and/or off a trnasport counts as a land unit's entire move"},
     {sid: 0,game: "1940",unit_name:"Destroyer",title: "Anit-Sub Vessel", info: "Cancells sumbarins suprise strike, submerisble, and can't be hit by enemy aircraft"},
     {sid: 0,game: "1940",unit_name:"Cruiser",title: "Offshore Bombardment", info: "Can conduct offshore bombardment during an amphibious assault"},
     {sid: 0,game: "1940",unit_name:"Aircraft Carrier",title: "Capital Ship", info: "Requires 2 hits to sink. Can be repairted at a friendly naval base"},
