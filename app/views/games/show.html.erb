@@ -21,17 +21,19 @@
       <%end %>
     </div>
   </div>
-  <div class="nations d-flex grey-background p-0">
+  <div class="nations d-flex justify-content-between p-0 flex-wrap w-100 mt-2">
     <% @game.nations.all.each do |n| %>
-      <div id="<%=n.name%>" class="nation mx-auto shadow-text" style="color:<%=n.color%>;border-radius:0.5rem">
-        <div class="w-100">
-          <%=image_tag n.flag , id:"", class:"mx-auto flag"%>
+      <div id="<%=n.name%>" class="nation lshadow-text mx-auto" style="color:black;background-color:<%=n.colorL%>;">
+        <div class="my-auto mx-auto">
+          <%=image_tag n.flag , id:"", class:"flag mx-auto"%>
         </div>
-        <div class="nation-name"><%= n.name %></div>
-        <div class="money">
-          <div id="<%=n.name%>-bank"><%=n.bank%></div>
-          <div id="<%=n.name%>-divider" style="padding-left:2px;padding-right:2px;">|</div>
-          <div id="<%=n.name%>-income"><%=n.total_income%></div>
+        <div>
+          <div class="nation-name text-center"><%= n.name %></div>
+          <div class="money text-center">
+            <div id="<%=n.name%>-bank">Bank: <%=n.bank%></div>
+            <div id="<%=n.name%>-income">Income: <%=n.total_income%></div>
+            <div style="font-size:1.4rem">Base: <%=n.income%> | Objectives: <%=n.obj_income%></div>
+          </div>
         </div>
       </div>
     <%end%>
@@ -85,7 +87,7 @@
 
     </div>
 
-    <div class="col-sm-2" style="">
+    <div class="col-2" style="">
       <div class="grey-background round mt-3">
         <div class="d-flex shadow-text">
           <div class="my-auto p-0 mr-1"><button id="change-eco-backward" class="btn-change-eco p-0 my-auto" onclick="change_eco_backward()"><span><i class="fas fa-arrow-circle-left change-eco-card"></i></span></button></div>
