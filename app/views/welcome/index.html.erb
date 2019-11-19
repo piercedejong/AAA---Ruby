@@ -8,18 +8,18 @@
 <% content_for :title, "aaa - log in or sign up" %>
 <!--<%= image_tag "title.png" , :id=> "title"%>-->
 <div class="login-bar w-100" style="position:fixed">
-  <div class="d-flex login-line justify-content-between">
-    <div class="sub-title text-center align-self-center py-5"><%=title%></div>
+  <div class="d-flex login-line justify-content-lg-between">
+    <div class="sub-title text-center align-self-center py-4"><%=title%></div>
     <% unless current_user.nil? %>
       <div class="login-form align-self-center p-1 d-flex">
-        <div class="align-self-center pr-5" style="white-space: nowrap ; font-size:1.5rem">Logged in: <%=current_user.email%> </div>
+        <div class="align-self-center pr-5" style="white-space: nowrap ; font-size:1rem">Logged in: <%=current_user.email%> </div>
 
-        <%= link_to "Log Out",logout_path, id:"btn-log-in", class:"btn btn-secondary btn-block", role:"button"%>
+        <%= link_to "Log Out",logout_path, id:"btn-log-out", class:"btn btn-secondary btn-block", role:"button"%>
       </div>
     <% else %>
-      <div class="login-form">
-        <%= form_tag sessions_path, :class => 'd-flex' do |form| %>
-          <form class="">
+      <div class="login-form align-self-center p-1 d-flex">
+        <%= form_tag sessions_path, class:'d-flex align-self-center' do |form| %>
+          <form class=" align-self-center">
             <div class="form-group login-group">
             <div class="login-info">Username</div>
             <div class="input-group">
@@ -41,11 +41,11 @@
             </div> <!-- form-group// -->
             <div class="form-group login-group">
             <div class="login-info" style="visibility: hidden;">.</div>
-              <%= submit_tag 'Log In', class:"btn btn-secondary btn-block" %>
+              <%= submit_tag 'Log In', class:"btn btn-secondary btn-block", id:"btn-log-in"%>
             </div> <!-- form-group// -->
             <div class="form-group login-group">
             <div class="login-info" style="visibility: hidden;">.</div>
-              <a class="btn btn-block btn-secondary" href="<%= '/auth/google' %>"><i class="fab fa-google"></i>   Log in via Google</a>
+              <a class="btn btn-block btn-secondary" id="btn-google" href="<%= '/auth/google' %>"><i class="fab fa-google"></i>   Log in via Google</a>
             </div>
           </form>
         <% end %>
@@ -58,7 +58,7 @@
   <div class="row content align-self-center h-100">
     <div class="col">
     </div>
-    <div class="col-sm-3 align-self-center">
+    <div class="col-sm-4 align-self-center">
       <div class=" button-container">
         <%= link_to "New Game",  new_game_path, class:"btn btn-default btn-block shadow-text", role:"button", id:"btn-new-game"%>
         <%= link_to "Load Game", games_path,    class:"btn btn-default btn-block shadow-text", role:"button", id:"btn-load-game"%>

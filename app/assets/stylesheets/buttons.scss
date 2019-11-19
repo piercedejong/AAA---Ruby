@@ -11,7 +11,7 @@
 }
 
 .btn-default{
-  font-size: 2rem;
+  font-size: 1rem;
   color:#f9f2de;
   border-color: #262626 !important;
   border:solid 2px;
@@ -25,7 +25,7 @@
 }
 
 .btn-switch{
-  font-size: 1.75rem;
+  font-size: 1rem;
   color:#262626;
   border:none;
   background-color:transparent;
@@ -37,8 +37,11 @@
   }
 }
 
-#btn-new-game, #btn-load-game, #btn-about, #btn-battle-calulator, #btn-log-out{
-  font-size: 3rem;
+#btn-new-game, #btn-load-game, #btn-about, #btn-battle-calulator, {
+  font-size: 2rem;
+}
+#btn-log-out, #btn-log-in, #btn-google{
+  font-size: 0.75rem;
 }
 
 .btn-main {
@@ -54,7 +57,7 @@
 
 .btn-login{
   padding:0.5rem;
-  font-size:2rem;
+  font-size:1.5rem;
   width:50%;
 }
 
@@ -86,9 +89,6 @@
 
 .btn-reset-buy {
   background-color:#ad5252;
-  font-size: 2rem;
-  margin:auto;
-  margin-right:0.5rem;
   &:hover{
     background-color:rgba(173, 82, 82, 0.5) !important;
     color:#262626 !important;
@@ -96,9 +96,16 @@
 }
 
 .btn-end-turn {
+}
+
+.btn-pacific{
+  background-color: #cb9b67;
+}
+
+.btn-pacific, .btn-end-turn, .btn-reset-buy{
   padding:1rem;
+  font-size: 1.25rem;
   color: #f9f2fe;
-  font-size: 3rem;
 }
 
 .btn-game {
@@ -107,7 +114,7 @@
 }
 
 .btn-change{
-  font-size: 1.15rem
+  font-size: 0.75rem
 }
 
 .btn-side{
@@ -119,14 +126,8 @@
 
 .btn-unit {
   padding: 0rem;
-  font-size: 1.5rem;
+  font-size: 0.9rem;
   border: solid 1px
-}
-
-.btn-pacific{
-  background-color: #cb9b67;
-  padding:1rem;
-  font-size: 3rem;
 }
 
 .btn-victory{
@@ -152,12 +153,12 @@
 }
 
 .btn-research, .btn-research-enabled {
-  padding-right: 0.2rem;
-  padding-left: 0.2rem;
-  padding-top: 0.4rem;
-  padding-bottom: 0.4rem;
-  font-size: 1.5rem;
+  font-size: 1rem;
   text-align: center;
+  width:90%;
+  margin-left:auto;
+  margin-right:auto;
+  margin-top:1rem;
 }
 
 .btn-research-enabled{
@@ -204,7 +205,7 @@
 
 .btn-change-eco{
   border:none;
-  font-size: 3rem;
+  font-size: 2rem;
   color: #f9f2de;
   background-color: transparent;
 }
@@ -216,50 +217,5 @@
 
 // mobile sizes
 @media only screen and (max-width: 823px){
-  .btn-end-turn{
-    font-size: 1.5rem;
-    padding:0.2rem;
-    padding-top:0.6rem;
-    padding-bottom:0.6rem;
-  }
 
-  .btn-switch{
-    font-size: 1rem;
-  }
-
-  .btn-side{
-    font-size: 1.25rem;
-    margin-top:0.2rem;
-    padding:0.3rem;
-  }
-
-  .btn-back{
-    font-size: 1.25rem;
-    padding: 0.3rem;
-    border:solid 1px;
-  }
-
-  .btn-change{
-    padding-top:0.05rem;
-    padding-bottom:0.05rem;
-  }
-
-  .btn-unit{
-    font-size: 1.25rem;
-  }
-
-  .btn-nation{
-    padding-top: 3.5%;
-    padding-bottom:3.5%;
-    padding-left:0;
-    padding-right:0;
-  }
-
-  .btn-objective, .btn-objective-enabled{
-    font-size: 1.25rem;
-  }
-
-  .btn-reset-buy{
-    font-size: 1.25rem;
-  }
 }

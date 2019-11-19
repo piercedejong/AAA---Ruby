@@ -1,142 +1,41 @@
 <% content_for :title, "aaa - research" %>
-<div class="top-aligned-left d-flex w-100 p-1 top-bar">
-  <%= link_to "Back", game_path(current_game.uuid), class:"btn btn-default btn-switch", role:"button" %>
-  <div class="d-flex ml-auto">
-    <%= link_to "National Objectives", nation_path(current_eco.uuid), class:"btn btn-default btn-switch mx-1", role:"button" %>
-    <div class="vertical-line"></div>
-    <% if is_victories_game %>
-      <%= link_to "Victory Objectives", victory_path(current_game.uuid), class:"btn btn-default btn-switch mx-1", role:"button"%>
-      <div class="vertical-line"></div>
-      <button class="btn btn-default btn-reset-victory btn-switch mx-1" onclick="reset_GrassHopper()"role= "button">Reset</button>
-    <% else %>
-      <button class="btn btn-default btn-reset-victory btn-switch mx-1" onclick="reset_1940()"role= "button">Reset</button>
-    <%end %>
-  </div>
-</div>
-<div class="container-fluid" style="padding-top:30px">
-  <div class="text-center v-title shadow-text objective-card mx-auto mt-4" style="">Research and Development</div>
-  <div class="row" style="padding-top:1rem">
-    <div class="col-sm-3 left-research-col">
-      <table class="table table-condensed table-research text-center table-borderless">
-        <thead>
-          <tr id="1" class="chart-1">
-            <% current_nation.researches.each do |r| %>
-              <% if r.rid <3 %>
-                <th class="w-33"><div id="test" class="research research-tooltip"><div class="tooltiptext"><%=r.text%></div><strong><%= r.name %></strong</div></th>
-              <%end%>
-            <%end%>
-          </tr>
-        </thead>
-        <tbody>
-          <% current_game.nations.all.each do |n| %>
-            <% if !["Pacific","China","France"].include? n.name %>
-              <tr>
-                <% n.researches.all.each do |r| %>
-                  <% if r.rid <3 %>
-                    <td class="w-33">
-                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block <%= r.enabled ? "btn-research-enabled" : "btn-research"%>" style=";<%= r.enabled ? "background:"+n.color+";" : ""%>;" role="button"><%=n.name%></button>
-                    </td>
-                  <%end%>
-                <%end%>
-              </tr>
-            <%end%>
-          <%end%>
-        </tbody>
-      </table>
+<% @page = "research" %>
+<%= render 'layouts/gameNavBar' %>
+<div class="w-100 row px-0 pt-5 justify-content-center align-items-center mx-2">
+  <div class="d-flex flex-wrap w-100">
+    <div class="d-flex flex-wrap mx-auto">
+    <% current_nation.researches.each do |r| %>
+      <% if r.rid <6 %>
+        <div class="research-col p-0 mt-5">
+          <div class="research row justify-content-center align-items-center m-0 mb-2">
+            <div class="text-center"><%=r.name%></div>
+          </div>
+          <div class="research-col">
+            <% current_game.nations.all.each do |n| %>
+              <% @x = n.researches.find_by(rid: r.rid) %>
+              <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn <%= @x.enabled ? "btn-research-enabled" : "btn-research"%>" style=";<%= @x.enabled ? "background:"+n.color+";" : ""%>;" role="button"><%=n.name%></button>
+            <% end %>
+          </div>
+        </div>
+      <%end%>
+    <%end%>
     </div>
-    <div class="col-sm-3 right-research-col">
-      <table class="table table-condensed table-research text-center table-borderless">
-        <thead>
-          <tr id="2" class="chart-1">
-            <% current_nation.researches.each do |r| %>
-              <% if 2< r.rid and r.rid <6 %>
-                <th class="w-33"><div id="test" class="research research-tooltip"><div class="tooltiptext"><%=r.text%></div><strong><%= r.name %></strong</div></th>
-              <%end%>
-            <%end%>
-          </tr>
-        </thead>
-        <tbody>
-          <% current_game.nations.all.each do |n| %>
-            <% if !["Pacific","China","France"].include? n.name %>
-              <tr>
-                <% n.researches.all.each do |r| %>
-                  <% if 2<r.rid and r.rid <6 %>
-                    <td class="w-33">
-                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block <%= r.enabled ? "btn-research-enabled" : "btn-research"%>" style=";<%= r.enabled ? "background:"+n.color+";" : ""%>;" role="button"><%=n.name%></button>
-                    </td>
-                    <%end%>
-                <%end%>
-              </tr>
-            <%end%>
-          <%end%>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="col-sm-3 left-research-col">
-      <table class="table table-condensed table-research text-center table-borderless">
-        <thead>
-          <tr id="3" class="chart-2">
-            <% current_nation.researches.each do |r| %>
-              <% if r.rid >5 and r.rid < 9  %>
-                <th class="w-33"><div id="test" class="research research-tooltip"><div class="tooltiptext"><%=r.text%></div><strong><%= r.name %></strong</div></th>
-              <%end%>
-            <%end%>
-          </tr>
-        </thead>
-        <tbody>
-          <% current_game.nations.all.each do |n| %>
-            <% if !["Pacific","China","France"].include? n.name %>
-              <tr>
-                <% n.researches.all.each do |r| %>
-                  <% if r.rid >5 and r.rid < 9 %>
-                    <td class="w-33">
-                      <button data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block <%= r.enabled ? "btn-research-enabled" : "btn-research"%>" style=";<%= r.enabled ? "background:"+n.color+";" : ""%>;" role="button"><%=n.name%></button>
-                    </td>
-                  <%end%>
-                <%end%>
-              </tr>
-            <%end%>
-          <%end%>
-        </tbody>
-      </table>
-    </div>
-    <div class="col-sm-3 right-research-col">
-      <table class="table table-condensed table-research text-center table-borderless">
-        <thead>
-          <tr id="4" class="chart-2">
-            <% current_nation.researches.each do |r| %>
-              <% if r.rid > 8%>
-                <th class="w-33"><div id="test" class="research research-tooltip"><div class="tooltiptext"><%=r.text%></div><strong><%= r.name %></strong</div></th>
-              <% end %>
-            <%end%>
-          </tr>
-        </thead>
-        <tbody>
-          <% current_game.nations.all.each do |n| %>
-            <% if !["Pacific","China","France"].include? n.name %>
-              <tr>
-                <% n.researches.all.each do |r| %>
-                  <% if r.rid >8 %>
-                    <td class="w-33">
-                      <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default btn-block <%= r.enabled ? "btn-research-enabled" : "btn-research"%>" style=";<%= r.enabled ? "background:"+n.color+";" : ""%>;" role="button"><%=n.name%></button>
-                    </td>
-                  <%end%>
-                <%end%>
-              </tr>
-            <%end%>
-          <%end%>
-        </tbody>
-      </table>
+    <div class="d-flex flex-wrap mx-auto">
+    <% current_nation.researches.each do |r| %>
+      <% if r.rid >5 %>
+        <div class="research-col p-0 mt-5">
+          <div class="research row justify-content-center align-items-center m-0 mb-2">
+            <div class="text-center"><%=r.name%></div>
+          </div>
+          <div class="research-col">
+            <% current_game.nations.all.each do |n| %>
+              <% @x = n.researches.find_by(rid: r.rid) %>
+              <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn <%= @x.enabled ? "btn-research-enabled" : "btn-research"%>" style=";<%= @x.enabled ? "background:"+n.color+";" : ""%>;" role="button"><%=n.name%></button>
+            <% end %>
+          </div>
+        </div>
+      <%end%>
+    <%end%>
     </div>
   </div>
 </div>
-
-<script>
-  $(document).ready(function () {
-    table_head_resize();
-  });
-  $(window).resize(function () {
-    table_head_resize();
-  });
-</script>
