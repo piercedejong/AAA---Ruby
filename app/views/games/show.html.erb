@@ -7,7 +7,7 @@
     <%= link_to "Help", root_path, class:"btn btn-default btn-switch", role:"button" %>
     </div>
     <div class="h-100">
-      <div class="text-center title game-title h-100" style="color:#262626;">Axis and Allies Economy</div>
+      <div class="text-center game-title h-100 justify-content-center" style="color:#262626;">Axis and Allies Economy</div>
     </div>
     <div class="d-flex ">
       <%= link_to "National Objectives", nation_path(current_eco.uuid), class:"btn btn-default btn-switch mx-1", role:"button" %>
@@ -110,7 +110,7 @@
             </tr>
             <tr class="change">
               <td><button data-amount="5" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center btn-default btn-block btn btn-change shadow-text" role="button">+5</button></td>
-              <td><button data-amount="5" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center btn-default btn-block btn btn-change shadow-text" role="button">+5</button></td>
+              <td><button data-amount="5" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-pos btn-default btn-block btn btn-change shadow-text" role="button">+5</button></td>
             </tr>
             <tr class="change">
               <td><button data-amount="-5" onclick="change_bank(this)" style="background:<%=current_eco.colorL%>" class="change-eco-neg text-center btn-default btn-block btn btn-change shadow-text" role="button">-5</button></td>
@@ -145,7 +145,7 @@
   <div id="c-nation-body" class="d-flex mt-auto mx-auto pb-1">
     <button id="reset-buy" class="btn btn-default btn-reset-buy my-auto p-1 px-2" onclick="reset_buy()" role="button">Reset Buy</button>
     <div id="c-nation-card" class="c-nation" style="background-color:<%=current_nation.colorL%>;border: 3px solid; border-color:<%=current_nation.color%>">
-      <div class="text-center" style="font-size:2rem;">Current Nation</div>
+      <div class="text-center">Current Nation</div>
       <div class="d-flex">
         <%=image_tag current_nation.roundel , id:"roundel", class:"my-auto"%>
         <div id="c-nation" class="nation shadow-text text-center my-auto" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></div>

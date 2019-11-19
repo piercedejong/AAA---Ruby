@@ -106,7 +106,7 @@ tr.spaceUnder>td {
 }
 
 #eco-bank, #eco-income {
-  font-size: 2rem;
+  font-size: 1.35rem;
   padding-top: 0.5vw;
   padding:0px;
   color:#f9f2de;
@@ -128,10 +128,14 @@ tr.spaceUnder>td {
 }
 
 .unit-table-top {
-  font-size:2rem;
+  font-size:1.25rem;
   color:#262626;
   border-bottom: 2px solid;
   border-color: rgb(255,255,255);
+}
+
+.unit-table-body{
+  font-size: 1rem;
 }
 
 tr.change>td{
@@ -159,20 +163,19 @@ tr.change>td{
 }
 
 #c-nation{
-  font-size:5rem;
+  font-size:3rem;
   white-space:nowrap;
   padding-left:0.5rem;
   padding-right:0.5rem;
   padding-top:0rem;
   padding-bottom:0rem;
+  border:none;
 }
 
-.unit-table-body{
-  font-size: 1.6rem;
-}
+
 
 #roundel{
-  height: 5rem;
+  height: 3rem;
 }
 
 .economy-card{
@@ -181,10 +184,10 @@ tr.change>td{
 }
 
 #change-eco{
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   color: #f9f2de;
   width: fill;
-  padding:1rem;
+  padding:0.5rem;
   border-radius: 0.5rem;
   border:3px solid;
 }
@@ -306,7 +309,7 @@ tr.change>td{
     height: 1.75rem;
   }
   #c-nation{
-    font-size: 3rem;
+    font-size: 1rem;
   }
   #eco-bank, #eco-income {
     font-size: 1.5rem;

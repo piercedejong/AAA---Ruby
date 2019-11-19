@@ -25,7 +25,7 @@
 }
 
 .btn-switch{
-  font-size: 1.75rem;
+  font-size: 1rem;
   color:#262626;
   border:none;
   background-color:transparent;
@@ -89,7 +89,7 @@
 
 .btn-reset-buy {
   background-color:#ad5252;
-  font-size: 2rem;
+  font-size: 1rem;
   margin:auto;
   margin-right:0.5rem;
   &:hover{
@@ -101,7 +101,7 @@
 .btn-end-turn {
   padding:1rem;
   color: #f9f2fe;
-  font-size: 3rem;
+  font-size: 1.75rem;
 }
 
 .btn-game {
@@ -110,7 +110,7 @@
 }
 
 .btn-change{
-  font-size: 1.15rem
+  font-size: 0.75rem
 }
 
 .btn-side{
@@ -122,7 +122,7 @@
 
 .btn-unit {
   padding: 0rem;
-  font-size: 1.5rem;
+  font-size: 0.9rem;
   border: solid 1px
 }
 
@@ -207,7 +207,7 @@
 
 .btn-change-eco{
   border:none;
-  font-size: 3rem;
+  font-size: 2rem;
   color: #f9f2de;
   background-color: transparent;
 }
@@ -227,7 +227,7 @@
   }
 
   .btn-switch{
-    font-size: 1rem;
+    font-size: 0.75rem;
   }
 
   .btn-side{
