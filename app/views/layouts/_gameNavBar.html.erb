@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light px-3 fixed-top py-3">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <a class="navbar-brand" href="#">Axis and Allies Economy</a>
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <%= link_to "Home", root_path, class:"nav-link", role: "button"%>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Help</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+        <li class="nav-item <%= @page == "economy" ? "active" : ""%>">
+          <%=link_to "Economy", game_path(current_game.uuid), class:"nav-link", role:"button" %>
+        </li>
+        <li class="nav-item <%= @page == "objective" ? "active" : ""%>">
+          <%= link_to "National Objectives", nation_path(current_eco.uuid), class:"nav-link", role:"button" %>
+        </li>
+        <li class="nav-item <%= @page == "research" ? "active" : ""%>">
+          <%= link_to "Research and Development", research_path(current_game.uuid), class:"nav-link", role:"button" %>
+        </li>
+      <% if is_victories_game %>
+        <li class="nav-item <%= @page == "victory" ? "active" : ""%>">
+          <%= link_to "Victory Objectives", victory_path(current_game.uuid), class:"nav-link", role:"button" %>
+        </li>
+      <% end %>
+      </ul>
+    </div>
+</nav>
+<div style="height:70px"></div>
+<script>
+
+</script>

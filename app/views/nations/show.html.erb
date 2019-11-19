@@ -1,16 +1,6 @@
 <% content_for :title, "aaa - objectives - "+@nation.name %>
-<div class="top-aligned-left d-flex w-100 p-1 top-bar">
-  <%= link_to "Back", game_path(current_game.uuid), class:"btn btn-default btn-switch", role:"button" %>
-  <div class="d-flex ml-auto">
-    <% if is_1940_game%>
-      <%= link_to "Research and Development", research_path(current_game.uuid), class:"btn btn-default btn-switch mx-1", role:"button" %>
-    <% end %>
-    <% if is_victories_game %>
-      <div class="vertical-line"></div>
-      <%= link_to "Victory Objectives", victory_path(current_game.uuid), class:"btn btn-default btn-switch mx-1", role:"button" %>
-    <%end %>
-  </div>
-</div>
+<% @page = "objective" %>
+<%= render 'layouts/gameNavBar' %>
 <div class="container-fluid">
   <div class="row" style="padding-top:30px">
     <div class="col-sm-10">

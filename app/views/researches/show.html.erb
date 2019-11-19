@@ -1,18 +1,6 @@
 <% content_for :title, "aaa - research" %>
-<div class="top-aligned-left d-flex w-100 p-1 top-bar">
-  <%= link_to "Back", game_path(current_game.uuid), class:"btn btn-default btn-switch", role:"button" %>
-  <div class="d-flex ml-auto">
-    <%= link_to "National Objectives", nation_path(current_eco.uuid), class:"btn btn-default btn-switch mx-1", role:"button" %>
-    <div class="vertical-line"></div>
-    <% if is_victories_game %>
-      <%= link_to "Victory Objectives", victory_path(current_game.uuid), class:"btn btn-default btn-switch mx-1", role:"button"%>
-      <div class="vertical-line"></div>
-      <button class="btn btn-default btn-reset-victory btn-switch mx-1" onclick="reset_GrassHopper()"role= "button">Reset</button>
-    <% else %>
-      <button class="btn btn-default btn-reset-victory btn-switch mx-1" onclick="reset_1940()"role= "button">Reset</button>
-    <%end %>
-  </div>
-</div>
+<% @page = "research" %>
+<%= render 'layouts/gameNavBar' %>
 <div class="container-fluid" style="padding-top:30px">
   <div class="text-center v-title shadow-text objective-card mx-auto mt-4" style="">Research and Development</div>
   <div class="row" style="padding-top:1rem">

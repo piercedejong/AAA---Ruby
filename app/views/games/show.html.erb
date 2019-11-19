@@ -1,35 +1,7 @@
 <% content_for :title, "aaa - "+@game.name %>
+<% @page = "economy" %>
+<%= render 'layouts/gameNavBar' %>
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light px-3 fixed-top py-3">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-      <a class="navbar-brand" href="#">Axis and Allies Economy</a>
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item">
-          <%= link_to "Home", root_path, class:"nav-link", role: "button"%>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Help</a>
-        </li>
-      </ul>
-      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <%=link_to "Economy", game_path(current_game.uuid), class:"nav-link", role:"button" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "National Objectives", nation_path(current_eco.uuid), class:"nav-link", role:"button" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Research and Development", research_path(current_game.uuid), class:"nav-link", role:"button" %>
-        </li>
-      <% if is_victories_game %>
-        <li class="nav-item">
-          <%= link_to "Victory Objectives", victory_path(current_game.uuid), class:"nav-link", role:"button" %>
-        </li>
-      <% end %>
-      </ul>
-    </div>
-</nav>
 <div class="text-center fixed-top mx-auto" style="width:min-content">
   <div class="text-center my-auto">Current Nation</div>
   <div class="d-flex text-center mx-auto" style="width:min-content;">
@@ -37,7 +9,6 @@
     <div id="c-nation" class="nation shadow-text text-center my-auto" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></div>
   </div>
   </div>
-<div style="height:70px"></div>
 <div class="nations d-flex justify-content-between p-0 flex-wrap w-100 mt-2">
   <% @game.nations.all.each do |n| %>
     <div id="<%=n.name%>" class="nation lshadow-text mx-auto" style="color:black;background-color:<%=n.colorL%>;">
