@@ -1,13 +1,16 @@
 <% content_for :title, "aaa - objectives - "+@nation.name %>
 <% @page = "objective" %>
 <%= render 'layouts/gameNavBar' %>
-<div class="container-fluid">
-  <div class="row" style="padding-top:30px">
+<div class="text-center fixed-top mx-auto" style="width:min-content">
+  <div class="d-flex text-center mx-auto mt-2" style="width:min-content;">
+    <%=image_tag @nation.roundel , id:"roundel", class:"my-auto"%>
+    <div id="c-nation" class="nation shadow-text text-center my-auto pr-0" style="color:<%=@nation.color%>"><%=@nation.obj_inc%></div>
+    <div id="c-nation-ipc" class="shadow-text text-center mt-auto pl-2 pb-1" style="color:<%=@nation.color%>; white-space: nowrap;">bonus income</div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
     <div class="col-sm-10">
-      <div class="objective-card mx-auto mt-4" style="border-color:<%=@nation.color%>;background:<%=@nation.colorL%>">
-        <div id="c-nation" class="shadow-text text-center title" style="color:<%=@nation.color%>"><%= @nation.obj_inc %></div>
-        <div id="lmao" class="shadow-text text-center v-title sub-title" style="color:<%=@nation.color%>">National Objectives</div>
-      </div>
       <div class="conatiner mt-4" style="">
         <% @nation.objectives.each do |o| %>
           <button data-oid="<%=o.oid%>" onclick="update_obj(this)" id="objective-<%=o.oid%>" style="background-color:<%= o.enabled ? @nation.color : ""%>;" class="btn btn-default btn-block <%= o.enabled ? "shadow-text btn-objective-enabled" : "btn-objective" %>" role="button"><strong><%= o.value %></strong> :: <%=o.name %></button>
