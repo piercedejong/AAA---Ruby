@@ -41,6 +41,7 @@ function end_turn() {
     $("#"+response["o_nation"]+"-bank").text("Bank: "+response["o_bank"]);
     $("#c-nation").text(response["nation"]+"-"+response["bank"]);
     $("#c-nation").css("color",response["color"]);
+		$("#c-nation-ipc").css("color",response["color"]);
 		$('#end-turn').css("background",response["color"]);
 		$('#roundel').attr("src","/assets/"+response['roundel']);
 		$('.btn-unit').each(function(){
@@ -205,6 +206,7 @@ function buy_pacific(element) {
 		$(".nation").css("border-color", "transparent");
 		$("#c-nation").text(response["nation"]+"-"+response["bank"]);
     $("#c-nation").css("color",response["color"]);
+		$("#c-nation-ipc").css("color",response["color"]);
 		$('#end-turn').css("background",response["color"]);
 		$("#end-turn").show();
 		$('#roundel').attr("src","/assets/"+response['roundel']);
