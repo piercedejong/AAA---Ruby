@@ -6,9 +6,15 @@
 }
 
 .research{
-  font-size: 1.5rem;
-  height: 100%;
-  width: 100%;
+  font-size: 1.25rem;
+  height:75px;
+  width: 120px;
+  background-color: white;
+  border: solid black 1px;
+}
+
+.research-col{
+  display: grid !important;
 }
 
 .w-33{
