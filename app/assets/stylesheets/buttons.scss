@@ -11,7 +11,7 @@
 }
 
 .btn-default{
-  font-size: 2rem;
+  font-size: 1rem;
   color:#f9f2de;
   border-color: #262626 !important;
   border:solid 2px;
@@ -37,8 +37,11 @@
   }
 }
 
-#btn-new-game, #btn-load-game, #btn-about, #btn-battle-calulator, #btn-log-out{
-  font-size: 3rem;
+#btn-new-game, #btn-load-game, #btn-about, #btn-battle-calulator, {
+  font-size: 2rem;
+}
+#btn-log-out, #btn-log-in, #btn-google{
+  font-size: 0.75rem;
 }
 
 .btn-main {
@@ -54,7 +57,7 @@
 
 .btn-login{
   padding:0.5rem;
-  font-size:2rem;
+  font-size:1.5rem;
   width:50%;
 }
 

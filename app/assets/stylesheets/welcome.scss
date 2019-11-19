@@ -25,8 +25,8 @@
 }
 
 .login-line{
-  max-width: 1100px;
-  min-width: 900px;
+  max-width: 1200px;
+  min-width: 800px;
   margin:auto;
   display:flex;
   //padding-bottom:0.1rem;
@@ -38,8 +38,11 @@
 }
 
 .login-info{
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.form-control{
+  font-size:0.75rem !important;
 }
 
 .signup-card{
