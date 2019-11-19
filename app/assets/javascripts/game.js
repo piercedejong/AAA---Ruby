@@ -78,10 +78,11 @@ function end_turn() {
 		}
 		$("#c-nation-card").css('background-color', response["colorL"])
 		$("#c-nation-card").css('border-color', response["color"])
-		//$(".nation").css('background-color', "transparent")
+		//c_nation_opacity(response["nation"])
+
 		$(".nation").css('border-color', "transparent")
-		//$(".nation").css("border", "5px solid");
-		c_nation_opacity(response["nation"])
+		$("#"+response["nation"]).css("border-color", response["color"]);
+		//$("#"+response["nation"]).css("border", "5px solid");
   })
 }
 
@@ -118,7 +119,7 @@ function change_eco_forward() {
 	})
   .done(function(response) {
   	change_eco_nation(response)
-		eco_nation_opacity()
+		//eco_nation_opacity()
   })
 }
 
@@ -129,7 +130,7 @@ function change_eco_backward() {
 	})
   .done(function(response) {
   	change_eco_nation(response)
-		eco_nation_opacity()
+		//eco_nation_opacity()
   })
 }
 
@@ -205,11 +206,14 @@ function buy_pacific(element) {
 		$("#c-nation").text(response["nation"]+"-"+response["bank"]);
     $("#c-nation").css("color",response["color"]);
 		$('#end-turn').css("background",response["color"]);
+		$("#end-turn").show();
 		$('#roundel').attr("src","/assets/"+response['roundel']);
 		$('.count').text("0");
+		$(".nation").css('border-color', "transparent")
+		$("#"+response["nation"]).css("border-color", response["color"]);
 		change_eco_nation(response);
-		c_nation_opacity(response["nation"])
-		$("#end-turn").show();
+
+		//c_nation_opacity(response["nation"])
 	})
 }
 
@@ -228,7 +232,7 @@ function change_eco_nation(response){
 	$("#eco-income").text("Income "+response["income"]);
 	$(".change-eco-pos").css("background",response["color"])
 	$(".change-eco-neg").css("background",response["colorL"])
-	eco_nation_opacity()
+	//eco_nation_opacity()
 	//$("#objective").css("background",response["color"]);
 	$("#objective").attr("href", "/nations/"+response["uuid"]);
 	//$("#victory").css("background",response["color"]);
@@ -288,10 +292,6 @@ function c_nation_opacity(name) {
 	var rgba = opacity(c,0.8);
 	$("#c-nation-card").css('background-color', rgba);
 	$(".tablerow1").css('background-color', rgba);
-	//$(".nation").css('background-color', "transparent");
-	//$("#"+nat).css('background-color', rgba);
-	$("#"+nat).css("border-color", $("#c-nation-card").css('border-color'));
-	//$("#"+nat).css("border", "5px solid");
 }
 
 function eco_nation_opacity(){

@@ -54,8 +54,7 @@
 }
 
 .nation{
-  padding:1rem;
-  padding-bottom:0rem;
+  padding:0.3rem;
   border: 5px solid;
   border-color:transparent;
   border-radius:0.5rem;
@@ -78,11 +77,6 @@
 
 .income-breakdown{
   font-size: 0.9rem;
-}
-
-.container-game{
-  margin-bottom: 0px;
-  padding-bottom:4.4rem;
 }
 
 tr.spaceUnder>td {
@@ -163,7 +157,7 @@ tr.change>td{
 }
 
 #c-nation{
-  font-size:3rem;
+  font-size:2.5rem;
   white-space:nowrap;
   padding-left:0.5rem;
   padding-right:0.5rem;
@@ -172,10 +166,8 @@ tr.change>td{
   border:none;
 }
 
-
-
 #roundel{
-  height: 3rem;
+  height: 2.5rem;
 }
 
 .economy-card{
@@ -294,10 +286,6 @@ tr.change>td{
 
   .flag{
     height:2rem;
-  }
-
-  #pacific{
-    font-size: 1.25rem;
   }
 
   #change-eco{
