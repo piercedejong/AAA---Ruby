@@ -1,79 +1,75 @@
-<% unless current_user.nil? %>
 <% content_for :title, "aaa - home" %>
 
+
+<!-- <div class="bottomaligned">
+<input id="sepia-toggle" class="" type="checkbox" data-toggle="toggle" data-on="Black and White" data-off="Sepia"  data-onstyle="bandw" data-offstyle="sepia">
+</div> -->
+
+<% content_for :title, "aaa - log in or sign up" %>
+<!--<%= image_tag "title.png" , :id=> "title"%>-->
+<div class="login-bar w-100" style="position:fixed">
+  <div class="d-flex login-line justify-content-between">
+    <div class="sub-title text-center align-self-center py-5"><%=title%></div>
+    <% unless current_user.nil? %>
+      <div class="login-form align-self-center p-1 d-flex">
+        <div class="align-self-center pr-5" style="white-space: nowrap ; font-size:1.5rem">Logged in: <%=current_user.email%> </div>
+
+        <%= link_to "Log Out",logout_path, id:"btn-log-in", class:"btn btn-secondary btn-block", role:"button"%>
+      </div>
+    <% else %>
+      <div class="login-form">
+        <%= form_tag sessions_path, :class => 'd-flex' do |form| %>
+          <form class="">
+            <div class="form-group login-group">
+            <div class="login-info">Username</div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+               </div>
+               <%= text_field_tag :username, "", placeholder:"Email or Username", class:"form-control", required:"true"%>
+            </div> <!-- input-group.// -->
+            </div> <!-- form-group// -->
+            <div class="form-group login-group">
+            <div class="login-info">Password</div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+               </div>
+               <%= password_field_tag :password, "", placeholder:"Password",  class:"form-control", required:"true"%>
+            </div> <!-- input-group.// -->
+            <div class="login-info mt-2">Forgot Password?</div>
+            </div> <!-- form-group// -->
+            <div class="form-group login-group">
+            <div class="login-info" style="visibility: hidden;">.</div>
+              <%= submit_tag 'Log In', class:"btn btn-secondary btn-block" %>
+            </div> <!-- form-group// -->
+            <div class="form-group login-group">
+            <div class="login-info" style="visibility: hidden;">.</div>
+              <a class="btn btn-block btn-secondary" href="<%= '/auth/google' %>"><i class="fab fa-google"></i>   Log in via Google</a>
+            </div>
+          </form>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
+<% unless current_user.nil? %>
 <div class="container h-100">
   <div class="row content align-self-center h-100">
-    <div class="col-sm-4  align-self-center">
-      <div class="title text-center shadow-text d-flex flex-wrap">
-        <div class="title mt-auto"> Axis </div>
-        <div class="login-info" style="visibility: hidden;">..</div>
-        <div class="sub-title mt-auto"> and </div>
-        <div class="login-info" style="visibility: hidden;">..</div>
-        <div class="title mt-auto">Allies</div>
-        <div class="title mt-auto">Economy</div>
-        </div>
+    <div class="col">
     </div>
-    <div class="col-sm-0"></div>
     <div class="col-sm-3 align-self-center">
       <div class=" button-container">
         <%= link_to "New Game",  new_game_path, class:"btn btn-default btn-block shadow-text", role:"button", id:"btn-new-game"%>
         <%= link_to "Load Game", games_path,    class:"btn btn-default btn-block shadow-text", role:"button", id:"btn-load-game"%>
         <%= link_to "Battle Calulator", battle_calculator_index_path, class:"btn btn-default btn-block shadow-text", role:"button", id:"btn-battle-calulator"%>
         <%= link_to "About", about_path,    class:"btn btn-default btn-block shadow-text", role:"button", id:"btn-about"%>
-        <%= link_to "Log Out",logout_path, id:"btn-log-out", class:"btn btn-default btn-block", role:"button"%>
       </div>
     </div>
-    <div class="col-sm-5"></div>
+    <div class="col"></div>
   </div>
 </div>
-<!-- <div class="bottomaligned">
-<input id="sepia-toggle" class="" type="checkbox" data-toggle="toggle" data-on="Black and White" data-off="Sepia"  data-onstyle="bandw" data-offstyle="sepia">
-</div> -->
-
-
-
-
 <% else %>
-<% content_for :title, "aaa - log in or sign up" %>
-<!--<%= image_tag "title.png" , :id=> "title"%>-->
-<div class="login-bar">
-  <div class="d-flex login-line justify-content-between">
-    <div class="sub-title text-center align-self-center"><%=title%></div>
-    <div class="login-form">
-      <%= form_tag sessions_path, :class => 'd-flex' do |form| %>
-        <form class="">
-          <div class="form-group login-group">
-          <div class="login-info">Username</div>
-          <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-             </div>
-             <%= text_field_tag :username, "", placeholder:"Email or Username", class:"form-control", required:"true"%>
-          </div> <!-- input-group.// -->
-          </div> <!-- form-group// -->
-          <div class="form-group login-group">
-          <div class="login-info">Password</div>
-          <div class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-             </div>
-             <%= password_field_tag :password, "", placeholder:"Password",  class:"form-control", required:"true"%>
-          </div> <!-- input-group.// -->
-          <div class="login-info mt-2">Forgot Password?</div>
-          </div> <!-- form-group// -->
-          <div class="form-group login-group">
-          <div class="login-info" style="visibility: hidden;">.</div>
-            <%= submit_tag 'Log In', :class=>"btn btn-secondary btn-block" %>
-          </div> <!-- form-group// -->
-          <div class="form-group login-group">
-          <div class="login-info" style="visibility: hidden;">.</div>
-            <a class="btn btn-block btn-secondary" href="<%= '/auth/google' %>"><i class="fab fa-google"></i>   Log in via Google</a>
-          </div>
-        </form>
-      <% end %>
-    </div>
-  </div>
-</div>
 <div class="container" style="padding-top:12rem">
   <div class="row content">
     <div class="col-sm-7">
@@ -135,6 +131,5 @@
     </div>
   </div>
 </div>
-
 
 <%end%>

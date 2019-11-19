@@ -7,7 +7,7 @@
     <%= link_to "Help", root_path, class:"btn btn-default btn-switch", role:"button" %>
     </div>
     <div class="h-100">
-      <div class="text-center title game-title h-100">Axis and Allies Economy</div>
+      <div class="text-center title game-title h-100" style="color:#262626;">Axis and Allies Economy</div>
     </div>
     <div class="d-flex ">
       <%= link_to "National Objectives", nation_path(current_eco.uuid), class:"btn btn-default btn-switch mx-1", role:"button" %>
@@ -42,9 +42,9 @@
 <div class="container container-game" style="max-width:100%;">
   <div class="row">
     <div class="col-sm-1"></div>
-    <div class="col-sm-8">
+    <div class="col-lg-8">
       <div class="grey-background round mt-3" style="width:fit-content">
-        <table class="unit-table table table-condensed table-borderless p-0" style="overflow-y: scroll;" >
+        <table class="unit-table table table-condensed table-borderless p-0" style="" >
             <thead>
               <tr class="unit-table-top">
                 <th class="table-top text-center">Count</th>
@@ -87,7 +87,7 @@
 
     </div>
 
-    <div class="col-2" style="">
+    <div class="col-lg-2" style="">
       <div class="grey-background round mt-3">
         <div class="d-flex shadow-text">
           <div class="my-auto p-0 mr-1"><button id="change-eco-backward" class="btn-change-eco p-0 my-auto" onclick="change_eco_backward()"><span><i class="fas fa-arrow-circle-left change-eco-card"></i></span></button></div>
@@ -129,10 +129,10 @@
       </div>
       <div style="display:flex" class="mx-auto">
       <div class="m-1">
-        <button id="reset-buy" class="w-100 btn btn-default btn-reset-buy my-auto" onclick="reset_buy()" role="button">Reset Buy</button>
+        <!-- <button id="reset-buy" class="w-100 btn btn-default btn-reset-buy my-auto" onclick="reset_buy()" role="button">Reset Buy</button> -->
       </div>
       <div class="m-1">
-        <button id="reset-turn" class="w-100 btn btn-default btn-reset-buy my-auto" onclick="reset_turn()" role="button">Reset Turn</button>
+        <!-- <button id="reset-turn" class="w-100 btn btn-default btn-reset-buy my-auto" onclick="reset_turn()" role="button">Reset Turn</button> -->
       </div>
       </div>
 
@@ -143,10 +143,13 @@
 
 <div id="bottom-row" class="pb-1 d-flex bottom-aligned w-100">
   <div id="c-nation-body" class="d-flex mt-auto mx-auto pb-1">
-    <button id="reset-buy" class="btn btn-default btn-reset-buy my-auto" onclick="reset_buy()" role="button">Reset Buy</button>
-    <div id="c-nation-card" class="d-flex c-nation" style="background-color:<%=current_nation.colorL%>;border: 3px solid; border-color:<%=current_nation.color%>">
-      <%=image_tag current_nation.roundel , id:"roundel", class:"my-auto"%>
-      <div id="c-nation" class="nation shadow-text text-center my-auto" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></div>
+    <button id="reset-buy" class="btn btn-default btn-reset-buy my-auto p-1 px-2" onclick="reset_buy()" role="button">Reset Buy</button>
+    <div id="c-nation-card" class="c-nation" style="background-color:<%=current_nation.colorL%>;border: 3px solid; border-color:<%=current_nation.color%>">
+      <div class="text-center" style="font-size:2rem;">Current Nation</div>
+      <div class="d-flex">
+        <%=image_tag current_nation.roundel , id:"roundel", class:"my-auto"%>
+        <div id="c-nation" class="nation shadow-text text-center my-auto" style="color:<%=current_nation.color%>"><%=current_nation.name%>-<%=current_nation.bank%></div>
+      </div>
     </div>
   </div>
   <div class="mt-auto" style="margin-bottom:0.25rem;margin-right:0.25rem;">
