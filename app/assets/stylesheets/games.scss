@@ -53,11 +53,6 @@
   flex-wrap: wrap;
 }
 
-.flag{
-  height:7rem;
-  display:block;
-}
-
 .nation{
   padding:1rem;
   padding-bottom:0rem;
@@ -65,14 +60,24 @@
   border-color:transparent;
   border-radius:0.5rem;
 }
+
+.flag{
+  height:4.5rem;
+  display:block;
+}
+
 .nation-name {
-  font-size: 4rem;
+  font-size: 2.5rem;
 }
 
 .money {
   padding:0px;
   flex: right;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
+}
+
+.income-breakdown{
+  font-size: 0.9rem;
 }
 
 .container-game{
