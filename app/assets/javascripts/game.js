@@ -9,15 +9,12 @@ function buy_unit(element) {
   .done(function(response) {
 		if(response["change"]){
 			change_eco_nation(response);
-			$("#"+response["name"]).text(response["count"]);
-	    $("#"+response["nation"]+"-bank").text(response["bank"]);
-			$("#c-nation").text(response["nation"]+" - "+response["bank"])
 		}else {
-			$("#"+response["name"]).text(response["count"]);
-	    $("#"+response["nation"]+"-bank").text(response["bank"]);
 			$("#eco-bank").text("Bank "+response["bank"]);
-			$("#c-nation").text(response["nation"]+"-"+response["bank"])
 		}
+		$("#"+response["name"]).text(response["count"]);
+		$("#"+response["nation"]+"-bank").text(response["bank"]);
+		$("#c-nation").text(response["nation"]+" - "+response["bank"])
   })
 }
 
@@ -39,7 +36,7 @@ function end_turn() {
   .done(function(response) {
 		$("#"+response["oo_nation"]+"-bank").text("Bank: "+response["oo_bank"]);
     $("#"+response["o_nation"]+"-bank").text("Bank: "+response["o_bank"]);
-    $("#c-nation").text(response["nation"]+"-"+response["bank"]);
+    $("#c-nation").text(response["nation"]+" - "+response["bank"]);
     $("#c-nation").css("color",response["color"]);
 		$("#c-nation-ipc").css("color",response["color"]);
 		$('#end-turn').css("background",response["color"]);
@@ -94,7 +91,7 @@ function reset_buy() {
   })
   .done(function(response) {
     $("#"+response["nation"]+"-bank").text(response["bank"]);
-		$("#c-nation").text(response["nation"]+"-"+response["bank"]);
+		$("#c-nation").text(response["nation"]+" - "+response["bank"]);
 		$("#eco-bank").text("Bank "+response["bank"]);
     $('.count').text("0");
   })
@@ -107,7 +104,7 @@ function reset_turn() {
   })
   .done(function(response) {
     $("#"+response["nation"]+"-bank").text(response["bank"]);
-		$("#c-nation").text(response["nation"]+"-"+response["bank"]);
+		$("#c-nation").text(response["nation"]+" - "+response["bank"]);
 		$("#eco-bank").text("Bank "+response["bank"]);
     $('.count').text("0");
   })
@@ -145,7 +142,7 @@ function change_bank(element) {
 	})
   .done(function(response) {
 		if(response["same_n"]){
-			$("#c-nation").text(response["nation"]+"-"+response["bank"])
+			$("#c-nation").text(response["nation"]+" - "+response["bank"])
 		}
     $("#"+response["nation"]+"-bank").text("Bank: "+response["bank"]);
 		$("#eco-bank").text("Bank "+response["bank"]);
@@ -204,7 +201,7 @@ function buy_pacific(element) {
 	})
 	.done(function(response) {
 		$(".nation").css("border-color", "transparent");
-		$("#c-nation").text(response["nation"]+"-"+response["bank"]);
+		$("#c-nation").text(response["nation"]+" - "+response["bank"]);
     $("#c-nation").css("color",response["color"]);
 		$("#c-nation-ipc").css("color",response["color"]);
 		$('#end-turn').css("background",response["color"]);
