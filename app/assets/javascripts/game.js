@@ -11,7 +11,7 @@ function buy_unit(element) {
 			change_eco_nation(response);
 			$("#"+response["name"]).text(response["count"]);
 	    $("#"+response["nation"]+"-bank").text(response["bank"]);
-			$("#c-nation").text(response["nation"]+"-"+response["bank"])
+			$("#c-nation").text(response["nation"]+" - "+response["bank"])
 		}else {
 			$("#"+response["name"]).text(response["count"]);
 	    $("#"+response["nation"]+"-bank").text(response["bank"]);
