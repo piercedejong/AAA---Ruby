@@ -12,8 +12,8 @@
     <div class="d-flex flex-wrap mx-auto">
     <% current_nation.researches.each do |r| %>
       <% if r.rid <6 %>
-        <div class="research-col research-table-1 p-0 mt-5">
-          <div class="research row justify-content-center align-items-center m-0 mb-2">
+        <div class="research-col p-0 mt-5">
+          <div class="research row justify-content-center research-table-1  align-items-center m-0 mb-2">
             <div class="text-center"><%=r.name%></div>
           </div>
           <div class="research-col">
@@ -29,8 +29,8 @@
     <div class="d-flex flex-wrap mx-auto">
     <% current_nation.researches.each do |r| %>
       <% if r.rid >5 %>
-        <div class="research-col research-table-2 p-0 mt-5">
-          <div class="research row justify-content-center align-items-center m-0 mb-2">
+        <div class="research-col  p-0 mt-5">
+          <div class="research row justify-content-center research-table-2 align-items-center m-0 mb-2">
             <div class="text-center"><%=r.name%></div>
           </div>
           <div class="research-col">
