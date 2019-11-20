@@ -1,22 +1,24 @@
-<% content_for :title, "aaa - home" %>
+
 
 
 <!-- <div class="bottomaligned">
 <input id="sepia-toggle" class="" type="checkbox" data-toggle="toggle" data-on="Black and White" data-off="Sepia"  data-onstyle="bandw" data-offstyle="sepia">
 </div> -->
 
-<% content_for :title, "aaa - log in or sign up" %>
+
 <!--<%= image_tag "title.png" , :id=> "title"%>-->
 <div class="login-bar w-100" style="position:fixed">
   <div class="d-flex login-line justify-content-lg-between">
     <div class="sub-title text-center align-self-center py-4"><%=title%></div>
     <% unless current_user.nil? %>
+    <% content_for :title, "aaa - home" %>
       <div class="login-form align-self-center p-1 d-flex">
         <div class="align-self-center pr-5" style="white-space: nowrap ; font-size:1rem">Logged in: <%=current_user.email%> </div>
 
         <%= link_to "Log Out",logout_path, id:"btn-log-out", class:"btn btn-secondary btn-block", role:"button"%>
       </div>
     <% else %>
+    <% content_for :title, "aaa - log in or sign up" %>
       <div class="login-form align-self-center p-1 d-flex">
         <%= form_tag sessions_path, class:'d-flex align-self-center' do |form| %>
           <form class=" align-self-center">
@@ -60,8 +62,10 @@
     </div>
     <div class="col-sm-4 align-self-center">
       <div class=" button-container">
+      <%= if current_user.games.count > 0 %>
+        <%= link_to "Continue Game", game_path(current_user.games.last.uuid),    class:"btn btn-default btn-block shadow-text", role:"button", id:"btn-load-game"%>
+      <%end %>
         <%= link_to "New Game",  new_game_path, class:"btn btn-default btn-block shadow-text", role:"button", id:"btn-new-game"%>
-        <%= link_to "Load Game", games_path,    class:"btn btn-default btn-block shadow-text", role:"button", id:"btn-load-game"%>
         <%= link_to "Battle Calulator", battle_calculator_index_path, class:"btn btn-default btn-block shadow-text", role:"button", id:"btn-battle-calulator"%>
         <%= link_to "About", about_path,    class:"btn btn-default btn-block shadow-text", role:"button", id:"btn-about"%>
       </div>
