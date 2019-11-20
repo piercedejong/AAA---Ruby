@@ -4,10 +4,12 @@ class GamesController < ApplicationController
 
   def create
     @game = current_user.games.new(game_params)
+    current_user.games.all.each {|g| g.destroy}
     if @game.save
       create_game
       session[:game_uuid] = @game.uuid
       current_game.update(bank: current_nation.bank)
+      binding.pry
       redirect_to game_path(@game.uuid)
     else
       render 'new'
@@ -39,12 +41,8 @@ class GamesController < ApplicationController
     @game = current_user.games.find_by(uuid: params[:id])
     @game.nations.all.each {|n| n.destroy}
     @game.units.all.each {|u| u.destroy}
+    @game.victories.each {|v| v.destroy}
     @game.destroy
-    if request.xhr?
-      render json: {
-      }
-    end
-    redirect_to games_path
   end
 
   def destroy_all
