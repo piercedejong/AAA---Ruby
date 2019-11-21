@@ -39,7 +39,8 @@
             </div> <!-- form-group// -->
             <div class="form-group login-group">
             <div class="login-info" style="visibility: hidden;">.</div>
-              <a class="btn btn-block btn-secondary" id="btn-google" href="<%= '/auth/google' %>"><i class="fab fa-google"></i>   Log in via Google</a>
+            <i class="fab fa-google"></i> 
+              <%= link_to 'Log in via Google' , '/auth/google', method: :post, id:"btn-google", class:"btn btn-block btn-secondary" %>
             </div>
           </form>
         <% end %>
