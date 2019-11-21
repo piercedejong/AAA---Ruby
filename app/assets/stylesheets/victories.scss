@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .v-title {
-  font-size: 6rem;
+  font-size: 3rem;
   color:#f9f2de;
 }
 
@@ -14,6 +14,14 @@
 .allies{
   color:#0040ff;
 }
+
+.info-card{
+  border-radius: 1rem;
+  border:solid 1px;
+  background-color: rgba(220,220,220,0.8);
+  width:fit-content;
+}
+
 
 
 @media only screen and (max-width: 768px){
