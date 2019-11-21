@@ -12,6 +12,7 @@ class Game < ApplicationRecord
     self.update(current: self.current+1)
     if(self.current>self.nations.last.nid)
       self.update(current: 0)
+      self.update(round: self.round+1)
     end
     # Change eco nation to the new nation
     self.eco_to_current

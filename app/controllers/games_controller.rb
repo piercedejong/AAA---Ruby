@@ -91,7 +91,8 @@ class GamesController < ApplicationController
         roundel: next_nation.roundel,
         uuid: next_nation.uuid,
         cheaper: @cheaper,
-        pacific: @pacific
+        pacific: @pacific,
+        round: current_game.round
       }
     end
     #Go to the next nation
