@@ -4,6 +4,7 @@ class GamesController < ApplicationController
 
   def create
     @game = current_user.games.new(game_params)
+    current_user.games.all.each {|g| g.destroy}
     if @game.save
       create_game
       session[:game_uuid] = @game.uuid
@@ -39,12 +40,8 @@ class GamesController < ApplicationController
     @game = current_user.games.find_by(uuid: params[:id])
     @game.nations.all.each {|n| n.destroy}
     @game.units.all.each {|u| u.destroy}
+    @game.victories.each {|v| v.destroy}
     @game.destroy
-    if request.xhr?
-      render json: {
-      }
-    end
-    redirect_to games_path
   end
 
   def destroy_all
@@ -94,7 +91,8 @@ class GamesController < ApplicationController
         roundel: next_nation.roundel,
         uuid: next_nation.uuid,
         cheaper: @cheaper,
-        pacific: @pacific
+        pacific: @pacific,
+        round: current_game.round
       }
     end
     #Go to the next nation
@@ -242,9 +240,7 @@ class GamesController < ApplicationController
   end
 
   def reset_victory_research
-    current_game.victories.each do |v|
-      v.update(enabled: false)
-    end
+    current_game.victories.each{ |v| v.update(enabled: false)}
     current_game.nations.each do |n|
       n.researches.each do |r|
         r.update(enabled: false)

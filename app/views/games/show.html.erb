@@ -3,36 +3,40 @@
 <%= render 'layouts/gameNavBar' %>
 
 <div class="text-center fixed-top mx-auto" style="width:min-content">
-  <div class="text-center my-auto">Current Nation</div>
+  <div id="round" class="text-center mt-1 mb-0">Round: <%=current_game.round %></div>
   <div class="d-flex text-center mx-auto" style="width:min-content;">
     <%=image_tag current_nation.roundel , id:"roundel", class:"my-auto"%>
     <div id="c-nation" class="nation shadow-text text-center my-auto pr-0" style="color:<%=current_nation.color%>"><%=current_nation.name%> - <%=current_nation.bank%></div>
     <div id="c-nation-ipc" class="shadow-text text-center mt-auto pl-1 pb-1" style="color:<%=current_nation.color%>">IPC</div>
   </div>
 </div>
-<div class="nations d-flex justify-content-between p-0 flex-wrap w-100 mt-2">
-  <% @game.nations.all.each do |n| %>
-    <div id="<%=n.name%>" class="nation lshadow-text mx-auto" style="color:black;background-color:<%=n.colorL%>;">
-      <div class="my-auto mx-auto">
-        <%=image_tag n.flag , id:"", class:"flag mx-auto"%>
-      </div>
-      <div>
-        <div class="nation-name text-center"><%= n.name %></div>
-        <div class="money text-center">
-          <div id="<%=n.name%>-bank">Bank: <%=n.bank%></div>
-          <div id="<%=n.name%>-income">Income: <%=n.total_income%></div>
-          <div class="income-breakdown">Base: <%=n.income%> | Objectives: <%=n.obj_income%></div>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="nations d-flex justify-content-between p-0 flex-wrap w-100 mt-2">
+      <% @game.nations.all.each do |n| %>
+        <div id="<%=n.name%>" class="nation lshadow-text mx-auto" style="color:black;background-color:<%=n.colorL%>;">
+          <div class="my-auto mx-auto">
+            <%=image_tag n.flag , id:"", class:"flag mx-auto"%>
+          </div>
+          <div>
+            <div class="nation-name text-center"><%= n.name %></div>
+            <div class="money text-center">
+              <div id="<%=n.name%>-bank">Bank: <%=n.bank%></div>
+              <div id="<%=n.name%>-income">Income: <%=n.total_income%></div>
+              <div class="income-breakdown">Base: <%=n.income%> | Objectives: <%=n.obj_income%></div>
+            </div>
+          </div>
         </div>
-      </div>
+      <%end%>
     </div>
-  <%end%>
-</div>
-<div class="container" style="max-width:100%;">
+  </div>
+
   <div class="row">
     <div class="col-sm-1"></div>
     <div class="col-lg-8">
       <div class="grey-background round mt-3" style="width:fit-content">
-        <table class="unit-table table table-condensed table-borderless p-0" style="" >
+        <table class="unit-table table table-condensed table-borderless p-0 m-0" style="" >
             <thead>
               <tr class="unit-table-top">
                 <th class="table-top text-center">Count</th>
@@ -123,6 +127,7 @@
         <button id="end-turn" onclick="end_turn()"    class="btn btn-default btn-block btn-end-turn shadow-text"  role="button" style="background:<%=current_nation.color%>; <%=display_end_turn%>" >End Turn</button>
       </div>
     <div class="col-sm-1"></div>
+    </div>
   </div>
 </div>
 

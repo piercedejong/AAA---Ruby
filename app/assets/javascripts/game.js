@@ -41,6 +41,7 @@ function end_turn() {
 		$("#c-nation-ipc").css("color",response["color"]);
 		$('#end-turn').css("background",response["color"]);
 		$('#roundel').attr("src","/assets/"+response['roundel']);
+		$("#round").text("Round: "+response["round"]);
 		$('.btn-unit').each(function(){
 			if(count%2==0){
 				$(this).css("background",response["color"]);

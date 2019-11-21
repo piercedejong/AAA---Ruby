@@ -13,11 +13,12 @@
   </div>
 <% end %>
 <div class="grey-background round">
+  <div class="sub-title text-center">New Game</div>
   <form >
     <div class="form-group">
     <div class="input-group">
       <div class="input-group-prepend">
-          <span class="input-group-text"> <i style="font-size:2rem" class="fas fa-dice-d6"></i> </span>
+          <span class="input-group-text"> <i style="" class="fas fa-dice-d6"></i> </span>
        </div>
        <%= select_tag "game[game_name]", content_tag(:option,'Select a Game Version...',value:"")+options_for_select([['1940 Europe','1940Europe'],['1940 Global','1940Global'],['1940 Global (Britian 1 Economy)','1940OneEco'],['1940 Grasshopper','1940Grasshopper'],['1940 Pacific','1940Pacific'],['1942 Spring','1942'],['1914 WWI', '1914']]), class:'input-group-form game-select-form' %>
     </div> <!-- input-group.// -->
@@ -25,16 +26,16 @@
     <div class="form-group">
     <div class="input-group">
       <div class="input-group-prepend">
-          <span class="input-group-text"> <i style="font-size:2rem" class="fas fa-bookmark"></i> </span>
+          <span class="input-group-text"> <i style="" class="fas fa-bookmark"></i> </span>
        </div>
-       <%= f.text_field :name, placeholder:"Game Name (3-20 characters)",class:"game-select-form form-control input-group-form" %>
+       <%= f.text_field :name, placeholder:"Game Name (3-20 characters)",class:"game-select-form form-control game-select-form" %>
     </div> <!-- input-group.// -->
     </div> <!-- form-group// -->
-    <div class="w-100 text-center">
-          <%= f.submit class:"btn btn-default shadow-text", id:"btn-create-game", role:"button" %>
+    <div class="w-100 d-flex justify-content-between mx-2 mt-1">
+          <%= link_to "Back", root_path, id: "btn-back",class: "btn btn-default shadow-text px-2", role:"button"%>
+          <%= f.submit class:"btn btn-default shadow-text mr-3 px-2", id:"btn-create-game", role:"button" %>
     </div>
 
   </form>
 </div>
-
 <% end %>

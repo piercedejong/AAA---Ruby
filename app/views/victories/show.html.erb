@@ -1,10 +1,9 @@
 <% content_for :title, "aaa - victories" %>
 <% @page = "victory" %>
 <%= render 'layouts/gameNavBar' %>
-<div class="container w-100" style="padding-top:40px">
-  <div class="objective-card mx-auto  mt-4" >
-    <div class="v-title text-center shadow-text" >Victory Objectives</div>
-    <div class="sub-title text-center shadow-text">Click on an objective once it has been completed</div>
+<div class="container">
+  <div class="info-card mx-auto mt-2 p-2">
+    <div class="sub-title text-center">Click on an Victory Objective once it has been completed</div>
   </div>
     <div class="row">
     <div class="col-sm-6">
@@ -15,7 +14,7 @@
             <% if v.enabled %>
               <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" style="cursor:default" class="btn-block btn btn-victory btn-victory-axis btn-default"><strong><%= v.name %></strong> : <%=v.text %></button>
             <%else%>
-              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" class="btn btn-block btn-victory btn-default" role="button"><strong><%= v.name %></strong> : <%=v.text %> <small class="h4 my-auto"> <%=v.nation%></small></button>
+              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" class="btn btn-block btn-victory btn-default" role="button"><strong><%= v.name %></strong> : <%=v.text %> <small class="my-auto"> <%=v.nation%></small></button>
             <%end%>
           <%end%>
         <%end %>
@@ -29,7 +28,7 @@
             <% if v.enabled %>
               <button data-id="<%=v.vid%>" id="victory-<%=v.vid%>" style="cursor:default" class="btn btn-block btn-victory btn-victory-allies btn-default" role="button"><strong><%= v.name %></strong> : <%=v.text %></button>
             <%else%>
-              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>"  class="btn btn-block btn-victory btn-default" role="button"><strong><%= v.name %></strong> : <%=v.text %> <small class="h4 my-auto"> <%=v.nation%></small></button>
+              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>"  class="btn btn-block btn-victory btn-default" role="button"><strong><%= v.name %></strong> : <%=v.text %> <small class="my-auto"> <%=v.nation%></small></button>
             <%end%>
           <%end%>
         <%end %>

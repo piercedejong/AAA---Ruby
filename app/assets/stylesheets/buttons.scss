@@ -24,19 +24,6 @@
   }
 }
 
-.btn-switch{
-  font-size: 1rem;
-  color:#262626;
-  border:none;
-  background-color:transparent;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  &:hover{
-    text-shadow: none;
-    background-color: rgba(230,230,230,0.5) !important;
-  }
-}
-
 #btn-new-game, #btn-load-game, #btn-about, #btn-battle-calulator, {
   font-size: 2rem;
 }
@@ -131,7 +118,7 @@
 }
 
 .btn-victory{
-  font-size: 1.5rem;
+  font-size: 1rem;
   height: 50%;
 }
 
