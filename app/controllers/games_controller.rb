@@ -9,7 +9,6 @@ class GamesController < ApplicationController
       create_game
       session[:game_uuid] = @game.uuid
       current_game.update(bank: current_nation.bank)
-      binding.pry
       redirect_to game_path(@game.uuid)
     else
       render 'new'
