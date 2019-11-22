@@ -19,7 +19,7 @@ class NationsController < ApplicationController
     end
     if request.xhr?
       render :json => {
-        color: @color,
+        id: params[:id],
         nation: current_eco.obj_inc,
         enabled:@objective.enabled
       }

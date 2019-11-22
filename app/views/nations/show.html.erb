@@ -10,17 +10,22 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-sm-10">
-      <div class="conatiner mt-4" style="">
+    <div class="col-sm-10 mt-4">
+      <div class="conatiner nation-objectives" style="background:<%=@nation.colorL %>">
+        <div class="text-center sub-title" ">National Objectives</div>
         <% @nation.objectives.each do |o| %>
-          <button data-oid="<%=o.oid%>" onclick="update_obj(this)" id="objective-<%=o.oid%>" style="background-color:<%= o.enabled ? @nation.color : ""%>;" class="btn btn-default btn-block <%= o.enabled ? "shadow-text btn-objective-enabled" : "btn-objective" %>" role="button"><strong><%= o.value %></strong> :: <%=o.name %></button>
-        <% end %>
+          <div class="form-check m-3 align-items-center" style="font-size:1.5em">
+            <%= check_box("tag", o.oid, {checked: o.enabled, class:"form-check-input", type:"radio", id:o.oid,  onclick:"update_obj(this)"}) %>
+            <label class="form-check-label" for="defaultCheck1"><strong><%= o.value %></strong> <small>IPC</small> - <%=o.name %></label>
+          </div>
+            <% end %>
       </div>
     </div>
-    <div class="col-sm-2 mt-1">
+    <div class="col-sm-2 mt-4">
       <% current_game.nations.each do |n| %>
         <%= link_to n.name, nation_path(n.uuid), class:"mt-1 btn btn-nation btn-block btn-default text-center shadow-text", style:"background-color:"+n.color%>
       <% end %>
+
     </div>
   </div>
 </div>
