@@ -72,7 +72,7 @@
     <div class="col-sm-7">
     </div>
     <div class="col-sm-4 signup-card">
-      <div class="sub-title" style="">Create an account</div>
+      <div class="sub-title text-center">Create an account</div>
       <%= form_with(model: @user, local: true) do |form| %>
         <% if @user.errors.any? %>
           <div id="error_explanation">
@@ -88,7 +88,7 @@
         <div class="form-group">
         <div class="input-group">
           <div class="input-group-prepend">
-              <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+              <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
            </div>
            <%= form.text_field :email, placeholder:"Email", autocomplete:"", required:"true", type:"text", class:"form-control input-group-form" %>
         </div> <!-- input-group.// -->
@@ -96,7 +96,7 @@
         <div class="form-group">
         <div class="input-group">
           <div class="input-group-prepend">
-              <span class="input-group-text"> <i class="fas fa-envelope"></i> </span>
+              <span class="input-group-text"> <i class="fas fa-user"></i> </span>
            </div>
            <%= form.text_field :name, placeholder:"Username (5-15 Characters)", required:"true", autocomplete:"", type:"text", class:"form-control" %>
         </div> <!-- input-group.// -->
@@ -106,7 +106,7 @@
           <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
            </div>
-           <%= form.password_field :password, placeholder:"Password (6-20 Characters)", autocomplete:"new-password", required:"true", type:"text", class:"form-control"%>
+           <%= form.password_field :password, placeholder:"Password", autocomplete:"new-password", required:"true", type:"text", class:"form-control"%>
         </div> <!-- input-group.// -->
         </div> <!-- form-group// -->
         <div class="form-group">
