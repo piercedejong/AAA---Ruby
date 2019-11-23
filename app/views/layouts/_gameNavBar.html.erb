@@ -14,12 +14,20 @@
         <li class="nav-item <%= @page == "economy" ? "active" : ""%>">
           <%=link_to "Economy", game_path(current_game.uuid), class:"nav-link", role:"button" %>
         </li>
-        <li class="nav-item <%= @page == "objective" ? "active" : ""%>">
-          <%= link_to "National Objectives", nation_path(current_eco.uuid), class:"nav-link", role:"button" %>
-        </li>
+        <li class="nav-item dropdown <%= @page == "objective" ? "active" : ""%>">
+         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Narional Objectives
+         </a>
+         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+           <% current_game.nations.all.each do |n| %>
+            <%= link_to n.name, nation_path(n.uuid), class:"dropdown-item", role:"button" %>
+           <% end %>
+         </div>
+       </li>
         <li class="nav-item <%= @page == "research" ? "active" : ""%>">
           <%= link_to "Research and Development", research_path(current_game.uuid), class:"nav-link", role:"button" %>
         </li>
+
       <% if is_victories_game %>
         <li class="nav-item <%= @page == "victory" ? "active" : ""%>">
           <%= link_to "Victory Objectives", victory_path(current_game.uuid), class:"nav-link", role:"button" %>

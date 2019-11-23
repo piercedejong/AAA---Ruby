@@ -70,6 +70,11 @@ body {
   border-color: #f9f2de;
 }
 
+.dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0; // remove the gap so it doesn't close
+ }
+
 .top-bar{
   background-color: rgb(200,200,200);
   z-index: 99;
