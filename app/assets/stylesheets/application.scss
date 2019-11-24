@@ -16,12 +16,12 @@
  @import "bootstrap";
  @import "buttons.scss";
  @font-face {
-    //font-family: 'test'; /*a name to be used later*/
-    //src: url('https://ff.cdn.1001fonts.net/a/l/alte-din-1451-mittelschrift.regular.ttf'); /*URL to font*/
+    font-family: 'BerlinEmail'; /*a name to be used later*/
+    src: url('fonts/BerlinEmail.ttf'); /*URL to font*/
 }
 
 @font-face {
-  font-family: 'Glyphicons Halflings';
+  // font-family: 'Glyphicons Halflings';
   //src: url('../fonts/glyphicons-halflings-regular.eot');
   //src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
 }
