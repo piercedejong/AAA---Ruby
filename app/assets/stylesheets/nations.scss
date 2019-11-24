@@ -18,8 +18,16 @@
 
 
 .nation-objectives{
-  background-color: rgba(255,255,255, 0.8);
+  background-color: rgba(248,248,259, 0.9);
   border-radius: 1rem;
   border:solid black 1px;
   padding:0.5rem;
+  height: 70vh;
+}
+
+// mobile sizes
+@media only screen and (max-width: 767px){
+  .nation-objectives{
+    height: 60vh;
+  }
 }

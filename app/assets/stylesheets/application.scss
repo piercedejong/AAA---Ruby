@@ -46,7 +46,8 @@ body {
   z-index:-2;
   height:100%;
   width:100%;
-  position:fixed
+  position:fixed;
+  opacity: 50%
 }
 #background-image{
   filter: blur(20px);
