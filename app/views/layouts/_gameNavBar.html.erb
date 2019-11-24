@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light px-3 fixed-top py-3">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="font-size:1.15rem">
       <a class="navbar-brand" href="">Axis and Allies Economy</a>
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item">
@@ -15,9 +15,10 @@
           <%=link_to "Economy", game_path(current_game.uuid), class:"nav-link", role:"button" %>
         </li>
         <li class="nav-item dropdown <%= @page == "objective" ? "active" : ""%>">
-         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           Narional Objectives
-         </a>
+         <!-- <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           National Objectives
+         </a> -->
+         <%= link_to "National Objectives", nation_path(current_nation.uuid), id:"navbarDropdown", class:"nav-link dropdown-toggle", role:"button" %>
          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
            <% current_game.nations.all.each do |n| %>
             <%= link_to n.name, nation_path(n.uuid), class:"dropdown-item", role:"button" %>
