@@ -2,46 +2,68 @@
 <% @page = "research" %>
 <%= render 'layouts/gameNavBar' %>
 
-<div class="w-100 row px-0 pt-5 justify-content-center align-items-center mx-2">
+<div class="">
   <% if is_victories_game %>
-    <button class="btn btn-danger ml-auto mr-5" onclick="reset_GrassHopper()"role= "button">Reset Research and Victory Objectives</button>
+    <button class="btn btn-danger ml-5 mt-3" onclick="reset_GrassHopper()"role= "button">Reset Research and Victory Objectives</button>
   <% else %>
-    <button class="btn btn-danger ml-auto mr-5" onclick="reset_1940()"role= "button">Reset Research</button>
+    <button class="btn btn-danger ml-5 mt-3" onclick="reset_1940()"role= "button">Reset Research</button>
   <%end %>
-  <div class="d-flex flex-wrap w-100">
-    <div class="d-flex flex-wrap mx-auto">
-    <% current_nation.researches.each do |r| %>
-      <% if r.rid <6 %>
-        <div class="research-col p-0 mt-5">
-          <div class="research row justify-content-center research-table-1  align-items-center m-0 mb-2">
-            <div class="text-center"><%=r.name%></div>
-          </div>
-          <div class="research-col">
-            <% current_game.nations.all.each do |n| %>
-              <% @x = n.researches.find_by(rid: r.rid) %>
-              <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default <%= @x.enabled ? "btn-research-enabled" : "btn-research"%>" style=";<%= @x.enabled ? "background:"+n.color+";" : ""%>;" role="button"><%=n.name%></button>
+  <div class="d-flex flex-wrap pt-0">
+      <div class="d-flex mx-auto research-table mt-3 overflow-auto">
+        <div class="research-col p-0">
+          <div class="research d-flex justify-content-center research-table-1  align-items-center"><strong>Table 1</strong></div>
+            <% current_game.research_nations.each do |n| %>
+              <div class="research d-flex justify-content-center research-table-1  align-items-center" style="background-color:<%=n.colorL%>">
+                <%=n.name%>
+              </div>
             <% end %>
-          </div>
         </div>
-      <%end%>
-    <%end%>
-    </div>
-    <div class="d-flex flex-wrap mx-auto">
-    <% current_nation.researches.each do |r| %>
-      <% if r.rid >5 %>
-        <div class="research-col  p-0 mt-5">
-          <div class="research row justify-content-center research-table-2 align-items-center m-0 mb-2">
-            <div class="text-center"><%=r.name%></div>
+      <% current_nation.researches.each do |r| %>
+        <% if r.rid <6 %>
+          <div class="research-col p-0">
+            <div class="research d-flex justify-content-center research-table-1  align-items-center">
+              <div class="text-center "><%=r.name%></div>
+            </div>
+              <% current_game.research_nations.each do |n| %>
+                <% @x = n.researches.find_by(rid: r.rid) %>
+                <div class="research d-flex justify-content-center research-table-1  align-items-center" style="background-color:<%=n.colorL%>">
+                <div class="form-check m-3 align-items-center mt-0" style="transform: scale(1.5)">
+                <%= check_box("tag", @x.rid,  {checked: @x.enabled, class:"form-check-input", type:"radio", id:@x.rid,  onclick:"research(this)",nation:n.name}) %>
+                  <label class="form-check-label" for="defaultCheck1"></label>
+                </div>
+                </div>
+              <% end %>
           </div>
-          <div class="research-col">
-            <% current_game.nations.all.each do |n| %>
-              <% @x = n.researches.find_by(rid: r.rid) %>
-              <button  data-id="<%=r.rid%>" data-name="<%=n.name%>" id="<%=n.name%>-<%=r.rid%>" onclick="research(this)" class="btn btn-default <%= @x.enabled ? "btn-research-enabled" : "btn-research"%>" style=";<%= @x.enabled ? "background:"+n.color+";" : ""%>;" role="button"><%=n.name%></button>
-            <% end %>
-          </div>
-        </div>
+        <%end%>
       <%end%>
-    <%end%>
+      </div>
+      <div class="d-flex mx-auto research-table mt-3 overflow-auto">
+          <div class="research-col p-0">
+            <div class="research d-flex justify-content-center research-table-1  align-items-center"><strong>Table 2</strong></div>
+              <% current_game.research_nations.each do |n| %>
+                <div class="research d-flex justify-content-center research-table-1  align-items-center" style="background-color:<%=n.colorL%>">
+                  <%=n.name%>
+                </div>
+              <% end %>
+          </div>
+        <% current_nation.researches.each do |r| %>
+          <% if r.rid >5 %>
+            <div class="research-col p-0">
+              <div class="research d-flex justify-content-center research-table-1  align-items-center">
+                <div class="text-center "><%=r.name%></div>
+              </div>
+                <% current_game.research_nations.each do |n| %>
+                  <% @x = n.researches.find_by(rid: r.rid) %>
+                  <div class="research d-flex justify-content-center research-table-1  align-items-center" style="background-color:<%=n.colorL%>">
+                  <div class="form-check m-3 align-items-center mt-0" style="transform: scale(1.5)">
+                  <%= check_box("tag", @x.rid,  {checked: @x.enabled, class:"form-check-input", type:"radio", id:@x.rid,  onclick:"research(this)",nation:n.name}) %>
+                    <label class="form-check-label" for="defaultCheck1"></label>
+                  </div>
+                  </div>
+                <% end %>
+            </div>
+          <%end%>
+        <%end%>
+      </div>
     </div>
-  </div>
 </div>

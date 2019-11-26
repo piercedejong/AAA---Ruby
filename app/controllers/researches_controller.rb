@@ -7,7 +7,7 @@ class ResearchesController < ApplicationController
   def clicked
     @nation = current_game.nations.find_by(name: params[:name])
     @research = @nation.researches.find_by(rid: params[:id])
-    if ["1940Grasshopper","1940House"].include? current_game.game_name
+    if is_victories_game
       #If a victory mission was completed
       if session[:research_point]
         session[:research_point] = false
@@ -22,7 +22,7 @@ class ResearchesController < ApplicationController
           }
         end
       end
-    elsif ["1940Global","1940OneEco","1940Europe","1940Pacifc"].include? current_game.game_name
+    else
       @research.update(enabled: true)
       if @nation.name.eql? "Britain" and current_game.game_name.eql? "1940Global"
         current_game.nations.find_by(name: "Pacific").researches[@research.rid].update(enabled: true)
