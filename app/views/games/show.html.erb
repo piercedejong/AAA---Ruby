@@ -87,11 +87,13 @@
           <div class="my-auto p-0 ml-1 "><button id="change-eco-forward" class="btn-change-eco p-0 my-auto" onclick="change_eco_forward()"><span><i class="fas fa-arrow-circle-right change-eco-card"></i></span></button></div>
         </div>
         <table class="w-100 mb-1">
-          <tbody>
+          <thead>
             <tr class="change">
-              <td class="text-center nowrap shadow-text mb-4"><div class="economy-card mr-1 mb-1" id="eco-bank">Bank <%=current_eco.bank%></div></td>
-              <td class="text-center nowrap shadow-text mb-4"><div class="economy-card ml-1 mb-1" id="eco-income">Income <%=current_eco.income%></div></td>
+              <th class="text-center nowrap shadow-text mb-4" style="width:50%"><div class="economy-card mr-1 mb-1" id="eco-bank">Bank <%=current_eco.bank%></div></th>
+              <th class="text-center nowrap shadow-text mb-4" style="width:50%"><div class="economy-card ml-1 mb-1" id="eco-income">Income <%=current_eco.income%></div></th>
             </tr>
+          </thead>
+            <tbody>
             <tr class="change">
               <td><button data-amount="1" onclick="change_bank(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center btn-default btn-block btn btn-change shadow-text" role="button">+1</button></td>
               <td><button data-amount="1" onclick="change_income(this)" style="background:<%=current_eco.color%>" class="change-eco-pos text-center btn-default btn-block btn btn-change shadow-text" role="button">+1</button></td>
@@ -120,11 +122,11 @@
         </table>
       </div>
       <div class="mt-2">
-        <button id="reset-buy" class="btn btn-default btn-reset-buy btn-block" onclick="reset_buy()" role="button">Reset Buy</button>
+        <button id="reset-buy" class="btn btn-danger btn-reset-buy btn-block" onclick="reset_buy()" role="button">Reset Buy</button>
       </div>
       <div class="mt-1">
-        <button id="pacific"  onclick="buy_pacific()" class="btn btn-default btn-block btn-pacific shadow-text"   role="button" style="<%=display_buy_pacific%>">Buy Pacific Units</button>
-        <button id="end-turn" onclick="end_turn()"    class="btn btn-default btn-block btn-end-turn shadow-text"  role="button" style="background:<%=current_nation.color%>; <%=display_end_turn%>" >End Turn</button>
+        <button id="pacific"  onclick="buy_pacific()" class="btn btn-default btn-block btn-pacific"   role="button" style="<%=display_buy_pacific%>">Buy Pacific Units</button>
+        <button id="end-turn" onclick="end_turn()"    class="btn btn-default btn-block btn-end-turn"  role="button" style="<%=display_end_turn%>" >End Turn</button>
       </div>
     <div class="col-sm-1"></div>
     </div>
