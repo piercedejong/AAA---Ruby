@@ -13,7 +13,7 @@ function buy_unit(element) {
 			$("#eco-bank").text("Bank "+response["bank"]);
 		}
 		$("#"+response["name"]).text(response["count"]);
-		$("#"+response["nation"]+"-bank").text(response["bank"]);
+		$("#"+response["nation"]+"-bank").text("Bank: "+response["bank"]);
 		$("#c-nation").text(response["nation"]+" - "+response["bank"])
   })
 }
@@ -91,7 +91,7 @@ function reset_buy() {
     url: window.location.origin + '/game/reset_buy'
   })
   .done(function(response) {
-    $("#"+response["nation"]+"-bank").text(response["bank"]);
+    $("#"+response["nation"]+"-bank").text("Bank: "+response["bank"]);
 		$("#c-nation").text(response["nation"]+" - "+response["bank"]);
 		$("#eco-bank").text("Bank "+response["bank"]);
     $('.count').text("0");
