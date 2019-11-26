@@ -7,7 +7,7 @@ class User < ApplicationRecord
   has_many :games
   validates :email, :uniqueness => { :case_sensitive => false }, format: { with: URI::MailTo::EMAIL_REGEXP }, length: {maximum: 256}
   validates :name, :uniqueness => { :case_sensitive => false }, format:{ with: /\A[a-zA-Z0-9]+\z/i, message: "can only contain letters and numbers." }, length: { in: 5..20, message: "must be between 5 and 20 characters long"}
-  validates :password, length: { in: 6..20}
+  validates :password, length: { in: 6..100}
   has_one :battle_calculator
   default_scope { order(created_at: :asc) }
   has_secure_password

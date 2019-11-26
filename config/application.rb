@@ -10,6 +10,8 @@ module Aaa
   class Application < Rails::Application
     #config.autoload_paths << Rails.root.join('lib')
     config.active_record.primary_key = :uuid
+
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
     #config.eager_load_paths += %W( #{config.root}/lib )
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers

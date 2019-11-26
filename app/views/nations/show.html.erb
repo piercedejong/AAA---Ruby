@@ -1,26 +1,31 @@
 <% content_for :title, "aaa - objectives - "+@nation.name %>
 <% @page = "objective" %>
 <%= render 'layouts/gameNavBar' %>
-<div class="text-center fixed-top mx-auto" style="width:min-content">
-  <div class="d-flex text-center mx-auto mt-2" style="width:min-content;">
-    <%=image_tag @nation.roundel , id:"roundel", class:"my-auto"%>
-    <div id="c-nation" class="nation shadow-text text-center my-auto pr-0" style="color:<%=@nation.color%>"><%=@nation.obj_inc%></div>
-    <div id="c-nation-ipc" class="shadow-text text-center mt-auto pl-2 pb-1" style="color:<%=@nation.color%>; white-space: nowrap;">bonus income</div>
-  </div>
-</div>
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-sm-10">
-      <div class="conatiner mt-4" style="">
-        <% @nation.objectives.each do |o| %>
-          <button data-oid="<%=o.oid%>" onclick="update_obj(this)" id="objective-<%=o.oid%>" style="background-color:<%= o.enabled ? @nation.color : ""%>;" class="btn btn-default btn-block <%= o.enabled ? "shadow-text btn-objective-enabled" : "btn-objective" %>" role="button"><strong><%= o.value %></strong> :: <%=o.name %></button>
-        <% end %>
-      </div>
-    </div>
-    <div class="col-sm-2 mt-1">
+    <div class="col mt-3 d-flex flex-wrap mx-auto">
       <% current_game.nations.each do |n| %>
-        <%= link_to n.name, nation_path(n.uuid), class:"mt-1 btn btn-nation btn-block btn-default text-center shadow-text", style:"background-color:"+n.color%>
+        <%= link_to n.name, nation_path(n.uuid), class:" mx-auto btn-block btn btn-nation btn-default text-center shadow-text", style:"background-color:"+n.color%>
       <% end %>
     </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8 mt-4">
+      <div class="nation-objectives overflow-auto">
+        <div class="d-flex text-center mx-auto mt-2" style="width:min-content;">
+          <%=image_tag @nation.roundel , id:"roundel", class:"my-auto"%>
+          <div id="c-nation" class="nation text-center my-auto pr-0" style="color:<%=@nation.color%>"><%=@nation.obj_inc%></div>
+          <div id="c-nation-ipc" class="text-center mt-auto pl-2 pb-1" style="color:<%=@nation.color%>; white-space: nowrap;">bonus income</div>
+        </div>
+        <% @nation.objectives.each do |o| %>
+          <div class="form-check m-3 align-items-center" style="font-size:1.5em">
+            <%= check_box("tag", o.oid, {checked: o.enabled, class:"form-check-input", type:"radio", id:o.oid,  onclick:"update_obj(this)"}) %>
+            <label class="form-check-label" for="defaultCheck1"><strong><%= o.value %></strong> <small>IPC</small> - <%=o.name %></label>
+          </div>
+            <% end %>
+      </div>
+    </div>
+    <div class="col-sm-2"></div>
   </div>
 </div>

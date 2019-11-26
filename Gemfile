@@ -35,6 +35,8 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 
 gem "bootstrap", "~> 4.3.1"
 
+gem 'omniauth-rails_csrf_protection', '~> 0.1'
+
 gem 'sinatra'
 
 gem 'omniauth-google-oauth2'

@@ -1,5 +1,6 @@
 .btn{
   white-space: pre-wrap;
+  border-radius: 1rem;
 }
 
 .btn-glyph{
@@ -198,11 +199,15 @@
 }
 
 .btn-nation{
-  padding-top:7%;
-  padding-bottom:7%;
+  padding-top:1rem;
+  padding-bottom: 1rem;
+  margin:0.5rem;
+  max-width:9%;
 }
 
 // mobile sizes
-@media only screen and (max-width: 823px){
-
+@media only screen and (max-width: 767px){
+  .btn-nation{
+    max-width:20%;
+  }
 }

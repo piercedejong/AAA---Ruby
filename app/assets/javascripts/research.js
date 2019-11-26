@@ -2,16 +2,13 @@ function research(element) {
   $.ajax({
     method: "GET",
     data:{
-     id: element.getAttribute("data-id"),
-     name: element.getAttribute("data-name")
+     id: element.getAttribute("id"),
+     name: element.getAttribute("nation")
     },
     url: window.location.origin + '/research/clicked'
   })
   .done(function(response) {
-    if(response){
-      $("#"+response["id"]).css("background",response["color"]);
-        $("#"+response["id"]).css("color","#f9f2de");
-    }
+    
   })
 }
 

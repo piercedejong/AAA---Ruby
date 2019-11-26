@@ -80,7 +80,7 @@ function end_turn() {
 		//c_nation_opacity(response["nation"])
 
 		$(".nation").css('border-color', "transparent")
-		$("#"+response["nation"]).css("border-color", response["color"]);
+		$("#"+response["nation"]).css("border-color", "#262626");
 		//$("#"+response["nation"]).css("border", "5px solid");
   })
 }
@@ -210,7 +210,7 @@ function buy_pacific(element) {
 		$('#roundel').attr("src","/assets/"+response['roundel']);
 		$('.count').text("0");
 		$(".nation").css('border-color', "transparent")
-		$("#"+response["nation"]).css("border-color", response["color"]);
+		$("#"+response["nation"]).css("border-color", "#262626");
 		change_eco_nation(response);
 
 		//c_nation_opacity(response["nation"])

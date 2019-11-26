@@ -54,6 +54,10 @@ class Game < ApplicationRecord
     self.update(eco: self.current)
   end
 
+  def research_nations
+    self.nations.where("name != ?", 'France').where("name != ?", 'China').where("name != ?", 'Pacific')
+  end
+
   private
     def create_uuid
       begin
