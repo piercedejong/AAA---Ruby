@@ -1,5 +1,7 @@
 class ResearchesController < ApplicationController
   before_action :check_current_user
+
+  helper_method :disable_checkbox
   def show
     @game = Game.find_by(uuid: params[:id])
   end
@@ -18,7 +20,8 @@ class ResearchesController < ApplicationController
         if request.xhr?
           render :json => {
             color: @nation.color,
-            id: @nation.name+"-"+params[:id]
+            id: @nation.name+"-"+params[:id],
+            disable: true
           }
         end
       end
@@ -30,9 +33,36 @@ class ResearchesController < ApplicationController
       if request.xhr?
         render :json => {
           color: @nation.color,
-          id: @nation.name+"-"+params[:id]
+          id: @nation.name+"-"+params[:id],
+          disable: false
         }
       end
+    end
+  end
+
+  def disable_checkbox(n)
+    puts n.name
+    if is_victories_game
+      if session[:research_point]
+        if session[:research_team] == "axis"
+          if ["Germany","Japan","Italy"].include? n.name
+            return false
+          else
+            return true
+          end
+        else
+          if ["USSR","USA","ANZAC","Britain"].include? n.name
+            return false
+          else
+            return true
+          end
+        end
+        return false
+      else
+        return true
+      end
+    else
+      return false
     end
   end
 

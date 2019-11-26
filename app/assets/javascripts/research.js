@@ -8,7 +8,8 @@ function research(element) {
     url: window.location.origin + '/research/clicked'
   })
   .done(function(response) {
-    
+  $(".research-check").attr("disabled",response["disable"])
+
   })
 }
 

@@ -2,7 +2,7 @@ function victory(element) {
   $.ajax({
     method: "GET",
     data:{
-     id: element.getAttribute("data-id")
+     id: element.getAttribute("id")
     },
     url: window.location.origin + '/victory/clicked'
   })
