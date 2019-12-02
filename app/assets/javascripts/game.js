@@ -13,7 +13,7 @@ function buy_unit(element) {
 			$("#eco-bank").text("Bank "+response["bank"]);
 		}
 		$("#"+response["name"]).text(response["count"]);
-		$("#"+response["nation"]+"-bank").text(response["bank"]);
+		$("#"+response["nation"]+"-bank").text("Bank: "+response["bank"]);
 		$("#c-nation").text(response["nation"]+" - "+response["bank"])
   })
 }
@@ -39,7 +39,7 @@ function end_turn() {
     $("#c-nation").text(response["nation"]+" - "+response["bank"]);
     $("#c-nation").css("color",response["color"]);
 		$("#c-nation-ipc").css("color",response["color"]);
-		$('#end-turn').css("background",response["color"]);
+		//$('#end-turn').css("background",response["color"]);
 		$('#roundel').attr("src","/assets/"+response['roundel']);
 		$("#round").text("Round: "+response["round"]);
 		$('.btn-unit').each(function(){
@@ -91,7 +91,7 @@ function reset_buy() {
     url: window.location.origin + '/game/reset_buy'
   })
   .done(function(response) {
-    $("#"+response["nation"]+"-bank").text(response["bank"]);
+    $("#"+response["nation"]+"-bank").text("Bank: "+response["bank"]);
 		$("#c-nation").text(response["nation"]+" - "+response["bank"]);
 		$("#eco-bank").text("Bank "+response["bank"]);
     $('.count').text("0");
@@ -205,7 +205,7 @@ function buy_pacific(element) {
 		$("#c-nation").text(response["nation"]+" - "+response["bank"]);
     $("#c-nation").css("color",response["color"]);
 		$("#c-nation-ipc").css("color",response["color"]);
-		$('#end-turn').css("background",response["color"]);
+		//$('#end-turn').css("background",response["color"]);
 		$("#end-turn").show();
 		$('#roundel').attr("src","/assets/"+response['roundel']);
 		$('.count').text("0");

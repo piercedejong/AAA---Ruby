@@ -28,7 +28,7 @@
                 <% @x = n.researches.find_by(rid: r.rid) %>
                 <div class="research d-flex justify-content-center research-table-1  align-items-center" style="background-color:<%=n.colorL%>">
                 <div class="form-check m-3 align-items-center mt-0" style="transform: scale(1.5)">
-                <%= check_box("tag", @x.rid,  {checked: @x.enabled, class:"form-check-input", type:"radio", id:@x.rid,  onclick:"research(this)",nation:n.name}) %>
+                <%= check_box("tag", @x.rid, {disabled: disable_checkbox(n), checked: @x.enabled, class:"form-check-input research-check", type:"radio", id:@x.rid,  onclick:"research(this)",nation:n.name}) %>
                   <label class="form-check-label" for="defaultCheck1"></label>
                 </div>
                 </div>
@@ -56,7 +56,7 @@
                   <% @x = n.researches.find_by(rid: r.rid) %>
                   <div class="research d-flex justify-content-center research-table-1  align-items-center" style="background-color:<%=n.colorL%>">
                   <div class="form-check m-3 align-items-center mt-0" style="transform: scale(1.5)">
-                  <%= check_box("tag", @x.rid,  {checked: @x.enabled, class:"form-check-input", type:"radio", id:@x.rid,  onclick:"research(this)",nation:n.name}) %>
+                  <%= check_box("tag", @x.rid,  {disabled: disable_checkbox(n), checked: @x.enabled, class:"form-check-input research-check", type:"radio", id:@x.rid,  onclick:"research(this)",nation:n.name}) %>
                     <label class="form-check-label" for="defaultCheck1"></label>
                   </div>
                   </div>

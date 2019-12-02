@@ -76,14 +76,11 @@
 }
 
 .btn-reset-buy {
-  background-color:#ad5252;
+  //background-color:#ad5252;
   &:hover{
-    background-color:rgba(173, 82, 82, 0.5) !important;
-    color:#262626 !important;
+    //background-color:rgba(173, 82, 82, 0.5) !important;
+    //color:#262626 !important;
   }
-}
-
-.btn-end-turn {
 }
 
 .btn-pacific{
@@ -93,7 +90,11 @@
 .btn-pacific, .btn-end-turn, .btn-reset-buy{
   padding:1rem;
   font-size: 1.25rem;
-  color: #f9f2fe;
+}
+
+.btn-end-turn, .btn-pacific {
+  background-color: #f9f2fe;
+  color:#262626;
 }
 
 .btn-game {
@@ -115,7 +116,8 @@
 .btn-unit {
   padding: 0rem;
   font-size: 0.9rem;
-  border: solid 1px
+  border: solid 1px;
+  border-radius:50%;
 }
 
 .btn-victory{
@@ -199,10 +201,11 @@
 }
 
 .btn-nation{
-  padding-top:1rem;
-  padding-bottom: 1rem;
+  padding-top:.75rem;
+  padding-bottom: .75rem;
   margin:0.5rem;
   max-width:9%;
+  font-size: 1.5rem;
 }
 
 // mobile sizes

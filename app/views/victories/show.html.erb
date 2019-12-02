@@ -7,30 +7,28 @@
   </div>
     <div class="row">
     <div class="col-sm-6">
-      <div class="axis">
-        <div class="v-title axis text-center shadow-text">Axis</div>
+      <div class="victory">
+        <div class="v-title text-center shadow-text">Axis</div>
         <% @game.victories.each do |v| %>
-          <% if v.axis %>
-            <% if v.enabled %>
-              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" style="cursor:default" class="btn-block btn btn-victory btn-victory-axis btn-default"><strong><%= v.name %></strong> : <%=v.text %></button>
-            <%else%>
-              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>" class="btn btn-block btn-victory btn-default" role="button"><strong><%= v.name %></strong> : <%=v.text %> <small class="my-auto"> <%=v.nation%></small></button>
-            <%end%>
-          <%end%>
+        <% if v.axis %>
+        <div class="form-check m-3 align-items-center mt-0" style="height:30px">
+          <%= check_box("tag", v.vid,  {checked: v.enabled, class:"form-check-input my-auto", type:"radio", id:v.vid,  onclick:"victory(this)",nation:v.name, style:"transform: scale(1.5)"}) %>
+          <label class="form-check-label my-auto" style="" for="defaultCheck1"><strong><%= v.name %></strong> : <%=v.text %> <small class="my-auto"> <%=v.nation%></small></label>
+        </div>
+        <%end%>
         <%end %>
       </div>
     </div>
     <div class="col-sm-6">
-      <div class="allies">
-        <div class="v-title allies text-center shadow-text">Allies</div>
+      <div class="victory">
+        <div class="v-title text-center shadow-text">Allies</div>
         <% @game.victories.each do |v| %>
-          <% if !v.axis %>
-            <% if v.enabled %>
-              <button data-id="<%=v.vid%>" id="victory-<%=v.vid%>" style="cursor:default" class="btn btn-block btn-victory btn-victory-allies btn-default" role="button"><strong><%= v.name %></strong> : <%=v.text %></button>
-            <%else%>
-              <button data-id="<%=v.vid%>" onclick="victory(this)" id="victory-<%=v.vid%>"  class="btn btn-block btn-victory btn-default" role="button"><strong><%= v.name %></strong> : <%=v.text %> <small class="my-auto"> <%=v.nation%></small></button>
-            <%end%>
-          <%end%>
+        <% if !v.axis %>
+        <div class="form-check m-3 align-items-center mt-0" style="height:30px">
+          <%= check_box("tag", v.vid,  {checked: v.enabled, class:"form-check-input my-auto", type:"radio", id:v.vid,  onclick:"victory(this)",nation:v.name, style:"transform: scale(1.5)"}) %>
+          <label class="form-check-label my-auto" style="" for="defaultCheck1"><strong><%= v.name %></strong> : <%=v.text %> <small class="my-auto"> <%=v.nation%></small></label>
+        </div>
+        <%end%>
         <%end %>
       </div>
     </div>
