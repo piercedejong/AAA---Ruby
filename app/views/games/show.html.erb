@@ -2,14 +2,7 @@
 <% @page = "economy" %>
 <%= render 'layouts/gameNavBar' %>
 
-<div class="text-center fixed-top mx-auto" style="width:min-content">
-  <div id="round" class="text-center mt-1 mb-0">Round: <%=current_game.round %></div>
-  <div class="d-flex text-center mx-auto" style="width:min-content;">
-    <%=image_tag current_nation.roundel , id:"roundel", class:"my-auto"%>
-    <div id="c-nation" class="nation shadow-text text-center my-auto pr-0" style="color:<%=current_nation.color%>"><%=current_nation.name%> - <%=current_nation.bank%></div>
-    <div id="c-nation-ipc" class="shadow-text text-center mt-auto pl-1 pb-1" style="color:<%=current_nation.color%>">IPC</div>
-  </div>
-</div>
+
 
 <div class="container-fluid">
   <div class="row">

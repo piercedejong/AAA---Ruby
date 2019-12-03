@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light px-3 fixed-top py-3">
+<nav class="navbar navbar-expand-lg navbar-light bg-light px-3 fixed-top py-0">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="font-size:1.15rem">
       <a class="navbar-brand" href="">Axis and Allies Economy</a>
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 flex-wrap">
         <li class="nav-item">
           <%= link_to "Home", root_path, class:"nav-link", role: "button"%>
         </li>
@@ -10,14 +10,21 @@
           <a class="nav-link" href="#">Help</a>
         </li>
       </ul>
-      <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-        <li class="nav-item <%= @page == "economy" ? "active" : ""%>">
+      <% if @page == "economy" %>
+      <div class="text-center mx-auto" style="width:min-content">
+        <div id="round" class="text-center mt-1 mb-0">Round: <%=current_game.round %></div>
+        <div class="d-flex text-center mx-auto" style="width:min-content;">
+          <%=image_tag current_nation.roundel , id:"roundel", class:"my-auto"%>
+          <div id="c-nation" class="nation shadow-text text-center my-auto pr-0" style="color:<%=current_nation.color%>"><%=current_nation.name%> - <%=current_nation.bank%></div>
+          <div id="c-nation-ipc" class="shadow-text text-center mt-auto pl-1 pb-1" style="color:<%=current_nation.color%>">IPC</div>
+        </div>
+      </div>
+      <%end %>
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0 flex-wrap">
+        <li class="mx-auto nav-item <%= @page == "economy" ? "active" : ""%>">
           <%=link_to "Economy", game_path(current_game.uuid), class:"nav-link", role:"button" %>
         </li>
-        <li class="nav-item dropdown <%= @page == "objective" ? "active" : ""%>">
-         <!-- <a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-           National Objectives
-         </a> -->
+        <li class="mx-auto  nav-item dropdown <%= @page == "objective" ? "active" : ""%>">
          <%= link_to "National Objectives", nation_path(current_nation.uuid), id:"navbarDropdown", class:"nav-link dropdown-toggle", role:"button" %>
          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
            <% current_game.nations.all.each do |n| %>
@@ -25,12 +32,12 @@
            <% end %>
          </div>
        </li>
-        <li class="nav-item <%= @page == "research" ? "active" : ""%>">
+        <li class="mx-auto nav-item <%= @page == "research" ? "active" : ""%>">
           <%= link_to "Research and Development", research_path(current_game.uuid), class:"nav-link", role:"button" %>
         </li>
 
       <% if is_victories_game %>
-        <li class="nav-item <%= @page == "victory" ? "active" : ""%>">
+        <li class="mx-auto nav-item <%= @page == "victory" ? "active" : ""%>">
           <%= link_to "Victory Objectives", victory_path(current_game.uuid), class:"nav-link", role:"button" %>
         </li>
       <% end %>
