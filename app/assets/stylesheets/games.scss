@@ -198,13 +198,16 @@ div.current-nation{
 
 @media only screen and (max-width: 1406px){
   .nation-name{
-    font-size: 3.5rem;
+    font-size: 2rem;
   }
   .money{
-    font-size: 2.5rem;
+    font-size: 1.5rem;
   }
   .flag{
-    height: 5rem;
+    height: 3rem;
+  }
+  .btn-change{
+    font-size: .75rem;
   }
 }
 
