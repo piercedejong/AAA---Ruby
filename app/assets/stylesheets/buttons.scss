@@ -32,6 +32,10 @@
   font-size: 0.75rem;
 }
 
+.btn-fancy{
+  font-family: "Berlin Email";
+}
+
 .btn-main {
   font-size: 3rem;
 }
@@ -75,14 +79,6 @@
   color:#262626;
 }
 
-.btn-reset-buy {
-  //background-color:#ad5252;
-  &:hover{
-    //background-color:rgba(173, 82, 82, 0.5) !important;
-    //color:#262626 !important;
-  }
-}
-
 .btn-pacific{
   background-color: #cb9b67;
 }
@@ -103,7 +99,7 @@
 }
 
 .btn-change{
-  font-size: 0.75rem
+  font-size: 0.9rem
 }
 
 .btn-side{
@@ -117,7 +113,7 @@
   padding: 0rem;
   font-size: 0.9rem;
   border: solid 1px;
-  border-radius:50%;
+  border-radius:40%;
 }
 
 .btn-victory{

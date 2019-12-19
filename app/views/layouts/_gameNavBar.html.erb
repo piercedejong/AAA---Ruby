@@ -1,8 +1,10 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light px-3 fixed-top py-0">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="font-size:1.15rem">
-      <a class="navbar-brand" href="">Axis and Allies Economy</a>
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 flex-wrap">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0 flex-wrap" style="width:40%">
+        <li class="nav-item">
+          <a class="navbar-brand" href="">Axis and Allies Economy</a>
+        </li>
         <li class="nav-item">
           <%= link_to "Home", root_path, class:"nav-link", role: "button"%>
         </li>
@@ -10,17 +12,8 @@
           <a class="nav-link" href="#">Help</a>
         </li>
       </ul>
-      <% if @page == "economy" %>
-      <div class="text-center mx-auto" style="width:min-content">
-        <div id="round" class="text-center mt-1 mb-0">Round: <%=current_game.round %></div>
-        <div class="d-flex text-center mx-auto" style="width:min-content;">
-          <%=image_tag current_nation.roundel , id:"roundel", class:"my-auto"%>
-          <div id="c-nation" class="nation shadow-text text-center my-auto pr-0" style="color:<%=current_nation.color%>"><%=current_nation.name%> - <%=current_nation.bank%></div>
-          <div id="c-nation-ipc" class="shadow-text text-center mt-auto pl-1 pb-1" style="color:<%=current_nation.color%>">IPC</div>
-        </div>
-      </div>
-      <%end %>
-      <ul class="navbar-nav ml-auto mt-2 mt-lg-0 flex-wrap">
+      <div class="width:20%>"></div>
+      <ul class="navbar-nav ml-auto mt-2 mt-lg-0 flex-wrap" style="width:40%">
         <li class="mx-auto nav-item <%= @page == "economy" ? "active" : ""%>">
           <%=link_to "Economy", game_path(current_game.uuid), class:"nav-link", role:"button" %>
         </li>

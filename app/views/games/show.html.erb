@@ -1,7 +1,14 @@
 <% content_for :title, "aaa - "+@game.name %>
 <% @page = "economy" %>
 <%= render 'layouts/gameNavBar' %>
-
+<div class="text-center mx-auto fixed-top current-nation  px-2" style="width:min-content">
+  <div id="round" class="text-center mt-1 mb-0">Round: <%=current_game.round %></div>
+  <div class="d-flex text-center mx-auto" style="width:min-content;">
+    <%=image_tag current_nation.roundel , id:"roundel", class:"my-auto"%>
+    <div id="c-nation" class="nation shadow-text text-center my-auto pr-0" style="color:<%=current_nation.color%>"><%=current_nation.name%> - <%=current_nation.bank%></div>
+    <div id="c-nation-ipc" class="shadow-text text-center mt-auto pl-1 pb-1" style="color:<%=current_nation.color%>">IPC</div>
+  </div>
+</div>
 
 
 <div class="container-fluid">
@@ -45,7 +52,7 @@
             </thead>
             <tbody class="unit-table-body">
               <% current_game.units.each do |u| %>
-                  <tr class="tablerow">
+                  <tr class="tablerow spaceUnder">
                   <td id="<%=u.uid%>" class=" text-center count" style="font-weight:bold"><%= u.count %></td>
                   <td class="text-center"><button data-uid="<%=u.uid%>" id="<%=u.name%>" onclick="buy_unit(this)" style="background:<%= u.uid%2==0? current_nation.color : current_nation.colorL %>" class="<%=u.name%> btn btn-unit btn-default btn-block shadow-text" role="button">$<%= u.cost %></button></td>
                   <td class="text-center nowrap"><%= u.name %></td>
@@ -53,7 +60,7 @@
                   <td class="text-center"><%= u.defense %></td>
                   <td class="text-center"><%= u.movement %></td>
                   <% if !current_game.units.first.special.eql? "" %>
-                    <td class="special">
+                    <td class="special" >
                       <div class="d-flex my-auto" style="flex-wrap:wrap;">
                         <% u.specials.each do |s|  %>
                         <div id="" class="unit-tooltip"><div class="unit-tooltiptext mt-4"><%=s.info%></div><%= s.title %></div>
@@ -115,11 +122,11 @@
         </table>
       </div>
       <div class="mt-2">
-        <button id="reset-buy" class="btn btn-danger btn-reset-buy btn-block" onclick="reset_buy()" role="button">Reset Buy</button>
+        <button id="reset-buy" class="btn btn-danger btn-reset-buy btn-block btn-fancy shadow-text" onclick="reset_buy()" role="button">Reset Buy</button>
       </div>
       <div class="mt-1">
-        <button id="pacific"  onclick="buy_pacific()" class="btn btn-default btn-block btn-pacific"   role="button" style="<%=display_buy_pacific%>">Buy Pacific Units</button>
-        <button id="end-turn" onclick="end_turn()"    class="btn btn-default btn-block btn-end-turn"  role="button" style="<%=display_end_turn%>" >End Turn</button>
+        <button id="pacific"  onclick="buy_pacific()" class="btn btn-default btn-block btn-pacific btn-fancy"   role="button" style="<%=display_buy_pacific%>">Buy Pacific Units</button>
+        <button id="end-turn" onclick="end_turn()"    class="btn btn-default btn-block btn-end-turn btn-fancy"  role="button" style="<%=display_end_turn%>" >End Turn</button>
       </div>
     <div class="col-sm-1"></div>
     </div>

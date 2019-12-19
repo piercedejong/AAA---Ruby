@@ -16,8 +16,18 @@
  @import "bootstrap";
  @import "buttons.scss";
  @font-face {
-    font-family: 'BerlinEmail'; /*a name to be used later*/
-    src: url('fonts/BerlinEmail.ttf'); /*URL to font*/
+    font-family: 'Berlin Email'; /*a name to be used later*/
+    src: url('../assets/BerlinEmail.woff') format('woff'),
+    url('../assets/HamburgerHeavenNF.ttf') format('truetype'),
+    url('../assets/BerlinEmail.woff2') format('woff2'); /*URL to font*/
+}
+
+@font-face{
+  font-family: 'arial';
+}
+
+.navbar-brand{
+  font-family: "Berlin Email";
 }
 
 @font-face {
@@ -37,6 +47,7 @@ body {
  //color: #f9f2de;
  height:100%;
  line-height: unset;
+
 }
 
 .bg {
@@ -56,13 +67,10 @@ body {
 .sub-title{
   font-size: 2rem;
   display: block;
-  //color: #f9f2de;
 }
 
 .title {
   font-size: 6rem;
-  //position: absolute;
-  //width:100%;
   color: #f9f2de;
 }
 
@@ -97,9 +105,6 @@ body {
 }
 
 .shadow-text {
-  //text-shadow: black 0.05vw 0.05vw 0vw, black -0.02vw -0.05vh 0vw, black 0.02vw 0vw 0vw, black -0.05vh 0vw 0vw;
-  //text-shadow: black 1px 1px 0vw, black 0px -1px 0vw, black 1px 0vw 0vw, black -1px 0vw 0vw;
-  //text-shadow: 2px 2px 2px black;
   text-shadow: #000 0px 0px 1px,   #000 0px 0px 1px,   #000 0px 0px 1px,
              #000 0px 0px 1px,   #000 0px 0px 1px,   #000 0px 0px 1px;
   font-smooth: always;
