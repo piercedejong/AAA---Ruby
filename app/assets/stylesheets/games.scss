@@ -58,6 +58,7 @@
   border: 5px solid;
   border-color:transparent;
   border-radius:0.5rem;
+  font-family: "Berlin Email";
 }
 
 .flag{
@@ -79,10 +80,6 @@
   font-size: 0.9rem;
 }
 
-tr.spaceUnder>td {
-  padding-bottom: 1em;
-}
-
 .table-condensed>thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td{
    padding-left: 0.5vw;
    padding-top: 1px;
@@ -91,7 +88,9 @@ tr.spaceUnder>td {
 
    vertical-align: middle;
 }
-
+tr.spaceUnder>td {
+  padding-bottom: 5px !important;
+}
 #exit {
   position: fixed;
   bottom:0;
@@ -188,6 +187,15 @@ tr.spaceUnder>td {
   background-color: rgba(20,20,20,0.7);
   border-radius: 50% ;
 }
+
+div.current-nation{
+  background-color: white;
+  border: #262626 3px solid;
+  border-top: none;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+}
+
 @media only screen and (max-width: 1406px){
   .nation-name{
     font-size: 3.5rem;
