@@ -145,7 +145,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (4.0.1)
-    puma (3.12.1)
+    puma (3.12.4)
     rack (2.0.7)
     rack-protection (2.0.7)
       rack
@@ -280,7 +280,7 @@ DEPENDENCIES
   omniauth-rails_csrf_protection (~> 0.1)
   pg
   pry
-  puma (~> 3.11)
+  puma (~> 3.12)
   rails (~> 5.2.2)
   rails_12factor
   rspec-rails (~> 3.5)
