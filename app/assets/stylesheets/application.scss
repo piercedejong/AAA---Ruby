@@ -16,16 +16,9 @@
  @import "bootstrap";
  @import "buttons.scss";
  @font-face {
-    font-family: 'Berlin Email'; /*a name to be used later*/
-    src: url('../assets/BerlinEmail.woff') format('woff'),
-    url('../assets/HamburgerHeavenNF.ttf') format('truetype'),
-    url('../assets/BerlinEmail.woff2') format('woff2'); /*URL to font*/
+    font-family: "Berlin Email"; /*a name to be used later*/
+    src: url('../assets/BerlinEmail.woff') format('font-woff')
 }
-
-@font-face{
-  font-family: 'arial';
-}
-
 .navbar-brand{
   font-family: "Berlin Email";
 }
@@ -43,11 +36,10 @@ html {
 
 body {
  background-color: #353535;
- font-family: 'ariel', serif;
+ font-family: "Berlin Email", serif;
  //color: #f9f2de;
  height:100%;
  line-height: unset;
-
 }
 
 .bg {
@@ -58,7 +50,7 @@ body {
   height:100%;
   width:100%;
   position:fixed;
-  opacity: 50%
+  opacity: 40%
 }
 #background-image{
   filter: blur(20px);
@@ -84,14 +76,7 @@ body {
     margin-top: 0; // remove the gap so it doesn't close
  }
 
-.top-bar{
-  background-color: rgb(200,200,200);
-  z-index: 99;
-  border-bottom: solid 1px;
-  border-color:black;
-  justify-content: space-between;
-  //padding: 1rem !important;
-}
+
 
 .game-title{
   font-size: 1rem

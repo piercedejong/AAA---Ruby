@@ -1,6 +1,9 @@
 .grey-background{
-  background:rgba(200,200,200,0.92);
+// background:radial-gradient(#f9f2de, #f3f3f2);
   padding:0.75rem;
+
+  background: radial-gradient(#f9f2de, #f3f3f2);
+background-repeat: no-repeat;
 }
 
 .round{
@@ -27,7 +30,6 @@
   border:solid 1px;
   border-radius: 0.5rem;
   padding: 0.25rem;
-  font-size: 1.25rem;
   width: 25%;
   /* Position the tooltip */
   position: absolute;
@@ -58,26 +60,16 @@
   border: 5px solid;
   border-color:transparent;
   border-radius:0.5rem;
-  font-family: "Berlin Email";
+  font-family: Berlin Email;
 }
 
 .flag{
-  height:4.5rem;
   display:block;
-}
-
-.nation-name {
-  font-size: 2.5rem;
 }
 
 .money {
   padding:0px;
   flex: right;
-  font-size: 1.5rem;
-}
-
-.income-breakdown{
-  font-size: 0.9rem;
 }
 
 .table-condensed>thead>tr>th, .table-condensed>tbody>tr>th, .table-condensed>tfoot>tr>th, .table-condensed>thead>tr>td, .table-condensed>tbody>tr>td, .table-condensed>tfoot>tr>td{
@@ -91,37 +83,17 @@
 tr.spaceUnder>td {
   padding-bottom: 5px !important;
 }
-#exit {
-  position: fixed;
-  bottom:0;
-  color: #f9f2de;
-  font-size: 1.5vw;
-}
-
-#eco-bank, #eco-income {
-  font-size: 1.35rem;
-  padding-top: 0.5vw;
-  padding:0px;
-  color:#f9f2de;
-}
-
 #edit-bank, #edit-income {
   font-size: 1rem;
   padding-top: 0.5vw;
   padding:0px;
   color:#f9f2de;
 }
-
-.change-eco-pos {
-  font-size: 2vw;
-}
-
 .unit-table{
   display: block;
 }
 
-.unit-table-top {
-  font-size:1.25rem;
+.unit-table-head {
   color:#262626;
   border-bottom: 2px solid;
   border-color: rgb(255,255,255);
@@ -172,6 +144,9 @@ tr.spaceUnder>td {
 .economy-card{
   background-color: #262626;
   border-radius: 0.5rem;
+  padding-top: 0.5vw;
+  padding:0px;
+  color:#f9f2de;
 }
 
 #change-eco{
@@ -186,6 +161,7 @@ tr.spaceUnder>td {
 .change-eco-card{
   background-color: rgba(20,20,20,0.7);
   border-radius: 50% ;
+  box-shadow: 2px 2px 5px #202020;
 }
 
 div.current-nation{
@@ -196,130 +172,68 @@ div.current-nation{
   border-bottom-right-radius: 0.5rem;
 }
 
-@media only screen and (max-width: 1406px){
-  .nation-name{
-    font-size: 2rem;
-  }
-  .money{
-    font-size: 1.5rem;
-  }
-  .flag{
-    height: 3rem;
-  }
-  .btn-change{
-    font-size: .75rem;
-  }
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .flag{
+        height: 2.25rem;
+    }
+    .nation-name{
+        font-size: 1.5rem;
+    }
+    .money{
+        font-size: 1rem;
+    }
+    .income-breakdown{
+        font-size: 0.75rem;
+    }
 }
 
-@media only screen and (max-width: 1240px){
-  .nation-name{
-    font-size: 3rem;
-  }
-  .money{
-    font-size: 2.25rem;
-  }
-  .flag{
-    height: 4rem;
-  }
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .flag{
+        height: 2.25rem;
+    }
+    .nation-name{
+        font-size: 1.5rem;
+    }
+    .money{
+        font-size: 1rem;
+    }
+    .income-breakdown{
+        font-size: 0.75rem;
+    }
 }
 
-@media only screen and (max-width: 1080px){
-  .nation-name{
-    font-size: 2.75rem;
-  }
-  .money{
-    font-size: 2rem;
-  }
-  .flag{
-    height: 3.5rem;
-  }
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
 }
 
-@media only screen and (max-width: 1000px){
-  .nation-name{
-    font-size: 2.25rem;
-  }
-  .money{
-    font-size: 1.75rem;
-  }
-  .flag{
-    height: 3.25rem;
-  }
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
 }
 
-@media only screen and (max-width: 892px){
-  .nation-name{
-    font-size: 2rem;
-  }
-  .money{
-    font-size: 1.5rem;
-  }
-  .flag{
-    height: 2.5rem;
-  }
-}
-
-@media only screen and (max-width: 785px){
-  .nation-name{
-    font-size: 1.75rem;
-  }
-  .money{
-    font-size: 1.25rem;
-  }
-  .flag{
-    height: 2rem;
-  }
-}
-
-@media only screen and (max-width: 673px){
-  .nation-name{
-    font-size: 2.5rem;
-  }
-  .money{
-    font-size: 2rem;
-  }
-  .flag{
-    height: 4rem;
-  }
-}
-
-@media only screen and (max-width: 500px){
-  .nation-name{
-    font-size: 2rem;
-  }
-  .money{
-    font-size: 1.5rem;
-  }
-
-  .nation{
-    padding:0rem !important;
-  }
-
-  .flag{
-    height:2rem;
-  }
-
-  #change-eco{
-    padding:0.5rem;
-    font-size: 2rem;
-  }
-
-  #roundel{
-    height: 1.75rem;
-  }
-  #c-nation{
-    font-size: 2rem;
-  }
-  #eco-bank, #eco-income {
-    font-size: 1.5rem;
-  }
-
-  .btn-change{
-    padding: 0.1rem
-  }
-}
-@media only screen and (max-width: 750px){
-  .special{
-    display: none
-  }
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .flag{
+        height: 4rem;
+    }
+    .nation-name{
+        font-size: 2.5rem;
+    }
+    .money{
+        font-size: 1.5rem;
+    }
+    .income-breakdown{
+        font-size: 0.9rem;
+    }
+    .economy-card{
+        font-size: 1.35rem;
+    }
+    .unit-table-head{
+        font-size:1.25rem;
+    }
+    .unit-tooltiptext{
+        font-size: 1rem;
+    }
 }

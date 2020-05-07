@@ -34,39 +34,17 @@ function end_turn() {
     url: window.location.origin + '/game/end_turn'
   })
   .done(function(response) {
-		$("#"+response["oo_nation"]+"-bank").text("Bank: "+response["oo_bank"]);
+	$("#"+response["oo_nation"]+"-bank").text("Bank: "+response["oo_bank"]);
     $("#"+response["o_nation"]+"-bank").text("Bank: "+response["o_bank"]);
     $("#c-nation").text(response["nation"]+" - "+response["bank"]);
-    $("#c-nation").css("color",response["color"]);
-		$("#c-nation-ipc").css("color",response["color"]);
-		//$('#end-turn').css("background",response["color"]);
-		$('#roundel').attr("src","/assets/"+response['roundel']);
-		$("#round").text("Round: "+response["round"]);
-		$('.btn-unit').each(function(){
-			if(count%2==0){
-				$(this).css("background",response["color"]);
-			}else{
-				$(this).css("background",response["colorL"]);
-			}
-			count++;
-		})
-		cheap(response["cheaper"]);
-		$('.tablerow1').each(function(){
-			//$(this).css("color", response["color"])
-		})
-		$('.tablerow2').each(function(){
-			//$(this).css("color", response["colorL"])
-		})
+	//$('#end-turn').css("background",response["color"]);
+	$('#roundel').attr("src","/assets/"+response['roundel']);
+	$("#round").text("Round: "+response["round"]);
+	update_unit_buttons(response["color"],response["colorL"]);
 
-		//$(".table-top").css("color",response["color"]);
-		if(response["nation"] == 'Germany'){
-			//$(".table-top").removeClass("shadow-text");
-		}else{
-			//$(".table-top").addClass("shadow-text");
-		}
-
+	cheap(response["cheaper"]);
     $('.count').text("0");
-		change_eco_nation(response);
+	change_eco_nation(response);
 
 		if(response["pacific"]){
 			$("#end-turn").hide();
@@ -203,8 +181,6 @@ function buy_pacific(element) {
 	.done(function(response) {
 		$(".nation").css("border-color", "transparent");
 		$("#c-nation").text(response["nation"]+" - "+response["bank"]);
-    $("#c-nation").css("color",response["color"]);
-		$("#c-nation-ipc").css("color",response["color"]);
 		//$('#end-turn').css("background",response["color"]);
 		$("#end-turn").show();
 		$('#roundel').attr("src","/assets/"+response['roundel']);
@@ -226,17 +202,12 @@ function home() {
 
 function change_eco_nation(response){
 	$("#change-eco").text(response["nation"]);
-	$("#change-eco").css("background",response["colorL"])
-	$("#change-eco").css("color",response["color"])
+	$("#change-eco").css("background-image","radial-gradient("+response["colorL"]+","+response["color"]+")")
+	//$("#change-eco").css("color",response["color"])
 	$("#eco-bank").text("Bank "+response["bank"]);
 	$("#eco-income").text("Income "+response["income"]);
-	$(".change-eco-pos").css("background",response["color"])
-	$(".change-eco-neg").css("background",response["colorL"])
-	//eco_nation_opacity()
-	//$("#objective").css("background",response["color"]);
 	$("#objective").attr("href", "/nations/"+response["uuid"]);
-	//$("#victory").css("background",response["color"]);
-	//$("#research").css("background",response["color"]);
+	update_eco_buttons(response["color"],response["colorL"]);
 }
 
 function reset_1940(){
@@ -328,5 +299,17 @@ function cheap(enabled) {
 		$(".Battleship").text("$20");
 		$(".Carrier").text("$16");
 	}
+}
 
+function update_unit_buttons(one, two){
+	$(".btn-unit").css("background-image", "linear-gradient(-40deg, "+two+","+one+")")
+	$("#current-nation").css("background-image", "radial-gradient("+two+","+one+")")
+}
+
+function update_current_nation(one, two){
+
+}
+
+function update_eco_buttons(one, two){
+	$(".btn-change").css("background-image", "linear-gradient(40deg, "+two+","+one+")")
 }
