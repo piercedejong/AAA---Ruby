@@ -14,10 +14,10 @@
       </ul>
       <div class="width:20%>"></div>
       <ul class="navbar-nav ml-auto mt-2 mt-lg-0 flex-wrap" style="width:40%">
-        <li class="mx-auto nav-item <%= @page == "economy" ? "active" : ""%>">
+        <li class="ml-auto nav-item <%= @page == "economy" ? "active" : ""%>">
           <%=link_to "Economy", game_path(current_game.uuid), class:"nav-link", role:"button" %>
         </li>
-        <li class="mx-auto  nav-item dropdown <%= @page == "objective" ? "active" : ""%>">
+        <li class="nav-item dropdown <%= @page == "objective" ? "active" : ""%>">
          <%= link_to "National Objectives", nation_path(current_nation.uuid), id:"navbarDropdown", class:"nav-link dropdown-toggle", role:"button" %>
          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
            <% current_game.nations.all.each do |n| %>
@@ -25,12 +25,12 @@
            <% end %>
          </div>
        </li>
-        <li class="mx-auto nav-item <%= @page == "research" ? "active" : ""%>">
+        <li class="nav-item <%= @page == "research" ? "active" : ""%>">
           <%= link_to "Research and Development", research_path(current_game.uuid), class:"nav-link", role:"button" %>
         </li>
 
       <% if is_victories_game %>
-        <li class="mx-auto nav-item <%= @page == "victory" ? "active" : ""%>">
+        <li class="nav-item <%= @page == "victory" ? "active" : ""%>">
           <%= link_to "Victory Objectives", victory_path(current_game.uuid), class:"nav-link", role:"button" %>
         </li>
       <% end %>

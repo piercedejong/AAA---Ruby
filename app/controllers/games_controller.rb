@@ -51,6 +51,7 @@ class GamesController < ApplicationController
 
   def show
     @game = current_user.games.find_by(uuid: params[:id])
+    current_game.update(eco: current_nation.nid)
     session[:game_uuid] = @game.uuid
   end
 

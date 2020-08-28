@@ -1,6 +1,7 @@
 .btn{
   white-space: pre-wrap;
   border-radius: 1rem;
+  box-shadow: 2px 2px 5px #202020;
 }
 
 .btn-glyph{
@@ -99,7 +100,9 @@
 }
 
 .btn-change{
-  font-size: 0.9rem
+  font-size: 0.9rem;
+  border:none;
+  margin-top: 2px;
 }
 
 .btn-side{
@@ -110,10 +113,12 @@
 }
 
 .btn-unit {
-  padding: 0rem;
+  padding: 1px;
   font-size: 0.9rem;
-  border: solid 1px;
-  border-radius:40%;
+  border: none;
+  margin-top: 2px;
+  margin-bottom: 2px;
+
 }
 
 .btn-victory{
